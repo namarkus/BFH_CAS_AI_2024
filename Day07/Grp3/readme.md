@@ -97,8 +97,9 @@ pro Messstation:
 - Format csv
 - Dateiname data/{ländercode}_flat.csv
 
-Dieser Datensatz enthält alle berücksichtigten Messungen aller Stationen eines Landes pro Tag. Es 
+Dieser Datensatz enthält alle berücksichtigten Messungen aller Stationen[^1]) eines Landes pro Tag. Es 
 ist eher für Auswertungen gedacht, als für ML und enthält daher einige Attriubute mehr.
+
 
 | Attribut         | Format   | Bedeutung |
 | ---------------- | ------- | ---------- |
@@ -121,7 +122,7 @@ ist eher für Auswertungen gedacht, als für ML und enthält daher einige Attriu
 - Format csv
 - Dateiname data/{ländercode}_grouped.csv
 
-Dieser Datensatz enthält alle berücksichtigten Messungen aller Stationen eines Landes pro Tag. Es 
+Dieser Datensatz enthält alle berücksichtigten Messungen aller Stationen[^1] eines Landes pro Tag. Es 
 ist eher für Auswertungen gedacht, als für ML und enthält daher einige Attriubute mehr.
 
 | Attribut         | Format   | Bedeutung | Nutzung |
@@ -137,3 +138,4 @@ ist eher für Auswertungen gedacht, als für ML und enthält daher einige Attriu
 | snowfall         | Real     | Schneefall in mm | Variable variabel |
 | snowdepth        | Real     | vorhandene Schneemenge in mm | Variable variabel |
 
+[^1]: Aufgrund der Beschränkungen der Dateigrössen im Gratis-Stack von GitHub beschränken wir und in Deutschland auf Ortschaften südlich von Köln.
