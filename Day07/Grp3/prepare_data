@@ -1,0 +1,21 @@
+#!/bin/bash
+# Entpacken der Originaldaten und Zusammensetzen in neue Time-Series-Dateien
+# Die Originaldaten sind in einem Unterordner "data_original" abgelegt und werden in einen 
+# Unterordner "data_work" entpackt. Dort werden sie von einem python-Skript in neue Datenstrukturen 
+# überführt, die für die weitere Verarbeitung besser geeignet sind.
+if [ ! -d data_original ]; then
+		mkdir data_original
+		echo "Bitte die Originaldaten in den Ordner data_original kopieren und das Skript erneut ausführen."
+		exit 1
+fi
+rm -rf data_work/
+mkdir data_work
+cp data_original/*.gz data_work/
+for ARCHIVE in data_work/*.gz; do
+		echo "Entpacke ${ARCHIVE} ..."
+		gzip -df ${ARCHIVE}
+done
+echo "Ergänze zusätzliche Steuerungsdaten ..."
+cp data_original/ghcnd-stations.txt data_work/
+cp data_original/ghcnd-countries.txt data_work/
+python prepare_data.py
