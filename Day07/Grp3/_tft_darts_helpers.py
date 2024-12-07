@@ -42,7 +42,8 @@ class TftDatasetMetadata:
     format_time: Optional[str] = None     # used to convert the string date to pd.Datetime
     freq: Optional[str] = None     # used to indicate the freq when we already know it
     multivariate: Optional[bool] = None     # multivariate
-    training_cutoff: [float] = 0.5     # cutoff
+    year_cutback: Optional[int] = None    # Limitieren der zu bearbeitenden Daten auf die letzen x Jahre
+    training_cutoff: Optional[float] = 0.5     # cutoff
 
 class TftPreprocessor:
     def __init__(self, metadata: TftDatasetMetadata):
@@ -56,6 +57,11 @@ class TftPreprocessor:
                 raise FileNotFoundError(f'Datei {filename} nicht gefunden.')
             print (f'Lade Datei {filename} ...')
             data = pd.concat([data, pd.read_csv(filename)], ignore_index=True)
+        data['date'] = pd.to_datetime(data['date'], format=self.metadata.format_time)
+        if self.metadata.year_cutback:
+            oldest_required_date = pd.Timestamp.now() - pd.DateOffset(years=self.metadata.year_cutback)
+            print(f'Filtere auf die letzten {self.metadata.year_cutback} Jahre des Datensatzes. Alles vor dem {oldest_required_date:%d.%m.%Y} wird ignoriert.')
+            data = data[data['date'] >= oldest_required_date]
         self.data = data
         print (f'Daten geladen. Dataset enthält {self.data.shape[0]:,} Zeilen und {self.data.shape[1]} Spalten.')        
         #self.data = self._format_time_column(self.data)
@@ -68,6 +74,7 @@ class TftPreprocessor:
         if self.data is None:
             self.load_data()
         return self.data[self.data[self.metadata.header_time] < self.metadata.training_cutoff]
+    
     @property
     def target_timeseries(self):
         if self.data is None:

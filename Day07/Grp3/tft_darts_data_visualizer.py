@@ -92,7 +92,7 @@ print(f'Lade Messdaten ...')
 for filename in glob.glob('data/*_flat.csv'):
     print (f'Lade Datei {filename} ...')
     measurements = pd.concat([measurements, pd.read_csv(filename)], ignore_index=True) 
-measurements['date'] = pd.to_datetime(measurements['date'], format='%Y%m%d')
+measurements['date'] = pd.to_datetime(measurements['date'])
 print (f'Daten geladen. Dataset enthält {measurements.shape[0]:,} Zeilen und {measurements.shape[1]} Spalten.')    
 print(measurements.head())
 print("Starte GUI ...")

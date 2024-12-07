@@ -39,9 +39,12 @@ if __name__ == '__main__':
                                         header_time="date",
                                         group_cols=['station_id', 'observation_type'],
                                         past_cov_cols=['precipitation', 'snowfall', 'snowdepth'],
-                                        format_time="%Y%m%d",
-                                        freq=1,
-                                        static_cols=['latitude', 'longitude', 'elevation'])
+                                        static_cols=['latitude', 'longitude', 'elevation'],
+                                        format_time="%Y-%m-%d",
+                                        freq='D',
+                                        year_cutback=5,
+                                        training_cutoff=0.8
+                                        )
     preprocessor = TftPreprocessor(dataset_meta_data)
     preprocessor.load_data()
     #####
