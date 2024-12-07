@@ -59,8 +59,8 @@ class Preprocessor:
         self.metadata = metadata
         # Read data
         self.data = pd.read_csv(self.metadata.name)
-    #   self.data['Static_1'] = self.data['Agency']
-    #    self.data['Static_2'] = self.data['SKU']
+        self.data['Static_1'] = self.data['Agency']
+        self.data['Static_2'] = self.data['SKU']
 
         self.data = self._format_time_column(self.data)
         self.past_cov_series_list = self._to_timeseries(self.metadata.past_cov_cols)
@@ -255,14 +255,13 @@ class Model:
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    dataset_meta_data = DatasetMetadata(name="data/CH24_grouped.csv",
-                                        target_cols=["temperature"],
-                                        header_time="date",
-                                        group_cols=['station_id', 'observation_type'],
-                                        past_cov_cols=['precipitation', 'snowfall', 'snowdepth'],
-                                        format_time="%Y%m%d",
-                                        static_cols=['latitude', 'longitude', 'elevation'],
-                                        freq='D')
+    dataset_meta_data = DatasetMetadata(name="data/sales_data/price_sales_promotion.csv",
+                                        target_cols=["Sales"],
+                                        header_time="YearMonth",
+                                        group_cols=['Agency', 'SKU'],
+                                        past_cov_cols=['Price', 'Promotions'],
+                                        format_time="%Y%m",
+                                        static_cols=['Static_1', 'Static_2'])
     # dataset_meta_data.freq = 'M'
     preproc = Preprocessor(dataset_meta_data)
     model = Model(preproc, '1', 'TFT')
