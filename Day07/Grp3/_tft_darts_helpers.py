@@ -58,6 +58,7 @@ class TftPreprocessor:
             print (f'Lade Datei {filename} ...')
             data = pd.concat([data, pd.read_csv(filename)], ignore_index=True)
         data['date'] = pd.to_datetime(data['date'], format=self.metadata.format_time)
+        data.fillna(value={"precipitation": 0, "snowfall": 0, "snowdepth": 0}, inplace=True)
         if self.metadata.year_cutback:
             oldest_required_date = pd.Timestamp.now() - pd.DateOffset(years=self.metadata.year_cutback)
             print(f'Filtere auf die letzten {self.metadata.year_cutback} Jahre des Datensatzes. Alles vor dem {oldest_required_date:%d.%m.%Y} wird ignoriert.')
