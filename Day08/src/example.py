@@ -5,6 +5,8 @@ api_key = 'apiKey'
 embedding = OpenAIEmbedding(api_key)
 storage = EmbeddingStorage("Visana_zb_komplementaer_de.pdf.json")
 
+# Prepare Embeddings
+
 # Get embeddings
 embeddings = [embedding.get_embedding("chunk1"), embedding.get_embedding("chunk2")]
 texts = ["chunk1", "chunk2"]  # Corresponding texts to the embeddings
@@ -12,7 +14,10 @@ texts = ["chunk1", "chunk2"]  # Corresponding texts to the embeddings
 # Save embeddings and texts
 storage.save_embeddings(embeddings, texts)
 
+# RAG in Action
+
 # Load embeddings and texts
+storage.load_embeddings()
 loaded_embeddings = storage.get_all_embeddings()
 
 # Find most similar
