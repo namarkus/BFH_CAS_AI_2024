@@ -1,9 +1,12 @@
 from embedding_storage import EmbeddingStorage
 from openai_embedding import OpenAIEmbedding
+from openai_rag import OpenAIRag
 
-api_key = 'apiKey'
+api_key = 'your-api-key'
+
 embedding = OpenAIEmbedding(api_key)
 storage = EmbeddingStorage("Visana_zb_komplementaer_de.pdf.json")
+rag = OpenAIRag(api_key)
 
 # Prepare Embeddings
 
@@ -27,3 +30,8 @@ idx, similarity = embedding.find_most_similar(query_embedding, loaded_embeddings
 # Retrieve the text corresponding to the most similar embedding
 most_similar_text = storage.get_text(idx)
 print(f"Most similar text: {most_similar_text} with similarity {similarity}")
+
+# Use the RAG class to answer the question based on the most similar context
+question = "What is Python used for?"  # Example question
+response = rag.query(question, most_similar_text)
+print(f"Response: {response}")
