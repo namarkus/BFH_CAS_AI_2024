@@ -1,4 +1,4 @@
-<mxfile host="drawio-plugin" modified="2024-12-17T13:19:30.376Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" version="22.1.22" etag="eIpczg2_r_WwkFjvM-m4" type="embed" pages="3">
+<mxfile host="drawio-plugin" modified="2024-12-17T13:47:17.356Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" version="22.1.22" etag="Qhh6UmznMNoD2Adnvpi5" type="embed" pages="3">
   <diagram id="XGcU5-N_YiSxcfZuJ0WB" name="Idea">
     <mxGraphModel dx="790" dy="1613" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -91,7 +91,7 @@
         <mxCell id="udRZpOPHPjY6Q6l44HO3-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="34" target="udRZpOPHPjY6Q6l44HO3-35">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="34" value="Validierung:&amp;nbsp;&lt;br&gt;&lt;br&gt;- Reformulate and compare output" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="34" value="Validierung:&amp;nbsp;&lt;br&gt;&lt;br&gt;- Reformulate and compare output&lt;br&gt;- LLM recommendation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="1090" y="-160" width="145" height="80" as="geometry" />
         </mxCell>
         <mxCell id="udRZpOPHPjY6Q6l44HO3-35" value="Track questions and results (Insights)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
