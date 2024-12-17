@@ -1,6 +1,0 @@
-Mögliche Kombinationen:
-1. Transformer mit RAG
-2. Ein Forecasting Model (oder auch Dense, CNN etc) mit O1 Model zur Erklärung der Ergebnisse
-	Nur GPT (jede version, die es schafft) zur Daten-Generierung für ein unbalanced Dataset, auf dem man z.B. ein Classifier trainiert
-3. Nur O1 Model zur Daten-Analyse auf Probleme
-4. Generell: jede Kombination wo die Transformer vorkommen (auch ohne andere DL modelle)
