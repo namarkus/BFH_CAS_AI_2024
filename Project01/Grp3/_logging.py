@@ -40,9 +40,9 @@ def start_logger(task_name: str, app_stage: str) -> logging.Logger:
     Returns:
         logging.Logger: Logger der Anwendung.
     """
-    start_datetime = datetime.now()
+    start_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = app_logger()
-    log_file = "./logs/vbc_learn_" + start_datetime.strftime("%Y%m%d_%H%M%S") + ".log"
+    log_file = f"./logs/{task_name}_{start_datetime}.log"
     if app_stage.startswith("Dev"):
         logger.setLevel(logging.DEBUG)
     else:

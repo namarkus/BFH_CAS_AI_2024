@@ -15,6 +15,7 @@ if __name__ == '__main__':
 # _____[ Imports ]______________________________________________________________
 from _apis import LlmClient
 from _configs import LlmClientConfig
+from _errors import VbcConfigError
 from _logging import app_logger
 import os
 from openai import OpenAI
@@ -27,7 +28,10 @@ class OpenAiClient(LlmClient):
         """
         Überprüft ob die OpenAI API verfügbar ist.
         """
-        return self.api_key is not None
+        try:
+            return self.api_key is not None
+        except VbcConfigError:
+            return False
 
     @staticmethod
     def get_api_key():
@@ -42,7 +46,7 @@ class OpenAiClient(LlmClient):
             openai_api_key = os.getenv("OPENAI_API_KEY")
 
         if openai_api_key is None:
-            raise Exception("API-Key not found") # Fixme Application Exception verwenden und in main abfangen.
+            raise VbcConfigError(1, "OpenAI API-Key nicht verfügbar!", "Stelle bitte sicher, dass der API-Key für OpenAI in der Umgebungsvariable OPENAI_API_KEY gesetzt ist.") 
 
         app_logger().debug("Key für Zugriff auf OpenAI Rest-API wurde gesetzt.")
         return openai_api_key
