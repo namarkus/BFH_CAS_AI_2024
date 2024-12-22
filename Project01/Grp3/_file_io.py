@@ -13,6 +13,7 @@ if __name__ == '__main__':
 
 # _____[ Imports ]______________________________________________________________
 import io
+import os
 import glob
 import base64
 import platform
@@ -23,36 +24,8 @@ from _configs import VbcConfig
 from _logging import app_logger
 from pdf2image import convert_from_path
 
-
 SUPPORTED_INPUT_FILE_TYPES = ["*.pdf", "*.url"]
 SUPPORTED_REPO_FILE_TYPES = ["*.json"]
-
-class InputFileHandler:
-
-    def __init__(self, mode: str, config: VbcConfig):
-        self.mode = mode
-        self.input_path = config.sources_path
-        self.repostitory_path = config.knowledge_repository_path
-        self.logger = app_logger()
-
-    def __filter_files(self, directory, extensions):
-        filtered_files = []
-        for ext in extensions:
-            filtered_files.extend(glob.glob(f"{directory}/*{ext}"))
-        return filtered_files
-
-    def get_input_files(self):
-        filtered_input_files = self.__filter_files(self.input_path, SUPPORTED_INPUT_FILE_TYPES)
-        self.logger.debug(f"Habe {len(filtered_input_files)} akzeptierte Dateien in {self.input_path} gefunden.")
-        if (self.mode == "inc"):
-            self.logger.debug("Filtere Dateien für inkrementelle Verarbeitung...")
-            processed_files = self.__filter_files(self.repostitory_path, SUPPORTED_REPO_FILE_TYPES)
-            self.logger.info(f"Das Verzeichnis {self.repostitory_path} beinhaltet {len(processed_files)} verarbeitete Dateien.")
-            unprocessed_input_files = [f for f in filtered_input_files if f not in processed_files] #fixme ... hier muss noch die Dateiendung entfernt werden; Alternativ Inhalt auf Version prüfen 
-            self.logger.debug(f"Nach dem Filtern sind noch {len(unprocessed_input_files)} neue, unverarbeitete Dateien vorhanden.")
-            filtered_input_files = unprocessed_input_files
-        return [InputFile(file) for file in filtered_input_files]
-
             
 class InputFile:
     def __init__(self, file_path: str):
@@ -95,45 +68,144 @@ class InputFile:
         return data_uri
 
 class MetaFile:
-    def __init__(self, config: VbcConfig, from_json_file:str=None, from_input_file:InputFile=None):
+    def __init__(self, config: VbcConfig, 
+                 from_json_file:str=None, from_input_file:InputFile=None):
         if from_input_file is not None:
-            self.path = f"{config.knowledge_repository_path}/{from_input_file.file_name}.json"
+            self.file_path = f"{config.knowledge_repository_path}/{from_input_file.file_name}.json"
             self.metadata = {
                 "input_file": from_input_file.file_name,
                 "processed_at": datetime.now().strftime("%Y-%m-%d_%H:%M:%S"),
+                "profile": config.as_profile_label(),
                 "processor": {
+                    "app" : {
+                        "name" : "vbc_learn" ,
+                        "version" : config.learn_version ,
+                    },
+                    "text_preparation": {
+                        "provider": config.llm_provider.value,
+                    },
+                    "embeddings": {
+                        "provider": config.embedding_provider.value,
+                        "chunking_mode": config.chunking_mode.value,    
+                        "storage": config.embedding_storage.value,
+                        "index_id": None
+                    },                
                     "machine": {
                         "name": platform.node(),
                         "architecture": platform.machine(),
-                        "details": platform.uname(),
                         "os": {
                             "name": platform.system(),
                             "version": platform.release(),
                         },
                     },
-                    "app" : {
-                        "name" : "vbc_learn" ,
-                        "version" : "__version__",
-                    },
                     "user": getpass.getuser()
                 },
                 "pages": [],
-                "embeddings": []
+                "chunks": []
             }
         elif from_json_file is not None:
-            selt._file_path = from_json_file
-            self.metadata = _load()
+            self.file_path = from_json_file
+            self.metadata = self.__load()
         else:    
             raise Exception("Es wurde keine Datei zum Laden angegeben.")
 
-
     def __load(self):
         with open(self.file_path, 'r') as f:
-            self.data = json.metadata(f)
+            return json.load(f)
         
     def save(self):
-        with open(json_path, 'w') as f:
+        with open(self.file_path, 'w') as f:
             json.dump(self.metadata, f , indent=2)
     
-    
+    def add_page(self, page):
+        self.metadata["pages"].append(page)
 
+    def get_pages(self) -> list[str]:
+        return self.metadata["pages"]
+
+    def add_chunk(self, chunk):
+        self.metadata["chunks"].append(chunk)
+
+    def get_chunks(self) -> list[str]:
+        return self.metadata["chunks"]
+
+
+    # def add_chunk_with_embeddings(self, page):
+    #     self.metadata["chunks"].append(page)
+
+    # def add_embedding(self, embedding):
+    #     self.metadata["embeddings"].append(embedding)
+    
+class InputFileHandler:
+
+    def __init__(self, mode: str, config: VbcConfig):
+        self.mode = mode
+        self.input_path = config.sources_path
+        self.repostitory_path = config.knowledge_repository_path
+        self.config = config
+        self.logger = app_logger()
+
+    def __filter_files(self, directory, extensions):
+        filtered_files = []
+        for ext in extensions:
+            filtered_files.extend(glob.glob(f"{directory}/*{ext}"))
+        return filtered_files
+
+    def get_all_input_files(self) -> list[InputFile]:
+        all_supported_input_files = self.__filter_files(self.input_path, SUPPORTED_INPUT_FILE_TYPES)
+        self.logger.debug(f"Verzeichnis '{self.input_path}' enthält {len(all_supported_input_files)} Dateien mit unterstütztem Format.")
+        return [InputFile(file) for file in all_supported_input_files]
+        
+    def get_input_files_to_process(self, config: VbcConfig) -> list[InputFile]:
+        all_input_files = self.get_all_input_files()
+        known_files = self.get_all_metafiles()
+        for known_file in known_files:
+            if self.__is_already_text_prepared(known_file, config):
+                self.logger.debug(f"Datei {known_file.metadata['input_file']} wurde bereits verarbeitet.")
+                all_input_files = [input_file for input_file in all_input_files if input_file.file_name != known_file.metadata["input_file"]]
+        return all_input_files
+
+    def delete_all_metafiles(self):
+        meta_files = self.__filter_files(self.repostitory_path, SUPPORTED_REPO_FILE_TYPES)
+        for file in meta_files:
+            self.logger.debug(f"Lösche Datei {file}")
+            os.remove(file)
+
+    def get_all_metafiles(self) -> list[MetaFile]:
+        filtered_meta_files = self.__filter_files(self.repostitory_path, SUPPORTED_REPO_FILE_TYPES)
+        self.logger.debug(f"Repository '{self.repostitory_path}' enthält {len(filtered_meta_files)} bekannte Dokumente.")
+        return [MetaFile(self.config, from_json_file=file) for file in filtered_meta_files]
+    
+    def get_metafiles_to_chunk(self, config: VbcConfig) -> list[MetaFile]:
+        all_meta_files = self.get_all_metafiles()
+        dirty_files = []
+        for meta_file in all_meta_files:
+            if not self.__is_already_chunked(meta_file, config):
+                self.logger.debug(f"Datei {meta_file.file_path} wird erneut verarbeitet.")
+                dirty_files.append(meta_file)
+        return dirty_files
+    
+    def get_metafiles_to_embed(self, config: VbcConfig) -> list[MetaFile]:
+        all_meta_files = self.get_all_metafiles()
+        dirty_files = []
+        for meta_file in all_meta_files:
+            if not self.__is_already_embedded(meta_file, config):
+                self.logger.debug(f"Datei {meta_file.file_path} wird erneut verarbeitet.")
+                dirty_files.append(meta_file)
+        return dirty_files
+
+    def __is_already_text_prepared(self, meta_file: MetaFile, config: VbcConfig):
+        return (meta_file.metadata["processor"]["text_preparation"]["provider"] == config.llm_provider.value 
+                and meta_file.metadata["processor"]["app"]["version"] == config.learn_version)
+    
+    def __is_already_chunked(self, meta_file: MetaFile, config: VbcConfig):
+        return (len(meta_file.metadata["chunks"]) > 0
+                and meta_file.metadata["processor"]["embeddings"]["chunking_mode"] == config.chunking_mode.value                
+                and meta_file.metadata["processor"]["app"]["version"] == config.learn_version)
+
+    def __is_already_embedded(self, meta_file: MetaFile, config: VbcConfig):
+        return (meta_file.metadata["processor"]["embeddings"]["index_id"] is not None
+                and meta_file.metadata["processor"]["embeddings"]["storage"] == config.embedding_storage.value
+                and meta_file.metadata["processor"]["embeddings"]["provider"] == config.embedding_provider.value
+                and meta_file.metadata["processor"]["embeddings"]["chunking_mode"] == config.chunking_mode.value                
+                and meta_file.metadata["processor"]["app"]["version"] == config.learn_version)

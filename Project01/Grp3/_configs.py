@@ -16,17 +16,49 @@ if __name__ == '__main__':
 # _____[ Imports ]______________________________________________________________
 from enum import Enum
 from dataclasses import dataclass
+from sys import version
 from typing import Union, Optional, List
 
 class SupportedLlmProvider(Enum):
     """_summary_
-    Enum, welche die unterstützten LLM-Provider einschränkt und klar kmategorisiert.
+    Enum, welche die unterstützten LLM-Provider einschränkt und klar kategorisiert.
     Args:
         Enum (_type_): _description_
     """
     OPENAI = "OpenAI"
     HUGGINGFACE = "Huggingface"
     OLLAMA = "Ollama"
+
+class ChunkingMode(Enum):
+    """_summary_
+    Enum, welche die unterstützten Chunking-Modi vordefiniert.
+    Args:
+        Enum (_type_): _description_
+    """
+    PAGE = "page"
+    SECTION = "section"
+    PARAGRAPH = "paragraph"
+    SENTENCE = "sentence"    
+
+class EmbeddingStorage(Enum):
+    """_summary_
+    Enum, welche die unterstützten Speicher-Varianten für Embeddings einschränkt 
+    und kategorisiert.
+    Args:
+        Enum (_type_): _description_
+    """
+    CSV = "csv"
+    FAISS = "faiss"
+
+class VbcAction(Enum):
+    """_summary_
+    Enum, welche die unterstützten Aktionen im VBC-Chat einschränkt und kategorisiert.
+    Args:
+        Enum (_type_): _description_
+    """
+    INCREMENTAL_REINDEXING = "inc"
+    FULL_REINDEXING = "full"
+    CHAT = "chat"
 
 
 @dataclass
@@ -44,9 +76,16 @@ class LlmClientConfig:
 @dataclass
 class VbcConfig:   
     # TODO #3: Pfad anpassen, auf "./zvb_pdfs", sobald gewisser Maturitätsgrad vorhanden ist.
+    action: VbcAction = VbcAction.CHAT    # Aktion, die durchgeführt werden soll
     sources_path: str = "./input"     # Quellpfad mit den Originaldaten
+    model_path: str = "./models"    # Pfad mit den Modellen
     knowledge_repository_path: str = "./work"   # Pfad mit den vorverarbeiteten Dateien
-    #image_to_text_config: Optional[LlmClientConfig]     # Client-Konfiguration für die Bild-zu-Text-Konvertierung
+    language: str = "german"    # Sprache der Daten
+    learn_version = "0.1"    # Version des Lernmoduls
+    chunking_mode: ChunkingMode = ChunkingMode.SECTION  # Modus für die Chunk-Bildung
+    llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider
+    embedding_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
+    embedding_storage: EmbeddingStorage = EmbeddingStorage.CSV  # Speicherort für Embeddings
 
     def with_image_to_text_config(self, image_to_text_config: LlmClientConfig):
         self.image_to_text_config = image_to_text_config
@@ -55,20 +94,19 @@ class VbcConfig:
     def with_embedding_config(self, embedding_config: LlmClientConfig):
         self.embedding_config = embedding_config
         return self
+    
+    def as_profile_label(self):
+        return f"{self.llm_provider.value}#{self.embedding_provider.value}_{self.chunking_mode.value}_{self.embedding_storage.value}#{self.learn_version}"
 
-    # llm_backend: Union[str, list[str]]  # name of the dataset files, including directory and extension 
-    # target_cols: Union[str, list[str]]     # used to indicate the target
-    # header_time: Optional[str]     # used to parse the dataset file
-    # group_cols: Union[str, list[str]]     # used to create group series
-    # past_cov_cols: Union[str, list[str]]     # used to select past covariates
-    # static_cols: Union[str, list[str]] = None     # used to select static cols
-    # # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
-    # format_time: Optional[str] = None     # used to convert the string date to pd.Datetime
-    # freq: Optional[str] = None     # used to indicate the freq when we already know it
-    # multivariate: Optional[bool] = None     # multivariate
-    # year_cutback: Optional[int] = None    # Limitieren der zu bearbeitenden Daten auf die letzen x Jahre
-    # training_cutoff: Optional[float] = 0.5     # cutoff
-
+    def from_profile_label(self, mode):
+        profile_parts = mode.split("#")
+        self.llm_provider = SupportedLlmProvider(profile_parts[0])
+        embedding_parts = profile_parts[1].split("_")
+        self.embedding_provider = SupportedLlmProvider(embedding_parts[0])
+        self.chunking_mode = ChunkingMode(embedding_parts[1])
+        self.embedding_storage = EmbeddingStorage(embedding_parts[2].split(":")[0])
+        self.learn_version = profile_parts[2]
+        return self
 
 def print_splash_screen(app_name: str, app_version: str, app_author: str):
     print(f"""
@@ -80,3 +118,4 @@ def print_splash_screen(app_name: str, app_version: str, app_author: str):
    /     \     
   |  ---  |      {app_name} v{app_version} by {app_author}
  """)
+    

@@ -45,7 +45,7 @@ def start_logger(task_name: str, app_stage: str) -> logging.Logger:
     log_file = f"./logs/{task_name}_{start_datetime}.log"
     if app_stage.startswith("Dev"):
         logger.setLevel(logging.DEBUG)
-    else:
+    else:        
         logger.setLevel(logging.INFO)
     console_formatter = logging.Formatter(CONSOLE_FORMAT,datefmt='%H:%M:%S')
     console_handler = logging.StreamHandler()
@@ -54,6 +54,7 @@ def start_logger(task_name: str, app_stage: str) -> logging.Logger:
     file_formatter = logging.Formatter(FILE_FORMAT)
     file_handler = logging.FileHandler(log_file)
     file_handler.setFormatter(file_formatter)    
+    file_handler.setLevel(logging.DEBUG)
     logger.addHandler(file_handler)
     return logger
 

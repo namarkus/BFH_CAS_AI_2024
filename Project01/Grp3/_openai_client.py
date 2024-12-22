@@ -13,13 +13,17 @@ if __name__ == '__main__':
     exit()
 
 # _____[ Imports ]______________________________________________________________
+from time import sleep
 from _apis import LlmClient
 from _configs import LlmClientConfig
 from _errors import VbcConfigError
 from _logging import app_logger
 import os
-from openai import OpenAI
+import openai
 
+MAX_RETRIES = 5
+SLEEPING_TIME_IN_SECONDS_AFTER_RATE_LIMIT_ERROR = 15
+SLEEPING_TIME_IN_SECONDS = 2
 
 class OpenAiClient(LlmClient):
 
@@ -56,29 +60,36 @@ class OpenAiClient(LlmClient):
         """
         super().__init__(config)
         self.api_key = self.get_api_key()
-        self.openai_client = OpenAI(api_key=self.api_key)
+        self.openai_client = openai.OpenAI(api_key=self.api_key)
 
     def get_text_from_image(self, base64_encoded_image):
         api_call_config = self.text_from_image_config()
-        response = self.openai_client.chat.completions.create(
-            model=api_call_config.model_id,
-            messages=[
-                {"role": "system", "content": api_call_config.system_prompt},
-                {"role": "user",
-                    "content": [
-                        {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"{base64_encoded_image}"
-                        }
-                        }
-                    ]
-                    },
-            ],
-            max_tokens=api_call_config.max_tokens,
-            temperature=api_call_config.temperature,
-            top_p=api_call_config.top_p
-        )
+        for i in range(MAX_RETRIES):
+            try:
+                response = self.openai_client.chat.completions.create(
+                    model=api_call_config.model_id,
+                    messages=[
+                        {"role": "system", "content": api_call_config.system_prompt},
+                        {"role": "user",
+                            "content": [
+                                {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": f"{base64_encoded_image}"
+                                }
+                                }
+                            ]
+                            },
+                    ],
+                    max_tokens=api_call_config.max_tokens,
+                    temperature=api_call_config.temperature,
+                    top_p=api_call_config.top_p
+                )
+                sleep(SLEEPING_TIME_IN_SECONDS) # um Rate-Limit zu vermeiden
+                break
+            except openai.RateLimitError as e:
+                app_logger().warning(f"Verscuhe erneut nach RateLimitError: {e.message}")
+                sleep(SLEEPING_TIME_IN_SECONDS_AFTER_RATE_LIMIT_ERROR)
         return response.choices[0].message.content
     
     def get_embeddings(self, text):
