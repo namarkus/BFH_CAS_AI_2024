@@ -1,0 +1,67 @@
+{
+  "input_file": "Helsana_ZVB_sana.pdf",
+  "processed_at": "2024-12-22_10:40:27",
+  "profile": "OpenAI#OpenAI_section_csv#0.9.0",
+  "processor": {
+    "app": {
+      "name": "vbc_learn",
+      "version": "0.9.0"
+    },
+    "text_preparation": {
+      "provider": "OpenAI"
+    },
+    "embeddings": {
+      "provider": "OpenAI",
+      "chunking_mode": "section",
+      "storage": "csv",
+      "index_id": "OpenAI#OpenAI_section_csv#0.9.0"
+    },
+    "machine": {
+      "name": "Midnight-Duke.local",
+      "architecture": "arm64",
+      "os": {
+        "name": "Darwin",
+        "version": "23.6.0"
+      }
+    },
+    "user": "helmut"
+  },
+  "pages": [
+    {
+      "number": 1,
+      "content": "# Zus\u00e4tzliche Versicherungsbedingungen (ZVB) SANA Krankenpflege-Zusatzversicherung\n\n## Inhaltsverzeichnis\n\n### Allgemeines\n1. Zweck\n\n### Leistungen\n2. Komplement\u00e4rmedizin  \n3. Pr\u00e4vention  \n4. Gesundheitsf\u00f6rderung  \n5. Versicherungsvariante ohne Unfalldeckung  \n\n### Diverses\n6. Versicherung f\u00fcr Kinder  \n7. Sistierung bei der Versicherungsdeckung  \n\n---\n\n## Allgemeines\n\n### 1 Zweck\nDie SANA Krankenpflege-Zusatzversicherung deckt Kosten f\u00fcr ambulante und station\u00e4re Behandlungen in der Komplement\u00e4rmedizin, Pr\u00e4ventionsmassnahmen und Gesundheitsf\u00f6rderung.\n\n## Leistungen\n\n### 2 Komplement\u00e4rmedizin\n\n#### 2.1\nF\u00fcr ambulante Behandlungen mit komplement\u00e4rmedizinischen Heilmethoden \u00fcbernimmt Helsana 75% der Kosten, wenn die medizinische Notwendigkeit besteht und der Leistungserbringer anerkannt ist. Helsana f\u00fchrt Listen der anerkannten Methoden und Leistungserbringer, die laufend aktualisiert werden. Behandlungen im Ausland werden \u00fcbernommen, wenn der Therapeut auf der Liste steht.\n\n#### 2.2\nHelsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel, vorausgesetzt, sie werden von anerkannten Leistungserbringern verordnet.\n\n#### 2.3\nF\u00fcr station\u00e4re Behandlungen mit komplement\u00e4rmedizinischen Methoden in anerkannten Einrichtungen \u00fcbernimmt Helsana die Kosten bis zu CHF 5000 pro Jahr.\n\n#### 2.4\nBei vor\u00fcbergehenden Auslandsaufenthalten werden Kosten f\u00fcr ambulante Behandlungen auch \u00fcbernommen, wenn der Leistungserbringer nicht auf der Liste steht, sofern die Behandlung im Ausland notwendig ist."
+    },
+    {
+      "number": 2,
+      "content": "# Zus\u00e4tzliche Versicherungsbedingungen (ZVB) SANA Krankenpflege-Zusatzversicherung\n\n## 3. Pr\u00e4vention\n\n### 3.1\nF\u00fcr pr\u00e4ventivmedizinische Massnahmen wie Impfungen, Vorsorgeuntersuchungen, Trainingstherapien, Gewichtsreduktion f\u00fcr Kinder und Raucherentw\u00f6hnung \u00fcbernimmt Helsana 75% der Kosten, bis max. CHF 500 pro Jahr.\n\n### 3.2\nQualit\u00e4tssicherungsmassnahmen werden nur \u00fcbernommen, wenn sie von Helsana anerkannte Leistungen sind. Eine Liste dieser Massnahmen und Programme ist bei Helsana erh\u00e4ltlich.\n\n### 3.3\nIm Ausland durchgef\u00fchrte Massnahmen m\u00fcssen auf der Liste von Helsana stehen, um anerkannt zu werden.\n\n## 4. Gesundheitsf\u00f6rderung\n\n### 4.1\nF\u00fcr gesundheitsf\u00f6rdernde Massnahmen wie R\u00fcckenschule, Fitness, Schwangerschaftskurse, Ern\u00e4hrung, Entspannung und Bewegungskurse \u00fcbernimmt Helsana 75% der Kosten, bis max. CHF 200 pro Jahr.\n\n### 4.2\nQualit\u00e4tssicherungsmassnahmen werden nur \u00fcbernommen, wenn sie von Helsana anerkannte Leistungen sind. Behandlungen im Ausland werden \u00fcbernommen, wenn der Anbieter auf der Liste steht.\n\n## 5. Versicherungsvariante ohne Unfalldeckung\n\nDie Versicherung kann ohne Deckung f\u00fcr Unfallfolgen abgeschlossen werden.\n\n## Diverses\n\n### 6. Versicherung f\u00fcr Kinder\n\nKinder k\u00f6nnen ab Geburt versichert werden, wenn der Antrag vor der Geburt gestellt wird. In diesem Fall gibt es keine Ausschl\u00fcsse f\u00fcr bestehende Gesundheitssch\u00e4den.\n\n## 7. Sistierung bei der Versicherungsdeckung\n\n### 7.1\nBei Pr\u00e4mienreduktion kann der Leistungsanspruch sistiert werden, wenn eine andere Versicherung besteht.\n\n### 7.2\nInnerhalb von 30 Tagen nach Wegfall der anderen Versicherung kann die Deckung reaktiviert werden. Die Pr\u00e4mie wird angepasst. Bei Fristvers\u00e4umnis gelten die Bedingungen f\u00fcr eine Neuaufnahme."
+    }
+  ],
+  "chunks": [
+    "Zus\u00e4tzliche Versicherungsbedingungen ZVB SANA Krankenpflege-Zusatzversicherung",
+    "Inhaltsverzeichnis",
+    "Allgemeines 1. Zweck",
+    "Leistungen 2. Komplement\u00e4rmedizin 3. Pr\u00e4vention 4. Gesundheitsf\u00f6rderung 5. Versicherungsvariante ohne Unfalldeckung",
+    "Diverses 6. Versicherung f\u00fcr Kinder 7. Sistierung bei der Versicherungsdeckung ---",
+    "Allgemeines",
+    "Zweck Die SANA Krankenpflege-Zusatzversicherung deckt Kosten f\u00fcr ambulante und station\u00e4re Behandlungen in der Komplement\u00e4rmedizin, Pr\u00e4ventionsmassnahmen und Gesundheitsf\u00f6rderung.",
+    "Leistungen",
+    "Komplement\u00e4rmedizin",
+    "F\u00fcr ambulante Behandlungen mit komplement\u00e4rmedizinischen Heilmethoden \u00fcbernimmt Helsana 75% der Kosten, wenn die medizinische Notwendigkeit besteht und der Leistungserbringer anerkannt ist. Helsana f\u00fchrt Listen der anerkannten Methoden und Leistungserbringer, die laufend aktualisiert werden. Behandlungen im Ausland werden \u00fcbernommen, wenn der Therapeut auf der Liste steht.",
+    "Helsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel, vorausgesetzt, sie werden von anerkannten Leistungserbringern verordnet.",
+    "F\u00fcr station\u00e4re Behandlungen mit komplement\u00e4rmedizinischen Methoden in anerkannten Einrichtungen \u00fcbernimmt Helsana die Kosten bis zu CHF 5000 pro Jahr.",
+    "Bei vor\u00fcbergehenden Auslandsaufenthalten werden Kosten f\u00fcr ambulante Behandlungen auch \u00fcbernommen, wenn der Leistungserbringer nicht auf der Liste steht, sofern die Behandlung im Ausland notwendig ist.  Zus\u00e4tzliche Versicherungsbedingungen ZVB SANA Krankenpflege-Zusatzversicherung",
+    "Pr\u00e4vention",
+    "F\u00fcr pr\u00e4ventivmedizinische Massnahmen wie Impfungen, Vorsorgeuntersuchungen, Trainingstherapien, Gewichtsreduktion f\u00fcr Kinder und Raucherentw\u00f6hnung \u00fcbernimmt Helsana 75% der Kosten, bis max. CHF 500 pro Jahr.",
+    "Qualit\u00e4tssicherungsmassnahmen werden nur \u00fcbernommen, wenn sie von Helsana anerkannte Leistungen sind. Eine Liste dieser Massnahmen und Programme ist bei Helsana erh\u00e4ltlich.",
+    "Im Ausland durchgef\u00fchrte Massnahmen m\u00fcssen auf der Liste von Helsana stehen, um anerkannt zu werden.",
+    "Gesundheitsf\u00f6rderung",
+    "F\u00fcr gesundheitsf\u00f6rdernde Massnahmen wie R\u00fcckenschule, Fitness, Schwangerschaftskurse, Ern\u00e4hrung, Entspannung und Bewegungskurse \u00fcbernimmt Helsana 75% der Kosten, bis max. CHF 200 pro Jahr.",
+    "Qualit\u00e4tssicherungsmassnahmen werden nur \u00fcbernommen, wenn sie von Helsana anerkannte Leistungen sind. Behandlungen im Ausland werden \u00fcbernommen, wenn der Anbieter auf der Liste steht.",
+    "Versicherungsvariante ohne Unfalldeckung Die Versicherung kann ohne Deckung f\u00fcr Unfallfolgen abgeschlossen werden.",
+    "Diverses",
+    "Versicherung f\u00fcr Kinder Kinder k\u00f6nnen ab Geburt versichert werden, wenn der Antrag vor der Geburt gestellt wird. In diesem Fall gibt es keine Ausschl\u00fcsse f\u00fcr bestehende Gesundheitssch\u00e4den.",
+    "Sistierung bei der Versicherungsdeckung",
+    "Bei Pr\u00e4mienreduktion kann der Leistungsanspruch sistiert werden, wenn eine andere Versicherung besteht.",
+    "Innerhalb von 30 Tagen nach Wegfall der anderen Versicherung kann die Deckung reaktiviert werden. Die Pr\u00e4mie wird angepasst. Bei Fristvers\u00e4umnis gelten die Bedingungen f\u00fcr eine Neuaufnahme."
+  ]
+}

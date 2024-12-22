@@ -1,0 +1,62 @@
+{
+  "input_file": "Assura_BVB_Complementa_Extra.pdf",
+  "processed_at": "2024-12-22_10:32:57",
+  "profile": "OpenAI#OpenAI_section_csv#0.9.0",
+  "processor": {
+    "app": {
+      "name": "vbc_learn",
+      "version": "0.9.0"
+    },
+    "text_preparation": {
+      "provider": "OpenAI"
+    },
+    "embeddings": {
+      "provider": "OpenAI",
+      "chunking_mode": "section",
+      "storage": "csv",
+      "index_id": "OpenAI#OpenAI_section_csv#0.9.0"
+    },
+    "machine": {
+      "name": "Midnight-Duke.local",
+      "architecture": "arm64",
+      "os": {
+        "name": "Darwin",
+        "version": "23.6.0"
+      }
+    },
+    "user": "helmut"
+  },
+  "pages": [
+    {
+      "number": 1,
+      "content": "# Besondere Versicherungsbedingungen f\u00fcr die Zusatz-Krankenversicherung\n\n## Complements Extra\n\n### Zusatzversicherung f\u00fcr erweiterte Leistungen\n\n#### Artikel 1 \u2013 Medizinische Behandlungen\n\n1.1 Die Assura AG \u00fcbernimmt bei Krankheit und Unfall die Kosten f\u00fcr Aufenthalte in der allgemeinen Abteilung sowie ambulante Behandlungen in \u00f6ffentlichen Spit\u00e4lern der Schweiz.\n\n1.2 Die versicherte Person kann sich in einer geeigneten Spitalabteilung behandeln lassen. An"
+    },
+    {
+      "number": 2,
+      "content": "## Artikel 10 \u2013 Zahn\u00e4rztliche Behandlungen\n\n10.1 Die Assura AG \u00fcbernimmt, nach Abzug einer Jahresfranchise von CHF 500 und bis zu einem Rechnungsbetrag von CHF 1'500 pro Jahr, die Kosten von Behandlungen, die durch einen in der Schweiz oder im Grenzgebiet zugelassenen Zahnarzt erbracht werden, sofern sich der behandelte Zahnschaden nach Inkrafttreten der vorliegenden Versicherung ereignet hat.\n\n10.2 Die Berechnung des Leistungsanspruches erfolgt gem\u00e4ss dem Tarifvertrag SSO-UV/MV/IV.\n\n10.3 Massnahmen zur Behebung von vorbestehenden Zahnsch\u00e4den sind nicht gedeckt.\n\n10.4 Orthodontische Behandlungen sind ausgeschlossen.\n\n## Artikel 11 \u2013 Brillengl\u00e4ser oder Kontaktlinsen\n\n11.1 Die Assura AG \u00fcbernimmt die Anschaffungskosten von medizinisch indizierten Brillengl\u00e4sern oder Kontaktlinsen bis zu CHF 100 pro Kalenderjahr.\n\n11.2 Der maximale Betrag pro Jahr betr\u00e4gt CHF 500.\n\n## Artikel 12 \u2013 Chirurgische Sehkorrektur\n\n12.1 Die Assura AG beteiligt sich mit maximal CHF 100 pro Kalenderjahr an den Kosten der chirurgischen Sehkorrektur.\n\n12.2 Der maximale Betrag pro Jahr betr\u00e4gt CHF 500.\n\n## Artikel 13 \u2013 Hilfsmittel\n\n13.1 Die Assura AG \u00fcbernimmt die Kosten f\u00fcr die Anschaffung und Miete von medizinischen Apparaten und orthop\u00e4dischen Hilfsmitteln bis zu CHF 500 pro Kalenderjahr.\n\n## Artikel 14 \u2013 Transportkosten\n\n14.1 Die Assura AG \u00fcbernimmt die Kosten f\u00fcr den Transport in einem anderen \u00f6ffentlichen oder privaten Transportmittel, wenn der Gesundheitszustand der versicherten Person dies erfordert.\n\n## Artikel 15 \u2013 Kosten f\u00fcr Suche und Rettung\n\n15.1 Die Assura AG \u00fcbernimmt bis zu CHF 20'000 die Kosten f\u00fcr die Suche und Rettung einer versicherten Person in einer lebensbedrohlichen Situation.\n\n## Artikel 16 \u2013 Badekuren\n\n16.1 Die Assura AG beteiligt sich bis zu CHF 1'000 pro Kalenderjahr an den Kosten einer Badekur in der Schweiz.\n\n16.2 Bei Behandlungen im Ausland betr\u00e4gt die Entsch\u00e4digung maximal CHF 500 pro Kalenderjahr.\n\n## Artikel 17 \u2013 Erholungskuren\n\nDie Assura AG beteiligt sich mit maximal CHF 40 pro Tag an den Kosten einer Erholungskur, die nach einem Spitalaufenthalt in einer anerkannten Institution durchgef\u00fchrt wird.\n\n## Artikel 18 \u2013 Pr\u00e4mienbefreiung bei Arbeitslosigkeit\n\n18.1 Die versicherte Person hat Anspruch auf Pr\u00e4mienbefreiung, wenn sie seit mindestens 12 Monaten ununterbrochen beim gleichen Arbeitgeber angestellt ist und arbeitslos wird.\n\n18.2 Die Pr\u00e4mienbefreiung gilt ab dem 91. Tag der Arbeitslosigkeit und umfasst alle Versicherungskategorien der vorliegenden Deckung."
+    },
+    {
+      "number": 3,
+      "content": "## 18.3 Andere Familienmitglieder\n\nWenn das Haupteinkommen der Familie wegf\u00e4llt, \u00fcbernimmt Assura AG die Pr\u00e4mien f\u00fcr im gleichen Haushalt lebende Familienmitglieder (Ehepartner, minderj\u00e4hrige Kinder sowie vollj\u00e4hrige Kinder in Ausbildung bis 25 Jahre). Die Pr\u00e4mienbefreiung umfasst alle VVG-Versicherungskategorien, die im Versicherungsantrag dieser Familienmitglieder enthalten sind. Ein Ehepartner oder Kinder mit eigenem Einkommen erhalten eine anteilsm\u00e4ssige Pr\u00e4mienreduktion.\n\n## 18.4 Belege\n\nZur Begr\u00fcndung eines Leistungsanspruchs muss die versicherte Person folgende Dokumente einreichen:\n\n- K\u00fcndigungsschreiben des Arbeitgebers\n- Kopie des Arbeitsvertrages\n- Schriftliche Leistungszusage der Arbeitslosenkasse\n- Leistungsabrechnung der Arbeitslosenkasse f\u00fcr den relevanten Zeitraum\n\nBei versp\u00e4teter Meldung des Stellenverlusts kann Assura AG die Leistung verweigern.\n\n## 18.5 Einschr\u00e4nkungen\n\nKein Anspruch auf Pr\u00e4mienbefreiung besteht bei:\n\n- K\u00fcndigungen nach Art. 337 OR, in der Probezeit, Pensionierungen, Kurzarbeit oder technischer Arbeitslosigkeit\n- Befristeten Arbeitsvertr\u00e4gen oder Vertr\u00e4gen f\u00fcr bestimmte Baustellen\n- Leistungsk\u00fcrzungen wegen schuldhaftem Verhalten\n- Wohnsitz der versicherten Person ausserhalb der Schweiz\n\n## 18.6 Leistungsdauer\n\nLeistungen pro Schadenfall sind auf maximal 12 Monate begrenzt. Eine Karenzfrist von 90 Tagen wird angerechnet. Bei mehreren Schadenf\u00e4llen werden maximal 24 Monate Leistungen erbracht.\n\n## 18.7 Ende des Anspruchs\n\nDer Anspruch erlischt bei:\n\n- Wiederaufnahme einer bezahlten Arbeit\n- Arbeitsunf\u00e4higkeit infolge Krankheit oder Unfall, wenn die Arbeitslosenkasse nicht mehr leistungspflichtig ist\n\n## Artikel 19 \u2013 Deckungsbegrenzung\n\nBehandlungen zur Wiedereingliederung und Rehabilitation werden \u00fcbernommen, ebenso Behandlungen von psychischen Krankheiten. Andere in Art. 4 AVB VVG vorgesehene F\u00e4lle sind ausgeschlossen, insbesondere bei bestehenden Leiden oder Unfallfolgen bei Antragstellung. Kosten im Zusammenhang mit Mutterschaft werden nicht \u00fcbernommen.\n\nAssura AG"
+    }
+  ],
+  "chunks": [
+    "Besondere Versicherungsbedingungen f\u00fcr die Zusatz-Krankenversicherung",
+    "Complements Extra",
+    "Zusatzversicherung f\u00fcr erweiterte Leistungen",
+    "Artikel 1  Medizinische Behandlungen 1.1 Die Assura AG \u00fcbernimmt bei Krankheit und Unfall die Kosten f\u00fcr Aufenthalte in der allgemeinen Abteilung sowie ambulante Behandlungen in \u00f6ffentlichen Spit\u00e4lern der Schweiz. 1.2 Die versicherte Person kann sich in einer geeigneten Spitalabteilung behandeln lassen. An  Artikel 10  Zahn\u00e4rztliche Behandlungen 10.1 Die Assura AG \u00fcbernimmt, nach Abzug einer Jahresfranchise von CHF 500 und bis zu einem Rechnungsbetrag von CHF 1500 pro Jahr, die Kosten von Behandlungen, die durch einen in der Schweiz oder im Grenzgebiet zugelassenen Zahnarzt erbracht werden, sofern sich der behandelte Zahnschaden nach Inkrafttreten der vorliegenden Versicherung ereignet hat. 10.2 Die Berechnung des Leistungsanspruches erfolgt gem\u00e4ss dem Tarifvertrag SSO-UVMVIV. 10.3 Massnahmen zur Behebung von vorbestehenden Zahnsch\u00e4den sind nicht gedeckt. 10.4 Orthodontische Behandlungen sind ausgeschlossen.",
+    "Artikel 11  Brillengl\u00e4ser oder Kontaktlinsen 11.1 Die Assura AG \u00fcbernimmt die Anschaffungskosten von medizinisch indizierten Brillengl\u00e4sern oder Kontaktlinsen bis zu CHF 100 pro Kalenderjahr. 11.2 Der maximale Betrag pro Jahr betr\u00e4gt CHF 500.",
+    "Artikel 12  Chirurgische Sehkorrektur 12.1 Die Assura AG beteiligt sich mit maximal CHF 100 pro Kalenderjahr an den Kosten der chirurgischen Sehkorrektur. 12.2 Der maximale Betrag pro Jahr betr\u00e4gt CHF 500.",
+    "Artikel 13  Hilfsmittel 13.1 Die Assura AG \u00fcbernimmt die Kosten f\u00fcr die Anschaffung und Miete von medizinischen Apparaten und orthop\u00e4dischen Hilfsmitteln bis zu CHF 500 pro Kalenderjahr.",
+    "Artikel 14  Transportkosten 14.1 Die Assura AG \u00fcbernimmt die Kosten f\u00fcr den Transport in einem anderen \u00f6ffentlichen oder privaten Transportmittel, wenn der Gesundheitszustand der versicherten Person dies erfordert.",
+    "Artikel 15  Kosten f\u00fcr Suche und Rettung 15.1 Die Assura AG \u00fcbernimmt bis zu CHF 20000 die Kosten f\u00fcr die Suche und Rettung einer versicherten Person in einer lebensbedrohlichen Situation.",
+    "Artikel 16  Badekuren 16.1 Die Assura AG beteiligt sich bis zu CHF 1000 pro Kalenderjahr an den Kosten einer Badekur in der Schweiz. 16.2 Bei Behandlungen im Ausland betr\u00e4gt die Entsch\u00e4digung maximal CHF 500 pro Kalenderjahr.",
+    "Artikel 17  Erholungskuren Die Assura AG beteiligt sich mit maximal CHF 40 pro Tag an den Kosten einer Erholungskur, die nach einem Spitalaufenthalt in einer anerkannten Institution durchgef\u00fchrt wird.",
+    "Artikel 18  Pr\u00e4mienbefreiung bei Arbeitslosigkeit 18.1 Die versicherte Person hat Anspruch auf Pr\u00e4mienbefreiung, wenn sie seit mindestens 12 Monaten ununterbrochen beim gleichen Arbeitgeber angestellt ist und arbeitslos wird. 18.2 Die Pr\u00e4mienbefreiung gilt ab dem 91. Tag der Arbeitslosigkeit und umfasst alle Versicherungskategorien der vorliegenden Deckung.  18.3 Andere Familienmitglieder Wenn das Haupteinkommen der Familie wegf\u00e4llt, \u00fcbernimmt Assura AG die Pr\u00e4mien f\u00fcr im gleichen Haushalt lebende Familienmitglieder Ehepartner, minderj\u00e4hrige Kinder sowie vollj\u00e4hrige Kinder in Ausbildung bis 25 Jahre. Die Pr\u00e4mienbefreiung umfasst alle VVG-Versicherungskategorien, die im Versicherungsantrag dieser Familienmitglieder enthalten sind. Ein Ehepartner oder Kinder mit eigenem Einkommen erhalten eine anteilsm\u00e4ssige Pr\u00e4mienreduktion.",
+    "Belege Zur Begr\u00fcndung eines Leistungsanspruchs muss die versicherte Person folgende Dokumente einreichen: - K\u00fcndigungsschreiben des Arbeitgebers - Kopie des Arbeitsvertrages - Schriftliche Leistungszusage der Arbeitslosenkasse - Leistungsabrechnung der Arbeitslosenkasse f\u00fcr den relevanten Zeitraum Bei versp\u00e4teter Meldung des Stellenverlusts kann Assura AG die Leistung verweigern.",
+    "Einschr\u00e4nkungen Kein Anspruch auf Pr\u00e4mienbefreiung besteht bei: - K\u00fcndigungen nach Art. 337 OR, in der Probezeit, Pensionierungen, Kurzarbeit oder technischer Arbeitslosigkeit - Befristeten Arbeitsvertr\u00e4gen oder Vertr\u00e4gen f\u00fcr bestimmte Baustellen - Leistungsk\u00fcrzungen wegen schuldhaftem Verhalten - Wohnsitz der versicherten Person ausserhalb der Schweiz",
+    "Leistungsdauer Leistungen pro Schadenfall sind auf maximal 12 Monate begrenzt. Eine Karenzfrist von 90 Tagen wird angerechnet. Bei mehreren Schadenf\u00e4llen werden maximal 24 Monate Leistungen erbracht.",
+    "Ende des Anspruchs Der Anspruch erlischt bei: - Wiederaufnahme einer bezahlten Arbeit - Arbeitsunf\u00e4higkeit infolge Krankheit oder Unfall, wenn die Arbeitslosenkasse nicht mehr leistungspflichtig ist",
+    "Artikel 19  Deckungsbegrenzung Behandlungen zur Wiedereingliederung und Rehabilitation werden \u00fcbernommen, ebenso Behandlungen von psychischen Krankheiten. Andere in Art. 4 AVB VVG vorgesehene F\u00e4lle sind ausgeschlossen, insbesondere bei bestehenden Leiden oder Unfallfolgen bei Antragstellung. Kosten im Zusammenhang mit Mutterschaft werden nicht \u00fcbernommen. Assura AG"
+  ]
+}
