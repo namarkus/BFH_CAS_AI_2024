@@ -114,7 +114,7 @@ def clean_texts(texts: list[str]) -> list[str]:
     cleaned_texts = []
     for text in texts:
         cleaned_text = re.sub(r"\s+", " ", text)     
-        cleaned_text = re.sub(r"[^a-zA-Z0-9äöüÄÖÜéàèÉÀÈ%,\.;:!\?-\s]", "", cleaned_text)
+        cleaned_text = re.sub(r"[^a-zA-Z0-9äöüÄÖÜéàèÉÀÈ%,.;:!?\\-\\s]", "", cleaned_text)
         cleaned_text = cleaned_text.strip()
          # Kapitelnummern und Indexe entfernen.
         cleaned_text = re.sub(r"^(?:\d+(\.\d+)*\.?\s|[A-Za-z]\.?\s)", "", cleaned_text)
