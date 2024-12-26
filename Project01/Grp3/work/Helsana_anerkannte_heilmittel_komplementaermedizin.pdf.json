@@ -1,0 +1,41 @@
+{
+  "input_file": "Helsana_anerkannte_heilmittel_komplementaermedizin.pdf",
+  "processed_at": "2024-12-22_10:39:53",
+  "profile": "OpenAI#OpenAI_section_csv#0.9.0",
+  "processor": {
+    "app": {
+      "name": "vbc_learn",
+      "version": "0.9.0"
+    },
+    "text_preparation": {
+      "provider": "OpenAI"
+    },
+    "embeddings": {
+      "provider": "OpenAI",
+      "chunking_mode": "section",
+      "storage": "csv",
+      "index_id": "OpenAI#OpenAI_section_csv#0.9.0"
+    },
+    "machine": {
+      "name": "Midnight-Duke.local",
+      "architecture": "arm64",
+      "os": {
+        "name": "Darwin",
+        "version": "23.6.0"
+      }
+    },
+    "user": "helmut"
+  },
+  "pages": [
+    {
+      "number": 1,
+      "content": "# Anerkannte Heilmittel der Komplement\u00e4rmedizin\n\n## Grundlage\nHelsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel. Voraussetzung ist, dass diese von einem anerkannten Leistungserbringer innerhalb einer komplement\u00e4rmedizinischen Behandlung verordnet, abgegeben oder appliziert werden. Eine Verordnung muss vorliegen.\n\n## Anerkannte Heilmittel\n- Swissmedic-registrierte Heilmittel der Komplement\u00e4rmedizin\n- Individuell hergestellte komplement\u00e4rmedizinische Heilmittel:\n  - Abgabe durch zugelassene Apotheke oder Hersteller mit Swissmedic-Bewilligung\n  - Wirkstoffe in der Liste der hom\u00f6opathischen und anthroposophischen Stoffe (HAS), traditionellen asiatischen Stoffe (TAS) oder im Arzneimitteltarif (ALT) aufgef\u00fchrt\n- Wirtschaftlicher Preis\n- Medizinische Notwendigkeit (Krankheitswert) ausgewiesen\n\n**Ausgeschlossen:** Produkte der Liste mit Spezieller Verwendung (LPPV), z.B. Aufbaupr\u00e4parate, Vitamine, Mineralstoffe.\n\n## Anerkannte Leistungserbringer\n- \u00c4rzte und Spit\u00e4ler\n- Fachpersonen der Komplement\u00e4rmedizin:\n  - Naturheilpraktiker mit eidgen\u00f6ssischem Diplom oder Zertifikat der OdA AM\n  - Naturheilkundliche Praktiken\n  - Traditionelle Chinesische Medizin (TCM)\n  - Hom\u00f6opathie\n  - Phytotherapie\n  - Tibetische Medizin\n  - Bachbl\u00fcten-Therapie\n  - Biochemie nach Sch\u00fcssler\n\n*Eine vollst\u00e4ndige Liste kann beim Kundenservice angefordert werden.*\n\n**Hinweis:** Fachpersonen k\u00f6nnen sich im ErfahrungsMedizinischen Register EMR in Basel registrieren lassen. Die Registrierung bedeutet keinen Anspruch auf Anerkennung."
+    }
+  ],
+  "chunks": [
+    "Anerkannte Heilmittel der Komplement\u00e4rmedizin",
+    "Grundlage Helsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel. Voraussetzung ist, dass diese von einem anerkannten Leistungserbringer innerhalb einer komplement\u00e4rmedizinischen Behandlung verordnet, abgegeben oder appliziert werden. Eine Verordnung muss vorliegen.",
+    "Anerkannte Heilmittel - Swissmedic-registrierte Heilmittel der Komplement\u00e4rmedizin - Individuell hergestellte komplement\u00e4rmedizinische Heilmittel: - Abgabe durch zugelassene Apotheke oder Hersteller mit Swissmedic-Bewilligung - Wirkstoffe in der Liste der hom\u00f6opathischen und anthroposophischen Stoffe HAS, traditionellen asiatischen Stoffe TAS oder im Arzneimitteltarif ALT aufgef\u00fchrt - Wirtschaftlicher Preis - Medizinische Notwendigkeit Krankheitswert ausgewiesen Ausgeschlossen: Produkte der Liste mit Spezieller Verwendung LPPV, z.B. Aufbaupr\u00e4parate, Vitamine, Mineralstoffe.",
+    "Anerkannte Leistungserbringer - \u00c4rzte und Spit\u00e4ler - Fachpersonen der Komplement\u00e4rmedizin: - Naturheilpraktiker mit eidgen\u00f6ssischem Diplom oder Zertifikat der OdA AM - Naturheilkundliche Praktiken - Traditionelle Chinesische Medizin TCM - Hom\u00f6opathie - Phytotherapie - Tibetische Medizin - Bachbl\u00fcten-Therapie - Biochemie nach Sch\u00fcssler Eine vollst\u00e4ndige Liste kann beim Kundenservice angefordert werden. Hinweis: Fachpersonen k\u00f6nnen sich im ErfahrungsMedizinischen Register EMR in Basel registrieren lassen. Die Registrierung bedeutet keinen Anspruch auf Anerkennung."
+  ]
+}

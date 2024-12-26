@@ -1,30 +1,52 @@
 {
   "input_file": "Helsana_ZVB_dentaplus.pdf",
-  "processed_at": "2024-12-20_23:02:42",
+  "processed_at": "2024-12-22_10:21:21",
+  "profile": "OpenAI#OpenAI_section_csv#0.9.0",
   "processor": {
+    "app": {
+      "name": "vbc_learn",
+      "version": "0.9.0"
+    },
+    "text_preparation": {
+      "provider": "OpenAI"
+    },
+    "embeddings": {
+      "provider": "OpenAI",
+      "chunking_mode": "section",
+      "storage": "csv",
+      "index_id": "OpenAI#OpenAI_section_csv#0.9.0"
+    },
     "machine": {
       "name": "Midnight-Duke.local",
       "architecture": "arm64",
-      "details": [
-        "Darwin",
-        "Midnight-Duke.local",
-        "23.6.0",
-        "Darwin Kernel Version 23.6.0: Mon Jul 29 21:14:04 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T8122",
-        "arm64",
-        "arm"
-      ],
       "os": {
         "name": "Darwin",
         "version": "23.6.0"
       }
     },
-    "app": {
-      "name": "vbc_learn",
-      "version": "0.9.0"
-    },
     "user": "helmut"
   },
   "pages": [
-    "**Zus\u00e4tzliche Versicherungsbedingungen (ZVB) DENTALplus**\n\n**Inhaltsverzeichnis**\n\n**Allgemeines**\n1. Zweck\n\n**Leistungen**\n2. Versicherungsdeckung\n3. Leistungsvoraussetzungen\n4. Leistungsbeginn\n5. Leistungsausschl\u00fcsse\n\n**Diverses**\n6. Versicherung f\u00fcr Kinder\n7. Aufhebung der Pr\u00e4miengrenzen\n\n---\n\n**Allgemeines**\n\n1. **Zweck**\n   - DENTALplus deckt Kosten f\u00fcr zahn\u00e4rztliche Behandlungen, inklusive Prophylaxe, Kontrollen, Kieferorthop\u00e4die und -chirurgie.\n\n**Leistungen**\n\n2. **Versicherungsdeckung**\n   - \u00dcbernahme der Behandlungskosten bis zur gew\u00e4hlten H\u00f6chstsumme, abz\u00fcglich Selbstbehalt und Franchise.\n\n3. **Leistungsvoraussetzungen**\n   - Behandlungen durch eidg. dipl. oder anerkannte Zahn\u00e4rzte.\n   - Auslandbehandlungen nur bei gleichwertiger Ausbildung.\n   - Leistungen maximal nach SSO-Tarif.\n   - Bei station\u00e4rem Aufenthalt in der Schweiz werden allgemeine Abteilungen bezahlt.\n\n4. **Leistungsbeginn**\n   - Anspruch beginnt nach 6 Monaten Wartefrist ab Versicherungsbeginn.\n\n5. **Leistungsausschl\u00fcsse**\n   - Keine Leistungen f\u00fcr:\n     a) Ersatz fehlender Z\u00e4hne bei Vertragsabschluss.\n     b) Unfallbedingte Behandlungen.\n     c) Verlust/Besch\u00e4digung von Zahnersatz.\n   - Schul- oder Jugendzahnpflege wird angerechnet.\n\n**Diverses**\n\n6. **Versicherung f\u00fcr Kinder**\n   - Ab Geburt versicherbar, wenn Antrag vor Geburt gestellt wird.\n\n7. **Aufhebung der Pr\u00e4miengrenzen**\n   - Pr\u00e4miengrenzen der Krankenversicherung gelten nicht f\u00fcr DENTALplus Flex."
+    {
+      "number": 1,
+      "content": "# Zus\u00e4tzliche Versicherungsbedingungen (ZVB) DENTAplus\n\n## Inhaltsverzeichnis\n\n### Allgemeines\n1. Zweck\n\n### Leistungen\n2. Versicherungsdeckung  \n3. Leistungsvoraussetzungen  \n4. Leistungsbeginn  \n5. Leistungsausschl\u00fcsse  \n\n### Diverses\n6. Versicherung f\u00fcr Kinder  \n7. Aufhebung der Pr\u00e4miengrenzen  \n\n## Allgemeines\n\n### 1 Zweck\nDENTAplus bietet Leistungen zur Deckung der Kosten f\u00fcr zahn\u00e4rztliche Behandlungen, inklusive Prophylaxe, Kontrolluntersuchungen, Kieferorthop\u00e4die und Kieferchirurgie.\n\n## Leistungen\n\n### 2 Versicherungsdeckung\nDENTAplus \u00fcbernimmt die Behandlungskosten bis zur gew\u00e4hlten H\u00f6chstsumme, abz\u00fcglich Selbstbehalt und Franchise. Diese sind in der Versicherungspolice festgelegt.\n\n### 3 Leistungsvoraussetzungen\n3.1 Leistungen werden f\u00fcr Behandlungen durch eidg. dipl. oder anerkannte Zahn\u00e4rzte gew\u00e4hrt.\n\n3.2 Bei Behandlungen im Ausland werden Kosten \u00fcbernommen, wenn der Zahnarzt eine gleichwertige Ausbildung hat.\n\n3.3 Leistungen orientieren sich am Tarif der Schweizerischen Zahn\u00e4rztegesellschaft (SSO) und gelten als Obergrenze im Ausland.\n\n3.4 Bei station\u00e4rem Spitalaufenthalt in der Schweiz werden allgemeine Abteilungen bezahlt.\n\n### 4 Leistungsbeginn\nDer Leistungsanspruch beginnt nach einer Wartefrist von 6 Monaten ab Versicherungsbeginn. Das Behandlungsdatum ist entscheidend.\n\n### 5 Leistungsausschl\u00fcsse\n5.1 Keine Leistungen bei:\n- Ersatz von fehlenden, ersetzten oder retinierten Z\u00e4hnen zum Zeitpunkt des Vertragsabschlusses\n- Unfallbedingten zahn\u00e4rztlichen Behandlungen\n- Verlust oder Besch\u00e4digung von Zahnersatz oder Apparaturen\n\n5.2 Schul- oder Jugendzahnpflege wird angerechnet.\n\n## Diverses\n\n### 6 Versicherung f\u00fcr Kinder\nKinder sind ab Geburt versichert, wenn der Antrag vor der Geburt gestellt wird. Keine Ausschl\u00fcsse wegen bestehender Gesundheitssch\u00e4den.\n\n### 7 Aufhebung der Pr\u00e4miengrenzen\nDie in den AVB festgelegten Pr\u00e4miengrenzen gelten nicht f\u00fcr DENTAplus Flex."
+    }
+  ],
+  "chunks": [
+    "Zus\u00e4tzliche Versicherungsbedingungen ZVB DENTAplus",
+    "Inhaltsverzeichnis",
+    "Allgemeines 1. Zweck",
+    "Leistungen 2. Versicherungsdeckung 3. Leistungsvoraussetzungen 4. Leistungsbeginn 5. Leistungsausschl\u00fcsse",
+    "Diverses 6. Versicherung f\u00fcr Kinder 7. Aufhebung der Pr\u00e4miengrenzen",
+    "Allgemeines",
+    "Zweck DENTAplus bietet Leistungen zur Deckung der Kosten f\u00fcr zahn\u00e4rztliche Behandlungen, inklusive Prophylaxe, Kontrolluntersuchungen, Kieferorthop\u00e4die und Kieferchirurgie.",
+    "Leistungen",
+    "Versicherungsdeckung DENTAplus \u00fcbernimmt die Behandlungskosten bis zur gew\u00e4hlten H\u00f6chstsumme, abz\u00fcglich Selbstbehalt und Franchise. Diese sind in der Versicherungspolice festgelegt.",
+    "Leistungsvoraussetzungen 3.1 Leistungen werden f\u00fcr Behandlungen durch eidg. dipl. oder anerkannte Zahn\u00e4rzte gew\u00e4hrt. 3.2 Bei Behandlungen im Ausland werden Kosten \u00fcbernommen, wenn der Zahnarzt eine gleichwertige Ausbildung hat. 3.3 Leistungen orientieren sich am Tarif der Schweizerischen Zahn\u00e4rztegesellschaft SSO und gelten als Obergrenze im Ausland. 3.4 Bei station\u00e4rem Spitalaufenthalt in der Schweiz werden allgemeine Abteilungen bezahlt.",
+    "Leistungsbeginn Der Leistungsanspruch beginnt nach einer Wartefrist von 6 Monaten ab Versicherungsbeginn. Das Behandlungsdatum ist entscheidend.",
+    "Leistungsausschl\u00fcsse 5.1 Keine Leistungen bei: - Ersatz von fehlenden, ersetzten oder retinierten Z\u00e4hnen zum Zeitpunkt des Vertragsabschlusses - Unfallbedingten zahn\u00e4rztlichen Behandlungen - Verlust oder Besch\u00e4digung von Zahnersatz oder Apparaturen 5.2 Schul- oder Jugendzahnpflege wird angerechnet.",
+    "Diverses",
+    "Versicherung f\u00fcr Kinder Kinder sind ab Geburt versichert, wenn der Antrag vor der Geburt gestellt wird. Keine Ausschl\u00fcsse wegen bestehender Gesundheitssch\u00e4den.",
+    "Aufhebung der Pr\u00e4miengrenzen Die in den AVB festgelegten Pr\u00e4miengrenzen gelten nicht f\u00fcr DENTAplus Flex."
   ]
 }

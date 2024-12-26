@@ -47,7 +47,7 @@ class LlmClient(ABC):
         return self.config.image_to_text_config
     
     def embeddings_config(self) -> LlmClientConfig:
-        return self.config.embeddings_config
+        return self.config.embedding_config
     
 
 
@@ -66,42 +66,40 @@ class LlmClientConfigurator(ABC):
 
 
 class EmbeddingStore(ABC):
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.data = []
 
-        if os.path.exists(self.file_path):
-            self.load_embeddings()
+    def __init__(self,  config: VbcConfig):
+        self.index_id = config.as_profile_label()
+        self.config = config
 
-    def save(self, embeddings, texts):
-        self.data = [{"embedding": embedding, "text": text} for embedding, text in zip(embeddings, texts)]
-        with open(self.file_path, 'w') as f:
-            json.dump(self.data, f)
-
-    def load_embeddings(self):
-        with open(self.file_path, 'r') as f:
-            self.data = json.load(f)
-
-    def get_embedding(self, index):
-        return self.data[index]['embedding'] if 0 <= index < len(self.data) else None
-
-    def get_text(self, index):
-        return self.data[index]['text'] if 0 <= index < len(self.data) else None
-
-    def get_all_embeddings(self):
-        return [item['embedding'] for item in self.data]
-
-    def __cosine_similarity(self, embedding1, embedding2):
-        return cosine_similarity([embedding1], [embedding2])[0][0]
-
-    def find_most_similar(self, embedding, embeddings_list):
-        # TODO: as question is smaller, maybe fill
-        similarities = [self.__cosine_similarity(embedding, emb) for emb in embeddings_list]
-        most_similar_idx = np.argmax(similarities)
-        return most_similar_idx, similarities[most_similar_idx]
+    def is_full_reload_required(self):
+        return self.config.mode == "full"
     
-    def ccc():
-        df["similarity"] = df.embeddings.apply(lambda x: cosine_similarity(np.array(x).reshape(1,-1), np.array(embedded_value).reshape(1, -1)))
-        res = df.sort_values('similarity', ascending=False).head(top_k)
+    @abstractmethod
+    def delete_all(self):
+        pass
+    
+    # def get_embedding(self, index):
+    #     pass  # This is an abstract method, no implementation here.
+
+    # def get_text(self, index):
+    #     pass  # This is an abstract method, no implementation here.
+
+    # def get_all_embeddings(self):
+    #     pass  # This is an abstract method, no implementation here.
+
+    @abstractmethod
+    def find_most_similar(self, embeddings, top_k=1):
+        pass  # This is an abstract method, no implementation here.
+
+    @abstractmethod
+    def store(self, text, embeddings):
+        pass  # This is an abstract method, no implementation here.
+
+    def close(self):
+        pass 
+
+    # def ccc():
+    #     df["similarity"] = df.embeddings.apply(lambda x: cosine_similarity(np.array(x).reshape(1,-1), np.array(embedded_value).reshape(1, -1)))
+    #     res = df.sort_values('similarity', ascending=False).head(top_k)
 
 

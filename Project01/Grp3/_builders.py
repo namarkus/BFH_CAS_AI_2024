@@ -13,15 +13,18 @@ if __name__ == '__main__':
     exit()
 # _____[ Imports ]______________________________________________________________
 import logging
-from _configs import VbcConfig
+from _configs import EmbeddingStorage, VbcAction, VbcConfig
 from _logging import app_logger
 from _openai_config import OpenAiClientConfigurator
 from _openai_client import OpenAiClient
+from _csv_embedding import CsvEmbeddingStore
 
-class ConfgBuilder:
-    def __init__(self, llm: str):
+class ConfigBuilder:
+    def __init__(self, mode: str, llm: str, version: str):
         self.llm = llm
         self.config = VbcConfig()
+        self.config.learn_version = version
+        self.config.action = [name for name, member in VbcAction.__members__.items() if member.value == mode]
         self.logger = app_logger()
         self.configurator = OpenAiClientConfigurator() # fixme dynamisieren
         self.logger.debug(f"Konfigurations-Builder initalisiert. Nutze {self.configurator} zur Konfiguration der LLM-Engines.")
@@ -46,6 +49,26 @@ class ClientBuilder:
         self.logger.debug(f"Konfiguriere Client für Bild-zu-Text-Konvertierung mit Modell {self.config.image_to_text_config.model_id}...")
         self.client = OpenAiClient(self.config)        
         return self
+    
+    def for_embeddings(self):
+        self.logger.debug(f"Konfiguriere Client für Embeddings mit Modell {self.config.embedding_config.model_id}...")
+        self.client = OpenAiClient(self.config)        
+        return self
 
     def build(self):
         return self.client
+    
+class EmbeddingStoreBuilder:
+    def __init__(self, config: VbcConfig):
+        self.config = config
+        self.logger = app_logger()
+        if self.config.embedding_storage == EmbeddingStorage.CSV:
+            self.for_csv()
+
+    def for_csv(self):
+        self.logger.debug(f"Konfiguriere CSV-Store für Embeddings...")
+        self.store = CsvEmbeddingStore(self.config)
+        return self
+
+    def build(self):
+        return self.store    
