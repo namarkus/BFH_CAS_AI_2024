@@ -28,12 +28,12 @@ SLEEPING_TIME_IN_SECONDS = 2
 class OpenAiClient(LlmClient):
 
     @staticmethod
-    def is_availble(self) -> bool:
+    def is_availble() -> bool:
         """
         Überprüft ob die OpenAI API verfügbar ist.
         """
         try:
-            return self.api_key is not None
+            return OpenAiClient.get_api_key() is not None
         except VbcConfigError:
             return False
 
@@ -75,7 +75,7 @@ class OpenAiClient(LlmClient):
                                 {
                                 "type": "image_url",
                                 "image_url": {
-                                    "url": f"{base64_encoded_image}"
+                                    "url": f"data:image/png;base64,{base64_encoded_image}"
                                 }
                                 }
                             ]

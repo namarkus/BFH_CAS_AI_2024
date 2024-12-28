@@ -16,7 +16,7 @@ Folgende Personen der _Gruppe 3_ haben zu diesem Projekt beigetragen:
 ### Vorbedingungen
 
 - [x] Python lokal installiert
-- [x] Packagemanger wie conda oder venv installiert
+- [x] Packagemanger wie Anaconda oder venv installiert
   - [x] Sandbox (Projektumgebung) z.B. `{vbc}` erstellt
   - [ ] Projektumgebung aktiviert `conda activate {vbc}`
 - [ ] Benötigte Python Module installiert
@@ -33,10 +33,23 @@ Folgende Personen der _Gruppe 3_ haben zu diesem Projekt beigetragen:
     das Kommando `setx` oder der Dialog _Benutzerumgebungsvariable_ in den 
     _Systemeinstellungen_.
 - Für die Nutzung von Ollama als lokales Backend
-  - _TBD_
+  - [x] Installation der lokale Ollama Runtime von der 
+    [offiziellen Downloadseite](https://ollama.com/download) oder via 
+    Package-Manager (z.B. `brew install ollama`auf macOS).
+  - [ ] Installation der benötigten Modelle
+      - [ ] ollama run llama3.3 --> benötigt zu viel Memory
+      - [ ] ollama run qwq https://ollama.com/library/qwq
+      - [ ] ollama run llama3.2 
+      - [ ] ollama run llama3.2-vision 
+      - [ ] ollama run mistral --> nur englisch
 
-- Für die Nutzung von Ollama als Docker-Backend
-  - _TBD_
+
+- Für die Nutzung von Ollama als Docker-Backend[^1]
+  - [x] Download und Run des entsprechenden Docker Images
+    `docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama`
+  - [ ] Setzen der Umgebungsvariablen für das Lookup der Runtime. _tbd_
+  - [ ] Installation der benötigten Modelle (siehe bei "lokales Backend")
+  
 
 ### Verfügbare Kommandos
 
@@ -51,7 +64,7 @@ Folgende Personen der _Gruppe 3_ haben zu diesem Projekt beigetragen:
 
 ### Konfiguration
 
-_TBD_ siehe vorerst Datei `_congigs.py`
+_TBD_ siehe vorerst Datei `_configs.py`
 
 ## Architektur
 
@@ -82,3 +95,25 @@ sequenceDiagram
     vbc-learn->>OpenAI-o1: Verifiziere Antwort
 
 ```
+
+## Lokales RAG mit Ollama
+
+Im Rahmen der Projektarbeit haben wir versucht RAG lokal ohne Internetanbindung für den 
+Verarbeitungsprozess zu realisieren.
+
+Als lokale Laufzeit kam dabei Ollama zum Zug. Folgende Modelle wurden in die Evaluation mit 
+einbezogen:
+
+| Modell | Einsatz für | Findings | Geeignet |
+| ------ | ----------- | -------- | -------- |
+| llama3.2-vision | Bild-zu Text-Konvertierung | | (/) | 
+| llama3.2 | Chat / RAG | | (/) | 
+| llama3.3 | Reasoning | Benötigt zu viel Memory für unser Test-Setup | (-) | 
+| qwq | - | Benötigt zu viel Memory für unser Test-Setup |  | 
+| mistral | | Sprachenunterstütung (de) ungenügend) | (-) |
+
+[^1]: Je nach Umgebung wird im Moment noch dienative  Installation empfohlen, da 
+  für die Unterstützung der Grafik-Karte im Docker-Image noch einige manuelle 
+  Eingriffe nötig sind. Für weitere Details siehe
+  - [Ankündigung](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
+  - [Image Dokumentation](https://hub.docker.com/r/ollama/ollama)

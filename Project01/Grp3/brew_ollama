@@ -1,0 +1,25 @@
+#!/bin/zsh
+ACTION=$1
+if [ "$ACTION" = "start" ]; then
+    echo "Starting the local Ollama engine"
+    brew services start ollama
+    #$0 deploy
+elif [ "$ACTION" = "stop" ]; then
+    echo "Stopping the local Ollama engine"
+    brew services stop ollama
+elif [ "$ACTION" = "restart" ]; then
+    echo "Restarting the local Ollama engine"
+    brew services restart ollama
+    #$0 deploy
+elif [ "$ACTION" = "status" ]; then
+    echo "Checking the status of the local Ollama engine"
+    brew services list | grep ollama
+    ollama ps
+elif [ "$ACTION" = "deploy" ]; then
+    echo "Deploying required models on the local Ollama engine"
+    nohup ollama run llama3.2 --keepalive 60m
+    nohup ollama run llama3.2-vision --keepalive 60m
+    nohup ollama run jina/jina-embeddings-v2-base-de --keepalive 60m
+else
+    echo "Invalid action. Please use start, stop, or restart"
+fi

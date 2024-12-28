@@ -48,7 +48,8 @@ class EmbeddingStorage(Enum):
         Enum (_type_): _description_
     """
     CSV = "csv"
-    FAISS = "faiss"
+    PINECONE = "PaineCone"
+    CHROMA = "Chroma"
 
 class VbcAction(Enum):
     """_summary_
@@ -75,17 +76,16 @@ class LlmClientConfig:
 
 @dataclass
 class VbcConfig:   
-    # TODO #3: Pfad anpassen, auf "./zvb_pdfs", sobald gewisser Maturitätsgrad vorhanden ist.
     action: VbcAction = VbcAction.CHAT    # Aktion, die durchgeführt werden soll
     sources_path: str = "./input"     # Quellpfad mit den Originaldaten
     model_path: str = "./models"    # Pfad mit den Modellen
     knowledge_repository_path: str = "./work"   # Pfad mit den vorverarbeiteten Dateien
     language: str = "german"    # Sprache der Daten
     learn_version = "0.1"    # Version des Lernmoduls
-    chunking_mode: ChunkingMode = ChunkingMode.SECTION  # Modus für die Chunk-Bildung
+    chunking_mode: ChunkingMode = ChunkingMode.SENTENCE  # Modus für die Chunk-Bildung
     llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider
     embedding_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
-    embedding_storage: EmbeddingStorage = EmbeddingStorage.CSV  # Speicherort für Embeddings
+    embedding_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
 
     def with_image_to_text_config(self, image_to_text_config: LlmClientConfig):
         self.image_to_text_config = image_to_text_config
@@ -93,6 +93,10 @@ class VbcConfig:
 
     def with_embedding_config(self, embedding_config: LlmClientConfig):
         self.embedding_config = embedding_config
+        return self
+    
+    def with_answer_with_hints_config(self, response_config: LlmClientConfig):
+        self.answer_with_hints_config = response_config
         return self
     
     def as_profile_label(self):

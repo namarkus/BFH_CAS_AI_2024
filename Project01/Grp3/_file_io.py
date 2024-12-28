@@ -20,6 +20,8 @@ import platform
 import getpass
 import json
 from datetime import datetime
+
+from sklearn import base
 from _configs import VbcConfig    
 from _logging import app_logger
 from pdf2image import convert_from_path
@@ -64,8 +66,7 @@ class InputFile:
         img.save(png_buffer, format="PNG")
         png_buffer.seek(0)
         base64_png = base64.b64encode(png_buffer.read()).decode('utf-8')
-        data_uri = f"data:image/png;base64,{base64_png}"
-        return data_uri
+        return base64_png
 
 class MetaFile:
     def __init__(self, config: VbcConfig, 
