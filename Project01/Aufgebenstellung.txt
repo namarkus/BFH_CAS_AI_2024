@@ -4,3 +4,19 @@ Mögliche Kombinationen:
 	Nur GPT (jede version, die es schafft) zur Daten-Generierung für ein unbalanced Dataset, auf dem man z.B. ein Classifier trainiert
 3. Nur O1 Model zur Daten-Analyse auf Probleme
 4. Generell: jede Kombination wo die Transformer vorkommen (auch ohne andere DL modelle)
+
+
+#links articles
+https://platform.openai.com/docs/guides/reasoning
+https://platform.openai.com/docs/guides/rate-limits#usage-tiers
+https://www.datacamp.com/blog/open-ai-o1
+https://www.datacamp.com/tutorial/openai-o1-api
+https://openai.com/index/o1-and-new-tools-for-developers/
+https://simonwillison.net/2024/Sep/12/openai-o1/
+
+#links videos
+https://www.youtube.com/watch?v=7J44j6Fw8NM
+https://www.youtube.com/watch?v=iBfQTnA2n2s
+https://www.youtube.com/watch?v=jrA47yocyV0&t=1068s
+https://www.youtube.com/watch?v=Fp-ue4UCE3s
+https://www.youtube.com/watch?v=YAgIh4aFawU
