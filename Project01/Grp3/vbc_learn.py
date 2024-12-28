@@ -6,7 +6,7 @@ __author__ = "BFH-CAS-AI-2024-Grp3"
 __copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
-__version__ = "0.9.0"
+__version__ = "0.9.1"
 __status__ = "Development"
 __description__ = """
 Diese Anwendung bereitet die Daten für den späteren Einsatz im vb-chat vor. 
@@ -61,7 +61,7 @@ parser.add_argument("--profile", type=str,
                     help="""Zu ladendes Profil. Wird keines angegeben, so wird 
                     aufgrund der vorhandenen Konfigurations-Templates, der llm 
                     und der App-Version das Profil automatisch ermittelt.""")
-parser.add_argument("--llm", type=str, choices=["auto", "lokal", "orbstack", "openai"], 
+parser.add_argument("--llm", type=str, choices=["auto", "lokal", "cloud"], 
                     default="auto", 
                     help="""LLM-Engine, die für die Verarbeitung verwendet 
                     werden soll. 'lokal' verwendet die lokal installierte Engine,
@@ -96,7 +96,7 @@ if len(input_files) > 0:
             pages = input_file.get_content()
             logging.info(f"Bereite Datei {input_file.file_name} mit {len(pages)} Seiten vor ...")            
             meta_file = MetaFile(config, from_input_file=input_file)
-            with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor: 
                 futures = {
                     idx: executor.submit(image_to_text_client.get_text_from_image, page)
                     for idx, page in enumerate(pages)

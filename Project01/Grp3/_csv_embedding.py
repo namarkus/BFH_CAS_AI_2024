@@ -41,15 +41,6 @@ class CsvEmbeddingStore(EmbeddingStore):
     def delete_all(self):
         self.df = pd.DataFrame(columns=["text", "embeddings"])
 
-    def get_embedding(self, index):
-        pass  # This is an abstract method, no implementation here.
-
-    def get_text(self, index):
-        pass  # This is an abstract method, no implementation here.
-
-    def get_all_embeddings(self):
-        pass  # This is an abstract method, no implementation here.
-
     def find_most_similar(self, embedding, top_k=1):
         # TODO: as question is smaller, maybe fill
         similarities = [self.__cosine_similarity(embedding, emb) for emb in self.df.embeddings]

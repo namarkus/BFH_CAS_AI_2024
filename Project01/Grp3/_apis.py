@@ -39,6 +39,10 @@ class LlmClient(ABC):
     def get_response(self, question, embeddings) -> str:
         pass  # This is an abstract method, no implementation here.
 
+    @abstractmethod
+    def answer_with_hints(self, question, hints, chat_thread):  
+        pass  # This is an abstract method, no implementation here.
+
     #@abstractmethod
     def test_statement(self, question, expected_answer) -> bool:
         pass  # This is an abstract method, no implementation here.
@@ -48,7 +52,10 @@ class LlmClient(ABC):
     
     def embeddings_config(self) -> LlmClientConfig:
         return self.config.embedding_config
-    
+
+    def answer_with_hints_config(self) -> LlmClientConfig:
+        return self.config.answer_with_hints_config
+
 
 
 class LlmClientConfigurator(ABC):
