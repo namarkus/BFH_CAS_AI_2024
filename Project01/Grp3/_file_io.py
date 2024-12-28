@@ -30,7 +30,7 @@ SUPPORTED_REPO_FILE_TYPES = ["*.json"]
 class InputFile:
     def __init__(self, file_path: str):
         self.file_path = file_path
-        self.file_name = file_path.split("/")[-1]
+        self.file_name = os.path.basename(file_path)
         self.file_extension = file_path.split(".")[-1]
 
     def __load(self):
