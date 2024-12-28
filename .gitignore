@@ -2,3 +2,5 @@
 *.pyc
 Project01/Grp3/logs/*.log
 Project01/Grp3/models/*.csv
+*.iml
+.idea
