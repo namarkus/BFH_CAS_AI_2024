@@ -1,0 +1,12 @@
+pandas
+tqdm
+matplotlib
+u8darts-all
+nltk
+spacy
+pdf2image
+poppler
+openai
+textblob
+ollama
+chromadb
