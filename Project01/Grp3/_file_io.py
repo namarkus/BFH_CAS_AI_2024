@@ -130,13 +130,6 @@ class MetaFile:
     def get_chunks(self) -> list[str]:
         return self.metadata["chunks"]
 
-
-    # def add_chunk_with_embeddings(self, page):
-    #     self.metadata["chunks"].append(page)
-
-    # def add_embedding(self, embedding):
-    #     self.metadata["embeddings"].append(embedding)
-    
 class InputFileHandler:
 
     def __init__(self, mode: str, config: VbcConfig):
@@ -150,6 +143,7 @@ class InputFileHandler:
         filtered_files = []
         for ext in extensions:
             filtered_files.extend(glob.glob(f"{directory}/*{ext}"))
+        filtered_files.sort()
         return filtered_files
 
     def get_all_input_files(self) -> list[InputFile]:
