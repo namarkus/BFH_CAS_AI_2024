@@ -81,7 +81,7 @@ class MetaFile:
                         "version" : config.learn_version ,
                     },
                     "text_preparation": {
-                        "provider": config.llm_provider.value,
+                        "provider": config.image2text_llm_provider.value,
                     },
                     "embeddings": {
                         "provider": config.embedding_provider.value,
@@ -191,7 +191,7 @@ class InputFileHandler:
         return dirty_files
 
     def __is_already_text_prepared(self, meta_file: MetaFile, config: VbcConfig):
-        return (meta_file.metadata["processor"]["text_preparation"]["provider"] == config.llm_provider.value 
+        return (meta_file.metadata["processor"]["text_preparation"]["provider"] == config.image2text_llm_provider.value 
                 and meta_file.metadata["processor"]["app"]["version"] == config.learn_version)
     
     def __is_already_chunked(self, meta_file: MetaFile, config: VbcConfig):

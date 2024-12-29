@@ -49,15 +49,17 @@ class ConfigBuilder:
 
     def _with_local_llm(self):
         self.configurator = OllamaClientConfigurator()
-        self.config.llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
+        self.config.image2text_llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
         self.config.embedding_provider = SupportedLlmProvider.OLLAMA
         self.config.embedding_storage = EmbeddingStorage.CHROMA
+        self.config.chat_llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
 
     def _with_remote_llm(self):
         self.configurator = OpenAiClientConfigurator()
-        self.config.llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
+        self.config.image2text_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
         self.config.embedding_provider = SupportedLlmProvider.OPENAI
         self.config.embedding_storage = EmbeddingStorage.CHROMA
+        self.config.chat_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
 
     def with_image_to_text_config(self):
         self.config.with_image_to_text_config(self.configurator.textcontent_from_image_config())

@@ -82,9 +82,10 @@ class VbcConfig:
     language: str = "german"    # Sprache der Daten
     learn_version = "0.1"    # Version des Lernmoduls
     chunking_mode: ChunkingMode = ChunkingMode.SECTION  # Modus für die Chunk-Bildung
-    llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider
+    image2text_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für Image2Text
     embedding_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
     embedding_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
+    chat_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für den Chat selbst
 
     def with_image_to_text_config(self, image_to_text_config: LlmClientConfig):
         self.image_to_text_config = image_to_text_config
@@ -99,26 +100,26 @@ class VbcConfig:
         return self
     
     def as_profile_label(self):
-        return f"{self.llm_provider.value}#{self.embedding_provider.value}_{self.chunking_mode.value}_{self.embedding_storage.value}#{self.learn_version}"
+        return f"{self.image2text_llm_provider.value}#{self.embedding_provider.value}_{self.chunking_mode.value}_{self.embedding_storage.value}#{self.chat_llm_provider.value}#{self.learn_version}"
 
     def from_profile_label(self, mode):
         profile_parts = mode.split("#")
-        self.llm_provider = SupportedLlmProvider(profile_parts[0])
+        self.image2text_llm_provider = SupportedLlmProvider(profile_parts[0])
         embedding_parts = profile_parts[1].split("_")
         self.embedding_provider = SupportedLlmProvider(embedding_parts[0])
         self.chunking_mode = ChunkingMode(embedding_parts[1])
         self.embedding_storage = EmbeddingStorage(embedding_parts[2].split(":")[0])
-        self.learn_version = profile_parts[2]
+        self.chat_llm_provider = SupportedLlmProvider(profile_parts[2])
+        self.learn_version = profile_parts[3]
         return self
 
 def print_splash_screen(app_name: str, app_version: str, app_author: str):
     print(f"""
    ___⩟___
-  /       \       _   _____  _____
+  /       \\       _   _____  _____
  |  ^   ^  |     | | / / _ )/ ___/
  |  .___.  |     | |/ / _  / /__  
-  \_______/      |___/____/\___/      Vertragsbedingungs-Chat
-   /     \     
+  \\_______/      |___/____/\\___/      Vertragsbedingungs-Chat
+   /     \\     
   |  ---  |      {app_name} v{app_version} by {app_author}
  """)
-    
