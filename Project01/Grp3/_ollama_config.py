@@ -62,7 +62,7 @@ class OllamaClientConfigurator(LlmClientConfigurator):
             model_id="jina/jina-embeddings-v2-base-de"
         )
 
-    def response_config(self) -> LlmClientConfig:
+    def answer_with_hits_config(self) -> LlmClientConfig:
         return LlmClientConfig(
             model_id="llama3.2",
             system_prompt=rag_sysprompt

@@ -50,27 +50,27 @@ class ConfigBuilder:
     def _with_local_llm(self):
         self.configurator = OllamaClientConfigurator()
         self.config.image2text_llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
-        self.config.embedding_provider = SupportedLlmProvider.OLLAMA
-        self.config.embedding_storage = EmbeddingStorage.CHROMA
+        self.config.embeddings_provider = SupportedLlmProvider.OLLAMA
+        self.config.embeddings_storage = EmbeddingStorage.CHROMA
         self.config.chat_llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
 
     def _with_remote_llm(self):
         self.configurator = OpenAiClientConfigurator()
         self.config.image2text_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
-        self.config.embedding_provider = SupportedLlmProvider.OPENAI
-        self.config.embedding_storage = EmbeddingStorage.CHROMA
+        self.config.embeddings_provider = SupportedLlmProvider.OPENAI
+        self.config.embeddings_storage = EmbeddingStorage.CHROMA
         self.config.chat_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
 
     def with_image_to_text_config(self):
         self.config.with_image_to_text_config(self.configurator.textcontent_from_image_config())
         return self
     
-    def with_embedding_config(self):
-        self.config.with_embedding_config(self.configurator.embeddings_config())
+    def with_embeddings_config(self):
+        self.config.with_embeddings_config(self.configurator.embeddings_config())
         return self
     
-    def with_response_config(self):
-        self.config.with_answer_with_hints_config(self.configurator.response_config())
+    def with_answer_with_hits_config(self):
+        self.config.with_answer_with_hints_config(self.configurator.answer_with_hits_config())
         return self
 
 
@@ -84,7 +84,7 @@ class ClientBuilder:
 
     def for_image_to_text(self):
         self.logger.debug(f"Konfiguriere Client für Bild-zu-Text-Konvertierung mit Modell {self.config.image_to_text_config.model_id}...")
-        self.client = self._from_enum(self.config.llm_provider)
+        self.client = self._from_enum(self.config.image2text_llm_provider)
         return self
     
     def _from_enum(self, value: SupportedLlmProvider) -> LlmClient:
@@ -97,13 +97,13 @@ class ClientBuilder:
                 raise ValueError(f"Unsupported LLM-Provider {value}.")
     
     def for_embeddings(self):
-        self.logger.debug(f"Konfiguriere Client für Embeddings mit Modell {self.config.embedding_config.model_id}...")
-        self.client = self._from_enum(self.config.embedding_provider)
+        self.logger.debug(f"Konfiguriere Client für Embeddings mit Modell {self.config.embeddings_config.model_id}...")
+        self.client = self._from_enum(self.config.embeddings_provider)
         return self
 
     def for_response(self):
         self.logger.debug(f"Konfiguriere Client für Response mit Modell {self.config.answer_with_hints_config.model_id}...")
-        self.client = self._from_enum(self.config.embedding_provider) # fixme
+        self.client = self._from_enum(self.config.embeddings_provider) # fixme
         return self
 
     def build(self):
@@ -113,7 +113,7 @@ class EmbeddingStoreBuilder:
     def __init__(self, config: VbcConfig):
         self.config = config
         self.logger = app_logger()
-        match config.embedding_storage:
+        match config.embeddings_storage:
             case EmbeddingStorage.CSV: 
                 self._for_csv()
             case EmbeddingStorage.CHROMA: 
@@ -121,7 +121,7 @@ class EmbeddingStoreBuilder:
             case EmbeddingStorage.PINECONE: 
                 self._for_pinecone(),
             case _:
-                raise ValueError(f"Unsupported Embedding-Storage {self.config.embedding_storage}.")
+                raise ValueError(f"Unsupported Embedding-Storage {self.config.embeddings_storage}.")
 
     def _for_csv(self):
         self.logger.debug(f"Konfiguriere CSV-Store für Embeddings...")

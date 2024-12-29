@@ -83,32 +83,32 @@ class VbcConfig:
     learn_version = "0.1"    # Version des Lernmoduls
     chunking_mode: ChunkingMode = ChunkingMode.SECTION  # Modus für die Chunk-Bildung
     image2text_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für Image2Text
-    embedding_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
-    embedding_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
+    embeddings_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
+    embeddings_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
     chat_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für den Chat selbst
 
     def with_image_to_text_config(self, image_to_text_config: LlmClientConfig):
         self.image_to_text_config = image_to_text_config
         return self
 
-    def with_embedding_config(self, embedding_config: LlmClientConfig):
-        self.embedding_config = embedding_config
+    def with_embeddings_config(self, embeddings_config: LlmClientConfig):
+        self.embeddings_config = embeddings_config
         return self
     
-    def with_answer_with_hints_config(self, response_config: LlmClientConfig):
-        self.answer_with_hints_config = response_config
+    def with_answer_with_hints_config(self, answer_with_hits_config: LlmClientConfig):
+        self.answer_with_hints_config = answer_with_hits_config
         return self
     
     def as_profile_label(self):
-        return f"{self.image2text_llm_provider.value}#{self.embedding_provider.value}_{self.chunking_mode.value}_{self.embedding_storage.value}#{self.chat_llm_provider.value}#{self.learn_version}"
+        return f"{self.image2text_llm_provider.value}#{self.embeddings_provider.value}_{self.chunking_mode.value}_{self.embeddings_storage.value}#{self.chat_llm_provider.value}#{self.learn_version}"
 
     def from_profile_label(self, mode):
         profile_parts = mode.split("#")
         self.image2text_llm_provider = SupportedLlmProvider(profile_parts[0])
         embedding_parts = profile_parts[1].split("_")
-        self.embedding_provider = SupportedLlmProvider(embedding_parts[0])
+        self.embeddings_provider = SupportedLlmProvider(embedding_parts[0])
         self.chunking_mode = ChunkingMode(embedding_parts[1])
-        self.embedding_storage = EmbeddingStorage(embedding_parts[2].split(":")[0])
+        self.embeddings_storage = EmbeddingStorage(embedding_parts[2].split(":")[0])
         self.chat_llm_provider = SupportedLlmProvider(profile_parts[2])
         self.learn_version = profile_parts[3]
         return self

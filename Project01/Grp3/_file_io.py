@@ -84,9 +84,9 @@ class MetaFile:
                         "provider": config.image2text_llm_provider.value,
                     },
                     "embeddings": {
-                        "provider": config.embedding_provider.value,
+                        "provider": config.embeddings_provider.value,
                         "chunking_mode": config.chunking_mode.value,    
-                        "storage": config.embedding_storage.value,
+                        "storage": config.embeddings_storage.value,
                         "index_id": None
                     },                
                     "machine": {
@@ -201,7 +201,7 @@ class InputFileHandler:
 
     def __is_already_embedded(self, meta_file: MetaFile, config: VbcConfig):
         return (meta_file.metadata["processor"]["embeddings"]["index_id"] is not None
-                and meta_file.metadata["processor"]["embeddings"]["storage"] == config.embedding_storage.value
-                and meta_file.metadata["processor"]["embeddings"]["provider"] == config.embedding_provider.value
+                and meta_file.metadata["processor"]["embeddings"]["storage"] == config.embeddings_storage.value
+                and meta_file.metadata["processor"]["embeddings"]["provider"] == config.embeddings_provider.value
                 and meta_file.metadata["processor"]["embeddings"]["chunking_mode"] == config.chunking_mode.value                
                 and meta_file.metadata["processor"]["app"]["version"] == config.learn_version)

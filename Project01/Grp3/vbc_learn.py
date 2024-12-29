@@ -6,7 +6,7 @@ __author__ = "BFH-CAS-AI-2024-Grp3"
 __copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
-__version__ = "0.9.1"
+__version__ = "0.9.2"
 __status__ = "Development"
 __description__ = """
 Diese Anwendung bereitet die Daten für den späteren Einsatz im vb-chat vor. 
@@ -75,7 +75,7 @@ start_datetime = datetime.now()
 mode = cli_arguments.mode
 llm = cli_arguments.llm
 logging.info(f"Starte Verarbeitung im Modus '{mode}' mit der LLM-Engine '{llm}' ...")
-config = ConfigBuilder(mode, llm, __version__).with_image_to_text_config().with_embedding_config().build()
+config = ConfigBuilder(mode, llm, __version__).with_image_to_text_config().with_embeddings_config().build()
 logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
 file_handler = InputFileHandler(mode, config)
 if mode == "full":

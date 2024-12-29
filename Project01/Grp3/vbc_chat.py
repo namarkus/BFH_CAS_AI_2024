@@ -6,7 +6,7 @@ __author__ = "BFH-CAS-AI-2024-Grp3"
 __copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
-__version__ = "0.9.1"
+__version__ = "0.9.2"
 __status__ = "Test"
 __description__ = """
 tbd
@@ -21,7 +21,7 @@ from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
 if __name__ == "__main__":
     print_splash_screen("vbc_chat", __version__, __author__)
 logging = start_logger("vbc_chat", __status__)
-config = ConfigBuilder("chat", "auto", __version__).with_embedding_config().with_response_config().build()
+config = ConfigBuilder("chat", "auto", __version__).with_embeddings_config().with_answer_with_hits_config().build()
 logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
 chat_client = ClientBuilder(config).for_response().build()
 embedding_client = ClientBuilder(config).for_embeddings().build()
@@ -32,7 +32,7 @@ USER_NAME = getpass.getuser()
 USER_PROMPT = f"{USER_NAME}{PROMPT}"
 INSTRUCTIONS = f"""Hallo {USER_NAME}, 
 Ich bin ein einfacher Chatbot für Krankenkassen-Vertragsbedingungen. Aufgrund meines 
-Wissens und der Hilfe von {config.embedding_provider.value} kann ich Dir Fragen zu diesem Thema beantworten.
+Wissens und der Hilfe von {config.embeddings_provider.value} kann ich Dir Fragen zu diesem Thema beantworten.
 
 Mein Wissen basiert im Moment auf meiner Modellversion {config.as_profile_label()}. 
 

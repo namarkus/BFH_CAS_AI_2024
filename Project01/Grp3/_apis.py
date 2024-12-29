@@ -50,7 +50,7 @@ class LlmClient(ABC):
         return self.config.image_to_text_config
     
     def embeddings_config(self) -> LlmClientConfig:
-        return self.config.embedding_config
+        return self.config.embeddings_config
 
     def answer_with_hints_config(self) -> LlmClientConfig:
         return self.config.answer_with_hints_config
@@ -64,7 +64,7 @@ class LlmClientConfigurator(ABC):
     def embeddings_config(self) -> LlmClientConfig:
         pass  # This is an abstract method, no implementation here.
 
-    def response_config(sself) -> LlmClientConfig:
+    def answer_with_hits_config(sself) -> LlmClientConfig:
         pass  # This is an abstract method, no implementation here.
 
     def test_config(self) -> LlmClientConfig:
