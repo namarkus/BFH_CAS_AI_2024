@@ -2,6 +2,8 @@
 *.pyc
 *.bin
 *.pickle
+*.iml
+.idea
 Project01/Grp3/logs/*.log
 Project01/Grp3/models/*.csv
 Project01/Grp3/models/chroma.sqlite3
