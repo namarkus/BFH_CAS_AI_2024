@@ -82,6 +82,186 @@ _TBD_ siehe vorerst Datei `_configs.py`
 
 ### Klassendiagramm
 
+```mermaid
+---
+title: vbc (Vertragsbedingungs-Chat)
+---
+classDiagram
+class VbcLearn
+class VbcChat
+namespace _builders {
+    class ConfigBuilder {
+        +with_image_to_text_config()  -> ConfigBuilder
+        +with_embeddings_config()  -> ConfigBuilder
+        +with_answer_with_hits_config() -> ConfigBuilder
+        +build() -> LlmClientConfig
+    }
+    class ClientBuilder{
+        +for_image_to_text() -> ClientBuilder
+        +for_embeddings() -> ClientBuilder
+        +for_response() -> ClientBuilder
+        +build() -> LlmClient
+    }   
+    class EmbeddingStoreBuilder{
+        +build() -> EmbeddingStore
+    }
+}
+namespace _apis {
+    class LlmClient {
+        +get_text_from_image(base64_encoded_image) -> str
+        +get_embeddings(text_to_embed) -> str
+        +get_response(question, embeddings) -> str
+        +answer_with_hints(question, hints, chat_thread):  -> str
+        +test_statement(question, expected_answer) -> bool
+        +text_from_image_config() -> LlmClientConfig
+        +embeddings_config() -> LlmClientConfig
+        +answer_with_hints_config() -> LlmClientConfig
+    }
+    class LlmClientConfigurator {
+        +textcontent_from_image_config() -> LlmClientConfig
+        +embeddings_config() -> LlmClientConfig
+        +answer_with_hits_config() -> LlmClientConfig
+        +test_config() -> LlmClientConfig
+    }
+    class EmbeddingStore {
+        +is_full_reload_required()
+        +delete_all()
+        +find_most_similar(, embeddings, top_k=1)
+        +store(text, embeddings)
+        +close()
+    }
+}
+namespace _configs {
+    class SupportedLlmProvider {     
+        <<enumeration>>
+        OPENAI
+        HUGGINGFACE 
+        OLLAMA 
+    }
+    class ChunkingMode {
+        <<enumeration>>
+        PAGE 
+        SECTION 
+        PARAGRAPH 
+        SENTENCE 
+    }   
+    class EmbeddingStorage{
+        <<enumeration>>
+        CSV
+        PINECONE 
+        CHROMA 
+    }
+    class VbcAction {
+        <<enumeration>>
+        INCREMENTAL_REINDEXING 
+        FULL_REINDEXING 
+        CHAT 
+    }
+    class LlmClientConfig {
+        model_id: str 
+        max_tokens: Optional[int] 
+        temperature: Optional[float] 
+        top_p: Optional[float] 
+        system_prompt: Optional[str] 
+        user_prompt: Optional[str] 
+    }
+    class VbcConfig {
+        action: VbcAction 
+        sources_path: str 
+        model_path: str
+        knowledge_repository_path: str 
+        language: str
+        learn_version 
+        chunking_mode: ChunkingMode 
+        image2text_llm_provider: SupportedLlmProvider 
+        embeddings_provider: SupportedLlmProvider
+        embeddings_storage: EmbeddingStorage 
+        chat_llm_provider: SupportedLlmProvider
+        +with_image_to_text_config(image_to_text_config: LlmClientConfig)
+        +with_embeddings_config(embeddings_config: LlmClientConfig)
+        +with_answer_with_hints_config(answer_with_hits_config: LlmClientConfig)
+        +as_profile_label()
+        +from_profile_label(mode)
+    }
+}
+namespace _file_io {
+    class InputFile {
+        +is_processable_as_image():
+        +get_content():
+    }
+    class MetaFile {
+        +save(self):
+        +add_page(page):
+        +get_pages() -> list[str]:
+        +add_chunk(, chunk):
+        +remove_chunks():
+        +get_chunks() -> list[str]:
+    }
+    class InputFileHandler {
+        +get_all_input_files() -> list[InputFile]:
+        +get_input_files_to_process(config: VbcConfig) -> list[InputFile]:
+        +delete_all_metafiles():
+        +get_all_metafiles() -> list[MetaFile]:
+        +get_metafiles_to_chunk(config: VbcConfig) -> list[MetaFile]:
+        +get_metafiles_to_embed(config: VbcConfig) -> list[MetaFile]:
+    }
+}
+namespace _openai_client {
+    class OpenAiClient
+}
+namespace _openai_config {
+    class OpenAiClientConfigurator
+}
+namespace _ollama_client {
+    class OllamaClient
+}
+namespace _openai_config {
+    class OllamaClientConfigurator
+}
+namespace _csv_embedding {
+    class CsvEmbeddingStore
+}
+namespace _chroma_embedding {
+    class ChromaEmbeddingStore
+}
+namespace _pineconde {
+    class PineConeEmbeddings
+}
+
+ConfigBuilder --* VbcConfig: creates
+ConfigBuilder --* LlmClientConfig: creates
+VbcConfig o-- LlmClientConfig: consists of
+VbcConfig -- SupportedLlmProvider : categorizes
+VbcConfig -- ChunkingMode : categorizes
+VbcConfig -- EmbeddingStorage : categorizes
+VbcConfig -- VbcAction : categorizes
+
+LlmClientConfigurator <|-- OpenAiClientConfigurator : implements
+LlmClientConfigurator <|-- OllamaClientConfigurator : implements
+
+ClientBuilder --* LlmClient
+LlmClient <|-- OpenAiClient : implements
+LlmClient <|-- OllamaClient : implements
+LlmClient <|-- PineConeEmbeddings
+
+EmbeddingStoreBuilder --* EmbeddingStore
+EmbeddingStore <|-- PineConeEmbeddings
+EmbeddingStore <|-- CsvEmbeddingStore
+EmbeddingStore <|-- ChromaEmbeddingStore
+
+InputFileHandler --* InputFile
+InputFileHandler --* MetaFile
+
+VbcLearn -- ConfigBuilder : uses
+VbcLearn -- ClientBuilder : uses
+VbcLearn -- InputFileHandler: uses
+VbcLearn -- EmbeddingStoreBuilder: uses
+
+VbcChat -- ConfigBuilder : uses
+VbcChat -- ClientBuilder : uses
+VbcChat -- EmbeddingStoreBuilder : uses
+```
+
 ### Sequenzdiagramme
 
 Grober Ablauf vbc-learn mit OpenAI-Modellen:
