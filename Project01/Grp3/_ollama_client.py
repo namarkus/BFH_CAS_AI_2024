@@ -16,14 +16,11 @@ if __name__ == '__main__':
     exit()
 
 # _____[ Imports ]______________________________________________________________
-from _apis import LlmClient
-from _configs import LlmClientConfig
-from _errors import VbcConfigError
-from _logging import app_logger
-import os
 import ollama 
 import requests
-
+from _apis import LlmClient
+from _configs import LlmClientConfig
+from _logging import app_logger
 
 # _____[ Konstanten ]___________________________________________________________
 OLLAMA_URI = "http://localhost:11434"

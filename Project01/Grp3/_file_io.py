@@ -20,8 +20,6 @@ import platform
 import getpass
 import json
 from datetime import datetime
-
-from sklearn import base
 from _configs import VbcConfig    
 from _logging import app_logger
 from pdf2image import convert_from_path

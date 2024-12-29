@@ -15,7 +15,6 @@ if __name__ == '__main__':
 
 # _____[ Imports ]______________________________________________________________
 from abc import ABC, abstractmethod
-from sklearn.metrics.pairwise import cosine_similarity
 from _configs import LlmClientConfig, VbcConfig
 
 class LlmClient(ABC):

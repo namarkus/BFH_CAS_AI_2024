@@ -16,8 +16,7 @@ if __name__ == '__main__':
 # _____[ Imports ]______________________________________________________________
 from enum import Enum
 from dataclasses import dataclass
-from sys import version
-from typing import Union, Optional, List
+from typing import Optional
 
 class SupportedLlmProvider(Enum):
     """_summary_
@@ -82,7 +81,7 @@ class VbcConfig:
     knowledge_repository_path: str = "./work"   # Pfad mit den vorverarbeiteten Dateien
     language: str = "german"    # Sprache der Daten
     learn_version = "0.1"    # Version des Lernmoduls
-    chunking_mode: ChunkingMode = ChunkingMode.SENTENCE  # Modus für die Chunk-Bildung
+    chunking_mode: ChunkingMode = ChunkingMode.SECTION  # Modus für die Chunk-Bildung
     llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider
     embedding_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
     embedding_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings

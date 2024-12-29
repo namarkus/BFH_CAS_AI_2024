@@ -7,15 +7,14 @@ __copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
 __version__ = "0.9.1"
-__status__ = "Development"
+__status__ = "Test"
 __description__ = """
 tbd
 """
 
 import getpass
 from _logging import start_logger
-from _apis import LlmClient, LlmClientConfigurator
-from _configs import print_splash_screen, VbcConfig, SupportedLlmProvider
+from _configs import print_splash_screen
 from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
 
 # _____[ Laufzeit-Prüfung und Splash-Screen ]___________________________________
@@ -55,6 +54,7 @@ print(f"{CHATBOT_PROMPT}{INSTRUCTIONS}")
 user_input = ""
 assistant_session = []
 while True: 
+    # todo: mit curses oder readline eine bessere Eingabe ermöglichen (z.B. Pfeiltasten für History)
     user_input = input(USER_PROMPT)
     if user_input == "/bye" or user_input == "bye":
         print(f"{CHATBOT_PROMPT}Tschüss {USER_NAME}, bis bald 👋")
@@ -73,5 +73,5 @@ while True:
         response = chat_client.answer_with_hints(user_input, hints, assistant_session)
         # TODO Messen der Performance und in Metriken hinterlegen.
         print(f"{CHATBOT_PROMPT} {response}")
-        print("---------------------------------------------")
+        logging.debug("---------------------------------------------")
 

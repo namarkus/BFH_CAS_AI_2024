@@ -12,8 +12,6 @@ if __name__ == '__main__':
     print("Dieses Modul ist nicht für den direkten Aufruf gedacht. Bitte nutze main vbc_chat ooder vbc_learn.")
     exit()
 # _____[ Imports ]______________________________________________________________
-from curses.ascii import EM
-import logging
 from _apis import LlmClient
 from _configs import EmbeddingStorage, SupportedLlmProvider, VbcAction, VbcConfig
 from _logging import app_logger

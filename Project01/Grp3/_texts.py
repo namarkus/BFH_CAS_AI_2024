@@ -15,14 +15,9 @@ if __name__ == "__main__":
     exit()
 
 # _____[ Imports ]______________________________________________________________
-from calendar import c
-import re
-import re
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from textblob import TextBlob
-import spacy
 
 from _configs import ChunkingMode, VbcConfig
 

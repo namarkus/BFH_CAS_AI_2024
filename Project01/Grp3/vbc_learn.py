@@ -31,16 +31,13 @@ oppler benötigt. Inforamtionen zur Installation finden Sie hier:
 conda install poppler | scoop install poppler (Windows) | apt-get install poppler-utils (Linux) | brew install poppler (MacOS)
 """
 
-from curses import meta
 import concurrent
 from tqdm import tqdm
 from datetime import datetime
 import argparse
-import json
 from _logging import start_logger
-from _apis import LlmClient, LlmClientConfigurator, EmbeddingStore
-from _configs import EmbeddingStorage, print_splash_screen, VbcConfig, SupportedLlmProvider
-from _file_io import InputFileHandler, InputFile, MetaFile
+from _configs import print_splash_screen
+from _file_io import InputFileHandler, MetaFile
 from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
 from _texts import split, clean_texts
 
