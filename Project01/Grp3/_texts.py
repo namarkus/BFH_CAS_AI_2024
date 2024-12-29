@@ -15,6 +15,7 @@ if __name__ == "__main__":
     exit()
 
 # _____[ Imports ]______________________________________________________________
+import re
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize

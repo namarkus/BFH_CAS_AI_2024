@@ -53,6 +53,7 @@ Requirements:
 
 - Formatting:
   - Present paraphrased text in a clean and structured format that reflects the logical flow of the original content.
+  - Use consequently arabic numerals. Change roman numerals to arabic numerals.
   - Use bullet points, numbered lists, or headings where applicable for clarity.
   - Try to find a clear structure for the content that is easy to understand.
   - Use markdown syntax for the structure of the text (headings). Do not add any formatting which is not relevant for the structure of the document.
@@ -113,7 +114,7 @@ class OpenAiClientConfigurator(LlmClientConfigurator):
             model_id="text-embedding-3-small"
         )
 
-    def response_config(self) -> LlmClientConfig:
+    def answer_with_hits_config(self) -> LlmClientConfig:
         return LlmClientConfig(
             model_id="gpt-4o",
             system_prompt=openai_rag_sysprompt,
