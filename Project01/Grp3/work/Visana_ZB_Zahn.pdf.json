@@ -1,11 +1,11 @@
 {
   "input_file": "Visana_ZB_Zahn.pdf",
-  "processed_at": "2024-12-29_11:24:41",
-  "profile": "OpenAI#OpenAI_section_Chroma#0.9.1",
+  "processed_at": "2024-12-29_17:49:07",
+  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.1"
+      "version": "0.9.2"
     },
     "text_preparation": {
       "provider": "OpenAI"
@@ -14,7 +14,7 @@
       "provider": "OpenAI",
       "chunking_mode": "section",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-0-9-1_ix"
+      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -33,7 +33,7 @@
     },
     {
       "number": 2,
-      "content": "## 3.2 Versicherungsausschl\u00fcsse\n\n- **Keine Leistungen f\u00fcr Zahnbehandlungen:** Es werden keine Leistungen f\u00fcr unfallbedingte Zahnbehandlungen erbracht, die nicht durch die obligatorische Versicherung (KVG) gedeckt sind.\n- **Ausschl\u00fcsse bei Vertragsabschluss:** Beim Abschluss der Versicherung sind bestehende Leiden und Fehlentwicklungen des Kiefers nicht versichert. Ersatzmassnahmen f\u00fcr beim Versicherungsabschluss fehlende Z\u00e4hne sind ebenfalls ausgeschlossen.\n- **Kosmetische Behandlungen:** Behandlungen, die der Kosmetik dienen, sind nicht versichert.\n\n## 4. Besondere Bedingungen\n\n### Geltungsbereich\n\n- **Vertr\u00e4ge vor 1.1.1997:** Diese besonderen Bedingungen gelten nur f\u00fcr Vertr\u00e4ge, die vor dem 1.1.1997 abgeschlossen wurden und auf Art. 102 KVG basieren.\n- **Ausschluss neuer Vertr\u00e4ge:** Neuabschl\u00fcsse und H\u00f6herversicherungen nach dem 1.1.1997 sind nicht betroffen.\n\n### Besondere Bedingungen zu Ziff. 3.2 Versicherungsausschl\u00fcsse\n\n- **Stichtag f\u00fcr Ausschl\u00fcsse:** F\u00fcr die in Ziff. 3.2 Abs. 2 festgelegten Ausschl\u00fcsse ist das Datum des Abschlusses der am 31.12.1996 bestehenden Zahnpflegeversicherung der E-Line bzw. G-Line massgebend."
+      "content": "# Versicherungsbedingungen\n\n## 3.2 Versicherungsausschl\u00fcsse\n\n- Keine Leistungen f\u00fcr unfallbedingte Zahnbehandlungen, die durch die obligatorische Versicherung KVG gedeckt sind.\n- Beim Abschluss der Versicherung sind bestehende Leiden und Fehlentwicklungen des Kiefers nicht versichert.\n- Ersatzmassnahmen bei fehlenden Z\u00e4hnen beim Versicherungsabschluss sind ebenfalls ausgeschlossen.\n- Kosmetische Zahnbehandlungen sind nicht versichert.\n\n## 4. Besondere Bedingungen\n\n### Geltungsbereich\n\n- Diese Bedingungen gelten f\u00fcr Vertr\u00e4ge, die vor dem 1.1.1997 abgeschlossen wurden und auf Art. 102 KVG basieren.\n- Sie betreffen Versicherte der Visana, die am 31.12.1996 eine Zusatzversicherung nach KVG hatten.\n- Neuabschl\u00fcsse und H\u00f6herversicherungen nach dem 1.1.1997 sind nicht erfasst.\n\n### Besondere Bedingungen zu Ziff. 3.2 Versicherungsausschl\u00fcsse\n\n- F\u00fcr die in Ziff. 3.2 Abs. 2 festgelegten Ausschl\u00fcsse ist das Datum des Abschlusses der am 31.12.1996 bestehenden Zahnpflegeversicherung der E-Line bzw. G-Line massgebend."
     }
   ],
   "chunks": [
@@ -47,9 +47,10 @@
     "Leistungskatalog",
     "Was ist versichert? Behandlungs- und Materialkosten inklusive zahntechnische Leistungen f\u00fcr: - Zahnkontrolle inklusive Dentalhygiene - Konservierende Zahnbehandlung - Kieferorthop\u00e4dische und orthodontische Behandlungen Zahnfehlstellungen - Prothetik - Parodontalbehandlung Keine Leistungen an Zahnpflegemittel.",
     "Besondere Bestimmungen",
-    "Karenz  3.2 Versicherungsausschl\u00fcsse - Keine Leistungen f\u00fcr Zahnbehandlungen: Es werden keine Leistungen f\u00fcr unfallbedingte Zahnbehandlungen erbracht, die nicht durch die obligatorische Versicherung KVG gedeckt sind. - Ausschl\u00fcsse bei Vertragsabschluss: Beim Abschluss der Versicherung sind bestehende Leiden und Fehlentwicklungen des Kiefers nicht versichert. Ersatzmassnahmen f\u00fcr beim Versicherungsabschluss fehlende Z\u00e4hne sind ebenfalls ausgeschlossen. - Kosmetische Behandlungen: Behandlungen, die der Kosmetik dienen, sind nicht versichert.",
+    "Karenz  Versicherungsbedingungen",
+    "Versicherungsausschl\u00fcsse - Keine Leistungen f\u00fcr unfallbedingte Zahnbehandlungen, die durch die obligatorische Versicherung KVG gedeckt sind. - Beim Abschluss der Versicherung sind bestehende Leiden und Fehlentwicklungen des Kiefers nicht versichert. - Ersatzmassnahmen bei fehlenden Z\u00e4hnen beim Versicherungsabschluss sind ebenfalls ausgeschlossen. - Kosmetische Zahnbehandlungen sind nicht versichert.",
     "Besondere Bedingungen",
-    "Geltungsbereich - Vertr\u00e4ge vor 1.1.1997: Diese besonderen Bedingungen gelten nur f\u00fcr Vertr\u00e4ge, die vor dem 1.1.1997 abgeschlossen wurden und auf Art. 102 KVG basieren. - Ausschluss neuer Vertr\u00e4ge: Neuabschl\u00fcsse und H\u00f6herversicherungen nach dem 1.1.1997 sind nicht betroffen.",
-    "Besondere Bedingungen zu Ziff. 3.2 Versicherungsausschl\u00fcsse - Stichtag f\u00fcr Ausschl\u00fcsse: F\u00fcr die in Ziff. 3.2 Abs. 2 festgelegten Ausschl\u00fcsse ist das Datum des Abschlusses der am 31.12.1996 bestehenden Zahnpflegeversicherung der E-Line bzw. G-Line massgebend."
+    "Geltungsbereich - Diese Bedingungen gelten f\u00fcr Vertr\u00e4ge, die vor dem 1.1.1997 abgeschlossen wurden und auf Art. 102 KVG basieren. - Sie betreffen Versicherte der Visana, die am 31.12.1996 eine Zusatzversicherung nach KVG hatten. - Neuabschl\u00fcsse und H\u00f6herversicherungen nach dem 1.1.1997 sind nicht erfasst.",
+    "Besondere Bedingungen zu Ziff. 3.2 Versicherungsausschl\u00fcsse - F\u00fcr die in Ziff. 3.2 Abs. 2 festgelegten Ausschl\u00fcsse ist das Datum des Abschlusses der am 31.12.1996 bestehenden Zahnpflegeversicherung der E-Line bzw. G-Line massgebend."
   ]
 }
