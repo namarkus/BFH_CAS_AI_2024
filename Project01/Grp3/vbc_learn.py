@@ -109,16 +109,17 @@ if len(input_files) > 0:
                     meta_file.add_page({"number": idx + 1, "content": result})                
             meta_file.save()
 
-# _____[ Text-Splitting und Embedding-Ermittlung ]______________________________
+# _____[ Text-Splitting, Bereinigung und Chunking ]_____________________________
 logging.info("_____[ 2/4 Text-Chunking  ]_____")
 chunk_files = file_handler.get_metafiles_to_chunk(config)
 logging.info(f"Texte von {len(chunk_files)} Datei(en) werden bereinigt und neu aufgeteilt.")
 for meta_file in chunk_files:
     logging.info(f"Verarbeite Datei {meta_file.file_path} ...")
-    doc_text = "";
+    doc_text = ""
     for page in meta_file.get_pages():     
         doc_text += page["content"] + "\f"
     chunks = clean_texts(split(doc_text, config))
+    meta_file.remove_chunks()
     for text in chunks:
          meta_file.add_chunk(text)
     meta_file.save()

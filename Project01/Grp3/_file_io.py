@@ -127,6 +127,9 @@ class MetaFile:
     def add_chunk(self, chunk):
         self.metadata["chunks"].append(chunk)
 
+    def remove_chunks(self):
+        self.metadata["chunks"] = []
+
     def get_chunks(self) -> list[str]:
         return self.metadata["chunks"]
 
