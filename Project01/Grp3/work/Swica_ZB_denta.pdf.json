@@ -1,11 +1,11 @@
 {
   "input_file": "Swica_ZB_denta.pdf",
-  "processed_at": "2024-12-22_10:43:39",
-  "profile": "OpenAI#OpenAI_section_csv#0.9.0",
+  "processed_at": "2024-12-29_11:21:33",
+  "profile": "OpenAI#OpenAI_section_Chroma#0.9.1",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.0"
+      "version": "0.9.1"
     },
     "text_preparation": {
       "provider": "OpenAI"
@@ -13,8 +13,8 @@
     "embeddings": {
       "provider": "OpenAI",
       "chunking_mode": "section",
-      "storage": "csv",
-      "index_id": "OpenAI#OpenAI_section_csv#0.9.0"
+      "storage": "Chroma",
+      "index_id": "OpenAI-OpenAI_section_Chroma-0-9-1_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -29,35 +29,37 @@
   "pages": [
     {
       "number": 1,
-      "content": "Das Dokument ist eine Ausgabe der Zusatzbedingungen (ZB) nach VVG f\u00fcr das Jahr 2024, g\u00fcltig ab dem 01.01.2024. Es handelt sich um die Bedingungen f\u00fcr die Zusatzversicherung \"DENTA\" von SWICA."
+      "content": "Es tut mir leid, ich kann den Text auf dem Bild nicht lesen. Wenn du mir den Text zur Verf\u00fcgung stellst, kann ich dir gerne helfen, ihn zu paraphrasieren oder zu erkl\u00e4ren."
     },
     {
       "number": 2,
-      "content": "## Inhaltsverzeichnis\n\n### Zahnbehandlungsversicherung DENTA\n1. **Anwendungsbereich** - Seite 3\n2. **Versicherungsumfang** - Seite 3\n3. **Leistungen** - Seite 3\n4. **Allgemeine Bestimmungen** - Seite 4\n\n---\n\n## Kundeninformation\n\nZur besseren Verst\u00e4ndlichkeit m\u00f6chten wir vor dem Vertragsabschluss auf einige wichtige Vertragsgrundlagen hinweisen:\n\n- **Grundlage des Vertrags**: Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen (separates Dokument) sind verbindlich.\n- **Zusatzbedingungen**: Achten Sie auf das Symbol ! f\u00fcr wichtige Zusatzinformationen.\n\n### Wichtige Punkte:\n- **Wer kann eine Versicherung abschliessen?**\n- **Was ist versichert bzw. was ist nicht versichert?**\n- **Welche Pflichten hat der Versicherungsnehmer?**\n- **Wann besteht Anspruch auf Leistungen?**"
+      "content": "# Inhaltsverzeichnis\n\n## Zahnbehandlungsversicherung DENTA\n\n1. **Anwendungsbereich** - Seite 3\n2. **Versicherungsumfang** - Seite 3\n3. **Leistungen** - Seite 3\n4. **Allgemeine Bestimmungen** - Seite 4\n\n---\n\n## Kundeninformation\n\nZur besseren Verst\u00e4ndlichkeit m\u00f6chten wir vor dem Vertragsabschluss auf einige wichtige Vertragsgrundlagen hinweisen:\n\n- **Grundlage des Vertrags**: Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen (separates Dokument) sind relevant.\n- **Zusatzbedingungen**: Achten Sie auf das Symbol ! f\u00fcr wichtige Zusatzinformationen.\n\n### Wichtige Fragen:\n\n- Wo kann eine Versicherung abgeschlossen werden?\n- Was ist versichert bzw. was nicht?\n- Welche Pflichten hat der Versicherungsnehmer?\n- Wann besteht Anspruch auf Leistungen?"
     },
     {
       "number": 3,
-      "content": "# Zahnbehandlungsversicherung DENTA\n\n## I. Anwendungsbereich\n\n### Art. 1 Zweck\nDie SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt mit der Zahnbehandlungsversicherung DENTA die Kosten f\u00fcr Zahnbehandlungen, Zahnersatz und Zahnprophylaxe.\n\n### Art. 2 Versicherungsnehmer\n1. Jede Person mit Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen.\n2. Das Aufnahmeformular von SWICA muss von einem Zahnarzt ausgef\u00fcllt werden. Die Kosten der zahn\u00e4rztlichen Untersuchung tr\u00e4gt der Antragsteller.\n\n## II. Versicherungsumfang\n\n### Art. 3 Versicherungsumfang\nDie DENTA kann mit folgenden Varianten abgeschlossen werden:\n- **Leistungsstufe 1:** 50% des zahn\u00e4rztlichen Honorars, maximal 500 Franken pro Kalenderjahr\n- **Leistungsstufe 2:** 50% des zahn\u00e4rztlichen Honorars, maximal 1'000 Franken pro Kalenderjahr\n- **Leistungsstufe 3:** 75% des zahn\u00e4rztlichen Honorars, maximal 1'500 Franken pro Kalenderjahr\n- **Leistungsstufe 4:** 75% des zahn\u00e4rztlichen Honorars, maximal 2'000 Franken pro Kalenderjahr\n\nDie prozentuale Kostenbeteiligung erfolgt zus\u00e4tzlich zu anderen Zusatzversicherungen und wird in jedem SWICA-Versicherungsprodukt separat berechnet.\n\n## III. Leistungen\n\n### Art. 4 Leistungen\n1. SWICA \u00fcbernimmt die Kosten f\u00fcr zahn\u00e4rztliche Behandlungen entsprechend der gew\u00e4hlten Versicherungsvariante, auch im Ausland.\n2. F\u00fcr Versicherungsnehmer unter 25 Jahren werden bei kieferorthop\u00e4dischen Behandlungen doppelte Betr\u00e4ge bezahlt.\n3. Keine Leistungspflicht f\u00fcr Zahnpflegemittel.\n4. Bei unfallbedingten Sch\u00e4den, die vor Versicherungsbeginn auftreten, werden keine Leistungen erbracht.\n5. Bei Versicherungsbeginn im laufenden Jahr wird der Leistungsanspruch anteilig berechnet.\n\n### Art. 5 Massgebender Tarif\nSWICA bezahlt Behandlungen, die nach wirtschaftlichen Grunds\u00e4tzen durchgef\u00fchrt wurden. Der Versicherungsnehmer ist der Honorarschuldner des Zahnarztes.\n\n### Art. 6 Leistungsausschluss\nF\u00fcr fehlende Z\u00e4hne zum Zeitpunkt des Versicherungsbeitritts besteht kein Anspruch auf nachtr\u00e4glichen Ersatz."
+      "content": "# Zahnbehandlungsversicherung DENTA\n\n## I. Anwendungsbereich\n\n### Art. 1 Zweck\nDie SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt mit der Zahnbehandlungsversicherung DENTA die Kosten f\u00fcr Zahnbehandlungen, Zahnersatz und Zahnprophylaxe.\n\n### Art. 2 Versicherungsnehmer\n1. Jede Person mit Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen.\n2. Das Aufnahmeformular von SWICA muss von einem Zahnarzt ausgef\u00fcllt werden. Die Kosten der zahn\u00e4rztlichen Untersuchung tr\u00e4gt der Antragsteller.\n\n## II. Versicherungsumfang\n\n### Art. 3 Versicherungsumfang\nDie DENTA kann mit folgenden Varianten abgeschlossen werden:\n- **Leistungsstufe 1:** 50% des zahn\u00e4rztlichen Honorars, maximal 500 Franken pro Kalenderjahr\n- **Leistungsstufe 2:** 50% des zahn\u00e4rztlichen Honorars, maximal 1'000 Franken pro Kalenderjahr\n- **Leistungsstufe 3:** 75% des zahn\u00e4rztlichen Honorars, maximal 1'500 Franken pro Kalenderjahr\n- **Leistungsstufe 4:** 75% des zahn\u00e4rztlichen Honorars, maximal 2'000 Franken pro Kalenderjahr\n\nDie prozentuale Kostenbeteiligung erfolgt zus\u00e4tzlich zu anderen Zusatzversicherungen und wird in jedem SWICA-Versicherungsprodukt separat berechnet.\n\n## III. Leistungen\n\n### Art. 4 Leistungen\n1. SWICA \u00fcbernimmt die Kosten f\u00fcr zahn\u00e4rztliche Behandlungen entsprechend der gew\u00e4hlten Versicherungsvariante, auch im Ausland.\n2. F\u00fcr Versicherungsnehmer unter 25 Jahren, die noch keine kieferorthop\u00e4dische Behandlung abgeschlossen haben, werden doppelte Betr\u00e4ge gezahlt.\n3. Es besteht keine Leistungspflicht f\u00fcr Zahnpflegemittel.\n4. Bei unfallbedingten Zahnsch\u00e4den, die vor Versicherungsbeginn auftreten, werden keine Leistungen erbracht.\n5. Beginnt die Versicherung w\u00e4hrend des Kalenderjahres, wird der Leistungsanspruch anteilig berechnet.\n\n### Art. 5 Massgebender Tarif\nSWICA bezahlt Behandlungen, die nach wirtschaftlichen Grunds\u00e4tzen durchgef\u00fchrt wurden. Der Versicherungsnehmer ist der Honorarschuldner des Zahnarztes.\n\n### Art. 6 Leistungsausschluss\nF\u00fcr Z\u00e4hne, die bei Versicherungsbeginn fehlen, besteht kein Anspruch auf nachtr\u00e4glichen Ersatz."
     },
     {
       "number": 4,
-      "content": "Hier ist eine Zusammenfassung des Dokuments:\n\n### IV. Allgemeine Bestimmungen\n\n**Art. 7 Erg\u00e4nzungsleistungen**\nDie in diesen Bedingungen vorgesehenen Leistungen werden zus\u00e4tzlich zu den Leistungen aus der Krankenpflegeversicherung und den bei SWICA bestehenden Zusatzversicherungen bezahlt. Dabei gilt das Prinzip der Subsidiarit\u00e4t bei Sozialversicherungen.\n\n**Art. 8 Pr\u00e4mientarifmodell**\nDas Produkt verwendet einen Abschlusstaltertarif.\n\n---\n\n**Kontakt**\n365 Tage im Jahr rund um die Uhr f\u00fcr Sie da.\nTelefon: 0800 80 90 80 / swica.ch"
+      "content": "```markdown\n## IV. Allgemeine Bestimmungen\n\n### Art. 7 Erg\u00e4nzungsleistungen\nDie in diesen Bedingungen vorgesehenen Leistungen werden zus\u00e4tzlich zu den Leistungen aus der Krankenpflegeversicherung und aus allenfalls bei SWICA bestehenden weiteren Zusatzversicherungen bezahlt (wobei bei Sozialversicherungen das Prinzip der Subsidiarit\u00e4t gilt).\n\n### Art. 8 Pr\u00e4mientarifmodell\nDas Produkt f\u00fchrt einen Abschlusstaltertarif.\n\n---\n\n**365 Tage im Jahr rund um die Uhr f\u00fcr Sie da.**\n\nTelefon 0800 80 90 80 / swica.ch\n```"
     }
   ],
   "chunks": [
-    "Das Dokument ist eine Ausgabe der Zusatzbedingungen ZB nach VVG f\u00fcr das Jahr 2024, g\u00fcltig ab dem 01.01.2024. Es handelt sich um die Bedingungen f\u00fcr die Zusatzversicherung DENTA von SWICA.  Inhaltsverzeichnis",
+    "Es tut mir leid, ich kann den Text auf dem Bild nicht lesen. Wenn du mir den Text zur Verf\u00fcgung stellst, kann ich dir gerne helfen, ihn zu paraphrasieren oder zu erkl\u00e4ren.  Inhaltsverzeichnis",
     "Zahnbehandlungsversicherung DENTA 1. Anwendungsbereich - Seite 3 2. Versicherungsumfang - Seite 3 3. Leistungen - Seite 3 4. Allgemeine Bestimmungen - Seite 4 ---",
-    "Kundeninformation Zur besseren Verst\u00e4ndlichkeit m\u00f6chten wir vor dem Vertragsabschluss auf einige wichtige Vertragsgrundlagen hinweisen: - Grundlage des Vertrags: Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen separates Dokument sind verbindlich. - Zusatzbedingungen: Achten Sie auf das Symbol ! f\u00fcr wichtige Zusatzinformationen.",
-    "Wichtige Punkte: - Wer kann eine Versicherung abschliessen? - Was ist versichert bzw. was ist nicht versichert? - Welche Pflichten hat der Versicherungsnehmer? - Wann besteht Anspruch auf Leistungen?  Zahnbehandlungsversicherung DENTA",
+    "Kundeninformation Zur besseren Verst\u00e4ndlichkeit m\u00f6chten wir vor dem Vertragsabschluss auf einige wichtige Vertragsgrundlagen hinweisen: - Grundlage des Vertrags: Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen separates Dokument sind relevant. - Zusatzbedingungen: Achten Sie auf das Symbol ! f\u00fcr wichtige Zusatzinformationen.",
+    "Wichtige Fragen: - Wo kann eine Versicherung abgeschlossen werden? - Was ist versichert bzw. was nicht? - Welche Pflichten hat der Versicherungsnehmer? - Wann besteht Anspruch auf Leistungen?  Zahnbehandlungsversicherung DENTA",
     "Anwendungsbereich",
     "Art. 1 Zweck Die SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt mit der Zahnbehandlungsversicherung DENTA die Kosten f\u00fcr Zahnbehandlungen, Zahnersatz und Zahnprophylaxe.",
     "Art. 2 Versicherungsnehmer 1. Jede Person mit Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen. 2. Das Aufnahmeformular von SWICA muss von einem Zahnarzt ausgef\u00fcllt werden. Die Kosten der zahn\u00e4rztlichen Untersuchung tr\u00e4gt der Antragsteller.",
     "II. Versicherungsumfang",
     "Art. 3 Versicherungsumfang Die DENTA kann mit folgenden Varianten abgeschlossen werden: - Leistungsstufe 1: 50% des zahn\u00e4rztlichen Honorars, maximal 500 Franken pro Kalenderjahr - Leistungsstufe 2: 50% des zahn\u00e4rztlichen Honorars, maximal 1000 Franken pro Kalenderjahr - Leistungsstufe 3: 75% des zahn\u00e4rztlichen Honorars, maximal 1500 Franken pro Kalenderjahr - Leistungsstufe 4: 75% des zahn\u00e4rztlichen Honorars, maximal 2000 Franken pro Kalenderjahr Die prozentuale Kostenbeteiligung erfolgt zus\u00e4tzlich zu anderen Zusatzversicherungen und wird in jedem SWICA-Versicherungsprodukt separat berechnet.",
     "III. Leistungen",
-    "Art. 4 Leistungen 1. SWICA \u00fcbernimmt die Kosten f\u00fcr zahn\u00e4rztliche Behandlungen entsprechend der gew\u00e4hlten Versicherungsvariante, auch im Ausland. 2. F\u00fcr Versicherungsnehmer unter 25 Jahren werden bei kieferorthop\u00e4dischen Behandlungen doppelte Betr\u00e4ge bezahlt. 3. Keine Leistungspflicht f\u00fcr Zahnpflegemittel. 4. Bei unfallbedingten Sch\u00e4den, die vor Versicherungsbeginn auftreten, werden keine Leistungen erbracht. 5. Bei Versicherungsbeginn im laufenden Jahr wird der Leistungsanspruch anteilig berechnet.",
+    "Art. 4 Leistungen 1. SWICA \u00fcbernimmt die Kosten f\u00fcr zahn\u00e4rztliche Behandlungen entsprechend der gew\u00e4hlten Versicherungsvariante, auch im Ausland. 2. F\u00fcr Versicherungsnehmer unter 25 Jahren, die noch keine kieferorthop\u00e4dische Behandlung abgeschlossen haben, werden doppelte Betr\u00e4ge gezahlt. 3. Es besteht keine Leistungspflicht f\u00fcr Zahnpflegemittel. 4. Bei unfallbedingten Zahnsch\u00e4den, die vor Versicherungsbeginn auftreten, werden keine Leistungen erbracht. 5. Beginnt die Versicherung w\u00e4hrend des Kalenderjahres, wird der Leistungsanspruch anteilig berechnet.",
     "Art. 5 Massgebender Tarif SWICA bezahlt Behandlungen, die nach wirtschaftlichen Grunds\u00e4tzen durchgef\u00fchrt wurden. Der Versicherungsnehmer ist der Honorarschuldner des Zahnarztes.",
-    "Art. 6 Leistungsausschluss F\u00fcr fehlende Z\u00e4hne zum Zeitpunkt des Versicherungsbeitritts besteht kein Anspruch auf nachtr\u00e4glichen Ersatz. Hier ist eine Zusammenfassung des Dokuments:",
-    "IV. Allgemeine Bestimmungen Art. 7 Erg\u00e4nzungsleistungen Die in diesen Bedingungen vorgesehenen Leistungen werden zus\u00e4tzlich zu den Leistungen aus der Krankenpflegeversicherung und den bei SWICA bestehenden Zusatzversicherungen bezahlt. Dabei gilt das Prinzip der Subsidiarit\u00e4t bei Sozialversicherungen. Art. 8 Pr\u00e4mientarifmodell Das Produkt verwendet einen Abschlusstaltertarif. --- Kontakt 365 Tage im Jahr rund um die Uhr f\u00fcr Sie da. Telefon: 0800 80 90 80  swica.ch"
+    "Art. 6 Leistungsausschluss F\u00fcr Z\u00e4hne, die bei Versicherungsbeginn fehlen, besteht kein Anspruch auf nachtr\u00e4glichen Ersatz. markdown",
+    "IV. Allgemeine Bestimmungen",
+    "Art. 7 Erg\u00e4nzungsleistungen Die in diesen Bedingungen vorgesehenen Leistungen werden zus\u00e4tzlich zu den Leistungen aus der Krankenpflegeversicherung und aus allenfalls bei SWICA bestehenden weiteren Zusatzversicherungen bezahlt wobei bei Sozialversicherungen das Prinzip der Subsidiarit\u00e4t gilt.",
+    "Art. 8 Pr\u00e4mientarifmodell Das Produkt f\u00fchrt einen Abschlusstaltertarif. --- 365 Tage im Jahr rund um die Uhr f\u00fcr Sie da. Telefon 0800 80 90 80  swica.ch"
   ]
 }

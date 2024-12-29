@@ -1,11 +1,11 @@
 {
   "input_file": "Helsana_anerkannte_heilmittel_komplementaermedizin.pdf",
-  "processed_at": "2024-12-22_10:39:53",
-  "profile": "OpenAI#OpenAI_section_csv#0.9.0",
+  "processed_at": "2024-12-29_11:13:03",
+  "profile": "OpenAI#OpenAI_section_Chroma#0.9.1",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.0"
+      "version": "0.9.1"
     },
     "text_preparation": {
       "provider": "OpenAI"
@@ -13,8 +13,8 @@
     "embeddings": {
       "provider": "OpenAI",
       "chunking_mode": "section",
-      "storage": "csv",
-      "index_id": "OpenAI#OpenAI_section_csv#0.9.0"
+      "storage": "Chroma",
+      "index_id": "OpenAI-OpenAI_section_Chroma-0-9-1_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -29,13 +29,13 @@
   "pages": [
     {
       "number": 1,
-      "content": "# Anerkannte Heilmittel der Komplement\u00e4rmedizin\n\n## Grundlage\nHelsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel. Voraussetzung ist, dass diese von einem anerkannten Leistungserbringer innerhalb einer komplement\u00e4rmedizinischen Behandlung verordnet, abgegeben oder appliziert werden. Eine Verordnung muss vorliegen.\n\n## Anerkannte Heilmittel\n- Swissmedic-registrierte Heilmittel der Komplement\u00e4rmedizin\n- Individuell hergestellte komplement\u00e4rmedizinische Heilmittel:\n  - Abgabe durch zugelassene Apotheke oder Hersteller mit Swissmedic-Bewilligung\n  - Wirkstoffe in der Liste der hom\u00f6opathischen und anthroposophischen Stoffe (HAS), traditionellen asiatischen Stoffe (TAS) oder im Arzneimitteltarif (ALT) aufgef\u00fchrt\n- Wirtschaftlicher Preis\n- Medizinische Notwendigkeit (Krankheitswert) ausgewiesen\n\n**Ausgeschlossen:** Produkte der Liste mit Spezieller Verwendung (LPPV), z.B. Aufbaupr\u00e4parate, Vitamine, Mineralstoffe.\n\n## Anerkannte Leistungserbringer\n- \u00c4rzte und Spit\u00e4ler\n- Fachpersonen der Komplement\u00e4rmedizin:\n  - Naturheilpraktiker mit eidgen\u00f6ssischem Diplom oder Zertifikat der OdA AM\n  - Naturheilkundliche Praktiken\n  - Traditionelle Chinesische Medizin (TCM)\n  - Hom\u00f6opathie\n  - Phytotherapie\n  - Tibetische Medizin\n  - Bachbl\u00fcten-Therapie\n  - Biochemie nach Sch\u00fcssler\n\n*Eine vollst\u00e4ndige Liste kann beim Kundenservice angefordert werden.*\n\n**Hinweis:** Fachpersonen k\u00f6nnen sich im ErfahrungsMedizinischen Register EMR in Basel registrieren lassen. Die Registrierung bedeutet keinen Anspruch auf Anerkennung."
+      "content": "# Anerkannte Heilmittel der Komplement\u00e4rmedizin\n\n## Grundlage\nHelsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel. Voraussetzung ist, dass diese von einem anerkannten Leistungserbringer innerhalb einer komplement\u00e4rmedizinischen Behandlung verordnet, abgegeben oder appliziert werden. Eine Verordnung muss vorliegen.\n\n## Anerkannte Heilmittel\n- Swissmedic-registrierte Heilmittel der Komplement\u00e4rmedizin.\n- Individuell hergestellte komplement\u00e4rmedizinische Heilmittel:\n  - Abgabe durch zugelassene Apotheke oder Hersteller mit Swissmedic-Bewilligung.\n  - Wirkstoffe m\u00fcssen in der Liste der hom\u00f6opathischen und anthroposophischen Stoffe (HAS), traditionellen asiatischen Stoffe (TAS) oder im Arzneimittelliste mit Tarif (ALT) aufgef\u00fchrt sein.\n- Preis des Heilmittels muss wirtschaftlich sein.\n- Medizinische Notwendigkeit (Krankheitswert) muss ausgewiesen sein.\n\nAusgeschlossen sind Produkte der Liste mit Spezieller Verwendung (LPPV), z.B. Aufbaupr\u00e4parate, Vitamine, Mineralstoffe.\n\n## Anerkannte Leistungserbringer\n- \u00c4rzte und Spit\u00e4ler\n- Fachpersonen der Komplement\u00e4rmedizin:\n  - Naturheilpraktiker mit eidgen\u00f6ssischem Diplom oder Zertifikat der OdA AM (EMR Nr. 320, 340, 343, 3401, 3431, 360, 3601)\n  - Naturheilkundliche Praktiken (EMR Nr. 131 oder 132)\n  - Traditionelle Chinesische Medizin TCM (EMR Nr. 185)\n  - Hom\u00f6opathie (EMR Nr. 91)\n  - Phytotherapie (EMR Nr. 145 oder 146)\n  - Tibetische Medizin (EMR Nr. 189)\n  - Bachbl\u00fcten-Therapie (EMR Nr. 29)\n  - Biochemie nach Sch\u00fcssler (EMR Nr. 39)\n\n*Eine Liste kann beim Kundenservice angefordert werden.*\n\n**Fachpersonen k\u00f6nnen sich im ErfahrungsMedizinischen Register EMR in Basel registrieren lassen. Die Registrierung dient als Grundlage einer Anerkennung, bedeutet aber keinen Anspruch darauf. Fachpersonen k\u00f6nnen Heilmittel verordnen, die von Helsana anerkannt werden.*"
     }
   ],
   "chunks": [
     "Anerkannte Heilmittel der Komplement\u00e4rmedizin",
     "Grundlage Helsana \u00fcbernimmt 75% der Kosten f\u00fcr anerkannte komplement\u00e4rmedizinische Heilmittel. Voraussetzung ist, dass diese von einem anerkannten Leistungserbringer innerhalb einer komplement\u00e4rmedizinischen Behandlung verordnet, abgegeben oder appliziert werden. Eine Verordnung muss vorliegen.",
-    "Anerkannte Heilmittel - Swissmedic-registrierte Heilmittel der Komplement\u00e4rmedizin - Individuell hergestellte komplement\u00e4rmedizinische Heilmittel: - Abgabe durch zugelassene Apotheke oder Hersteller mit Swissmedic-Bewilligung - Wirkstoffe in der Liste der hom\u00f6opathischen und anthroposophischen Stoffe HAS, traditionellen asiatischen Stoffe TAS oder im Arzneimitteltarif ALT aufgef\u00fchrt - Wirtschaftlicher Preis - Medizinische Notwendigkeit Krankheitswert ausgewiesen Ausgeschlossen: Produkte der Liste mit Spezieller Verwendung LPPV, z.B. Aufbaupr\u00e4parate, Vitamine, Mineralstoffe.",
-    "Anerkannte Leistungserbringer - \u00c4rzte und Spit\u00e4ler - Fachpersonen der Komplement\u00e4rmedizin: - Naturheilpraktiker mit eidgen\u00f6ssischem Diplom oder Zertifikat der OdA AM - Naturheilkundliche Praktiken - Traditionelle Chinesische Medizin TCM - Hom\u00f6opathie - Phytotherapie - Tibetische Medizin - Bachbl\u00fcten-Therapie - Biochemie nach Sch\u00fcssler Eine vollst\u00e4ndige Liste kann beim Kundenservice angefordert werden. Hinweis: Fachpersonen k\u00f6nnen sich im ErfahrungsMedizinischen Register EMR in Basel registrieren lassen. Die Registrierung bedeutet keinen Anspruch auf Anerkennung."
+    "Anerkannte Heilmittel - Swissmedic-registrierte Heilmittel der Komplement\u00e4rmedizin. - Individuell hergestellte komplement\u00e4rmedizinische Heilmittel: - Abgabe durch zugelassene Apotheke oder Hersteller mit Swissmedic-Bewilligung. - Wirkstoffe m\u00fcssen in der Liste der hom\u00f6opathischen und anthroposophischen Stoffe HAS, traditionellen asiatischen Stoffe TAS oder im Arzneimittelliste mit Tarif ALT aufgef\u00fchrt sein. - Preis des Heilmittels muss wirtschaftlich sein. - Medizinische Notwendigkeit Krankheitswert muss ausgewiesen sein. Ausgeschlossen sind Produkte der Liste mit Spezieller Verwendung LPPV, z.B. Aufbaupr\u00e4parate, Vitamine, Mineralstoffe.",
+    "Anerkannte Leistungserbringer - \u00c4rzte und Spit\u00e4ler - Fachpersonen der Komplement\u00e4rmedizin: - Naturheilpraktiker mit eidgen\u00f6ssischem Diplom oder Zertifikat der OdA AM EMR Nr. 320, 340, 343, 3401, 3431, 360, 3601 - Naturheilkundliche Praktiken EMR Nr. 131 oder 132 - Traditionelle Chinesische Medizin TCM EMR Nr. 185 - Hom\u00f6opathie EMR Nr. 91 - Phytotherapie EMR Nr. 145 oder 146 - Tibetische Medizin EMR Nr. 189 - Bachbl\u00fcten-Therapie EMR Nr. 29 - Biochemie nach Sch\u00fcssler EMR Nr. 39 Eine Liste kann beim Kundenservice angefordert werden. Fachpersonen k\u00f6nnen sich im ErfahrungsMedizinischen Register EMR in Basel registrieren lassen. Die Registrierung dient als Grundlage einer Anerkennung, bedeutet aber keinen Anspruch darauf. Fachpersonen k\u00f6nnen Heilmittel verordnen, die von Helsana anerkannt werden."
   ]
 }
