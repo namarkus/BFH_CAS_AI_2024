@@ -315,3 +315,20 @@ einbezogen:
   Eingriffe nötig sind. Für weitere Details siehe
   - [Ankündigung](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
   - [Image Dokumentation](https://hub.docker.com/r/ollama/ollama)
+
+## Testing
+
+Für das RAG-System werden Integrationstests und End-to-End-Tests (E2E) programmiert, um die Funktionsweise
+sicherzustellen. Unit-Tests entfallen vorerst. Zu jedem Test gibt es zusätzlich eine Variante mit Tippfehlern, um die
+Robustheit bei fehlerhaften Eingaben zu prüfen.
+
+### Retrieval
+
+* **Similarity**: Die erwarteten Texte aus der Pinecone-Datenbank werden geladen.
+* **Performance**: Die Geschwindigkeit, mit der die Daten geladen werden, um potenzielle Lecks zu finden.
+
+### Generation
+
+* **Semantic**: Der generierte Text muss eine hohe Cosine Similarity mit einem erwarteten Text aufweisen.
+* **Words Overlapping**: Der Text muss bestimmte Fachbegriffe beinhalten.
+* **Fallback**: Sofern keine Antwort geliefert werden kann, muss ein Fallback-Text angezeigt werden.
