@@ -80,6 +80,24 @@ _TBD_ siehe vorerst Datei `_configs.py`
     Pro verarbeitet Datei im Verzeichnis `input` ist hier eine Datei vorhanden,
     die den Stand der Verarbeitung und Zwischenergebnisse festhält.
 
+### AI-Stacks
+
+Wir kennen grundsätzlich 2 Stacks:
+
+- **Cloud:** Setzt vor allem auf den APIs von OpenAI auf
+- **Lokal:** Verwendet (wenn immer möglich) lokale Dienste.
+
+Die Bestandteile der beiden Stacks sind wie folgt:
+
+|  Aufgabe                   | Cloud                | Lokal             |
+| -------------------------- | -------------------- | ----------------- |
+| Konvertierung Bild zu Text | OpenAI (gpt-4o)      | OpenAI (gpt-4o) / Ollama (llama3.2-vision) |
+| Erstellung Embeddings      | PineCone (multilingual-e5-large) / OpenAI (text-embedding-3-small) | Ollama (jina/jina-embeddings-v2-base-de) |
+| Speicherung Embeddings     | PineCone             | Chroma |
+| Chat                       | OpenAI (gpt-4o-mini) | Ollama (llama3.2) |
+| Tests                      | OpenAI (gpt-4o)      | Ollama (llama3.2) |
+
+
 ### Klassendiagramm
 
 ```mermaid
