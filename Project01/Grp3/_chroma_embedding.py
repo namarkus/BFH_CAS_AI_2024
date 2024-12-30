@@ -40,5 +40,12 @@ class ChromaEmbeddingStore(EmbeddingStore):
         results = self.collection.query(query_embeddings=[embedding], n_results=top_k)
         return results['documents'][0][0]
 
-    def store(self, text, embeddings):   
-        self.collection.upsert(ids=[text], embeddings=[embeddings], documents=[text])
+    def store(self, text, embeddings, source_document=None, chunk_id=None):
+        if chunk_id is None:
+            chunk_id = source_document + "_" + str(len(self.collection))
+        brand = source_document.split("_")[0]
+        meta_data = {
+            "source_document": source_document,
+            "brand": brand
+        }
+        self.collection.upsert(ids=[chunk_id], embeddings=[embeddings], documents=[text], metadatas=[meta_data])

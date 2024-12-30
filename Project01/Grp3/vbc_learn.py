@@ -88,11 +88,11 @@ input_files = file_handler.get_input_files_to_process(config)
 logging.info(f"{len(input_files)} Datei(en) werden komplett neu indexiert.")
 if len(input_files) > 0:
     image_to_text_client = ClientBuilder(config).for_image_to_text().build()
-    for input_file in input_files:
-        if input_file.is_processable_as_image():
-            pages = input_file.get_content()
-            logging.info(f"Bereite Datei {input_file.file_name} mit {len(pages)} Seiten vor ...")            
-            meta_file = MetaFile(config, from_input_file=input_file)
+    for original_input_file in input_files:
+        if original_input_file.is_processable_as_image():
+            pages = original_input_file.get_content()
+            logging.info(f"Bereite Datei {original_input_file.file_name} mit {len(pages)} Seiten vor ...")            
+            meta_file = MetaFile(config, from_input_file=original_input_file)
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor: 
                 futures = {
                     idx: executor.submit(image_to_text_client.get_text_from_image, page)
@@ -134,10 +134,14 @@ if len(embedding_files) > 0:
     embeddings_client = ClientBuilder(config).for_embeddings().build()
     for meta_file in embedding_files:
         logging.info(f"Verarbeite Datei {meta_file.file_path} ...")
+        ix = 0
         for text in meta_file.get_chunks():
+            ix += 1
             embeddings = embeddings_client.get_embeddings(text)
-            #print(f"Text: {text}, Embeddings: {embeddings}")
-            embedding_store.store(text, embeddings)
+            original_input_file = meta_file.metadata["input_file"]
+            chunk_id = original_input_file + "_" + str(ix)
+            #print(f"Id: '{chunk_id}', Text: '{text}', Embeddings: '{embeddings}'")            
+            embedding_store.store(text, embeddings, source_document=original_input_file, chunk_id=chunk_id)
         meta_file.metadata["processor"]["embeddings"]["index_id"] = embedding_store.index_id
         meta_file.save()    
     embedding_store.close()

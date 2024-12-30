@@ -50,7 +50,7 @@ class CsvEmbeddingStore(EmbeddingStore):
     def __cosine_similarity(self, embedding1, embedding2):
         return cosine_similarity([embedding1], [embedding2])[0][0]
 
-    def store(self, text, embeddings):   
+    def store(self, text, embeddings, source_document=None, chunk_id=None):   
         # if text in self.df["text"].values:
         #     self.df.loc[self.df["text"] == text, "embeddings"] = embeddings
         # else:

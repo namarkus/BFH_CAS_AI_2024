@@ -84,28 +84,16 @@ class EmbeddingStore(ABC):
     def delete_all(self):
         pass
     
-    # def get_embedding(self, index):
-    #     pass  # This is an abstract method, no implementation here.
-
-    # def get_text(self, index):
-    #     pass  # This is an abstract method, no implementation here.
-
-    # def get_all_embeddings(self):
-    #     pass  # This is an abstract method, no implementation here.
-
     @abstractmethod
     def find_most_similar(self, embeddings, top_k=1):
         pass  # This is an abstract method, no implementation here.
 
     @abstractmethod
-    def store(self, text, embeddings):
+    def store(self, text, embeddings, source_document=None, chunk_id=None):
         pass  # This is an abstract method, no implementation here.
 
     def close(self):
         pass 
 
-    # def ccc():
-    #     df["similarity"] = df.embeddings.apply(lambda x: cosine_similarity(np.array(x).reshape(1,-1), np.array(embedded_value).reshape(1, -1)))
-    #     res = df.sort_values('similarity', ascending=False).head(top_k)
 
 
