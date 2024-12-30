@@ -95,7 +95,7 @@ Die Bestandteile der beiden Stacks sind wie folgt:
 | Erstellung Embeddings      | PineCone (multilingual-e5-large) / OpenAI (text-embedding-3-small) | Ollama (jina/jina-embeddings-v2-base-de) |
 | Speicherung Embeddings     | PineCone             | Chroma |
 | Chat                       | OpenAI (gpt-4o-mini) | Ollama (llama3.2) |
-| Tests                      | OpenAI (gpt-4o)      | Ollama (llama3.2) |
+| Tests                      | OpenAI (o1-mini)      | Ollama (llama3.2 ??) |
 
 
 ### Klassendiagramm
@@ -290,8 +290,7 @@ sequenceDiagram
     vbc-learn->>OpenAI-text-embedding-3-small: Bereite die Embeddings für Textchunk auf
     vbc-learn->>EmbeddingStorage: Speichere Embeddings
     vbc-learn->>OpenAI-gpt4o: Liefere Antwort auf Frage
-    vbc-learn->>OpenAI-o1: Verifiziere Antwort
-
+    vbc-learn->>OpenAI-o1-mini: Verifiziere Antwort
 ```
 
 ## Lokales RAG mit Ollama
@@ -304,11 +303,12 @@ einbezogen:
 
 | Modell | Einsatz für | Findings | Geeignet |
 | ------ | ----------- | -------- | -------- |
-| llama3.2-vision | Bild-zu Text-Konvertierung | | (/) | 
-| llama3.2 | Chat / RAG | | (/) | 
-| llama3.3 | Reasoning | Benötigt zu viel Memory für unser Test-Setup | (-) | 
-| qwq | - | Benötigt zu viel Memory für unser Test-Setup |  | 
-| mistral | | Sprachenunterstütung (de) ungenügend) | (-) |
+| llama3.2-vision | Bild-zu Text-Konvertierung | | :thumbsup: | 
+| llama3.2 | Chat / RAG | | :thumbsup: | 
+| llama3.3 | Reasoning | Benötigt zu viel Memory für unser Test-Setup | :thumbsdown: | 
+| qwq | - | Benötigt zu viel Memory für unser Test-Setup | :thumbsdown: | 
+| mistral | | Sprachenunterstütung (de) ungenügend) | :thumbsup: |
+| jina/jina-embeddings-v2-base-de | Embeddings erstellen |  | :thumbsup: |
 
 [^1]: Je nach Umgebung wird im Moment noch dienative  Installation empfohlen, da 
   für die Unterstützung der Grafik-Karte im Docker-Image noch einige manuelle 
