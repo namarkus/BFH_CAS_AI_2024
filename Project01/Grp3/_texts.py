@@ -32,6 +32,8 @@ def split(text: str, config: VbcConfig) -> list[str]:
     ist in der Konfiguration festgelegt.
     """
     match config.chunking_mode:
+        case ChunkingMode.DOCUMENT:
+            chunks = [text]
         case ChunkingMode.PAGE:
             chunks = split_into_pages(text)
         case ChunkingMode.SECTION:

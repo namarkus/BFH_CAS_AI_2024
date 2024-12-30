@@ -158,6 +158,7 @@ namespace _configs {
     }
     class ChunkingMode {
         <<enumeration>>
+        DOCUMENT
         PAGE 
         SECTION 
         PARAGRAPH 

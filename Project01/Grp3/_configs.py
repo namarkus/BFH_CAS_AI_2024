@@ -34,6 +34,7 @@ class ChunkingMode(Enum):
     Args:
         Enum (_type_): _description_
     """
+    DOCUMENT = "document"
     PAGE = "page"
     SECTION = "section"
     PARAGRAPH = "paragraph"
