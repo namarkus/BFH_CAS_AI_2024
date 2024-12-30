@@ -13,6 +13,9 @@ if __name__ == '__main__':
     exit()
 # _____[ Imports ]______________________________________________________________
 import chromadb
+import os
+import pandas as pd
+import numpy as np
 
 from _logging import app_logger
 from _apis import EmbeddingStore
@@ -49,3 +52,20 @@ class ChromaEmbeddingStore(EmbeddingStore):
             "brand": brand
         }
         self.collection.upsert(ids=[chunk_id], embeddings=[embeddings], documents=[text], metadatas=[meta_data])
+
+    def export_embeddings(self):
+        if self.config.export_embeddings:
+            file_path_embeddings = os.path.normpath('models/' + self.index_id + '.tsv')
+            file_path_embeddings_text = os.path.normpath('models/' + self.index_id + '_text.tsv')
+
+            results = self.collection.get(include= ['embeddings', "documents"])
+            embeddings = pd.DataFrame(results['embeddings'])
+            embeddings_text = pd.DataFrame({
+                'id': results['ids'],
+                'document': results['documents']
+            })
+
+            embeddings.to_csv(file_path_embeddings, sep='\t', index=False, header=False)
+            embeddings_text.to_csv(file_path_embeddings_text, sep='\t', index=False, header=True)
+
+
