@@ -143,7 +143,8 @@ if len(embedding_files) > 0:
             #print(f"Id: '{chunk_id}', Text: '{text}', Embeddings: '{embeddings}'")            
             embedding_store.store(text, embeddings, source_document=original_input_file, chunk_id=chunk_id)
         meta_file.metadata["processor"]["embeddings"]["index_id"] = embedding_store.index_id
-        meta_file.save()    
+        meta_file.save()
+    embedding_store.export_embeddings()
     embedding_store.close()
 # _____[ Testen des Modells ]___________________________________________________
 logging.info("_____[ 4/4 Testen des Modells  ]_____")
