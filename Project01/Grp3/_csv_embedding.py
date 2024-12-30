@@ -30,7 +30,7 @@ class CsvEmbeddingStore(EmbeddingStore):
     def __load(self):
         if os.path.exists(self.file_path):
             df = pd.read_csv(self.file_path)
-            df["embeddings"] = df.embeddings.apply(literal_eval).apply(np.array)
+        #    df["embeddings"] = df.embeddings.apply(literal_eval).apply(np.array)
         else:
             df = pd.DataFrame(columns=["text", "embeddings"])
         self.df = df
@@ -56,6 +56,17 @@ class CsvEmbeddingStore(EmbeddingStore):
         # else:
         new_row = {"text": text, "embeddings": embeddings}
         self.df = pd.concat([self.df, pd.DataFrame([new_row])], ignore_index=True)
+
+    def export_embeddings(self):
+        if self.config.export_embeddings:
+            file_path_embeddings, ext = os.path.splitext(self.filepath)
+            file_path_embeddings_text = file_path_embeddings + '_text.tsv'
+            file_path_embeddings = file_path_embeddings + '.tsv'
+
+            embeddings_list = pd.DataFrame(self.df['embeddings'].apply(literal_eval).tolist())
+            embeddings_text = self.df['text']
+            embeddings_list.to_csv(file_path_embeddings, sep='\t', index=False, header=False)
+            embeddings_text.to_csv(file_path_embeddings_text, sep='\t', index=False, header=False)
 
     def close(self):
         self.df.to_csv(self.file_path, index=False) 

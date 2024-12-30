@@ -86,6 +86,7 @@ class VbcConfig:
     embeddings_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
     embeddings_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
     chat_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für den Chat selbst
+    export_embeddings: bool = True
 
     def with_image_to_text_config(self, image_to_text_config: LlmClientConfig):
         self.image_to_text_config = image_to_text_config
