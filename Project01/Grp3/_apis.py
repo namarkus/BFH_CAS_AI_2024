@@ -39,7 +39,7 @@ class LlmClient(ABC):
         pass  # This is an abstract method, no implementation here.
 
     @abstractmethod
-    def answer_with_hints(self, question, hints, chat_thread):  
+    def answer_with_hints(self, question, hints, history=[]) -> str:  
         pass  # This is an abstract method, no implementation here.
 
     #@abstractmethod

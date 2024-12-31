@@ -14,6 +14,8 @@ if __name__ == '__main__':
 
 # _____[ Imports ]______________________________________________________________
 from time import sleep
+
+from sympy import threaded
 from _apis import LlmClient
 from _configs import LlmClientConfig
 from _errors import VbcConfigError
@@ -101,15 +103,25 @@ class OpenAiClient(LlmClient):
         )
         return embeddings.data[0].embedding
 
-    def answer_with_hints(self, question, hints, chat_thread):
+    def answer_with_hints(self, question, hints, history=None):
         api_call_config = self.answer_with_hints_config()
+        threaded_messages = []
+        threaded_messages.append({"role": "system", "content": api_call_config.system_prompt})
+        if history is not None and len(history) > 0:
+            for dialog in history:
+                threaded_messages.append({"role": "user", "content": dialog["question"]})
+                threaded_messages.append({"role": "assistant", "content": dialog["response"]})
+        # todo hier müssen noch die Hintwsergänzt werden.
+        prepared_hints = ""
+        for hint in hints:
+            print (f"Hint: {hint}")
+            prepared_hints += f"\n\n{hint}"
+        prompt = f"INPUT PROMPT:\n{question}\n-------\nCONTENT:\n{prepared_hints}"
+        threaded_messages.append({"role": "user", "content": prompt})
+        print(threaded_messages)
         response = self.openai_client.chat.completions.create(
             model=api_call_config.model_id,
-            messages=[
-                {"role": "system", "content": api_call_config.system_prompt},
-                {"role": "user", "content": question},
-                {"role": "assistant", "content": chat_thread}
-            ]
+            messages=threaded_messages
         )
         return response.choices[0].message.content  
 

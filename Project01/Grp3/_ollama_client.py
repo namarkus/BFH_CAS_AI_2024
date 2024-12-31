@@ -83,7 +83,7 @@ class OllamaClient(LlmClient):
         )
         return embeddings.data[0].embedding
 
-    def answer_with_hints(self, question, hints, chat_thread):
+    def answer_with_hints(self, question, hints, history=[]):
         api_call_config = self.answer_with_hints_config()
         response = ollama.chat.completions.create(
             model=api_call_config.model_id,

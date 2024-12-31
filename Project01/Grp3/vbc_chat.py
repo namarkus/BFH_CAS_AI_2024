@@ -13,6 +13,9 @@ tbd
 """
 
 import getpass
+from tkinter import dialog
+
+from ollama import chat
 from _logging import start_logger
 from _configs import print_splash_screen
 from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
@@ -52,25 +55,32 @@ Gib bitte Deine Frage zum Thema Krankenversicherung hier ein:
 print ("\n")
 print(f"{CHATBOT_PROMPT}{INSTRUCTIONS}")
 user_input = ""
-assistant_session = []
+chat_session = []
 while True: 
     # todo: mit curses oder readline eine bessere Eingabe ermöglichen (z.B. Pfeiltasten für History)
     user_input = input(USER_PROMPT)
     if user_input == "/bye" or user_input == "bye":
         print(f"{CHATBOT_PROMPT}Tschüss {USER_NAME}, bis bald 👋")
         break
-    if user_input == "/init":
+    elif user_input == "/init":
         logging.debug("Alles Sessiondaten werden gelöscht.")
-        assistant_session = []
+        chat_session = []
         print(f"{CHATBOT_PROMPT}Huch, wer bin ich, und was mache ich hier? 🤔")
-    if user_input == "/?" or user_input == "/hilfe" or user_input == "hilfe" or user_input == "?":
+    elif user_input == "/?" or user_input == "/hilfe" or user_input == "hilfe" or user_input == "?":
         print(f"{CHATBOT_PROMPT}{INSTRUCTIONS}")
     else:
         logging.debug(f"Frage: '{user_input}' wird verarbeitet...")
-        embeddings = embedding_client.get_embeddings(user_input)
+        extended_user_input = ""
+        for dialog in chat_session:
+            extended_user_input += f"{dialog['question']} \n"
+        extended_user_input += user_input
+        logging.debug(f"Habe Kontext für die Ermittlung der Embeddings auf '{extended_user_input}' erweitert.")
+        embeddings = embedding_client.get_embeddings(extended_user_input)
         hints = embedding_store.find_most_similar(embeddings, top_k=5) 
         logging.debug(f"Frage: '{user_input}' erhält via Embeddings folgende Hinweise '{hints}'")
-        response = chat_client.answer_with_hints(user_input, hints, assistant_session)
+        response = chat_client.answer_with_hints(user_input, hints, history=chat_session)
+        dialog = {"question": user_input, "response": response}
+        chat_session.append(dialog)
         # TODO Messen der Performance und in Metriken hinterlegen.
         print(f"{CHATBOT_PROMPT} {response}")
         logging.debug("---------------------------------------------")
