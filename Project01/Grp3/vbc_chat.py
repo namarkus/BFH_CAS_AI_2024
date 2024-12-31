@@ -7,7 +7,7 @@ __copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
 __version__ = "0.9.2"
-__status__ = "Development"
+__status__ = "Test"
 __description__ = """
 tbd
 """
