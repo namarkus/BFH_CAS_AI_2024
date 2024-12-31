@@ -114,7 +114,6 @@ class OpenAiClient(LlmClient):
         # todo hier müssen noch die Hintwsergänzt werden.
         prepared_hints = ""
         for hint in hints:
-            print (f"Hint: {hint}")
             prepared_hints += f"\n\n{hint}"
         prompt = f"INPUT PROMPT:\n{question}\n-------\nCONTENT:\n{prepared_hints}"
         threaded_messages.append({"role": "user", "content": prompt})
