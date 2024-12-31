@@ -7,7 +7,7 @@ __copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
 __version__ = "0.9.2"
-__status__ = "Test"
+__status__ = "Development"
 __description__ = """
 tbd
 """
@@ -23,7 +23,7 @@ if __name__ == "__main__":
 logging = start_logger("vbc_chat", __status__)
 config = ConfigBuilder("chat", "auto", __version__).with_embeddings_config().with_answer_with_hits_config().build()
 logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
-chat_client = ClientBuilder(config).for_response().build()
+chat_client = ClientBuilder(config).for_answer_with_hints().build()
 embedding_client = ClientBuilder(config).for_embeddings().build()
 embedding_store = EmbeddingStoreBuilder(config).build()
 PROMPT = "> "

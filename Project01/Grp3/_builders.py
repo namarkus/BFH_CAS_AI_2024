@@ -73,6 +73,9 @@ class ConfigBuilder:
         self.config.with_answer_with_hints_config(self.configurator.answer_with_hits_config())
         return self
 
+    def with_test_statement_config(self):
+        self.config.with_test_statement_config(self.configurator.test_statement_config())
+        return self
 
     def build(self):
         return self.config
@@ -101,9 +104,14 @@ class ClientBuilder:
         self.client = self._from_enum(self.config.embeddings_provider)
         return self
 
-    def for_response(self):
+    def for_answer_with_hints(self):
         self.logger.debug(f"Konfiguriere Client für Response mit Modell {self.config.answer_with_hints_config.model_id}...")
-        self.client = self._from_enum(self.config.embeddings_provider) # fixme
+        self.client = self._from_enum(self.config.chat_llm_provider) # fixme
+        return self
+    
+    def for_test_statement(self):
+        self.logger.debug(f"Konfiguriere Client für Test-Statement mit Modell {self.config.test_statement_config.model_id}...")
+        self.client = self._from_enum(self.config.chat_llm_provider)
         return self
 
     def build(self):

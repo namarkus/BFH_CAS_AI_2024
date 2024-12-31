@@ -101,6 +101,10 @@ class VbcConfig:
         self.answer_with_hints_config = answer_with_hits_config
         return self
     
+    def with_test_statement_config(self, test_statement_config: LlmClientConfig):
+        self.test_statement_config = test_statement_config
+        return self
+
     def as_profile_label(self):
         return f"{self.image2text_llm_provider.value}#{self.embeddings_provider.value}_{self.chunking_mode.value}_{self.embeddings_storage.value}#{self.chat_llm_provider.value}#{self.learn_version}"
 

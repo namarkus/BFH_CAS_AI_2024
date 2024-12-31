@@ -54,8 +54,9 @@ class LlmClient(ABC):
 
     def answer_with_hints_config(self) -> LlmClientConfig:
         return self.config.answer_with_hints_config
-
-
+    
+    def test_statement_config(self) -> LlmClientConfig:
+        return self.config.test_cstatement_onfig
 
 class LlmClientConfigurator(ABC):
     def textcontent_from_image_config(self) -> LlmClientConfig:
