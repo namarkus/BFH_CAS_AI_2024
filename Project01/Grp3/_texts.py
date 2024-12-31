@@ -22,6 +22,8 @@ from nltk.tokenize import word_tokenize
 
 from _configs import ChunkingMode, VbcConfig
 
+PHRASES_TO_REMOVE = ["Artikel", "Art. ", "Ausgabe", "Gültig ab", "Seite"]
+
 #nltk.download("stopwords")
 #nltk.download("punkt_tab")
 
@@ -105,16 +107,28 @@ def remove_duplicate_chunks(texts: list[str]) -> list[str]:
     ]
     return unique_chunks
 
+def remove_phrases(text, phrases_to_remove):
+    for phrase in phrases_to_remove:
+        text = text.replace(phrase, '')
+    return text
+
+
 def clean_texts(texts: list[str]) -> list[str]:
     """
-    Bereinigt die Texte von Sonderzeichen und unnötigen Leerzeichen.
+    Bereinigt die Texte von häufigen Floskeln, Sonderzeichen, unnötigen 
+    Whitespaces (Leerzeichen, Tabulatoren, Zeilenumbrüche) und 
+    Kapitelnummerierungen. Zudem werden nur Chunks übernommen, welche mehr als 
+    ein Wort enthalten.
     """
     cleaned_texts = []
     for text in texts:
-        cleaned_text = re.sub(r"\s+", " ", text)     
+        cleaned_text = text
+        cleaned_text = remove_phrases(cleaned_text)
+        cleaned_text = re.sub(r"\s+", " ", cleaned_text)     
         cleaned_text = re.sub(r"[^a-zA-Z0-9äöüÄÖÜéàèÉÀÈ%,.;:!?\-\s]", "", cleaned_text)
         cleaned_text = cleaned_text.strip()
          # Kapitelnummern und Indexe entfernen.
         cleaned_text = re.sub(r"^(?:\d+(\.\d+)*\.?\s|[A-Za-z]\.?\s)", "", cleaned_text)
-        cleaned_texts.append(cleaned_text)
+        if len(cleaned_text.split()) > 1
+          cleaned_texts.append(cleaned_text)
     return cleaned_texts
