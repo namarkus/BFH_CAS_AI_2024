@@ -107,8 +107,8 @@ def remove_duplicate_chunks(texts: list[str]) -> list[str]:
     ]
     return unique_chunks
 
-def remove_phrases(text, phrases_to_remove):
-    for phrase in phrases_to_remove:
+def remove_phrases(text):
+    for phrase in PHRASES_TO_REMOVE:
         text = text.replace(phrase, '')
     return text
 
@@ -129,6 +129,6 @@ def clean_texts(texts: list[str]) -> list[str]:
         cleaned_text = cleaned_text.strip()
          # Kapitelnummern und Indexe entfernen.
         cleaned_text = re.sub(r"^(?:\d+(\.\d+)*\.?\s|[A-Za-z]\.?\s)", "", cleaned_text)
-        if len(cleaned_text.split()) > 1
+        if len(cleaned_text.split()) > 1:
           cleaned_texts.append(cleaned_text)
     return cleaned_texts
