@@ -317,6 +317,15 @@ einbezogen:
   - [Ankündigung](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
   - [Image Dokumentation](https://hub.docker.com/r/ollama/ollama)
 
+## Ratenbegrenzung
+
+Ein LLM ist rechenintensiv und daher auch kostenintensiv. Aus diesem Grund ist es sinnvoll, Begrenzungen einzubauen. 
+Das ist besonders wichtig, wenn auf externe LLM-Services wie ChatGPT zugegriffen wird.
+
+- **Token pro Minute**: Begrenzung der Anzahl an Token pro Minute, um Ressourcen zu schonen und Überlastung zu vermeiden.
+- **Anfragen pro Tag**: Begrenzung der Gesamtanfragen pro Tag, um Missbrauch über längere Zeiträume zu verhindern.
+- **Anfragen pro Minute (RPM)**: Begrenzung der Anfragen pro Minute, um plötzliche Lastspitzen zu verhindern und die Reaktionsfähigkeit zu erhalten.
+
 ## Testing
 
 Für das RAG-System werden Integrationstests und End-to-End-Tests (E2E) programmiert, um die Funktionsweise
