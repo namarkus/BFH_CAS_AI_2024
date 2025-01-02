@@ -14,8 +14,6 @@ if __name__ == '__main__':
 
 # _____[ Imports ]______________________________________________________________
 from time import sleep
-
-from sympy import threaded
 from _apis import LlmClient
 from _configs import LlmClientConfig
 from _errors import VbcConfigError
@@ -117,7 +115,6 @@ class OpenAiClient(LlmClient):
             prepared_hints += f"\n\n{hint}"
         prompt = f"INPUT PROMPT:\n{question}\n-------\nCONTENT:\n{prepared_hints}"
         threaded_messages.append({"role": "user", "content": prompt})
-        print(threaded_messages)
         response = self.openai_client.chat.completions.create(
             model=api_call_config.model_id,
             messages=threaded_messages
