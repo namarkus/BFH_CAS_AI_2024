@@ -328,7 +328,7 @@ Das ist besonders wichtig, wenn auf externe LLM-Services wie ChatGPT zugegriffen
 
 ## Sicherheit und Privacy
 
-- **Kontext**: Ein leistungsstarkes LLM verfügt über umfangreiche Daten, jedoch soll die RAG-App nur die Daten berücksichtigen, die bereitgestellt wurden. Deshalb muss im Prompt eine Einschränkung eingebaut werden.
+- **Jailbreaking**: Ein leistungsstarkes LLM verfügt über umfangreiche Daten, jedoch soll die RAG-App nur die Daten berücksichtigen, die bereitgestellt wurden. Deshalb muss im Prompt eine Einschränkung eingebaut werden.
 - **Rollen**: Mit Rollen können Daten geschützt werden, sodass nur Berechtigte sie verwenden können. Dafür gibt es unterschiedliche Lösungen wie Indizes, Metadaten oder Namespaces.
 
 ## Testing
