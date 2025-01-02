@@ -331,6 +331,14 @@ Das ist besonders wichtig, wenn auf externe LLM-Services wie ChatGPT zugegriffen
 - **Jailbreaking**: Ein leistungsstarkes LLM verfügt über umfangreiche Daten, jedoch soll die RAG-App nur die Daten berücksichtigen, die bereitgestellt wurden. Deshalb muss im Prompt eine Einschränkung eingebaut werden.
 - **Rollen**: Mit Rollen können Daten geschützt werden, sodass nur Berechtigte sie verwenden können. Dafür gibt es unterschiedliche Lösungen wie Indizes, Metadaten oder Namespaces.
 
+## Prompt Injection
+
+Benutzer erfassen Daten und interagieren somit mit dem LLM. Dadurch existiert die Gefahr von **Prompt Injection**. Der User kann so den Prompt übersteuern.
+
+- **Input- und Kontext-Validierung**: Input- und Kontextvalidierung stellen sicher, dass Benutzereingaben und der Kontext der Anfrage korrekt und sicher sind, um unerwünschte Manipulationen oder Missbrauch zu verhindern.
+- **Vorlagen**: In Prompts kann alles enthalten sein. Daher ist es empfehlenswert, möglichst bewährte Prompt-Vorlagen zu verwenden.
+- **Tool**: Es gibt laufend neue Angriffe, daher lohnt es sich, auf bewährte Bibliotheken zu setzen, wie zum Beispiel [promptmap](https://github.com/utkusen/promptmap) oder LLMs wie [deberta-v3-base-prompt-injection-v2](https://huggingface.co/protectai/deberta-v3-base-prompt-injection-v2) auf Hugging Face.
+
 ## Testing
 
 Für das RAG-System werden Integrationstests und End-to-End-Tests (E2E) programmiert, um die Funktionsweise
