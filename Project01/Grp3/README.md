@@ -326,12 +326,12 @@ Das ist besonders wichtig, wenn auf externe LLM-Services wie ChatGPT zugegriffen
 - **Anfragen pro Tag**: Begrenzung der Gesamtanfragen pro Tag, um Missbrauch über längere Zeiträume zu verhindern.
 - **Anfragen pro Minute (RPM)**: Begrenzung der Anfragen pro Minute, um plötzliche Lastspitzen zu verhindern und die Reaktionsfähigkeit zu erhalten.
 
-## Sicherheit und Privacy
+## Sicherheit
 
-- **Jailbreaking**: Ein leistungsstarkes LLM verfügt über umfangreiche Daten, jedoch soll die RAG-App nur die Daten berücksichtigen, die bereitgestellt wurden. Deshalb muss im Prompt eine Einschränkung eingebaut werden.
+- **Kontext**: Ein leistungsstarkes LLM verfügt über umfangreiche Daten, jedoch soll die RAG-App nur die Daten berücksichtigen, die bereitgestellt wurden. Deshalb muss im Prompt eine Einschränkung eingebaut werden.
 - **Rollen**: Mit Rollen können Daten geschützt werden, sodass nur Berechtigte sie verwenden können. Dafür gibt es unterschiedliche Lösungen wie Indizes, Metadaten oder Namespaces.
 
-## Prompt Injection
+### Prompt Injection
 
 Benutzer erfassen Daten und interagieren somit mit dem LLM. Dadurch existiert die Gefahr von **Prompt Injection**. Der User kann so den Prompt übersteuern.
 
