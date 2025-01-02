@@ -23,28 +23,34 @@ from _csv_embedding import CsvEmbeddingStore
 from _chroma_embedding import ChromaEmbeddingStore
 
 class ConfigBuilder:
-    def __init__(self, mode: str, llm: str, version: str):
+    def __init__(self, mode: str, llm: str, version: str, required_config_id: str = None):
         self.llm = llm
-        self.config = VbcConfig()
-        self.config.learn_version = version
-        self.config.action = [name for name, member in VbcAction.__members__.items() if member.value == mode]
         self.logger = app_logger()
-        if self.llm == "lokal":
-            self.logger.info(f"Konfiguriere lokalen LLM-Provider Ollama...")
-            self._with_local_llm()
-        elif self.llm == "cloud":
-            self.logger.info(f"Konfiguriere Cloud LLM-Provider OpenAI...")
-            self._with_remote_llm()
-        elif self.llm == "auto":
-            self.logger.debug(f"Automatische Erkennung des LLM-Providers...")
-            if OllamaClient.is_availble():
-                self.logger.info(f"Ollama-Client verfügbar. Nutze lokales Ollama für die Konfiguration.")
-                self._with_local_llm()
-            elif OpenAiClient.is_availble():
-                self.logger.info(f"OpenAI-Client verfügbar. Nutze OpenAI in der Cloud für die Konfiguration.")
-                self._with_remote_llm()
+        self.config = VbcConfig()
+        if llm == "from_config":
+            if required_config_id is None:
+                raise ValueError("required_config_id muss angegeben werden, wenn llm 'from_config' ist.")
+            self.config.from_profile_label(required_config_id)
+            self._with_required_config(self.config)
         else:
-            raise ValueError(f"Unbekannter LLM-Provider {self.llm}.")
+            self.config.learn_version = version
+            self.config.action = [name for name, member in VbcAction.__members__.items() if member.value == mode]
+            if self.llm == "lokal":
+                self.logger.info(f"Konfiguriere lokalen LLM-Provider Ollama...")
+                self._with_local_llm()
+            elif self.llm == "cloud":
+                self.logger.info(f"Konfiguriere Cloud LLM-Provider OpenAI...")
+                self._with_remote_llm()
+            elif self.llm == "auto":
+                self.logger.debug(f"Automatische Erkennung des LLM-Providers...")
+                if OllamaClient.is_availble():
+                    self.logger.info(f"Ollama-Client verfügbar. Nutze lokales Ollama für die Konfiguration.")
+                    self._with_local_llm()
+                elif OpenAiClient.is_availble():
+                    self.logger.info(f"OpenAI-Client verfügbar. Nutze OpenAI in der Cloud für die Konfiguration.")
+                    self._with_remote_llm()
+            else:
+                raise ValueError(f"Unbekannter LLM-Provider {self.llm}.")
         self.logger.debug(f"Konfigurations-Builder initalisiert. Nutze {self.configurator} zur Konfiguration der LLM-Engines.")
 
     def _with_local_llm(self):
@@ -61,6 +67,15 @@ class ConfigBuilder:
         self.config.embeddings_storage = EmbeddingStorage.CHROMA
         self.config.chat_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
 
+    def _with_required_config(self, prepared_config: VbcConfig):
+        match prepared_config.chat_llm_provider:
+            case SupportedLlmProvider.OLLAMA:
+                self.configurator = OllamaClientConfigurator()
+            case SupportedLlmProvider.OPENAI:
+                self.configurator = OpenAiClientConfigurator()
+            case _:
+                raise ValueError(f"Unsupported LLM-Provider {value}.")
+        
     def with_image_to_text_config(self):
         self.config.with_image_to_text_config(self.configurator.textcontent_from_image_config())
         return self

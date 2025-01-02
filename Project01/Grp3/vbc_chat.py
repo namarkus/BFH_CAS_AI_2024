@@ -9,13 +9,17 @@ __license__ = "GPL"
 __version__ = "0.9.2"
 __status__ = "Test"
 __description__ = """
-tbd
+Dies ist die Chat-Anwendung für den Versicherungsbedingungs-Chat. Sie öffnet 
+einen einfachen interaktiven Chat als CLI (Command Line Interface) und ermöglicht
+es dem Benutzer, Fragen zu Krankenkassen-Vertragsbedingungen zu stellen. Der 
+Chatbot basiert dabei auf RAG (Retrieval-Augmented Generation), welches mit den
+vorbereiteten Krankenkassen-Vertragsbedingungen mithilfe von vbc_learn trainiert 
+worden ist.
 """
 
+import argparse
 import getpass
 from tkinter import dialog
-
-from ollama import chat
 from _logging import start_logger
 from _configs import print_splash_screen
 from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
@@ -24,7 +28,25 @@ from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
 if __name__ == "__main__":
     print_splash_screen("vbc_chat", __version__, __author__)
 logging = start_logger("vbc_chat", __status__)
-config = ConfigBuilder("chat", "auto", __version__).with_embeddings_config().with_answer_with_hits_config().build()
+# _____[ Parameterparser initialisieren ]_______________________________________
+logging.debug("Werte übergebene Parameter aus  ...")
+parser = argparse.ArgumentParser(description=__description__, formatter_class=argparse.RawDescriptionHelpFormatter)
+parser.add_argument("--config", type=str, 
+                    help="""Zu ladende Konfiguration. Wird keines angegeben, so 
+                    wird ermittelt, welche LLM zur Verfügung steht und versucht, 
+                    für diese die aktuellste Configuration zu laden. 
+                    Ausschlaggebend hierfür ist die Konfigurationsklasse 
+                    'VbcConfig'. Die Namen für die Konfigurationen werden nach
+                    dem Schema 'image2text-llm-provider#embeddings-provider_chunking-mode_embeddings-storage#chat_llm_provider#learn_version'
+                    vergbben, also z.B. 'openai#openai_chroma_document#openai#1.0.0'""")
+cli_arguments = parser.parse_args()
+
+if cli_arguments.config:
+    config_description = cli_arguments.config
+    config = ConfigBuilder("chat", "from_config", __version__, required_config_id=config_description).with_embeddings_config().with_answer_with_hits_config().build()
+    logging.info(f"Verwende gewünschte Konfiguration mit Profil-Id {config.as_profile_label()}.")
+else:
+    config = ConfigBuilder("chat", "auto", __version__).with_embeddings_config().with_answer_with_hits_config().build()
 logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
 chat_client = ClientBuilder(config).for_answer_with_hints().build()
 embedding_client = ClientBuilder(config).for_embeddings().build()
