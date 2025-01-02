@@ -311,7 +311,7 @@ einbezogen:
 | mistral | | Sprachenunterstütung (de) ungenügend) | :thumbsup: |
 | jina/jina-embeddings-v2-base-de | Embeddings erstellen |  | :thumbsup: |
 
-[^1]: Je nach Umgebung wird im Moment noch dienative  Installation empfohlen, da 
+[^1]: Je nach Umgebung wird im Moment noch die native  Installation empfohlen, da 
   für die Unterstützung der Grafik-Karte im Docker-Image noch einige manuelle 
   Eingriffe nötig sind. Für weitere Details siehe
   - [Ankündigung](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
