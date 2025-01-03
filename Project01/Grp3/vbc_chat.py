@@ -31,6 +31,16 @@ logging = start_logger("vbc_chat", __status__)
 # _____[ Parameterparser initialisieren ]_______________________________________
 logging.debug("Werte übergebene Parameter aus  ...")
 parser = argparse.ArgumentParser(description=__description__, formatter_class=argparse.RawDescriptionHelpFormatter)
+parser.add_argument("--llm", type=str, choices=["auto", "lokal", "cloud"], 
+                    default="auto", 
+                    help="""LLM-Engine, die für die Verarbeitung verwendet 
+                    werden soll. 'lokal' verwendet die lokal installierte Engine,
+                    'orbstack' aue ein Image auf der lokalen Maschine
+                    und 'openai' greift auf die Rest-APIs von OpenAI zu. Bei 
+                    'auto' erfolgt eine automatische Auswahl: Wenn eine lokal 
+                    installierte laufende Engine, gefunden wird, dann wird diese 
+                    verwendet, ansonsten OpenAI. Defaultwert ist 
+                    '%(default)s'.""")
 parser.add_argument("--config", type=str, 
                     help="""Zu ladende Konfiguration. Wird keines angegeben, so 
                     wird ermittelt, welche LLM zur Verfügung steht und versucht, 
@@ -40,13 +50,13 @@ parser.add_argument("--config", type=str,
                     dem Schema 'image2text-llm-provider#embeddings-provider_chunking-mode_embeddings-storage#chat_llm_provider#learn_version'
                     vergbben, also z.B. 'openai#openai_chroma_document#openai#1.0.0'""")
 cli_arguments = parser.parse_args()
-
+llm = cli_arguments.llm
 if cli_arguments.config:
     config_description = cli_arguments.config
     config = ConfigBuilder("chat", "from_config", __version__, required_config_id=config_description).with_embeddings_config().with_answer_with_hits_config().build()
     logging.info(f"Verwende gewünschte Konfiguration mit Profil-Id {config.as_profile_label()}.")
 else:
-    config = ConfigBuilder("chat", "auto", __version__).with_embeddings_config().with_answer_with_hits_config().build()
+    config = ConfigBuilder("chat", llm, __version__).with_embeddings_config().with_answer_with_hits_config().build()
 logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
 chat_client = ClientBuilder(config).for_answer_with_hints().build()
 embedding_client = ClientBuilder(config).for_embeddings().build()
