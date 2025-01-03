@@ -38,8 +38,9 @@ import argparse
 from _logging import start_logger
 from _configs import print_splash_screen
 from _file_io import InputFileHandler, MetaFile
-from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
+from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder, EvaluatorBuilder
 from _texts import split, clean_texts
+import asyncio
 
 # _____[ Laufzeit-Prüfung und Splash-Screen ]___________________________________
 if __name__ == "__main__":
@@ -137,7 +138,7 @@ if len(embedding_files) > 0:
         ix = 0
         for text in meta_file.get_chunks():
             ix += 1
-            embeddings = embeddings_client.get_embeddings(text)
+            embeddings = embeddings_client.get_embedding(text)
             original_input_file = meta_file.metadata["input_file"]
             chunk_id = original_input_file + "_" + str(ix)
             #print(f"Id: '{chunk_id}', Text: '{text}', Embeddings: '{embeddings}'")            
@@ -146,7 +147,18 @@ if len(embedding_files) > 0:
         meta_file.save()
     embedding_store.export_embeddings()
     embedding_store.close()
+
 # _____[ Testen des Modells ]___________________________________________________
 logging.info("_____[ 4/4 Testen des Modells  ]_____")
+
+evaluator = EvaluatorBuilder(config, embeddings_client, embedding_store).build()
+
+if asyncio.iscoroutinefunction(evaluator.evaluate()):
+    eval_result = asyncio.run(evaluator.evaluate())
+else:
+    eval_result = evaluator.evaluate()
+
+print(eval_result)
+
 # todo Testing noch ergänzen
 logging.info(f"Verarbeitung abgeschlossen. Embedding Store mit Id {embedding_store.index_id} wurde aktualisiert.")

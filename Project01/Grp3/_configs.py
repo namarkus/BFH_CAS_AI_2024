@@ -74,6 +74,16 @@ class LlmClientConfig:
     system_prompt: Optional[str] = None    # System-Prompt für die Generierung der Texte
     user_prompt: Optional[str] = None    # User-Prompt für die Generierung der Texte    
 
+class EvaluationMode(Enum):
+    """_summary_
+    Enum, welche die unterstützten Evaluationen einschränkt und kategorisiert.
+    Args:
+        Enum (_type_): _description_
+    """
+    NONE = "none"
+    SIMPLE = "simple"
+    ADVANCED = "advanced"
+
 @dataclass
 class VbcConfig:   
     action: VbcAction = VbcAction.CHAT    # Aktion, die durchgeführt werden soll
@@ -86,6 +96,7 @@ class VbcConfig:
     image2text_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für Image2Text
     embeddings_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
     embeddings_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
+    evaluation_mode: EvaluationMode = EvaluationMode.SIMPLE
     chat_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für den Chat selbst
     export_embeddings: bool = True
 

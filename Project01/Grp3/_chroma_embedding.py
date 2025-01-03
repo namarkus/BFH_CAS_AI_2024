@@ -43,6 +43,11 @@ class ChromaEmbeddingStore(EmbeddingStore):
         results = self.collection.query(query_embeddings=[embedding], n_results=top_k)
         return results['documents'][0]
 
+    def find_most_similar_docs(self, embedding, top_k=1):
+        results = self.collection.query(query_embeddings=[embedding], n_results=top_k)
+        source_docs = [metadata['source_document'] for metadata in results['metadatas'][0]]
+        return source_docs
+
     def store(self, text, embeddings, source_document=None, chunk_id=None):
         if chunk_id is None:
             chunk_id = source_document + "_" + str(len(self.collection))

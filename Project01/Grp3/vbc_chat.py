@@ -97,7 +97,7 @@ while True:
             extended_user_input += f"{dialog['question']} \n"
         extended_user_input += user_input
         logging.debug(f"Habe Kontext für die Ermittlung der Embeddings auf '{extended_user_input}' erweitert.")
-        embeddings = embedding_client.get_embeddings(extended_user_input)
+        embeddings = embedding_client.get_embedding(extended_user_input)
         hints = embedding_store.find_most_similar(embeddings, top_k=5) 
         logging.debug(f"Frage: '{user_input}' erhält via Embeddings folgende Hinweise '{hints}'")
         response = chat_client.answer_with_hints(user_input, hints, history=chat_session)

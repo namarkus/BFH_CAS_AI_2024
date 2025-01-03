@@ -13,7 +13,7 @@ if __name__ == '__main__':
     exit()
 # _____[ Imports ]______________________________________________________________
 from _apis import LlmClient
-from _configs import EmbeddingStorage, SupportedLlmProvider, VbcAction, VbcConfig
+from _configs import EmbeddingStorage, SupportedLlmProvider, EvaluationMode, VbcAction, VbcConfig
 from _logging import app_logger
 from _openai_config import OpenAiClientConfigurator
 from _openai_client import OpenAiClient
@@ -21,6 +21,8 @@ from _ollama_config import OllamaClientConfigurator
 from _ollama_client import OllamaClient
 from _csv_embedding import CsvEmbeddingStore
 from _chroma_embedding import ChromaEmbeddingStore
+from _simple_evaluator import SimpleEvaluator
+from _advanced_evaluator import AdvancedEvaluator
 
 class ConfigBuilder:
     def __init__(self, mode: str, llm: str, version: str, required_config_id: str = None):
@@ -163,3 +165,36 @@ class EmbeddingStoreBuilder:
 
     def build(self):
         return self.store    
+
+class EvaluatorBuilder:
+    def __init__(self, config: VbcConfig, embeddings_client, embedding_store):
+        self.config = config
+        self.embeddings_client = embeddings_client
+        self.embedding_store = embedding_store
+        self.logger = app_logger()
+        match config.evaluation_mode:
+            case EvaluationMode.NONE:
+                self._no_evaluation()
+            case EvaluationMode.SIMPLE:
+                self._simple_evaluation(),
+            case EvaluationMode.ADVANCED:
+                self._advanced_evaluation(),
+            case _:
+                raise ValueError(f"Unsupported evaluation mode {self.config.evaluation_mode}.")
+
+    def _no_evaluation(self):
+        self.logger.debug(f"Keine Evaluation gewählt...")
+        return self
+
+    def _simple_evaluation(self):
+        self.logger.debug(f"Einfache Evaluation...")
+        self.evaluator = SimpleEvaluator(self.config, self.embeddings_client, self.embedding_store)  # todo dynamisieren
+        return self
+
+    def _advanced_evaluation(self):
+        self.logger.debug(f"Erweiterte Evaluation...")
+        self.evaluator = AdvancedEvaluator(self.config, self.embeddings_client, self.embedding_store) # todo dynamisieren
+        return self
+
+    def build(self):
+        return self.evaluator

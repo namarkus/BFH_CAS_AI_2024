@@ -92,14 +92,24 @@ class OpenAiClient(LlmClient):
                 sleep(SLEEPING_TIME_IN_SECONDS_AFTER_RATE_LIMIT_ERROR)
         return response.choices[0].message.content
     
-    def get_embeddings(self, text):
+    def get_embedding(self, text):
         api_call_config = self.embeddings_config()
-        embeddings = self.openai_client.embeddings.create(
+        response = self.openai_client.embeddings.create(
             model=api_call_config.model_id,
             input=text,
             encoding_format="float"
         )
-        return embeddings.data[0].embedding
+        return response.data[0].embedding
+
+    def get_embeddings(self, texts):
+        api_call_config = self.embeddings_config()
+        response = self.openai_client.embeddings.create(
+            model=api_call_config.model_id,
+            input=texts,
+            encoding_format="float"
+        )
+        embeddings = [item.embedding for item in response.data]
+        return embeddings
 
     def answer_with_hints(self, question, hints, history=None):
         api_call_config = self.answer_with_hints_config()

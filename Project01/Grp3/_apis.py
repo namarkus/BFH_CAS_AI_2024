@@ -16,6 +16,7 @@ if __name__ == '__main__':
 # _____[ Imports ]______________________________________________________________
 from abc import ABC, abstractmethod
 from _configs import LlmClientConfig, VbcConfig
+from typing import List
 
 class LlmClient(ABC):
     """Superklasse für alle LLM-Clients.
@@ -31,7 +32,11 @@ class LlmClient(ABC):
         pass  # This is an abstract method, no implementation here.
     
     @abstractmethod
-    def get_embeddings(self, text_to_embed) -> str:
+    def get_embedding(self, text_to_embed) -> str:
+        pass  # This is an abstract method, no implementation here.
+
+    @abstractmethod
+    def get_embeddings(self, text_to_embed) -> List[str]:
         pass  # This is an abstract method, no implementation here.
 
     #@abstractmethod
@@ -90,11 +95,25 @@ class EmbeddingStore(ABC):
         pass  # This is an abstract method, no implementation here.
 
     @abstractmethod
+    def find_most_similar_docs(self, embeddings, top_k=1):
+        pass  # This is an abstract method, no implementation here.
+
+    @abstractmethod
     def store(self, text, embeddings, source_document=None, chunk_id=None):
         pass  # This is an abstract method, no implementation here.
 
     def close(self):
-        pass 
+        pass
 
 
+class Evaluator(ABC):
+    """Superklasse für alle Evaluationen.
+    """
+    def __init__(self, config: VbcConfig, embeddings_client, embedding_store):
+        self.config = config
+        self.embeddings_client = embeddings_client
+        self.embedding_store = embedding_store
 
+    @abstractmethod
+    def evaluate(self):
+        pass
