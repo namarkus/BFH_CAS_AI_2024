@@ -153,8 +153,8 @@ logging.info("_____[ 4/4 Testen des Modells  ]_____")
 
 evaluator = EvaluatorBuilder(config, embeddings_client, embedding_store).build()
 
-if asyncio.iscoroutinefunction(evaluator.evaluate()):
-    eval_result = asyncio.run(evaluator.evaluate())
+if evaluator.is_advanced():
+    eval_result = asyncio.run(evaluator.aevaluate())
 else:
     eval_result = evaluator.evaluate()
 

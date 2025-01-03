@@ -115,5 +115,17 @@ class Evaluator(ABC):
         self.embedding_store = embedding_store
 
     @abstractmethod
+    def is_simple(self):
+        pass
+
+    @abstractmethod
+    def is_advanced(self):
+        pass
+
+    @abstractmethod
     def evaluate(self):
+        pass
+
+    @abstractmethod
+    async def aevaluate(self):
         pass
