@@ -74,14 +74,24 @@ class OllamaClient(LlmClient):
         )
         return response['message']['content']
     
-    def get_embeddings(self, text):
+    def get_embedding(self, text):
         api_call_config = self.embeddings_config()
-        embeddings = ollama.embed(
+        response = ollama.embed(
             model=api_call_config.model_id,
             input=text,
             encoding_format="float"
         )
-        return embeddings.data[0].embedding
+        return response.data[0].embedding
+
+    def get_embeddings(self, texts):
+        api_call_config = self.embeddings_config()
+        response = ollama.embed(
+            model=api_call_config.model_id,
+            input=texts,
+            encoding_format="float"
+        )
+        embeddings = [item.embedding for item in response.data]
+        return embeddings
 
     def answer_with_hints(self, question, hints, history=[]):
         api_call_config = self.answer_with_hints_config()
