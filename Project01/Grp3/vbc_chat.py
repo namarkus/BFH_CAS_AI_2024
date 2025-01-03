@@ -3,7 +3,7 @@
 # _____[ vbc_chat.py ]__________________________________________________________
 __file__ = "vbc_chat.py"
 __author__ = "BFH-CAS-AI-2024-Grp3"
-__copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
+__copyright__ = "Copyright 2024/2025, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
 __version__ = "0.9.2"
@@ -16,10 +16,9 @@ Chatbot basiert dabei auf RAG (Retrieval-Augmented Generation), welches mit den
 vorbereiteten Krankenkassen-Vertragsbedingungen mithilfe von vbc_learn trainiert 
 worden ist.
 """
-
 import argparse
 import getpass
-from tkinter import dialog
+import readline
 from _logging import start_logger
 from _configs import print_splash_screen
 from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
@@ -28,6 +27,25 @@ from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder
 if __name__ == "__main__":
     print_splash_screen("vbc_chat", __version__, __author__)
 logging = start_logger("vbc_chat", __status__)
+# _____[ Funktionen ]___________________________________________________________
+COMMANDS = ["bye", "/bye", "/init", "Visana", "Helsana", "CSS", "Sanitas", "Swica", "Assura",  "Zusatzversicherung", "Krankenversicherung"]
+
+def completer(text, state):
+    # Filtere die Befehle basierend auf der Eingabe
+    matches = [cmd for cmd in COMMANDS if cmd.startswith(text)]
+    return matches[state] if state < len(matches) else None
+
+def handle_input() -> str:
+    #global cursor_pos
+    while True:
+        try:
+            current_input = input(USER_PROMPT)
+            if current_input.strip():
+                readline.add_history(current_input)
+                return current_input
+        except EOFError:
+            return "/bye"
+
 # _____[ Parameterparser initialisieren ]_______________________________________
 logging.debug("Werte übergebene Parameter aus  ...")
 parser = argparse.ArgumentParser(description=__description__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -71,7 +89,7 @@ Wissens und der Hilfe von {config.embeddings_provider.value} kann ich Dir Fragen
 
 Mein Wissen basiert im Moment auf meiner Modellversion {config.as_profile_label()}. 
 
-Mit der Option --profile beim Start des Chats kannst Du das Modell für unser Gespräch 
+Mit der Option --config beim Start des Chats kannst Du das Modell für unser Gespräch 
 wechseln. Weitere Optionen siehst Du auch, wenn Du in Deinem Terminal das Kommando 
 'python vbc_chat.py --help' eingibst.
 
@@ -88,10 +106,13 @@ print ("\n")
 print(f"{CHATBOT_PROMPT}{INSTRUCTIONS}")
 user_input = ""
 chat_session = []
+readline.set_history_length(15)
+readline.set_completer(completer)
+readline.parse_and_bind("tab: complete") 
 while True: 
     # todo: mit curses oder readline eine bessere Eingabe ermöglichen (z.B. Pfeiltasten für History)
-    user_input = input(USER_PROMPT)
-    if user_input == "/bye" or user_input == "bye":
+    user_input = handle_input()
+    if user_input == "/bye" or user_input == "bye" or user_input == "exit":
         print(f"{CHATBOT_PROMPT}Tschüss {USER_NAME}, bis bald 👋")
         break
     elif user_input == "/init":
