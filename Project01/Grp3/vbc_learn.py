@@ -3,10 +3,10 @@
 # _____[ vbc_learn.py ]_________________________________________________________
 __file__ = "vbc_learn.py"
 __author__ = "BFH-CAS-AI-2024-Grp3"
-__copyright__ = "Copyright 2024, BFH-CAS-AI-2024-Grp3"
+__copyright__ = "Copyright 2024/2025, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
-__version__ = "0.9.2"
+__version__ = "1.0.0"
 __status__ = "Development"
 __description__ = """
 Diese Anwendung bereitet die Daten für den späteren Einsatz im vb-chat vor. 
@@ -34,9 +34,11 @@ conda install poppler | scoop install poppler (Windows) | apt-get install popple
 import concurrent
 from tqdm import tqdm
 from datetime import datetime
+import time
 import argparse
 from _logging import start_logger
 from _configs import print_splash_screen
+from _metrics import TensorBoardMonitor
 from _file_io import InputFileHandler, MetaFile
 from _builders import ConfigBuilder, ClientBuilder, EmbeddingStoreBuilder, EvaluatorBuilder
 from _texts import split, clean_texts
@@ -55,10 +57,6 @@ parser.add_argument("--mode", type=str, choices=["full", "inc"], default="inc",
                     werden verarbeitet und bei 'inc' erfilgt eine inkrementelle 
                     Verarbeitung, d.H. nur noch nicht vorhandene Daten werden 
                     ergänzt. Defaultwert ist '%(default)s'.""")
-parser.add_argument("--profile", type=str, 
-                    help="""Zu ladendes Profil. Wird keines angegeben, so wird 
-                    aufgrund der vorhandenen Konfigurations-Templates, der llm 
-                    und der App-Version das Profil automatisch ermittelt.""")
 parser.add_argument("--llm", type=str, choices=["auto", "lokal", "cloud"], 
                     default="auto", 
                     help="""LLM-Engine, die für die Verarbeitung verwendet 
@@ -72,27 +70,32 @@ parser.add_argument("--llm", type=str, choices=["auto", "lokal", "cloud"],
 cli_arguments = parser.parse_args()
 
 # _____[ Verarbeitung starten ]_________________________________________________
-start_datetime = datetime.now()
 mode = cli_arguments.mode
 llm = cli_arguments.llm
 logging.info(f"Starte Verarbeitung im Modus '{mode}' mit der LLM-Engine '{llm}' ...")
 config = ConfigBuilder(mode, llm, __version__).with_image_to_text_config().with_embeddings_config().build()
 logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
+metrics = TensorBoardMonitor(config)
 file_handler = InputFileHandler(mode, config)
 if mode == "full":
     logging.warning("Vollständige Reindexierung wurde angefordert. Alle vorahndenen Metadaten werden gelöscht.")
     file_handler.delete_all_metafiles()
-
+start_time = time.perf_counter()
 # _____[ Verarbeitung der neuen PDFs ]__________________________________________
 logging.info("_____[ 1/4 Konvertierung Input-Dateien zu Texten ]_____")
+source_to_text_start = time.perf_counter()
 input_files = file_handler.get_input_files_to_process(config)
 logging.info(f"{len(input_files)} Datei(en) werden komplett neu indexiert.")
 if len(input_files) > 0:
+    metrics.log_metrics("source_to_text_documents", len(input_files))
     image_to_text_client = ClientBuilder(config).for_image_to_text().build()
+    source_to_text_pages = 0
     for original_input_file in input_files:
         if original_input_file.is_processable_as_image():
             pages = original_input_file.get_content()
-            logging.info(f"Bereite Datei {original_input_file.file_name} mit {len(pages)} Seiten vor ...")            
+            source_to_text_pages += len(pages)
+            logging.info(f"Bereite Datei {original_input_file.file_name} mit {len(pages)} Seiten vor ...")    
+            metrics.log_metrics(original_input_file.file_name, len(pages))        
             meta_file = MetaFile(config, from_input_file=original_input_file)
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor: 
                 futures = {
@@ -106,7 +109,9 @@ if len(input_files) > 0:
                     result = futures[idx].result()
                     meta_file.add_page({"number": idx + 1, "content": result})                
             meta_file.save()
-
+    metrics.log_metrics("source_to_text_pages", source_to_text_pages)
+source_to_text_time = time.perf_counter() - source_to_text_start
+metrics.log_metrics("source_to_text_time", source_to_text_time)
 # _____[ Text-Splitting, Bereinigung und Chunking ]_____________________________
 logging.info("_____[ 2/4 Text-Chunking  ]_____")
 chunk_files = file_handler.get_metafiles_to_chunk(config)
@@ -150,15 +155,11 @@ if len(embedding_files) > 0:
 
 # _____[ Testen des Modells ]___________________________________________________
 logging.info("_____[ 4/4 Testen des Modells  ]_____")
-
 evaluator = EvaluatorBuilder(config, embeddings_client, embedding_store).build()
-
 if evaluator.is_advanced():
     eval_result = asyncio.run(evaluator.aevaluate())
 else:
     eval_result = evaluator.evaluate()
-
 print(eval_result)
-
 # todo Testing noch ergänzen
 logging.info(f"Verarbeitung abgeschlossen. Embedding Store mit Id {embedding_store.index_id} wurde aktualisiert.")
