@@ -119,7 +119,6 @@ class OpenAiClient(LlmClient):
             for dialog in history:
                 threaded_messages.append({"role": "user", "content": dialog["question"]})
                 threaded_messages.append({"role": "assistant", "content": dialog["response"]})
-        # todo hier müssen noch die Hintwsergänzt werden.
         prepared_hints = ""
         for hint in hints:
             prepared_hints += f"\n\n{hint}"

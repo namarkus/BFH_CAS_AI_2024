@@ -76,7 +76,7 @@ class ConfigBuilder:
             case SupportedLlmProvider.OPENAI:
                 self.configurator = OpenAiClientConfigurator()
             case _:
-                raise ValueError(f"Unsupported LLM-Provider {value}.")
+                raise ValueError(f"Unsupported LLM-Provider {prepared_config.chat_llm_provider}.")
         
     def with_image_to_text_config(self):
         self.config.with_image_to_text_config(self.configurator.textcontent_from_image_config())

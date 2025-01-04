@@ -31,6 +31,12 @@ class SupportedLlmProvider(Enum):
 class ChunkingMode(Enum):
     """_summary_
     Enum, welche die unterstützten Chunking-Modi vordefiniert.
+    - DOCUMENT: Das gesamte Dokument als einen Chunk verwenden (funktioniert nur bei kleinen 
+      Dokumenten und ist somit für unseren Usecase nicht relevant)
+    - PAGE: Das Dokument wird in Seiten aufgeteilt
+    - SECTION: Das Dokument wird in Abschnitte aufgeteilt
+    - PARAGRAPH: Das Dokument wird in Absätze aufgeteilt
+    - SENTENCE: Das Dokument wird in Sätze aufgeteilt
     Args:
         Enum (_type_): _description_
     """
@@ -118,7 +124,7 @@ class VbcConfig:
 
     def as_profile_label(self):
         return f"{self.image2text_llm_provider.value}#{self.embeddings_provider.value}_{self.chunking_mode.value}_{self.embeddings_storage.value}#{self.chat_llm_provider.value}#{self.learn_version}"
-
+    
     def from_profile_label(self, mode):
         profile_parts = mode.split("#")
         self.image2text_llm_provider = SupportedLlmProvider(profile_parts[0])
@@ -129,6 +135,18 @@ class VbcConfig:
         self.chat_llm_provider = SupportedLlmProvider(profile_parts[2])
         self.learn_version = profile_parts[3]
         return self
+    
+    def as_hyperparams(self):
+        return {
+            "language": self.language,
+            "learn_version": self.learn_version,
+            "chunking_mode": self.chunking_mode.name,
+            "image2text_llm_provider": self.image2text_llm_provider.name,
+            "embeddings_provider": self.embeddings_provider.name,
+            "embeddings_storage": self.embeddings_storage.name,
+            "evaluation_mode": self.evaluation_mode.name,
+            "chat_llm_provider": self.chat_llm_provider.name
+            }    
 
 def print_splash_screen(app_name: str, app_version: str, app_author: str):
     print(f"""
