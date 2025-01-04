@@ -37,11 +37,10 @@ Folgende Personen der _Gruppe 3_ haben zu diesem Projekt beigetragen:
     [offiziellen Downloadseite](https://ollama.com/download) oder via 
     Package-Manager (z.B. `brew install ollama`auf macOS).
   - [ ] Installation der benötigten Modelle
-      - [ ] ollama run llama3.3 --> benötigt zu viel Memory
-      - [ ] ollama run qwq https://ollama.com/library/qwq
-      - [ ] ollama run llama3.2 
       - [ ] ollama run llama3.2-vision 
-      - [ ] ollama run mistral --> nur englisch
+      - [ ] ollama run jina/jina-embeddings-v2-base-de
+      - [ ] ollama run llama3.2 
+      - [ ] ollama run granite3.1-dense
 
 
 - Für die Nutzung von Ollama als Docker-Backend[^1]
@@ -68,17 +67,54 @@ _TBD_ siehe vorerst Datei `_configs.py`
 
 ## Architektur
 
-### Verzeichnisstruktur
+### Visueller Überblick
 
-- :open_file_folder: `BFH_CAS_AI_2024/Project01/Grp3`
-  - :file_folder: `input` Enthält alle zu verarbeitenden Dateien. 
-    Unterstützt wird im Moment *.pdf 
-  - :file_folder: `logs` Enthält die lokalen Logdateien.
-  - :file_folder: `models` Enthält lokale Modelle.
-    Dies können z.B. die CSV Dateien der lokalen Embeddings sein.
-  - :file_folder: `work` Enthält Metainforamtionen des vorhandenen Fachwissens. 
-    Pro verarbeitet Datei im Verzeichnis `input` ist hier eine Datei vorhanden,
-    die den Stand der Verarbeitung und Zwischenergebnisse festhält.
+```mermaid
+architecture-beta
+    group app(server)[APP]
+    group cloud(cloud)[OpenAI]
+    group local(server)[OLLAMA]
+
+    service vbc_learn(CLI)[vbc_learn] in app
+    service vbc_chat(CLI)[vbc_chat] in app
+    service repository(disk)[Repository] in app
+    service chroma_db(database)[ChromaDB] in app
+
+    service gpt4o(internet)[gpt_4o] in cloud
+    service embedding3small(internet)[text_embedding_3_small] in cloud
+    service pinecone(database)[PineCone] in cloud
+    service gpt4omini(internet)[gpt_4o_mini] in cloud
+    service gpto1mini(internet)[gpt_o1_mini] in cloud    
+
+    service jinaembeddings(internet)[jina_embeddings_v2_base_de] in local
+    service llama32(internet)[llama3_2] in local    
+    service granite31dense(internet)[granite3_1_dense] in local    
+
+    junction cloudllm in cloud
+    junction localllm in local
+
+    vbc_learn:L -- R:cloudllm
+    cloudllm:B --> T:gpt4o
+    cloudllm:L --> R:embedding3small
+    cloudllm:T --> B:gpt4omini
+    cloudllm:L --> R:gpto1mini
+
+    vbc_learn:B-- T:localllm
+    localllm:L --> R:gpt4o
+    localllm:B --> T:jinaembeddings
+    localllm:B --> B:llama32
+    localllm:B --> T:granite31dense    
+
+    vbc_learn:T --> B:repository
+    vbc_learn:R --> L:chroma_db
+
+    vbc_chat:L <-- R:chroma_db
+    vbc_chat:T --> T:gpt4omini
+    vbc_chat:B <-- T:llama32
+```
+
+Zum Zeitpunkt der Umsetzung war das Archtitekturdiagramm noch Beta. Daher, falls GitHub diesen 
+Diagrammtypen noch nicht unterstützt der [Direktlink zu Mermaid.live](https://mermaid.live/edit#pako:eNp9VNtu4jAQ_ZXITyBBlRsUrNVK0L5UYtWK5WmhskwyC24TO3Ic1G7Vf6_jEOdSWB4QM-ec4cyM7Q8UiRgQRlRGR6YgUoWE8R4U3XFHfw5SFJlDs2yQgzyBHG4XT0_PbSxKRBEPzPdw-5gBXzx08ERENLHqx9Vq8WuhCRWlTLMInNM-IglQyQd3q4fh1obPDuPlv39nR0eqGnIZXeZKyETOlJDvg5jlr8Pt2iYuC6KjFCkl8X4QU0X3NIfh9s7k7peNoqs5ZCoUA8YVSA5quNUxCYVhm8F02ZDuIY4ZPwR5SpOkpVPwpoiFSUAM4VqdjHGIBIeW0SedutOpaxJjNGWcfTNLyux_ZMK7IBNeT1aK-sN5YZzanvJWhRJous3JySdlFySu7JuD0y2VJDSlgd-qUWWI3ygqCx33knJ9tAMvBp5Du4UzQDxioH6RqsxLwSPFxLnDJEl7Q7K4UZ7xs_mKYY8zXjnjsbPGdaUKriO81OhPZ4PNlnrYymBr3Ds8PdbGsJbY7vlKFbvQ7xaX2uEG171UaB219bVDi9Xuu_u-SFri8yavlOhurL2MxmfdanPB-4y1YaywvdHtIuWLodv5Ue2jYXTwTXshzTgtvjT6Td0NGqEUZEpZrB_Uj5K7Q-oIKewQ1j9jKl93aMc_NY8WSvx-5xHCShYwQvqpPBwR_kuTXEdFpq803DOqB5HabEb5HyHSWqJDhD_QG8Lh7fQmnLjT6XTuerPAm4cj9I5w4E5uXM8P_bnrT13Pu_0coX-mgHtzOwvcIAzDYDaZ-LPJ9PMLdxsDtw)
 
 ### AI-Stacks
 
@@ -95,7 +131,121 @@ Die Bestandteile der beiden Stacks sind wie folgt:
 | Erstellung Embeddings      | PineCone (multilingual-e5-large) / OpenAI (text-embedding-3-small) | Ollama (jina/jina-embeddings-v2-base-de) |
 | Speicherung Embeddings     | PineCone             | Chroma |
 | Chat                       | OpenAI (gpt-4o-mini) | Ollama (llama3.2) |
-| Tests                      | OpenAI (o1-mini)      | Ollama (llama3.2 ??) |
+| Tests                      | OpenAI (o1-mini)      | granite3.1-dense |
+
+### Verzeichnisstruktur
+
+- :open_file_folder: `BFH_CAS_AI_2024/Project01/Grp3`
+  - :file_folder: `input` Enthält alle zu verarbeitenden Dateien. 
+    Unterstützt wird im Moment *.pdf 
+  - :file_folder: `logs` Enthält die lokalen Logdateien.
+  - :file_folder: `models` Enthält lokale Modelle.
+    Dies können z.B. die CSV Dateien der lokalen Embeddings sein.
+  - :file_folder: `work` Enthält Metainforamtionen des vorhandenen Fachwissens. 
+    Pro verarbeitet Datei im Verzeichnis `input` ist hier eine Datei vorhanden,
+    die den Stand der Verarbeitung und Zwischenergebnisse festhält.
+
+### Sequenzdiagramme
+
+#### Lernprozess (Ingest)
+
+Grober Ablauf vbc-learn mit OpenAI-Modellen:
+
+```mermaid
+sequenceDiagram
+    actor Benutzer
+    participant main as vbc-learn 
+    participant config as VbcConfig
+    participant filehandler as FileHandler
+    participant clientbuilder as ClientBuilder
+    participant llmclient as LlmClient
+    opt Bei Bedarf
+      Benutzer->> config: Konfiguration anpassen
+    end
+    Benutzer->>main: Starten Learning
+    activate main
+    main ->>config: bauen
+    activate config
+    main ->> filehandler: Gib zu analysierende PDFs
+    main ->> clientbuilder: Gib LLM für Bildanalyse
+    clientbuilder <<-->> config: Welche LLM ist konfiguriert
+    clientbuilder ->> llmclient: create + configure
+    activate llmclient
+    clientbuilder -->> main: Iimage2Text_llm
+    loop Für jedes PDF
+      main->>llmclient: Interpretiere Text auf den Bildern
+    end
+    deactivate llmclient
+    main->> filehandler: Gib zu chunkenende Dateien aus Repo    
+    loop Für jedes neu zu chunkende File
+      main->>Texts:chunks neu aufbereiten
+    end
+    main ->> clientbuilder: Gib EmbeddingStore
+    clientbuilder ->> EmbeddingStore: create
+    activate EmbeddingStore
+    clientbuilder -->> main:EmbeddingStore
+    main ->> clientbuilder: Gib LLM für Embeddings
+    clientbuilder <<-->> config: Welche LLM ist konfiguriert
+    clientbuilder ->> llmclient: create + configure
+    activate llmclient
+    clientbuilder -->> main: embedding_llm
+    loop für jedes neu zu erstellende Embedding
+      main <<->> llmclient: gibt Embedding für Chunk
+      main ->> EmbeddingStore: speichere Embedding
+    end
+    deactivate EmbeddingStore
+    deactivate llmclient
+    deactivate config
+    deactivate main
+```
+
+#### Chat (Retrieve - Augment - Generate)
+
+```mermaid
+sequenceDiagram
+    actor Benutzer
+    participant main as vbc-chat
+    participant config as VbcConfig
+    participant clientbuilder as ClientBuilder
+    participant embeddingclient as LlmClient (Embeddings)
+    participant store as EmbeddingStore
+    participant llmclient as LlmClient (Chat)
+    opt Bei Bedarf
+      Benutzer->> config: Konfiguration anpassen
+    end
+    Benutzer->>main: Starten Learning
+    activate main
+    main ->>config: bauen
+    activate config
+    main ->> clientbuilder: Gib EmbeddingStore
+    clientbuilder ->> store: create
+    activate store
+    clientbuilder -->> main:EmbeddingStore
+    main ->> clientbuilder: Gib LLM für Embeddings
+    clientbuilder <<-->> config: Welche LLM ist konfiguriert
+    clientbuilder ->> embeddingclient: create + configure
+    activate embeddingclient
+    clientbuilder -->> main: embedding_llm
+    main ->> clientbuilder: Gib LLM für Embeddings
+    clientbuilder <<-->> config: Welche LLM ist konfiguriert
+    clientbuilder ->> llmclient: create + configure
+    activate llmclient
+    clientbuilder -->> main: chat_llm
+    loop Bis Benutzer Anwendung beendet
+      Benutzer ->> main: Frage zum Thema
+      main <<->> embeddingclient: Gib Embeddings für Frage (+History) (Retrieve 1)
+      main <<->> store:  liefere Context-Texte zu Embeddings (Retrieve 2)
+      main ->> llmclient: Liefere Antwort anhand Frage, Context und History (Augment)
+      llmclient -->> main: Antwort (Generate)
+    end
+    deactivate store
+    deactivate embeddingclient
+    deactivate llmclient
+    deactivate config
+    deactivate main
+```
+
+
 
 
 ### Klassendiagramm
@@ -281,19 +431,6 @@ VbcChat -- ClientBuilder : uses
 VbcChat -- EmbeddingStoreBuilder : uses
 ```
 
-### Sequenzdiagramme
-
-Grober Ablauf vbc-learn mit OpenAI-Modellen:
-
-```mermaid
-sequenceDiagram
-    vbc-learn->>OpenAI-gpt4o: Interpretiere Text auf den Bildern
-    vbc-learn->>OpenAI-text-embedding-3-small: Bereite die Embeddings für Textchunk auf
-    vbc-learn->>EmbeddingStorage: Speichere Embeddings
-    vbc-learn->>OpenAI-gpt4o: Liefere Antwort auf Frage
-    vbc-learn->>OpenAI-o1-mini: Verifiziere Antwort
-```
-
 ## Lokales RAG mit Ollama
 
 Im Rahmen der Projektarbeit haben wir versucht RAG lokal ohne Internetanbindung für den 
@@ -304,22 +441,23 @@ einbezogen:
 
 | Modell | Einsatz für | Findings | Geeignet |
 | ------ | ----------- | -------- | -------- |
-| llama3.2-vision | Bild-zu Text-Konvertierung | | :thumbsup: | 
+| llama3.2-vision | Bild-zu Text-Konvertierung | Schafft es nur vereinzelt, Bilder zu Texten aufzubereiten, bleibt oft hängen oder fängt an zu halluzinieren | :thumbsdown: | 
 | llama3.2 | Chat / RAG | | :thumbsup: | 
 | llama3.3 | Reasoning | Benötigt zu viel Memory für unser Test-Setup | :thumbsdown: | 
 | qwq | - | Benötigt zu viel Memory für unser Test-Setup | :thumbsdown: | 
 | mistral | | Sprachenunterstütung (de) ungenügend) | :thumbsup: |
 | jina/jina-embeddings-v2-base-de | Embeddings erstellen |  | :thumbsup: |
+| granite3.1-dense | Chat / RAG / Testing | Relativ neues Modell von IBM | :thumbsup: | 
 
-[^1]: Je nach Umgebung wird im Moment noch die native  Installation empfohlen, da 
-  für die Unterstützung der Grafik-Karte im Docker-Image noch einige manuelle 
-  Eingriffe nötig sind. Für weitere Details siehe
+[^1]: Je nach Umgebung wird im Moment noch die native Installation empfohlen, da für die 
+      Unterstützung der Grafik-Karte im Docker-Image noch einige manuelle Eingriffe nötig sind. Für 
+      weitere Details siehe
   - [Ankündigung](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
   - [Image Dokumentation](https://hub.docker.com/r/ollama/ollama)
 
 ## Ratenbegrenzung
 
-Ein LLM ist rechenintensiv und daher auch kostenintensiv. Aus diesem Grund ist es sinnvoll, Begrenzungen einzubauen. 
+Ein LLM ist rechen- und daher auch kostenintensiv. Aus diesem Grund ist es sinnvoll, Begrenzungen einzubauen. 
 Das ist besonders wichtig, wenn auf externe LLM-Services wie ChatGPT zugegriffen wird.
 
 - **Token pro Minute**: Begrenzung der Anzahl an Token pro Minute, um Ressourcen zu schonen und Überlastung zu vermeiden.
