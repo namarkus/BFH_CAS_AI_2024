@@ -71,7 +71,7 @@ The paraphrased content should be a comprehensive and faithful reproduction of t
 """
 
 
-openai_rag_sysprompt = """
+openai_chat_with_hints_sysprompt = """
 You will be provided with an input prompt and content as context that can be 
 used to reply to the prompt.
 
@@ -86,7 +86,8 @@ You will do the following things:
    you don't know how to respond if your knowledge is not sufficient to answer.
 
 Stay concise with your answer, replying specifically to the input prompt without 
-mentioning additional information provided in the context content.
+mentioning additional information provided in the context content. Give your 
+answers exclusively in German and use Swiss German writing conventions!
 """
 
 openai_testing_sysprompt = """
@@ -117,7 +118,7 @@ class OpenAiClientConfigurator(LlmClientConfigurator):
     def answer_with_hits_config(self) -> LlmClientConfig:
         return LlmClientConfig(
             model_id="gpt-4o",
-            system_prompt=openai_rag_sysprompt,
+            system_prompt=openai_chat_with_hints_sysprompt,
             max_tokens=250,
             temperature=0.0,
             top_p=0.1

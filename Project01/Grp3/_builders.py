@@ -36,7 +36,7 @@ class ConfigBuilder:
             self._with_required_config(self.config)
         else:
             self.config.learn_version = version
-            self.config.action = [name for name, member in VbcAction.__members__.items() if member.value == mode]
+            self.config.action = [member for member, member in VbcAction.__members__.items() if member.value == mode][0]
             if self.llm == "lokal":
                 self.logger.info(f"Konfiguriere lokalen LLM-Provider Ollama...")
                 self._with_local_llm()
@@ -57,17 +57,17 @@ class ConfigBuilder:
 
     def _with_local_llm(self):
         self.configurator = OllamaClientConfigurator()
-        self.config.image2text_llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
+        self.config.image2text_llm_provider = SupportedLlmProvider.OPENAI # Lokale LLM-Engine nicht in gewünschter Qualität verfügbar
         self.config.embeddings_provider = SupportedLlmProvider.OLLAMA
         self.config.embeddings_storage = EmbeddingStorage.CHROMA
-        self.config.chat_llm_provider = SupportedLlmProvider.OLLAMA # todo als Visitor implementieren
+        self.config.chat_llm_provider = SupportedLlmProvider.OLLAMA 
 
     def _with_remote_llm(self):
         self.configurator = OpenAiClientConfigurator()
-        self.config.image2text_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
+        self.config.image2text_llm_provider = SupportedLlmProvider.OPENAI 
         self.config.embeddings_provider = SupportedLlmProvider.OPENAI
         self.config.embeddings_storage = EmbeddingStorage.CHROMA
-        self.config.chat_llm_provider = SupportedLlmProvider.OPENAI # todo als Visitor implementieren
+        self.config.chat_llm_provider = SupportedLlmProvider.OPENAI 
 
     def _with_required_config(self, prepared_config: VbcConfig):
         match prepared_config.chat_llm_provider:

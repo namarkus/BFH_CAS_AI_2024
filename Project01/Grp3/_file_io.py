@@ -130,6 +130,12 @@ class MetaFile:
 
     def get_chunks(self) -> list[str]:
         return self.metadata["chunks"]
+    
+    def get_metrics(self) -> dict:
+        return {
+            f"{self.file_path}_pages": len(self.metadata["pages"]),
+            f"{self.file_path}_chunks": len(self.metadata["chunks"]),
+        }
 
 class InputFileHandler:
 

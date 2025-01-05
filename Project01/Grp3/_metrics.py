@@ -13,13 +13,16 @@ if __name__ == '__main__':
     exit()
 
 # _____[ Imports ]______________________________________________________________
+from datetime import datetime
 from _configs import VbcConfig
 from lightning.pytorch import loggers as pl_loggers
 
 class TensorBoardMonitor:
 
     def __init__(self, config: VbcConfig):
-        self.tensorboard = pl_loggers.TensorBoardLogger(save_dir="logs/", name="tb_monitor",  version=config.learn_version, experiment_name=config.as_profile_label())
+        run_id=f"vbc_{config.action.value}"
+        run_version = config.as_profile_label() + "_" + datetime.now().strftime("%Y%m%d-%H%M%S")
+        self.tensorboard = pl_loggers.TensorBoardLogger(save_dir="logs/", name=run_id,  version=run_version)
         self.tensorboard.log_hyperparams(config.as_hyperparams())
 
     def log_metrics(self, metrics: dict):

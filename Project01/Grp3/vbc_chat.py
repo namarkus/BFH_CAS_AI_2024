@@ -75,7 +75,7 @@ if cli_arguments.config:
     logging.info(f"Verwende gewünschte Konfiguration mit Profil-Id {config.as_profile_label()}.")
 else:
     config = ConfigBuilder("chat", llm, __version__).with_embeddings_config().with_answer_with_hits_config().build()
-logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
+logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} wird genutzt.")
 chat_client = ClientBuilder(config).for_answer_with_hints().build()
 embedding_client = ClientBuilder(config).for_embeddings().build()
 embedding_store = EmbeddingStoreBuilder(config).build()

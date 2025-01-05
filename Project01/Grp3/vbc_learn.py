@@ -33,7 +33,6 @@ conda install poppler | scoop install poppler (Windows) | apt-get install popple
 
 import concurrent
 from tqdm import tqdm
-from datetime import datetime
 import time
 import argparse
 from _logging import start_logger
@@ -74,7 +73,7 @@ mode = cli_arguments.mode
 llm = cli_arguments.llm
 logging.info(f"Starte Verarbeitung im Modus '{mode}' mit der LLM-Engine '{llm}' ...")
 config = ConfigBuilder(mode, llm, __version__).with_image_to_text_config().with_embeddings_config().build()
-logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} erstellt")
+logging.info(f"Konfiguration mit Profil-Id {config.as_profile_label()} für {config.action.value} erstellt")
 metrics = TensorBoardMonitor(config)
 file_handler = InputFileHandler(mode, config)
 if mode == "full":
@@ -87,7 +86,7 @@ source_to_text_start = time.perf_counter()
 input_files = file_handler.get_input_files_to_process(config)
 logging.info(f"{len(input_files)} Datei(en) werden komplett neu indexiert.")
 if len(input_files) > 0:
-    metrics.log_metrics("source_to_text_documents", len(input_files))
+    metrics.log_metrics({"source_to_text_documents_count": len(input_files)})
     image_to_text_client = ClientBuilder(config).for_image_to_text().build()
     source_to_text_pages = 0
     for original_input_file in input_files:
@@ -95,7 +94,7 @@ if len(input_files) > 0:
             pages = original_input_file.get_content()
             source_to_text_pages += len(pages)
             logging.info(f"Bereite Datei {original_input_file.file_name} mit {len(pages)} Seiten vor ...")    
-            metrics.log_metrics(original_input_file.file_name, len(pages))        
+            metrics.log_metrics({original_input_file.file_name + "_pages": len(pages)})        
             meta_file = MetaFile(config, from_input_file=original_input_file)
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor: 
                 futures = {
@@ -109,11 +108,12 @@ if len(input_files) > 0:
                     result = futures[idx].result()
                     meta_file.add_page({"number": idx + 1, "content": result})                
             meta_file.save()
-    metrics.log_metrics("source_to_text_pages", source_to_text_pages)
+    metrics.log_metrics({"source_to_text_pages": source_to_text_pages})
 source_to_text_time = time.perf_counter() - source_to_text_start
-metrics.log_metrics("source_to_text_time", source_to_text_time)
+
 # _____[ Text-Splitting, Bereinigung und Chunking ]_____________________________
 logging.info("_____[ 2/4 Text-Chunking  ]_____")
+chunking_start = time.perf_counter()
 chunk_files = file_handler.get_metafiles_to_chunk(config)
 logging.info(f"Texte von {len(chunk_files)} Datei(en) werden bereinigt und neu aufgeteilt.")
 for meta_file in chunk_files:
@@ -126,9 +126,10 @@ for meta_file in chunk_files:
     for text in chunks:
          meta_file.add_chunk(text)
     meta_file.save()
-
+chunking_time = time.perf_counter() - chunking_start
 # _____[ Erstellen der Embeddings ]_____________________________________________
 logging.info("_____[ 3/4 Embeddings erstellen  ]_____")
+embedding_start = time.perf_counter()
 embedding_store = EmbeddingStoreBuilder(config).build()
 if embedding_store.is_full_reload_required():
     embedding_store.delete_all()
@@ -150,16 +151,25 @@ if len(embedding_files) > 0:
             embedding_store.store(text, embeddings, source_document=original_input_file, chunk_id=chunk_id)
         meta_file.metadata["processor"]["embeddings"]["index_id"] = embedding_store.index_id
         meta_file.save()
+        metrics.log_metrics(meta_file.get_metrics())
     embedding_store.export_embeddings()
     embedding_store.close()
-
+embedding_time = time.perf_counter() - embedding_start
 # _____[ Testen des Modells ]___________________________________________________
 logging.info("_____[ 4/4 Testen des Modells  ]_____")
+testing_start = time.perf_counter()
 evaluator = EvaluatorBuilder(config, embeddings_client, embedding_store).build()
 if evaluator.is_advanced():
     eval_result = asyncio.run(evaluator.aevaluate())
 else:
     eval_result = evaluator.evaluate()
-print(eval_result)
-# todo Testing noch ergänzen
+metrics.log_metrics(eval_result)
+testing_time = time.perf_counter() - testing_start
+metrics.log_metrics({
+    "source_to_text_time": source_to_text_time,
+    "chunking_time": chunking_time,
+    "embedding_time": embedding_time,
+    "testing_time": testing_time,
+    "total_time": time.perf_counter() - start_time
+    })
 logging.info(f"Verarbeitung abgeschlossen. Embedding Store mit Id {embedding_store.index_id} wurde aktualisiert.")

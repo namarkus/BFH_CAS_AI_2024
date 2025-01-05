@@ -12,3 +12,6 @@ ollama
 chromadb
 tensorboard
 lightning
+llama-index
+langchain-community
+llama-index-vector-stores-chroma
