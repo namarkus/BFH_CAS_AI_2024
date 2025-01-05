@@ -16,6 +16,7 @@ if __name__ == '__main__':
     exit()
 
 # _____[ Imports ]______________________________________________________________
+from concurrent.futures import thread
 import ollama 
 import requests
 from _apis import LlmClient
@@ -44,7 +45,6 @@ class OllamaClient(LlmClient):
         try:
             check_alive_response = requests.get(OLLAMA_URI, timeout=3)
             app_logger().debug(f"Ollama API at {OLLAMA_URI} responded with {check_alive_response}")
-            print(check_alive_response)
             return check_alive_response.status_code == 200
         except requests.exceptions.ConnectionError as e:
             app_logger().debug(f"Ollama API at {OLLAMA_URI} is not available. Reason: {e}")
@@ -78,31 +78,34 @@ class OllamaClient(LlmClient):
         api_call_config = self.embeddings_config()
         response = ollama.embed(
             model=api_call_config.model_id,
-            input=text,
-            encoding_format="float"
+            input=text
         )
-        return response.data[0].embedding
+        return response.embeddings[0]
 
     def get_embeddings(self, texts):
         api_call_config = self.embeddings_config()
         response = ollama.embed(
             model=api_call_config.model_id,
             input=texts,
-            encoding_format="float"
         )
-        embeddings = [item.embedding for item in response.data]
+        embeddings = [item for item in response.embeddings]
         return embeddings
-
-    def answer_with_hints(self, question, hints, history=[]):
+    
+    def answer_with_hints(self, question, hints, history=None):
         api_call_config = self.answer_with_hints_config()
-        response = ollama.chat.completions.create(
-            model=api_call_config.model_id,
-            messages=[
-                {"role": "system", "content": api_call_config.system_prompt},
-                {"role": "user", "content": question},
-                {"role": "assistant", "content": chat_thread}
-            ]
-        )
+        threaded_messages = []
+        threaded_messages.append({"role": "system", "content": api_call_config.system_prompt})
+        if history is not None and len(history) > 0:
+            for dialog in history:
+                threaded_messages.append({"role": "user", "content": dialog["question"]})
+                threaded_messages.append({"role": "assistant", "content": dialog["response"]})
+        prepared_hints = ""
+        for hint in hints:
+            prepared_hints += f"\n\n{hint}"
+        prompt = f"INPUT PROMPT:\n{question}\n-------\nCONTENT:\n{prepared_hints}"
+        threaded_messages.append({"role": "user", "content": prompt})
+        print(f"Prompt: {threaded_messages}\n-----")
+        response = ollama.chat(model=api_call_config.model_id, messages=threaded_messages)
         return response['message']['content']  
 
     def test_statement(question, expected_answer, expected=True):

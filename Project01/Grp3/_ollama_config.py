@@ -16,31 +16,31 @@ from _configs import LlmClientConfig
 from _apis import LlmClientConfigurator
 
 # _____[ Ollama-System-Prompts ]________________________________________________
-image_analysis_sysprompt = """
+ollama_image_analysis_sysprompt = """
 Texterkennung auf Bild: Erkennen Sie die Texte auf dem angegebenen Bild und liefern Sie eine Beschreibung des Inhalts. Die Bildquelle enthält 
 Vertragsbedingungen einer Versicherung und kann mehrspaltig sein. Führen Sie OCR-Vorgänge durch, um die Texte zu erkennen, und konvertieren Sie 
 Tabellen in Fliesstext. Liefern Sie den erkannten Text als lesbaren Format für ein Publikum ohne Fachwissen über Versicherungen (101-Level)."""
 
 
-rag_sysprompt = """
-You will be provided with an input prompt and content as context that can be 
-used to reply to the prompt.
+ollama_chat_with_hints_sysprompt = """
+Du bist ein Versicherungsexperte und hast Zugriff auf eine Wissensdatenbank mit Versicherungsbedingungen.
+Deine Aufgabe ist es, Fragen zu Versicherungsbedingungen möglichst korrekt zu beantworten.
 
-You will do the following things:
+Als Anhang zur Benutzerfrage erhältst du einen Kontext, der als Grundlage für die Antwort dienen kann.
+Als erstes hast Du zu prüfen, ob der Kontext relevant ist, um die Frage zu beantworten. Binde in 
+diesem Fall den Kontext in die Antwort ein. Wenn der Kontext relevant ist, nutze Elemente aus dem
+Kontext, um eine Antwort auf die Benutzerfrage zu formulieren. Bleib dabei sehr präzise! Enthält der
+Kontext keine relevanten Informationen, nutze dein eigenes Wissen, um die Frage zu beantworten oder
+gib an, dass du nicht weisst, wie du antworten sollst, falls dein Wissen nicht ausreicht, um die Frage
+zu beantworten.
 
-1. First, you will internally assess whether the content provided is relevant to 
-   reply to the input prompt.
-2. If that is the case, answer directly using this content. If the content is 
-   relevant, use elements found in the content to craft a reply to the input 
-   prompt.
-3. If the content is not relevant, use your own knowledge to reply or say that 
-   you don't know how to respond if your knowledge is not sufficient to answer.
-
-Stay concise with your answer, replying specifically to the input prompt without 
-mentioning additional information provided in the context content.
+Bleib präzise in deiner Antwort, antworte spezifisch auf die Eingabeaufforderung, ohne zusätzliche
+irreleevante Informationen zu erwähnen, die im Kontextinhalt bereitgestellt werden. Die Antwort soll mit
+schweizerdeutschen Rechtschreibregeln übereinstimmen und in einem formalen Stil verfasst sein. 
+Sie sollte nicht mehr als maximal 250 Worte umfassen.
 """
 
-testing_sysprompt = """
+ollama_testing_sysprompt = """
 You will receive 2 statements marked as "<<EXPECTED>>:" and "<<RECEIVED>>:"
 
 Check this two statements if the base proposition is the same.
@@ -54,7 +54,7 @@ class OllamaClientConfigurator(LlmClientConfigurator):
     def textcontent_from_image_config(self) -> LlmClientConfig:
         return LlmClientConfig(
             model_id="llama3.2-vision",
-            system_prompt=image_analysis_sysprompt
+            system_prompt=ollama_image_analysis_sysprompt
         )
     
     def embeddings_config(self) -> LlmClientConfig:
@@ -65,7 +65,8 @@ class OllamaClientConfigurator(LlmClientConfigurator):
     def answer_with_hits_config(self) -> LlmClientConfig:
         return LlmClientConfig(
             model_id="llama3.2",
-            system_prompt=rag_sysprompt
+            #model_id="granite3.1-dense",
+            system_prompt=ollama_chat_with_hints_sysprompt
         ) 
 
     def test_config(self) -> LlmClientConfig:
