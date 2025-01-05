@@ -154,7 +154,7 @@ def print_splash_screen(app_name: str, app_version: str, app_author: str):
   /       \\       _   _____  _____
  |  ^   ^  |     | | / / _ )/ ___/
  |  .___.  |     | |/ / _  / /__  
-  \\_______/      |___/____/\\___/      Vertragsbedingungs-Chat
+  \\_______/      |___/____/\\___/      VertRAGsbedingungs-Chat
    /     \\     
   |  ---  |      {app_name} v{app_version} by {app_author}
  """)

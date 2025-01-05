@@ -22,7 +22,7 @@ from nltk.tokenize import word_tokenize
 
 from _configs import ChunkingMode, VbcConfig
 
-PHRASES_TO_REMOVE = ["Artikel", "Art. ", "Ausgabe", "Gültig ab", "Seite"]
+PHRASES_TO_REMOVE = ["Artikel", "Art. ", "Ausgabe", "Gültig ab", "Seite", "```markdown"]
 
 #nltk.download("stopwords")
 #nltk.download("punkt_tab")

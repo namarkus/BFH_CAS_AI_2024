@@ -104,7 +104,6 @@ class OllamaClient(LlmClient):
             prepared_hints += f"\n\n{hint}"
         prompt = f"INPUT PROMPT:\n{question}\n-------\nCONTENT:\n{prepared_hints}"
         threaded_messages.append({"role": "user", "content": prompt})
-        print(f"Prompt: {threaded_messages}\n-----")
         response = ollama.chat(model=api_call_config.model_id, messages=threaded_messages)
         return response['message']['content']  
 
