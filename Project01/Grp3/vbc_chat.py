@@ -7,7 +7,7 @@ __copyright__ = "Copyright 2024/2025, BFH-CAS-AI-2024-Grp3"
 __credits__ = ["Hans Wermelinger", "Helmut Gehrer", "Markus Näpflin", "Nils Hryciuk", "Steafan Mavilio"]
 __license__ = "GPL"
 __version__ = "1.0.0"
-__status__ = "Test"
+__status__ = "Production"
 __description__ = """
 Dies ist die Chat-Anwendung für den Versicherungsbedingungs-Chat. Sie öffnet 
 einen einfachen interaktiven Chat als CLI (Command Line Interface) und ermöglicht
