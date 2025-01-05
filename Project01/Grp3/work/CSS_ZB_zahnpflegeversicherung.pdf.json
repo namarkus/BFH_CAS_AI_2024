@@ -1,20 +1,20 @@
 {
   "input_file": "CSS_ZB_zahnpflegeversicherung.pdf",
-  "processed_at": "2024-12-29_14:56:42",
-  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
+  "processed_at": "2025-01-05_20:51:04",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.2"
+      "version": "1.0.0"
     },
     "text_preparation": {
       "provider": "OpenAI"
     },
     "embeddings": {
       "provider": "OpenAI",
-      "chunking_mode": "section",
+      "chunking_mode": "page",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -29,24 +29,24 @@
   "pages": [
     {
       "number": 1,
-      "content": "# Zahnpflegeversicherung\n\n## Krankenzusatzversicherung nach VVG\n- **Deckung:** 75%, max. CHF 2000 pro Kalenderjahr\n\n## Zusatzbedingungen (ZB)\n- **Ausgabe:** 01.2013\n\n### Grundlage\nDie Allgemeinen Versicherungsbedingungen (AVB) der Zahnpflegeversicherung der CSS Versicherung AG bilden die Basis, sofern die ZB keine abweichenden Regelungen enthalten.\n\n## Inhaltsverzeichnis\n\n1. **Aufnahmebedingungen** - Seite 2\n2. **Versicherte Leistungen** - Seite 2\n3. **Leistungsanspruch** - Seite 2\n4. **Kostenbeteiligungen** - Seite 2\n5. **Leistungseinschr\u00e4nkungen** - Seite 2\n6. **Bonus-Malussystem** - Seite 2\n\n---\n\n**Rechtstr\u00e4ger:** CSS Versicherung AG, Tribschenstrasse 21, 6005 Luzern"
+      "content": "# Zahnpflegeversicherung\n\n## Krankenzusatzversicherung nach VVG\n- **Deckung:** 75%, max. CHF 2000 pro Kalenderjahr\n\n## Zusatzbedingungen (ZB)\n- **Ausgabe:** 01.2013\n\n### Grundlage\nDie Zusatzbedingungen (ZB) basieren auf den Allgemeinen Versicherungsbedingungen (AVB) der Zahnpflegeversicherung der CSS Versicherung AG, sofern die ZB keine abweichenden Regelungen enthalten.\n\n## Inhaltsverzeichnis\n\n1. **Aufnahmebedingungen** - Seite 2\n2. **Versicherte Leistungen** - Seite 2\n3. **Leistungsanspruch** - Seite 2\n4. **Kostenbeteiligungen** - Seite 2\n5. **Leistungseinschr\u00e4nkungen** - Seite 2\n6. **Bonus-Malussystem** - Seite 2\n\n---\n\n**Rechtstr\u00e4ger:** CSS Versicherung AG, Tribschenstrasse 21, 6005 Luzern"
     },
     {
       "number": 2,
-      "content": "# Versicherungsbedingungen\n\n## Art. 1 Aufnahmebedingungen\n1.1 Der Abschluss dieser Zahnzusatzversicherung ist nur bei einem Wechsel von einer gleichwertigen Versicherung oder bei einer zahn\u00e4rztlichen Untersuchung m\u00f6glich.\n1.2 Unf\u00e4lle sind nicht durch diese Versicherung gedeckt.\n\n## Art. 2 Versicherte Leistungen\n2.1 Die CSS \u00fcbernimmt erg\u00e4nzende Leistungen zur Kranken- und Unfallversicherung, bis zu 75% der Zahnarztkosten, max. CHF 2000 pro Jahr.\n2.2 Der Leistungsumfang umfasst:\n   - Kontrolluntersuchungen und Behandlungen (z.B. An\u00e4sthesien, R\u00f6ntgen, F\u00fcllungen).\n   - 100% der Kosten f\u00fcr Dentalhygiene, max. CHF 75.\n   - 75% der Kosten f\u00fcr zahntechnische Behandlungen (z.B. Kronen, Implantate), max. CHF 1000.\n\n## Art. 3 Leistungsanspruch\n3.1 Leistungen werden nach dem Behandlungsdatum auf das jeweilige Kalenderjahr angerechnet.\n3.2 Die Leistungen sind auf die in Art. 171 AVB genannten Versicherungen abgestimmt.\n3.3 Wenn nicht anders geregelt, werden nur nachgewiesene Kosten verg\u00fctet.\n\n## Art. 4 Kostenbeteiligung\nDie Kostenbeteiligung ergibt sich aus dem Leistungsumfang in Art. 2.\n\n## Art. 5 Leistungseinschr\u00e4nkungen\n5.1 Leistungen beginnen fr\u00fchestens im zweiten Versicherungsjahr.\n5.2 Keine Leistungen f\u00fcr Zahnstellungskorrekturen.\n5.3 Keine Leistungen f\u00fcr Zahnbleaching.\n\n## Art. 6 Bonus-Malus-System\n6.1 Das System hat 5 Stufen, die den Pr\u00e4mienrabatt bestimmen:\n   - Stufe 1: 140%\n   - Stufe 2: 120%\n   - Stufe 3: 100%\n   - Stufe 4: 80%\n   - Stufe 5: 60%\n6.2 Bei Abschluss ohne Zahnarztbesuch beginnt man in Stufe 1.\n6.3 Bei einem Jahr ohne Leistungen steigt man eine Stufe auf.\n6.4 Bei Leistungen \u00fcber CHF 1500 sinkt man eine Stufe.\n6.5 Dentalhygiene-Leistungen beeinflussen den Bonus nicht."
+      "content": "# Versicherungsbedingungen der Zahnzusatzversicherung\n\n## Art. 1 Aufnahmebedingungen\n1.1 Der Vertragsabschluss dieser Zahnzusatzversicherung ist nur bei einem Wechsel von einer gleichwertigen Versicherung oder bei einer zahn\u00e4rztlichen Untersuchung m\u00f6glich.\n1.2 Die Versicherung deckt keine Unfallfolgen ab.\n\n## Art. 2 Versicherte Leistungen\n2.1 Die CSS \u00fcbernimmt im Versicherungsfall Leistungen, die \u00fcber die Leistungen der obligatorischen Krankenpflegeversicherung (KVG) und/oder der Unfallversicherung (UVG) hinausgehen. Der Umfang betr\u00e4gt 75% der Zahnarztrechnung, max. CHF 2000 pro Jahr.\n2.2 Der Leistungsumfang umfasst:\n   - Kontrolluntersuchungen und Behandlungen (z.B. An\u00e4sthesien, R\u00f6ntgen, F\u00fcllungen, Zahnextraktion).\n   - 100% der Kosten f\u00fcr Dentalhygiene, max. CHF 75.\n   - 75% der Kosten f\u00fcr zahnprothetische Behandlungen (z.B. Kronen, Implantate), max. CHF 1000.\n\n## Art. 3 Leistungsanspruch\n3.1 Leistungen werden nach dem Behandlungsdatum auf das Kalenderjahr angerechnet. Nicht genutzte Kosten k\u00f6nnen nicht ins Folgejahr \u00fcbertragen werden.\n3.2 Die in den Bedingungen vorgesehenen Leistungen erg\u00e4nzen die in Art. 171 AVB genannten Versicherungen.\n3.3 Wenn nichts anderes geregelt ist, werden nur effektiv entstandene und nachgewiesene Kosten verg\u00fctet.\n\n## Art. 4 Kostenbeteiligung\nDie Kostenbeteiligung ergibt sich aus dem Leistungsumfang in Art. 2.\n\n## Art. 5 Leistungseinschr\u00e4nkungen\n5.1 Ab dem zweiten Versicherungsjahr werden alle Behandlungen nach Abschluss einer Zahnarztuntersuchung verg\u00fctet.\n5.2 Zahnstellungskorrekturen (kieferchirurgische und -orthop\u00e4dische Ma\u00dfnahmen) sind ausgeschlossen.\n5.3 Zahnbleaching wird nicht verg\u00fctet.\n\n## Art. 6 Bonus-Malus-System\n6.1 Das System hat 5 Stufen, die einen bestimmten Prozentsatz der Pr\u00e4mie beeinflussen:\n   - Stufe 1: 140%\n   - Stufe 2: 120%\n   - Stufe 3: 100%\n   - Stufe 4: 80%\n   - Stufe 5: 60%\n6.2 Bei einem Zahnarztwechsel wird die versicherte Person in Stufe 1 eingeteilt.\n6.3 Bei Leistungen im Jahr erh\u00f6ht sich der Bonus um eine Stufe.\n6.4 Bei Leistungen \u00fcber CHF 1500 reduziert sich der Bonus um eine Stufe.\n6.5 Dentalhygiene-Leistungen werden nicht angerechnet."
     }
   ],
   "chunks": [
-    "Zahnpflegeversicherung",
     "Krankenzusatzversicherung nach VVG - Deckung: 75%, max. CHF 2000 pro Kalenderjahr",
-    "Zusatzbedingungen ZB - Ausgabe: 01.2013",
-    "Grundlage Die Allgemeinen Versicherungsbedingungen AVB der Zahnpflegeversicherung der CSS Versicherung AG bilden die Basis, sofern die ZB keine abweichenden Regelungen enthalten.",
-    "Inhaltsverzeichnis 1. Aufnahmebedingungen - Seite 2 2. Versicherte Leistungen - Seite 2 3. Leistungsanspruch - Seite 2 4. Kostenbeteiligungen - Seite 2 5. Leistungseinschr\u00e4nkungen - Seite 2 6. Bonus-Malussystem - Seite 2 --- Rechtstr\u00e4ger: CSS Versicherung AG, Tribschenstrasse 21, 6005 Luzern  Versicherungsbedingungen",
-    "Art. 1 Aufnahmebedingungen 1.1 Der Abschluss dieser Zahnzusatzversicherung ist nur bei einem Wechsel von einer gleichwertigen Versicherung oder bei einer zahn\u00e4rztlichen Untersuchung m\u00f6glich. 1.2 Unf\u00e4lle sind nicht durch diese Versicherung gedeckt.",
-    "Art. 2 Versicherte Leistungen 2.1 Die CSS \u00fcbernimmt erg\u00e4nzende Leistungen zur Kranken- und Unfallversicherung, bis zu 75% der Zahnarztkosten, max. CHF 2000 pro Jahr. 2.2 Der Leistungsumfang umfasst: - Kontrolluntersuchungen und Behandlungen z.B. An\u00e4sthesien, R\u00f6ntgen, F\u00fcllungen. - 100% der Kosten f\u00fcr Dentalhygiene, max. CHF 75. - 75% der Kosten f\u00fcr zahntechnische Behandlungen z.B. Kronen, Implantate, max. CHF 1000.",
-    "Art. 3 Leistungsanspruch 3.1 Leistungen werden nach dem Behandlungsdatum auf das jeweilige Kalenderjahr angerechnet. 3.2 Die Leistungen sind auf die in Art. 171 AVB genannten Versicherungen abgestimmt. 3.3 Wenn nicht anders geregelt, werden nur nachgewiesene Kosten verg\u00fctet.",
-    "Art. 4 Kostenbeteiligung Die Kostenbeteiligung ergibt sich aus dem Leistungsumfang in Art. 2.",
-    "Art. 5 Leistungseinschr\u00e4nkungen 5.1 Leistungen beginnen fr\u00fchestens im zweiten Versicherungsjahr. 5.2 Keine Leistungen f\u00fcr Zahnstellungskorrekturen. 5.3 Keine Leistungen f\u00fcr Zahnbleaching.",
-    "Art. 6 Bonus-Malus-System 6.1 Das System hat 5 Stufen, die den Pr\u00e4mienrabatt bestimmen: - Stufe 1: 140% - Stufe 2: 120% - Stufe 3: 100% - Stufe 4: 80% - Stufe 5: 60% 6.2 Bei Abschluss ohne Zahnarztbesuch beginnt man in Stufe 1. 6.3 Bei einem Jahr ohne Leistungen steigt man eine Stufe auf. 6.4 Bei Leistungen \u00fcber CHF 1500 sinkt man eine Stufe. 6.5 Dentalhygiene-Leistungen beeinflussen den Bonus nicht."
+    "Zusatzbedingungen ZB - : 01.2013",
+    "Grundlage Die Zusatzbedingungen ZB basieren auf den Allgemeinen Versicherungsbedingungen AVB der Zahnpflegeversicherung der CSS Versicherung AG, sofern die ZB keine abweichenden Regelungen enthalten.",
+    "Aufnahmebedingungen - 2 2. Versicherte Leistungen - 2 3. Leistungsanspruch - 2 4. Kostenbeteiligungen - 2 5. Leistungseinschr\u00e4nkungen - 2 6. Bonus-Malussystem - 2",
+    "Rechtstr\u00e4ger: CSS Versicherung AG, Tribschenstrasse 21, 6005 Luzern  Versicherungsbedingungen der Zahnzusatzversicherung",
+    "Aufnahmebedingungen 1.1 Der Vertragsabschluss dieser Zahnzusatzversicherung ist nur bei einem Wechsel von einer gleichwertigen Versicherung oder bei einer zahn\u00e4rztlichen Untersuchung m\u00f6glich. 1.2 Die Versicherung deckt keine Unfallfolgen ab.",
+    "Versicherte Leistungen 2.1 Die CSS \u00fcbernimmt im Versicherungsfall Leistungen, die \u00fcber die Leistungen der obligatorischen Krankenpflegeversicherung KVG undoder der Unfallversicherung UVG hinausgehen. Der Umfang betr\u00e4gt 75% der Zahnarztrechnung, max. CHF 2000 pro Jahr. 2.2 Der Leistungsumfang umfasst: - Kontrolluntersuchungen und Behandlungen z.B. An\u00e4sthesien, R\u00f6ntgen, F\u00fcllungen, Zahnextraktion. - 100% der Kosten f\u00fcr Dentalhygiene, max. CHF 75. - 75% der Kosten f\u00fcr zahnprothetische Behandlungen z.B. Kronen, Implantate, max. CHF 1000.",
+    "Leistungsanspruch 3.1 Leistungen werden nach dem Behandlungsdatum auf das Kalenderjahr angerechnet. Nicht genutzte Kosten k\u00f6nnen nicht ins Folgejahr \u00fcbertragen werden. 3.2 Die in den Bedingungen vorgesehenen Leistungen erg\u00e4nzen die in 171 AVB genannten Versicherungen. 3.3 Wenn nichts anderes geregelt ist, werden nur effektiv entstandene und nachgewiesene Kosten verg\u00fctet.",
+    "Kostenbeteiligung Die Kostenbeteiligung ergibt sich aus dem Leistungsumfang in 2.",
+    "Leistungseinschr\u00e4nkungen 5.1 Ab dem zweiten Versicherungsjahr werden alle Behandlungen nach Abschluss einer Zahnarztuntersuchung verg\u00fctet. 5.2 Zahnstellungskorrekturen kieferchirurgische und -orthop\u00e4dische Manahmen sind ausgeschlossen. 5.3 Zahnbleaching wird nicht verg\u00fctet.",
+    "Bonus-Malus-System 6.1 Das System hat 5 Stufen, die einen bestimmten Prozentsatz der Pr\u00e4mie beeinflussen: - Stufe 1: 140% - Stufe 2: 120% - Stufe 3: 100% - Stufe 4: 80% - Stufe 5: 60% 6.2 Bei einem Zahnarztwechsel wird die versicherte Person in Stufe 1 eingeteilt. 6.3 Bei Leistungen im Jahr erh\u00f6ht sich der Bonus um eine Stufe. 6.4 Bei Leistungen \u00fcber CHF 1500 reduziert sich der Bonus um eine Stufe. 6.5 Dentalhygiene-Leistungen werden nicht angerechnet."
   ]
 }

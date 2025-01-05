@@ -1,20 +1,20 @@
 {
   "input_file": "Assura_BVB_DentaSana.pdf",
-  "processed_at": "2024-12-29_14:53:55",
-  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
+  "processed_at": "2025-01-05_20:48:25",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.2"
+      "version": "1.0.0"
     },
     "text_preparation": {
       "provider": "OpenAI"
     },
     "embeddings": {
       "provider": "OpenAI",
-      "chunking_mode": "section",
+      "chunking_mode": "page",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -29,34 +29,30 @@
   "pages": [
     {
       "number": 1,
-      "content": "# Besondere Versicherungsbedingungen f\u00fcr die Zusatzkrankenversicherung\n\n## Assura Denta Sana\n**Ausgabe 03.2024**\n\n### Zusatzversicherung f\u00fcr zahn\u00e4rztliche und zahnprophylaktische Behandlungen\n\n---\n\n### Artikel 1 \u2013 Leistungsumfang\n\n#### 1.1 Therapeutische Massnahmen\n- **1.1.1** Assura AG verg\u00fctet notwendige und angemessene therapeutische Massnahmen, die von in der Schweiz oder einem Nachbarland zugelassenen Zahn\u00e4rztinnen und Zahn\u00e4rzten durchgef\u00fchrt werden. Die in Artikel 1.1.2 und 1.4 festgelegten Begrenzungen gelten.\n- **1.1.2** Verg\u00fctung erfolgt gem\u00e4ss Tarifvertrag SSO-UV/MV/IV oder DENTOTAR zu einem Taxpunktwert von CHF 3.10 bzw. CHF 1.00. Behandlungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.\n\n#### 1.2 Zahntechnische Leistungen\n- **1.2.1** Zus\u00e4tzlich zum Honorar der Zahn\u00e4rzte werden notwendige zahn\u00e4rztliche Leistungen verg\u00fctet, die in Artikel 1.4 festgelegten Begrenzungen gelten.\n- **1.2.2** Leistungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.\n\n#### 1.3 Zahnprophylaxe\n- Assura AG beteiligt sich einmal pro Kalenderjahr bis zu CHF 80 an zahnprophylaktischen Kosten wie Kontrolluntersuchungen. Keine Kostenbeteiligung wird verlangt.\n\n#### 1.4 Maximaler Beitrag und Kostenbeteiligung\n- Das Produkt deckt 75% der in Artikel 1.1 und 1.2 genannten Kosten bis zu einem j\u00e4hrlichen Brutto-Maximalbetrag von CHF 8'000, was einem Netto-Maximalbetrag von CHF 6'000 entspricht.\n\n#### 1.5 Kieferorthop\u00e4die (Orthodontie)\n- Kieferorthop\u00e4dische Behandlungen werden nicht \u00fcbernommen und begr\u00fcnden keinen Anspruch.\n\n---\n\n### Artikel 2 \u2013 Leistungsanspruch\n\n- **2.1** Um Leistungen zu beanspruchen, muss die versicherte Person eine detaillierte Honorarrechnung einreichen, die von einem in der Schweiz oder einem Nachbarland praktizierenden Zahnarzt erstellt wurde.\n- **2.2** Bei bestehender Versicherung \u00fcber die Complemena-Palette bei Assura AG haben diese Leistungen Vorrang.\n\n---\n\n### Artikel 3 \u2013 Karenzfrist\n\n- Der Leistungsanspruch beginnt nach einer Karenzfrist von sechs Monaten ab Vertragsbeginn. Das Behandlungsdatum bestimmt den Beginn des Leistungsanspruchs. Zahn\u00e4rztliche Massnahmen w\u00e4hrend der Karenzzeit sind ausgeschlossen, ausser die Behandlung wurde vorher begonnen.\n\n---\n\n### Artikel 4 \u2013 Aufnahmebedingungen\n\n- **4.1** Denta Sana kann abgeschlossen werden, wenn ein zahnmedizinischer Fragebogen und ein R\u00f6ntgenbild eingereicht werden.\n- **4.2** Vor Versicherungsbeginn leistet Assura AG eine Entsch\u00e4digung bis zu CHF 100 als Beteiligung an den Kosten des behandelnden Zahnarztes, wenn der Fragebogen ausgef\u00fcllt und das R\u00f6ntgenbild angefertigt wurde."
+      "content": "# Besondere Versicherungsbedingungen f\u00fcr die Zusatzkrankenversicherung\n\n## Assura Denta Sana\n**Ausgabe 03.2024**\n\n### Zusatzversicherung f\u00fcr zahn\u00e4rztliche und zahnprophylaktische Behandlungen\n\n### Artikel 1 \u2013 Leistungsumfang\n\n#### 1.1 Therapeutische Massnahmen\n- **1.1.1** Assura AG verg\u00fctet notwendige und angemessene therapeutische Massnahmen, die von in der Schweiz oder einem Nachbarland zugelassenen Zahn\u00e4rztinnen und Zahn\u00e4rzten durchgef\u00fchrt werden. Die in Artikel 1.1.2 und 1.4 festgelegten Begrenzungen gelten.\n- **1.1.2** Verg\u00fctung erfolgt gem\u00e4ss Tarifvertrag SSO-UV/MV/IV oder DENTOTAR zu einem Taxpunktwert von CHF 3.10 bzw. CHF 1.00. Behandlungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.\n\n#### 1.2 Zahntechnische Leistungen\n- **1.2.1** Zus\u00e4tzlich zum Honorar der Zahn\u00e4rzte werden notwendige zahn\u00e4rztliche Leistungen verg\u00fctet, die in Artikel 1.4 festgelegten Begrenzungen gelten.\n- **1.2.2** Leistungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.\n\n#### 1.3 Zahnprophylaxe\n- Assura AG beteiligt sich einmal pro Kalenderjahr bis zu CHF 80 an prophylaktischen Kosten wie Kontrolluntersuchungen. Keine Kostenbeteiligung wird verlangt.\n\n#### 1.4 Maximaler Beitrag und Kostenbeteiligung\n- Maximalbetrag von CHF 8'000 j\u00e4hrlich, mit einem j\u00e4hrlichen Netto-Maximalbetrag von CHF 6'000.\n\n#### 1.5 Kieferorthop\u00e4die (Orthodontie)\n- Kieferorthop\u00e4dische Behandlungen werden nicht \u00fcbernommen.\n\n### Artikel 2 \u2013 Leistungsanspruch\n\n#### 2.1\n- Detaillierte Honorarrechnung muss eingereicht werden, erstellt von einem in der Schweiz oder einem Nachbarland praktizierenden Zahnarzt.\n\n#### 2.2\n- Bei bestehender Versicherung \u00fcber die Complemena-Palette bei Assura AG haben diese Leistungen Vorrang.\n\n### Artikel 3 \u2013 Karenzfrist\n- Leistungsanspruch beginnt nach einer Karenzfrist von sechs Monaten ab Vertragsbeginn. Behandlungen w\u00e4hrend der Karenzzeit sind ausgeschlossen.\n\n### Artikel 4 \u2013 Aufnahmebedingungen\n\n#### 4.1\n- Abschluss erfolgt, wenn ein zahnmedizinischer Fragebogen eingereicht wird, der den Zustand des Gebisses beschreibt. R\u00f6ntgenbilder m\u00fcssen eingereicht werden.\n\n#### 4.2\n- Vor Versicherungsbeginn leistet Assura AG eine Entsch\u00e4digung bis zu CHF 100 f\u00fcr die Honorarrechnung des behandelnden Zahnarztes, wenn der Fragebogen ausgef\u00fcllt und R\u00f6ntgenbilder angefertigt sind."
     },
     {
       "number": 2,
-      "content": "## Artikel 5 \u2013 Versicherungspr\u00e4mie\n\n### 5.1\nAbweichend von Artikel 12 AVB VVG erh\u00f6ht sich die Versicherungspr\u00e4mie generell mit dem tats\u00e4chlichen Alter der versicherten Person.\n\n### 5.2\nDie Pr\u00e4mienanpassung erfolgt jeweils am 1. Januar des Jahres, in dem die versicherte Person 6, 11, 16, 19, 26, 31, 36, 41, 46, 51, 56, 61, 66, 71, 76, 81, 86, 91 und 96 Jahre alt wird.\n\n## Artikel 6 \u2013 Deckungsbegrenzungen\n\nIn Erg\u00e4nzung zu Artikel 4 AVB VVG sind von dieser Versicherung ebenfalls ausgeschlossen:\n\n### 6.1\nMassnahmen und Behandlungen zur Behebung von bereits vorliegenden Zahnsch\u00e4den.\n\n### 6.2\nBehandlungen und zahntechnische Eingriffe aus \u00e4sthetischen Gr\u00fcnden.\n\n### 6.3\nEntfernung und Ersatz von Amalgamf\u00fcllungen bei vermuteter oder tats\u00e4chlicher Allergie.\n\n### 6.4\nSchuldhafte Sch\u00e4den, die nicht auf normale Abnutzung zur\u00fcckzuf\u00fchren sind, und/oder Verlust von Prothesen.\n\n### 6.5\nKosten von Schutzschienen beim Sport.\n\n### 6.6\nKosten f\u00fcr Vollnarkose, ausser bei Kindern unter sechs Jahren.\n\n---\n\nAssura AG"
+      "content": "## Artikel 5 \u2013 Versicherungspr\u00e4mie\n\n- **5.1**: Abweichend von Artikel 12 AVB VVG erh\u00f6ht sich die Versicherungspr\u00e4mie generell mit dem tats\u00e4chlichen Alter der versicherten Person.\n- **5.2**: Die Pr\u00e4mienanpassung erfolgt jeweils am 1. Januar des Jahres, in dem die versicherte Person 6, 11, 16, 19, 26, 31, 36, 41, 46, 51, 56, 61, 66, 71, 76, 81, 86, 91 und 96 Jahre alt wird.\n\n## Artikel 6 \u2013 Deckungsbegrenzungen\n\nIn Erg\u00e4nzung zu Artikel 4 AVB VVG sind folgende Leistungen von der Versicherung ausgeschlossen:\n\n- **6.1**: Massnahmen und Behandlungen zur Behebung von bereits vorliegenden Zahnsch\u00e4den.\n- **6.2**: Behandlungen und zahntechnische Eingriffe aus \u00e4sthetischen Gr\u00fcnden.\n- **6.3**: Entfernung und Ersatz von Amalgamf\u00fcllungen aufgrund vermuteter oder tats\u00e4chlicher Allergien.\n- **6.4**: Sch\u00e4den durch normale Abnutzung und/oder Verlust von Prothesen.\n- **6.5**: Kosten f\u00fcr Schutzschienen beim Sport.\n- **6.6**: Kosten f\u00fcr Vollnarkosen, ausser bei Kindern unter sechs Jahren.\n\n**Assura AG**"
     }
   ],
   "chunks": [
     "Besondere Versicherungsbedingungen f\u00fcr die Zusatzkrankenversicherung",
-    "Assura Denta Sana Ausgabe 03.2024",
-    "Zusatzversicherung f\u00fcr zahn\u00e4rztliche und zahnprophylaktische Behandlungen ---",
-    "Artikel 1  Leistungsumfang",
-    "Therapeutische Massnahmen - 1.1.1 Assura AG verg\u00fctet notwendige und angemessene therapeutische Massnahmen, die von in der Schweiz oder einem Nachbarland zugelassenen Zahn\u00e4rztinnen und Zahn\u00e4rzten durchgef\u00fchrt werden. Die in Artikel 1.1.2 und 1.4 festgelegten Begrenzungen gelten. - 1.1.2 Verg\u00fctung erfolgt gem\u00e4ss Tarifvertrag SSO-UVMVIV oder DENTOTAR zu einem Taxpunktwert von CHF 3.10 bzw. CHF 1.00. Behandlungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.",
-    "Zahntechnische Leistungen - 1.2.1 Zus\u00e4tzlich zum Honorar der Zahn\u00e4rzte werden notwendige zahn\u00e4rztliche Leistungen verg\u00fctet, die in Artikel 1.4 festgelegten Begrenzungen gelten. - 1.2.2 Leistungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.",
-    "Zahnprophylaxe - Assura AG beteiligt sich einmal pro Kalenderjahr bis zu CHF 80 an zahnprophylaktischen Kosten wie Kontrolluntersuchungen. Keine Kostenbeteiligung wird verlangt.",
-    "Maximaler Beitrag und Kostenbeteiligung - Das Produkt deckt 75% der in Artikel 1.1 und 1.2 genannten Kosten bis zu einem j\u00e4hrlichen Brutto-Maximalbetrag von CHF 8000, was einem Netto-Maximalbetrag von CHF 6000 entspricht.",
-    "Kieferorthop\u00e4die Orthodontie - Kieferorthop\u00e4dische Behandlungen werden nicht \u00fcbernommen und begr\u00fcnden keinen Anspruch. ---",
-    "Artikel 2  Leistungsanspruch - 2.1 Um Leistungen zu beanspruchen, muss die versicherte Person eine detaillierte Honorarrechnung einreichen, die von einem in der Schweiz oder einem Nachbarland praktizierenden Zahnarzt erstellt wurde. - 2.2 Bei bestehender Versicherung \u00fcber die Complemena-Palette bei Assura AG haben diese Leistungen Vorrang. ---",
-    "Artikel 3  Karenzfrist - Der Leistungsanspruch beginnt nach einer Karenzfrist von sechs Monaten ab Vertragsbeginn. Das Behandlungsdatum bestimmt den Beginn des Leistungsanspruchs. Zahn\u00e4rztliche Massnahmen w\u00e4hrend der Karenzzeit sind ausgeschlossen, ausser die Behandlung wurde vorher begonnen. ---",
-    "Artikel 4  Aufnahmebedingungen - 4.1 Denta Sana kann abgeschlossen werden, wenn ein zahnmedizinischer Fragebogen und ein R\u00f6ntgenbild eingereicht werden. - 4.2 Vor Versicherungsbeginn leistet Assura AG eine Entsch\u00e4digung bis zu CHF 100 als Beteiligung an den Kosten des behandelnden Zahnarztes, wenn der Fragebogen ausgef\u00fcllt und das R\u00f6ntgenbild angefertigt wurde.  Artikel 5  Versicherungspr\u00e4mie",
-    "Abweichend von Artikel 12 AVB VVG erh\u00f6ht sich die Versicherungspr\u00e4mie generell mit dem tats\u00e4chlichen Alter der versicherten Person.",
-    "Die Pr\u00e4mienanpassung erfolgt jeweils am 1. Januar des Jahres, in dem die versicherte Person 6, 11, 16, 19, 26, 31, 36, 41, 46, 51, 56, 61, 66, 71, 76, 81, 86, 91 und 96 Jahre alt wird.",
-    "Artikel 6  Deckungsbegrenzungen In Erg\u00e4nzung zu Artikel 4 AVB VVG sind von dieser Versicherung ebenfalls ausgeschlossen:",
-    "Massnahmen und Behandlungen zur Behebung von bereits vorliegenden Zahnsch\u00e4den.",
-    "Behandlungen und zahntechnische Eingriffe aus \u00e4sthetischen Gr\u00fcnden.",
-    "Entfernung und Ersatz von Amalgamf\u00fcllungen bei vermuteter oder tats\u00e4chlicher Allergie.",
-    "Schuldhafte Sch\u00e4den, die nicht auf normale Abnutzung zur\u00fcckzuf\u00fchren sind, undoder Verlust von Prothesen.",
-    "Kosten von Schutzschienen beim Sport.",
-    "Kosten f\u00fcr Vollnarkose, ausser bei Kindern unter sechs Jahren. --- Assura AG"
+    "Assura Denta Sana  03.2024",
+    "Zusatzversicherung f\u00fcr zahn\u00e4rztliche und zahnprophylaktische Behandlungen",
+    "Therapeutische Massnahmen - 1.1.1 Assura AG verg\u00fctet notwendige und angemessene therapeutische Massnahmen, die von in der Schweiz oder einem Nachbarland zugelassenen Zahn\u00e4rztinnen und Zahn\u00e4rzten durchgef\u00fchrt werden. Die in 1.1.2 und 1.4 festgelegten Begrenzungen gelten. - 1.1.2 Verg\u00fctung erfolgt gem\u00e4ss Tarifvertrag SSO-UVMVIV oder DENTOTAR zu einem Taxpunktwert von CHF 3.10 bzw. CHF 1.00. Behandlungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.",
+    "Zahntechnische Leistungen - 1.2.1 Zus\u00e4tzlich zum Honorar der Zahn\u00e4rzte werden notwendige zahn\u00e4rztliche Leistungen verg\u00fctet, die in 1.4 festgelegten Begrenzungen gelten. - 1.2.2 Leistungen im Ausland werden maximal zum Betrag verg\u00fctet, der in der Schweiz gekostet h\u00e4tte.",
+    "Zahnprophylaxe - Assura AG beteiligt sich einmal pro Kalenderjahr bis zu CHF 80 an prophylaktischen Kosten wie Kontrolluntersuchungen. Keine Kostenbeteiligung wird verlangt.",
+    "Maximaler Beitrag und Kostenbeteiligung - Maximalbetrag von CHF 8000 j\u00e4hrlich, mit einem j\u00e4hrlichen Netto-Maximalbetrag von CHF 6000.",
+    "Kieferorthop\u00e4die Orthodontie - Kieferorthop\u00e4dische Behandlungen werden nicht \u00fcbernommen.",
+    "- Detaillierte Honorarrechnung muss eingereicht werden, erstellt von einem in der Schweiz oder einem Nachbarland praktizierenden Zahnarzt.",
+    "- Bei bestehender Versicherung \u00fcber die Complemena-Palette bei Assura AG haben diese Leistungen Vorrang.",
+    " Karenzfrist - Leistungsanspruch beginnt nach einer Karenzfrist von sechs Monaten ab Vertragsbeginn. Behandlungen w\u00e4hrend der Karenzzeit sind ausgeschlossen.",
+    "- Abschluss erfolgt, wenn ein zahnmedizinischer Fragebogen eingereicht wird, der den Zustand des Gebisses beschreibt. R\u00f6ntgenbilder m\u00fcssen eingereicht werden.",
+    "- Vor Versicherungsbeginn leistet Assura AG eine Entsch\u00e4digung bis zu CHF 100 f\u00fcr die Honorarrechnung des behandelnden Zahnarztes, wenn der Fragebogen ausgef\u00fcllt und R\u00f6ntgenbilder angefertigt sind.  5  Versicherungspr\u00e4mie",
+    "- 5.1: Abweichend von 12 AVB VVG erh\u00f6ht sich die Versicherungspr\u00e4mie generell mit dem tats\u00e4chlichen Alter der versicherten Person. - 5.2: Die Pr\u00e4mienanpassung erfolgt jeweils am 1. Januar des Jahres, in dem die versicherte Person 6, 11, 16, 19, 26, 31, 36, 41, 46, 51, 56, 61, 66, 71, 76, 81, 86, 91 und 96 Jahre alt wird.",
+    "In Erg\u00e4nzung zu 4 AVB VVG sind folgende Leistungen von der Versicherung ausgeschlossen:",
+    "- 6.1: Massnahmen und Behandlungen zur Behebung von bereits vorliegenden Zahnsch\u00e4den. - 6.2: Behandlungen und zahntechnische Eingriffe aus \u00e4sthetischen Gr\u00fcnden. - 6.3: Entfernung und Ersatz von Amalgamf\u00fcllungen aufgrund vermuteter oder tats\u00e4chlicher Allergien. - 6.4: Sch\u00e4den durch normale Abnutzung undoder Verlust von Prothesen. - 6.5: Kosten f\u00fcr Schutzschienen beim Sport. - 6.6: Kosten f\u00fcr Vollnarkosen, ausser bei Kindern unter sechs Jahren.",
+    "Assura AG"
   ]
 }

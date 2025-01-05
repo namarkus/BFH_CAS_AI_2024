@@ -1,20 +1,20 @@
 {
   "input_file": "Helsana_ZVB_completa_plus.pdf",
-  "processed_at": "2024-12-29_14:57:26",
-  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
+  "processed_at": "2025-01-05_20:51:46",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.2"
+      "version": "1.0.0"
     },
     "text_preparation": {
       "provider": "OpenAI"
     },
     "embeddings": {
       "provider": "OpenAI",
-      "chunking_mode": "section",
+      "chunking_mode": "page",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -29,41 +29,46 @@
   "pages": [
     {
       "number": 1,
-      "content": "```markdown\n# Zus\u00e4tzliche Versicherungsbedingungen (ZVB) COMPLETA PLUS Krankenpflege-Zusatzversicherung\n\n## Inhaltsverzeichnis\n\n### Allgemeines\n1. Zweck\n\n### Leistungen\n2. Leistungen im Ausland\n3. Suchaktionen in der Schweiz\n4. Sehhilfen und Augen-Laserkorrekturen\n5. Spezielle Behandlungsformen\n6. Komplement\u00e4rmedizin\n7. Pr\u00e4vention\n8. Gesundheitsf\u00f6rderung\n\n### Diverses\n9. Ende oder Sistierung der Versicherungsdeckung\n10. Beginn des Leistungsanspruchs\n\n## Allgemeines\n\n### 1 Zweck\nDie COMPLETA PLUS Krankenpflege-Zusatzversicherung erg\u00e4nzt die Leistungen der COMPLETA Krankenpflege-Zusatzversicherung. Sie deckt Kosten f\u00fcr ambulante Behandlungen im Ausland, Komplement\u00e4rmedizin, Pr\u00e4ventionsma\u00dfnahmen, Gesundheitsf\u00f6rderung, Sehhilfen und spezielle Behandlungsformen. Zus\u00e4tzlich werden Leistungen f\u00fcr Augen-Laserkorrekturen und Suchaktionen in der Schweiz gew\u00e4hrt.\n\n## Leistungen\n\n### 2 Leistungen im Ausland\n2.1 Bei ambulanter oder \u00e4rztlich verordneter Behandlung im Ausland \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 1000.\u2013 pro Kalenderjahr.\n\n2.2 Kosten f\u00fcr Sehhilfen, Augen-Laserkorrekturen, Komplement\u00e4rmedizin, Pr\u00e4vention und Gesundheitsf\u00f6rderung werden gem\u00e4\u00df Ziff. 4 bis 8 \u00fcbernommen, sofern nicht anders vorgesehen.\n\n### 3 Suchaktionen in der Schweiz\nHelsana \u00fcbernimmt max. CHF 30,000.\u2013 pro versicherte Person und Leistungsfall f\u00fcr Suchaktionen in der Schweiz, um eine Rettung der versicherten Person zu erm\u00f6glichen.\n\n### 4 Sehhilfen und Augen-Laserkorrekturen\n4.1 F\u00fcr Brillen und Kontaktlinsen \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 200.\u2013 pro Kalenderjahr.\n\n4.2 Bei Augen-Laserkorrekturen \u00fcbernimmt Helsana max. CHF 500.\u2013 pro Auge und Kalenderjahr. Der Anspruch beginnt nach 12 Monaten Wartefrist ab Versicherungsbeginn.\n\n4.3 Leistungen werden auch im Ausland \u00fcbernommen.\n\n### 5 Spezielle Behandlungsformen\n5.1 Bei \u00e4rztlicher Verordnung \u00fcbernimmt Helsana den Selbstbehalt von 25%.\n\n5.2 Eine Liste der anerkannten Behandlungsformen wird laufend angepasst und ist bei Helsana einsehbar.\n\n### 6 Komplement\u00e4rmedizin\n6.1 Bei ambulanten Behandlungen \u00fcbernimmt Helsana 15% des Rechnungsbetrags (60% Selbstbehalt), max. CHF 500.\u2013 pro Kalenderjahr, sofern die Leistung anerkannt ist.\n\n6.2 F\u00fcr bestimmte komplement\u00e4rmedizinische Therapien \u00fcbernimmt Helsana 75% der Kosten, max. CHF 500.\u2013 pro Kalenderjahr.\n```\n"
+      "content": "# Zus\u00e4tzliche Versicherungsbedingungen (ZVB) COMPLETA PLUS Krankenpflege-Zusatzversicherung\n\n## Inhaltsverzeichnis\n\n### Allgemeines\n1. Zweck\n\n### Leistungen\n2. Leistungen im Ausland\n3. Suchaktionen in der Schweiz\n4. Sehhilfen und Augen-Laserkorrekturen\n5. Spezielle Behandlungsformen\n6. Komplement\u00e4rmedizin\n7. Pr\u00e4vention\n8. Gesundheitsf\u00f6rderung\n\n### Diverses\n9. Ende oder Sistierung der Versicherungsdeckung\n10. Beginn des Leistungsanspruchs\n\n## Allgemeines\n\n### 1 Zweck\nDie COMPLETA PLUS Krankenpflege-Zusatzversicherung erg\u00e4nzt die Leistungen der COMPLETA Krankenpflege-Zusatzversicherung. Sie deckt Kosten f\u00fcr ambulante Behandlungen im Ausland, Komplement\u00e4rmedizin, Pr\u00e4ventionsmassnahmen, Gesundheitsf\u00f6rderung, Sehhilfen und spezielle Behandlungsformen. Zus\u00e4tzlich werden Leistungen f\u00fcr Augen-Laserkorrekturen und Suchaktionen in der Schweiz gew\u00e4hrt.\n\n## Leistungen\n\n### 2 Leistungen im Ausland\n2.1 Bei ambulanter oder \u00e4rztlich verordneter Behandlung im Ausland \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 1000.\u2013 pro Kalenderjahr.\n\n2.2 Kosten f\u00fcr Sehhilfen, Augen-Laserkorrekturen, Komplement\u00e4rmedizin, Pr\u00e4vention und Gesundheitsf\u00f6rderung werden gem\u00e4ss Ziff. 4 bis 8 \u00fcbernommen, sofern nicht anders vorgesehen.\n\n### 3 Suchaktionen in der Schweiz\nHelsana \u00fcbernimmt Kosten f\u00fcr Suchaktionen in der Schweiz bis max. CHF 30'000.\u2013 pro versicherte Person und Leistungsfall.\n\n### 4 Sehhilfen und Augen-Laserkorrekturen\n4.1 F\u00fcr Brillen und Kontaktlinsen \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 200.\u2013 pro Kalenderjahr.\n\n4.2 Bei Augen-Laserkorrekturen \u00fcbernimmt Helsana max. CHF 500.\u2013 pro Auge und Kalenderjahr. Der Anspruch beginnt nach 12 Monaten ab Versicherungsbeginn.\n\n4.3 Leistungen werden auch im Ausland verg\u00fctet.\n\n### 5 Spezielle Behandlungsformen\n5.1 Bei \u00e4rztlicher Verordnung \u00fcbernimmt Helsana den Selbstbehalt von 25%.\n\n5.2 Eine Liste der anerkannten Behandlungsformen wird laufend angepasst.\n\n### 6 Komplement\u00e4rmedizin\n6.1 Bei ambulanten Behandlungen \u00fcbernimmt Helsana 15% der \u00fcbersteigenden Kosten, max. CHF 500.\u2013 pro Kalenderjahr, sofern die Leistung anerkannt ist.\n\n6.2 F\u00fcr bestimmte komplement\u00e4rmedizinische Therapien werden 75% der Kosten, max. CHF 500.\u2013 pro Kalenderjahr, verg\u00fctet."
     },
     {
       "number": 2,
-      "content": "# Zus\u00e4tzliche Versicherungsbedingungen (ZVB) COMPLETA PLUS Krankenpflege-Zusatzversicherung\n\n## 6.3 Anerkennung von Therapeut:innen\n\n- Kriterien f\u00fcr die Anerkennung von Therapeut:innen und deren Qualifikation sind die angewandte Therapiemethode.\n- Anerkennung erfolgt durch Helsana oder eine beauftragte Institution.\n- Unwirksame oder unwirtschaftliche Behandlungen k\u00f6nnen ausgeschlossen werden.\n\n## 7 Pr\u00e4vention\n\n### 7.1 Pr\u00e4ventivmedizinische Massnahmen\n\n- Helsana \u00fcbernimmt erg\u00e4nzend zu COMPLETA Leistungen f\u00fcr Impfungen, Vorsorgeuntersuchungen, etc.\n- Maximaler Rechnungsbetrag: CHF 500 pro Kalenderjahr.\n\n### 7.2 Qualit\u00e4tssicherung\n\n- Leistungen werden nur anerkannt, wenn sie von Helsana anerkannte Leistungserbringende erbringen.\n- Liste der anerkannten Massnahmen wird laufend angepasst.\n\n### 7.3 Auslandsmassnahmen\n\n- Bestimmte Massnahmen im Ausland sind m\u00f6glich, wenn sie auf der Liste stehen.\n- Vorherige Kostengutsprache durch Helsana erforderlich.\n\n## 8 Gesundheitsf\u00f6rderung\n\n### 8.1 Gesundheitsf\u00f6rdernde Massnahmen\n\n- Helsana \u00fcbernimmt 75% der Kosten f\u00fcr R\u00fcckenschule, Fitness, etc.\n- Maximaler Rechnungsbetrag: CHF 200 pro Kalenderjahr.\n\n### 8.2 Baby- und Kinderschwimmkurse\n\n- \u00dcbernahme von 75% der Kosten, max. CHF 100 pro Kalenderjahr.\n- Gilt f\u00fcr Kinder bis zum 5. Lebensjahr.\n\n### 8.3 Qualit\u00e4tssicherung\n\n- Nur anerkannte Leistungserbringende werden akzeptiert.\n- Liste der anerkannten Massnahmen wird laufend aktualisiert.\n\n### 8.4 Auslandsmassnahmen\n\n- \u00dcbernahme nur, wenn das Fitness-Center auf der Liste steht.\n\n## 9 Ende der Sistierung der Versicherungsdeckung\n\n### 9.1 Wegfall der Zusatzversicherung\n\n- COMPLETA erlischt automatisch mit COMPLETA PLUS.\n\n### 9.2 Sistierung von COMPLETA\n\n- COMPLETA PLUS wird ebenfalls sistiert, wenn kein Antrag auf Sistierung gestellt wird.\n\n## 10 Beginn des Leistungsanspruchs\n\n- Kein Leistungsanspruch f\u00fcr Behandlungen vor Versicherungsbeginn.\n- Helsana \u00fcbernimmt Kosten f\u00fcr laufende Fitnessabonnemente."
+      "content": "```markdown\n### 6.3 Kriterien f\u00fcr Anerkennung von Therapeut:innen\n\n- Therapeut:innen m\u00fcssen qualifiziert sein und die Therapie muss wirksam und wirtschaftlich sein.\n- Anerkennung erfolgt durch Helsana oder eine beauftragte Institution.\n- Unwirksame oder unwirtschaftliche Behandlungen werden ausgeschlossen.\n\n### 7 Pr\u00e4vention\n\n#### 7.1 Pr\u00e4ventivmedizinische Massnahmen\n\n- Helsana \u00fcbernimmt Kosten f\u00fcr Impfungen, Vorsorgeuntersuchungen, Trainingstherapien und Raucherentw\u00f6hnung.\n- Maximaler Betrag: CHF 500 pro Kalenderjahr.\n\n#### 7.2 Qualit\u00e4tssicherung\n\n- Leistungen werden nur anerkannt, wenn sie auf der Liste von COMPLETA stehen.\n- Liste wird laufend aktualisiert und kann bei Helsana eingesehen werden.\n\n#### 7.3 Auslandsmassnahmen\n\n- Bestimmte Massnahmen im Ausland sind anerkannt, wenn sie auf der Liste stehen.\n- Vorherige Kostengutsprache durch Helsana erforderlich.\n\n### 8 Gesundheitsf\u00f6rderung\n\n#### 8.1 Gesundheitsf\u00f6rdernde Massnahmen\n\n- Helsana \u00fcbernimmt 75% der Kosten f\u00fcr R\u00fcckenschule, Fitness, Schwangerschaftskurse, etc.\n- Maximaler Betrag: CHF 200 pro Kalenderjahr.\n\n#### 8.2 Baby- und Kinderschwimmkurse\n\n- \u00dcbernahme von 75% der Kosten, max. CHF 100 pro Kalenderjahr.\n- Gilt f\u00fcr Kinder bis zum 5. Lebensjahr.\n\n#### 8.3 Qualit\u00e4tssicherung\n\n- Anerkennung nur bei auf der Liste stehenden Leistungen.\n- Liste wird laufend aktualisiert und kann bei Helsana eingesehen werden.\n\n#### 8.4 Auslandsmassnahmen\n\n- \u00dcbernahme nur, wenn das Fitness-Center auf der Liste steht.\n\n### 9 Ende der Sistierung der Versicherungsdeckung\n\n#### 9.1 Wegfall der Zusatzversicherung\n\n- COMPLETA erlischt automatisch mit COMPLETA PLUS.\n\n#### 9.2 Sistierung von COMPLETA\n\n- COMPLETA PLUS wird bei Sistierung von COMPLETA aufgehoben, wenn kein Antrag auf Sistierung gestellt wird.\n\n### 10 Beginn des Leistungsanspruchs\n\n- Kein Leistungsanspruch f\u00fcr Behandlungen vor Versicherungsbeginn.\n- Helsana \u00fcbernimmt Kosten f\u00fcr laufende Fitnessabonnemente.\n```\n"
     }
   ],
   "chunks": [
-    "markdown",
     "Zus\u00e4tzliche Versicherungsbedingungen ZVB COMPLETA PLUS Krankenpflege-Zusatzversicherung",
-    "Inhaltsverzeichnis",
     "Allgemeines 1. Zweck",
     "Leistungen 2. Leistungen im Ausland 3. Suchaktionen in der Schweiz 4. Sehhilfen und Augen-Laserkorrekturen 5. Spezielle Behandlungsformen 6. Komplement\u00e4rmedizin 7. Pr\u00e4vention 8. Gesundheitsf\u00f6rderung",
     "Diverses 9. Ende oder Sistierung der Versicherungsdeckung 10. Beginn des Leistungsanspruchs",
-    "Allgemeines",
-    "Zweck Die COMPLETA PLUS Krankenpflege-Zusatzversicherung erg\u00e4nzt die Leistungen der COMPLETA Krankenpflege-Zusatzversicherung. Sie deckt Kosten f\u00fcr ambulante Behandlungen im Ausland, Komplement\u00e4rmedizin, Pr\u00e4ventionsmanahmen, Gesundheitsf\u00f6rderung, Sehhilfen und spezielle Behandlungsformen. Zus\u00e4tzlich werden Leistungen f\u00fcr Augen-Laserkorrekturen und Suchaktionen in der Schweiz gew\u00e4hrt.",
-    "Leistungen",
-    "Leistungen im Ausland 2.1 Bei ambulanter oder \u00e4rztlich verordneter Behandlung im Ausland \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 1000. pro Kalenderjahr. 2.2 Kosten f\u00fcr Sehhilfen, Augen-Laserkorrekturen, Komplement\u00e4rmedizin, Pr\u00e4vention und Gesundheitsf\u00f6rderung werden gem\u00e4 Ziff. 4 bis 8 \u00fcbernommen, sofern nicht anders vorgesehen.",
-    "Suchaktionen in der Schweiz Helsana \u00fcbernimmt max. CHF 30,000. pro versicherte Person und Leistungsfall f\u00fcr Suchaktionen in der Schweiz, um eine Rettung der versicherten Person zu erm\u00f6glichen.",
-    "Sehhilfen und Augen-Laserkorrekturen 4.1 F\u00fcr Brillen und Kontaktlinsen \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 200. pro Kalenderjahr. 4.2 Bei Augen-Laserkorrekturen \u00fcbernimmt Helsana max. CHF 500. pro Auge und Kalenderjahr. Der Anspruch beginnt nach 12 Monaten Wartefrist ab Versicherungsbeginn. 4.3 Leistungen werden auch im Ausland \u00fcbernommen.",
-    "Spezielle Behandlungsformen 5.1 Bei \u00e4rztlicher Verordnung \u00fcbernimmt Helsana den Selbstbehalt von 25%. 5.2 Eine Liste der anerkannten Behandlungsformen wird laufend angepasst und ist bei Helsana einsehbar.",
-    "Komplement\u00e4rmedizin 6.1 Bei ambulanten Behandlungen \u00fcbernimmt Helsana 15% des Rechnungsbetrags 60% Selbstbehalt, max. CHF 500. pro Kalenderjahr, sofern die Leistung anerkannt ist. 6.2 F\u00fcr bestimmte komplement\u00e4rmedizinische Therapien \u00fcbernimmt Helsana 75% der Kosten, max. CHF 500. pro Kalenderjahr.   Zus\u00e4tzliche Versicherungsbedingungen ZVB COMPLETA PLUS Krankenpflege-Zusatzversicherung",
-    "Anerkennung von Therapeut:innen - Kriterien f\u00fcr die Anerkennung von Therapeut:innen und deren Qualifikation sind die angewandte Therapiemethode. - Anerkennung erfolgt durch Helsana oder eine beauftragte Institution. - Unwirksame oder unwirtschaftliche Behandlungen k\u00f6nnen ausgeschlossen werden.",
-    "Pr\u00e4vention",
-    "Pr\u00e4ventivmedizinische Massnahmen - Helsana \u00fcbernimmt erg\u00e4nzend zu COMPLETA Leistungen f\u00fcr Impfungen, Vorsorgeuntersuchungen, etc. - Maximaler Rechnungsbetrag: CHF 500 pro Kalenderjahr.",
-    "Qualit\u00e4tssicherung - Leistungen werden nur anerkannt, wenn sie von Helsana anerkannte Leistungserbringende erbringen. - Liste der anerkannten Massnahmen wird laufend angepasst.",
-    "Auslandsmassnahmen - Bestimmte Massnahmen im Ausland sind m\u00f6glich, wenn sie auf der Liste stehen. - Vorherige Kostengutsprache durch Helsana erforderlich.",
-    "Gesundheitsf\u00f6rderung",
-    "Gesundheitsf\u00f6rdernde Massnahmen - Helsana \u00fcbernimmt 75% der Kosten f\u00fcr R\u00fcckenschule, Fitness, etc. - Maximaler Rechnungsbetrag: CHF 200 pro Kalenderjahr.",
-    "Baby- und Kinderschwimmkurse - \u00dcbernahme von 75% der Kosten, max. CHF 100 pro Kalenderjahr. - Gilt f\u00fcr Kinder bis zum 5. Lebensjahr.",
-    "Qualit\u00e4tssicherung - Nur anerkannte Leistungserbringende werden akzeptiert. - Liste der anerkannten Massnahmen wird laufend aktualisiert.",
-    "Auslandsmassnahmen - \u00dcbernahme nur, wenn das Fitness-Center auf der Liste steht.",
+    "Zweck Die COMPLETA PLUS Krankenpflege-Zusatzversicherung erg\u00e4nzt die Leistungen der COMPLETA Krankenpflege-Zusatzversicherung. Sie deckt Kosten f\u00fcr ambulante Behandlungen im Ausland, Komplement\u00e4rmedizin, Pr\u00e4ventionsmassnahmen, Gesundheitsf\u00f6rderung, Sehhilfen und spezielle Behandlungsformen. Zus\u00e4tzlich werden Leistungen f\u00fcr Augen-Laserkorrekturen und Suchaktionen in der Schweiz gew\u00e4hrt.",
+    "Leistungen im Ausland 2.1 Bei ambulanter oder \u00e4rztlich verordneter Behandlung im Ausland \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 1000. pro Kalenderjahr.",
+    "Kosten f\u00fcr Sehhilfen, Augen-Laserkorrekturen, Komplement\u00e4rmedizin, Pr\u00e4vention und Gesundheitsf\u00f6rderung werden gem\u00e4ss Ziff. 4 bis 8 \u00fcbernommen, sofern nicht anders vorgesehen.",
+    "Suchaktionen in der Schweiz Helsana \u00fcbernimmt Kosten f\u00fcr Suchaktionen in der Schweiz bis max. CHF 30000. pro versicherte Person und Leistungsfall.",
+    "Sehhilfen und Augen-Laserkorrekturen 4.1 F\u00fcr Brillen und Kontaktlinsen \u00fcbernimmt Helsana 90% der \u00fcbersteigenden Kosten, max. CHF 200. pro Kalenderjahr.",
+    "Bei Augen-Laserkorrekturen \u00fcbernimmt Helsana max. CHF 500. pro Auge und Kalenderjahr. Der Anspruch beginnt nach 12 Monaten ab Versicherungsbeginn.",
+    "Leistungen werden auch im Ausland verg\u00fctet.",
+    "Spezielle Behandlungsformen 5.1 Bei \u00e4rztlicher Verordnung \u00fcbernimmt Helsana den Selbstbehalt von 25%.",
+    "Eine Liste der anerkannten Behandlungsformen wird laufend angepasst.",
+    "Komplement\u00e4rmedizin 6.1 Bei ambulanten Behandlungen \u00fcbernimmt Helsana 15% der \u00fcbersteigenden Kosten, max. CHF 500. pro Kalenderjahr, sofern die Leistung anerkannt ist.",
+    "F\u00fcr bestimmte komplement\u00e4rmedizinische Therapien werden 75% der Kosten, max. CHF 500. pro Kalenderjahr, verg\u00fctet.  6.3 Kriterien f\u00fcr Anerkennung von Therapeut:innen",
+    "- Therapeut:innen m\u00fcssen qualifiziert sein und die Therapie muss wirksam und wirtschaftlich sein. - Anerkennung erfolgt durch Helsana oder eine beauftragte Institution. - Unwirksame oder unwirtschaftliche Behandlungen werden ausgeschlossen.",
+    "Pr\u00e4ventivmedizinische Massnahmen",
+    "- Helsana \u00fcbernimmt Kosten f\u00fcr Impfungen, Vorsorgeuntersuchungen, Trainingstherapien und Raucherentw\u00f6hnung. - Maximaler Betrag: CHF 500 pro Kalenderjahr.",
+    "- Leistungen werden nur anerkannt, wenn sie auf der Liste von COMPLETA stehen. - Liste wird laufend aktualisiert und kann bei Helsana eingesehen werden.",
+    "- Bestimmte Massnahmen im Ausland sind anerkannt, wenn sie auf der Liste stehen. - Vorherige Kostengutsprache durch Helsana erforderlich.",
+    "Gesundheitsf\u00f6rdernde Massnahmen",
+    "- Helsana \u00fcbernimmt 75% der Kosten f\u00fcr R\u00fcckenschule, Fitness, Schwangerschaftskurse, etc. - Maximaler Betrag: CHF 200 pro Kalenderjahr.",
+    "Baby- und Kinderschwimmkurse",
+    "- \u00dcbernahme von 75% der Kosten, max. CHF 100 pro Kalenderjahr. - Gilt f\u00fcr Kinder bis zum 5. Lebensjahr.",
+    "- Anerkennung nur bei auf der Liste stehenden Leistungen. - Liste wird laufend aktualisiert und kann bei Helsana eingesehen werden.",
+    "- \u00dcbernahme nur, wenn das Fitness-Center auf der Liste steht.",
     "Ende der Sistierung der Versicherungsdeckung",
-    "Wegfall der Zusatzversicherung - COMPLETA erlischt automatisch mit COMPLETA PLUS.",
-    "Sistierung von COMPLETA - COMPLETA PLUS wird ebenfalls sistiert, wenn kein Antrag auf Sistierung gestellt wird.",
-    "Beginn des Leistungsanspruchs - Kein Leistungsanspruch f\u00fcr Behandlungen vor Versicherungsbeginn. - Helsana \u00fcbernimmt Kosten f\u00fcr laufende Fitnessabonnemente."
+    "Wegfall der Zusatzversicherung",
+    "- COMPLETA erlischt automatisch mit COMPLETA PLUS.",
+    "Sistierung von COMPLETA",
+    "- COMPLETA PLUS wird bei Sistierung von COMPLETA aufgehoben, wenn kein Antrag auf Sistierung gestellt wird.",
+    "Beginn des Leistungsanspruchs",
+    "- Kein Leistungsanspruch f\u00fcr Behandlungen vor Versicherungsbeginn. - Helsana \u00fcbernimmt Kosten f\u00fcr laufende Fitnessabonnemente."
   ]
 }

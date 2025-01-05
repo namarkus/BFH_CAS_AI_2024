@@ -1,0 +1,84 @@
+{
+  "input_file": "CSS_zb_alternativ_myflex.pdf",
+  "processed_at": "2025-01-05_00:29:06",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
+  "processor": {
+    "app": {
+      "name": "vbc_learn",
+      "version": "1.0.0"
+    },
+    "text_preparation": {
+      "provider": "OpenAI"
+    },
+    "embeddings": {
+      "provider": "OpenAI",
+      "chunking_mode": "page",
+      "storage": "Chroma",
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
+    },
+    "machine": {
+      "name": "Midnight-Duke.local",
+      "architecture": "arm64",
+      "os": {
+        "name": "Darwin",
+        "version": "23.6.0"
+      }
+    },
+    "user": "helmut"
+  },
+  "pages": [
+    {
+      "number": 1,
+      "content": "# Alternativversicherung myFlex\n## Krankenzusatzversicherung nach VVG\n\n### Zusatzbedingungen (ZB)\n**Ausgabe 01.2011**\n\nDie folgenden Zusatzbedingungen (ZB) basieren auf den Allgemeinen Versicherungsbedingungen (AVB) f\u00fcr die Krankenzusatzversicherungen nach VVG der CSS Versicherung AG, sofern die vorliegenden ZB keine abweichenden Regelungen enthalten.\n\n### Inhaltsverzeichnis\n\n1. **Aufnahmebedingungen** - Seite 2\n2. **Versicherte Risiken** - Seite 2\n3. **Versicherte Leistungen** - Seite 2\n4. **Anerkannte Leistungserbringer und Methoden** - Seite 2\n5. **Leistungseinschr\u00e4nkungen** - Seite 3\n6. **Leistungsanspruch** - Seite 3\n7. **Kostenbeteiligungen** - Seite 3\n8. **Leistungsfreiheitsbonus** - Seite 3\n\n**Anschrift des Versicherers:**  \nCSS Versicherung AG, Tribschenstrasse 21, Postfach 2568, 6002 Luzern"
+    },
+    {
+      "number": 2,
+      "content": "# Versicherungsbedingungen\n\n## 1. Aufnahmebedingungen\n\n### 1.1\nIn der Alternativversicherung myFlex kann die versicherte Person zwischen den drei Versicherungsstufen \u00abEconomy\u00bb, \u00abBalance\u00bb oder \u00abPremium\u00bb w\u00e4hlen.\n\n### 1.2\nSowohl der Erstabschluss einer Alternativversicherung myFlex als auch der Wechsel von einer leistungsschw\u00e4cheren zu einer leistungsst\u00e4rkeren Versicherungsstufe bedarf zwingend der Abgabe einer Gesundheitsdeklaration und erfolgt nur nach \u00dcberpr\u00fcfung und Annahme durch die CSS.\n\n### 1.3\nNeugeborene werden vorbehaltlos ab dem Tag der Geburt versichert, sofern der unterzeichnete Versicherungsantrag sp\u00e4testens 30 Tage nach der Geburt bei der CSS eintrifft.\n\n### 1.4\nDie Versicherungsdeckung kann f\u00fcr Unf\u00e4lle nicht ausgeschlossen werden.\n\n## 2. Versicherte Risiken\n\nVersichert sind Versicherungsf\u00e4lle aufgrund von Krankheit (im Sinne von Ziffer 7.1 AVB), Unfall (im Sinne von Ziffer 8 AVB) und Mutterschaft (im Sinne von Ziffer 7.2 AVB).\n\n## 3. Versicherte Leistungen\n\nDie CSS erbringt im Versicherungsschutz folgende Leistungen erg\u00e4nzend und in Nachgang zu den Leistungen anderer Sozialversicherungen, insbesondere zur obligatorischen Krankenpflegeversicherung nach Krankenversicherungsgesetz (KVG) und/oder Unfallversicherung nach Unfallversicherungsgesetz (UVG). Der jeweilige Leistungsumfang (inkl. Kostenbeteiligung) f\u00fcr die entsprechenden abgeschlossenen Versicherungsstufen ist in nachfolgender Tabelle geregelt.\n\n### 3.1 Ambulante Behandlungen\n\n- **Economy**: In Ab\u00e4nderung von Ziffer 27.1 AVB sind im Rahmen von Ziffer 4 der vorliegenden ZB die Kosten f\u00fcr Leistungen ambulanter Behandlungen versichert, welche nach komplement\u00e4rmedizinischen Heilmethoden (wie z.B. Akupunktur, Hom\u00f6opathie, Osteopathie) durchgef\u00fchrt werden, soweit diese die Behandlung einer Krankheit, von Mutterschaft oder von Unf\u00e4llen zum Zweck haben.\n\n- **Balance**: Versichert sind gem\u00e4ss Ziffer 4 anerkannte und verordnete resp. abgegebene komplement\u00e4rmedizinische Heilmittel.\n\n- **Premium**: In Ab\u00e4nderung von Ziffer 27.1 AVB sind im Rahmen von Ziffer 4 der vorliegenden ZB die Kosten f\u00fcr Leistungen station\u00e4rer Behandlungen versichert, welche nach komplement\u00e4rmedizinischen Heilmethoden (wie z.B. Akupunktur, Hom\u00f6opathie, Osteopathie) durchgef\u00fchrt werden, soweit diese die Behandlung einer Krankheit, von Mutterschaft oder von Unf\u00e4llen zum Zweck haben. Nicht versichert sind s\u00e4mtliche Kosten f\u00fcr Unterkunft, Pflege und Verpflegung.\n\n  - **75 %, h\u00f6chstens CHF 1000 pro Kalenderjahr (Economy)**\n  - **75 %, h\u00f6chstens CHF 3000 pro Kalenderjahr (Balance)**\n  - **75 %, h\u00f6chstens CHF 1000 pro Kalenderjahr (Premium)**\n\n### 3.2 Behandlungen mit eingeschr\u00e4nkter Deckung\n\nKosten f\u00fcr die unter Ziffer 5.3 genannten komplement\u00e4rmedizinischen Behandlungen, sind auf nachfolgend aufgef\u00fchrte H\u00f6chstbetr\u00e4ge pro Kalenderjahr begrenzt, unabh\u00e4ngig davon, ob sie nur durch die Inanspruchnahme einer erw\u00e4hnten Behandlungsmethode oder mehrerer solcher entstehen. Diese Betr\u00e4ge werden in Anrechnung auf die in Ziffer 3.1 festgelegten Jahresh\u00f6chstsumme geleistet und sind mit diesen nicht kumulierbar.\n\n- **75 %, h\u00f6chstens CHF 200 pro Kalenderjahr (Economy)**\n- **75 %, h\u00f6chstens CHF 600 pro Kalenderjahr (Balance)**\n- **75 %, h\u00f6chstens CHF 2000 pro Kalenderjahr (Premium)**\n\n## 4. Anerkannte Leistungserbringer und Methoden\n\n### 4.1\nDie Leistungspflicht im Rahmen von Ziffer 3 setzt voraus, dass kumulativ sowohl der gew\u00e4hlte Leistungserbringer als auch die angewandten Methoden in einer nachfolgend umschriebenen Liste (vgl. Ziffer 41 AVB) aufgef\u00fchrt sind. Massgebend sind immer die im Behandlungszeitpunkt g\u00fcltigen Listen. Keine Leistungspflicht besteht, wenn ein anerkannter Leistungserbringer Behandlungen im Rahmen anerkannter Methoden erbringt, dazu aber aufgrund seiner Zulassung und gem\u00e4ss den von der CSS aufgestellten Anerkennungskriterien nicht befugt w\u00e4re.\n\n### 4.2\nDie CSS f\u00fchrt eine Liste (vgl. Ziffer 41 AVB) anerkannter Methoden. Gem\u00e4ss dieser \u00fcbernimmt die CSS nur die in Ziffer 3 festgelegten Kosten, welche in Ausf\u00fchrung von anerkannten komplement\u00e4rmedizinischen Methoden angefallen"
+    },
+    {
+      "number": 3,
+      "content": "## 5 Leistungseinschr\u00e4nkungen\n\n### 5.1 Allgemeine Einschr\u00e4nkungen\n- Rechnungen werden nur f\u00fcr die im Tariflimiten definierten Leistungen \u00fcbernommen.\n- Ausgeschlossen sind:\n  - Selbsttherapie.\n  - Behandlungen durch Familienangeh\u00f6rige oder im Konkubinat lebende Personen.\n  - Versand- und administrative Kosten.\n  - Kosten f\u00fcr Behandlungen au\u00dferhalb der Praxis.\n  - Kauf oder Miete von Hilfsmitteln ohne Ger\u00e4te.\n  - Pr\u00e4ventive Behandlungen ohne Versicherungsfall.\n  - Unwirksame oder unwirtschaftliche Behandlungen.\n\n### 5.2 Spezielle Einschr\u00e4nkungen\n- Die CSS hat eine Methodenliste f\u00fcr eingeschr\u00e4nkte Behandlungsmethoden.\n\n## 6 Leistungsanspruch\n\n### 6.1 Anrechnung der Leistungen\n- Leistungen werden pro Kalenderjahr angerechnet.\n- Nicht ausgesch\u00f6pfte Anspr\u00fcche k\u00f6nnen nicht ins Folgejahr \u00fcbertragen werden.\n\n### 6.2 Leistungsbegrenzung\n- Bei Vereinbarung einer Leistungsbegrenzung gilt diese pro Versicherungsfall.\n\n### 6.3 Erg\u00e4nzende Leistungen\n- Leistungen erg\u00e4nzen sich mit den in Ziffer 4.1 genannten Versicherungen.\n- Kostenbeteiligungen aus diesen Versicherungen sind in der Alternativversicherung myFlex nicht versichert.\n\n## 7 Kostenbeteiligungen\n- Kostenbeteiligungen richten sich nach dem Leistungsumfang gem\u00e4\u00df Tabelle \"Versicherte Leistungsarten\".\n\n## 8 Leistungsfreiheitsbonus\n\n### 8.1 Bonusberechtigung\n- Versicherte k\u00f6nnen einen j\u00e4hrlichen Bonus erhalten, wenn keine Leistungen beansprucht wurden.\n\n### 8.2 Beobachtungsperiode\n- Die Periode ist von September bis August.\n\n### 8.3 Ersatzausschluss\n- Bei Ersatzausschluss der Alternativversicherung myFlex kann eine k\u00fcrzere Beobachtungsperiode vorgesehen werden.\n\n### 8.4 Bonusberechnung\n- Die H\u00f6he des Bonus wird j\u00e4hrlich festgelegt und richtet sich nach dem Produktresultat der Alternativversicherung myFlex.\n\n### 8.5 Bonusauszahlung\n- Die Auszahlung erfolgt im Folgejahr, sofern die Person am 1. Januar des Folgejahres versichert ist."
+    },
+    {
+      "number": 4,
+      "content": "Es scheint, dass das Bild nur eine leere Seite mit einem CSS-Logo zeigt. Es gibt keinen Text oder Inhalt, den ich extrahieren oder paraphrasieren k\u00f6nnte. Wenn du weitere Informationen oder ein anderes Dokument hast, lass es mich bitte wissen!"
+    }
+  ],
+  "chunks": [
+    "Alternativversicherung myFlex  Krankenzusatzversicherung nach VVG",
+    "Zusatzbedingungen ZB  01.2011",
+    "Die folgenden Zusatzbedingungen ZB basieren auf den Allgemeinen Versicherungsbedingungen AVB f\u00fcr die Krankenzusatzversicherungen nach VVG der CSS Versicherung AG, sofern die vorliegenden ZB keine abweichenden Regelungen enthalten.",
+    "Aufnahmebedingungen - 2 2. Versicherte Risiken - 2 3. Versicherte Leistungen - 2 4. Anerkannte Leistungserbringer und Methoden - 2 5. Leistungseinschr\u00e4nkungen - 3 6. Leistungsanspruch - 3 7. Kostenbeteiligungen - 3 8. Leistungsfreiheitsbonus - 3",
+    "Anschrift des Versicherers: CSS Versicherung AG, Tribschenstrasse 21, Postfach 2568, 6002 Luzern  Versicherungsbedingungen",
+    "In der Alternativversicherung myFlex kann die versicherte Person zwischen den drei Versicherungsstufen Economy, Balance oder Premium w\u00e4hlen.",
+    "Sowohl der Erstabschluss einer Alternativversicherung myFlex als auch der Wechsel von einer leistungsschw\u00e4cheren zu einer leistungsst\u00e4rkeren Versicherungsstufe bedarf zwingend der Abgabe einer Gesundheitsdeklaration und erfolgt nur nach \u00dcberpr\u00fcfung und Annahme durch die CSS.",
+    "Neugeborene werden vorbehaltlos ab dem Tag der Geburt versichert, sofern der unterzeichnete Versicherungsantrag sp\u00e4testens 30 Tage nach der Geburt bei der CSS eintrifft.",
+    "Die Versicherungsdeckung kann f\u00fcr Unf\u00e4lle nicht ausgeschlossen werden.",
+    "Versicherte Risiken",
+    "Versichert sind Versicherungsf\u00e4lle aufgrund von Krankheit im Sinne von Ziffer 7.1 AVB, Unfall im Sinne von Ziffer 8 AVB und Mutterschaft im Sinne von Ziffer 7.2 AVB.",
+    "Versicherte Leistungen",
+    "Die CSS erbringt im Versicherungsschutz folgende Leistungen erg\u00e4nzend und in Nachgang zu den Leistungen anderer Sozialversicherungen, insbesondere zur obligatorischen Krankenpflegeversicherung nach Krankenversicherungsgesetz KVG undoder Unfallversicherung nach Unfallversicherungsgesetz UVG. Der jeweilige Leistungsumfang inkl. Kostenbeteiligung f\u00fcr die entsprechenden abgeschlossenen Versicherungsstufen ist in nachfolgender Tabelle geregelt.",
+    "Ambulante Behandlungen",
+    "- Economy: In Ab\u00e4nderung von Ziffer 27.1 AVB sind im Rahmen von Ziffer 4 der vorliegenden ZB die Kosten f\u00fcr Leistungen ambulanter Behandlungen versichert, welche nach komplement\u00e4rmedizinischen Heilmethoden wie z.B. Akupunktur, Hom\u00f6opathie, Osteopathie durchgef\u00fchrt werden, soweit diese die Behandlung einer Krankheit, von Mutterschaft oder von Unf\u00e4llen zum Zweck haben.",
+    "- Balance: Versichert sind gem\u00e4ss Ziffer 4 anerkannte und verordnete resp. abgegebene komplement\u00e4rmedizinische Heilmittel.",
+    "- Premium: In Ab\u00e4nderung von Ziffer 27.1 AVB sind im Rahmen von Ziffer 4 der vorliegenden ZB die Kosten f\u00fcr Leistungen station\u00e4rer Behandlungen versichert, welche nach komplement\u00e4rmedizinischen Heilmethoden wie z.B. Akupunktur, Hom\u00f6opathie, Osteopathie durchgef\u00fchrt werden, soweit diese die Behandlung einer Krankheit, von Mutterschaft oder von Unf\u00e4llen zum Zweck haben. Nicht versichert sind s\u00e4mtliche Kosten f\u00fcr Unterkunft, Pflege und Verpflegung.",
+    "- 75 %, h\u00f6chstens CHF 1000 pro Kalenderjahr Economy - 75 %, h\u00f6chstens CHF 3000 pro Kalenderjahr Balance - 75 %, h\u00f6chstens CHF 1000 pro Kalenderjahr Premium",
+    "Behandlungen mit eingeschr\u00e4nkter Deckung",
+    "Kosten f\u00fcr die unter Ziffer 5.3 genannten komplement\u00e4rmedizinischen Behandlungen, sind auf nachfolgend aufgef\u00fchrte H\u00f6chstbetr\u00e4ge pro Kalenderjahr begrenzt, unabh\u00e4ngig davon, ob sie nur durch die Inanspruchnahme einer erw\u00e4hnten Behandlungsmethode oder mehrerer solcher entstehen. Diese Betr\u00e4ge werden in Anrechnung auf die in Ziffer 3.1 festgelegten Jahresh\u00f6chstsumme geleistet und sind mit diesen nicht kumulierbar.",
+    "- 75 %, h\u00f6chstens CHF 200 pro Kalenderjahr Economy - 75 %, h\u00f6chstens CHF 600 pro Kalenderjahr Balance - 75 %, h\u00f6chstens CHF 2000 pro Kalenderjahr Premium",
+    "Anerkannte Leistungserbringer und Methoden",
+    "Die Leistungspflicht im Rahmen von Ziffer 3 setzt voraus, dass kumulativ sowohl der gew\u00e4hlte Leistungserbringer als auch die angewandten Methoden in einer nachfolgend umschriebenen Liste vgl. Ziffer 41 AVB aufgef\u00fchrt sind. Massgebend sind immer die im Behandlungszeitpunkt g\u00fcltigen Listen. Keine Leistungspflicht besteht, wenn ein anerkannter Leistungserbringer Behandlungen im Rahmen anerkannter Methoden erbringt, dazu aber aufgrund seiner Zulassung und gem\u00e4ss den von der CSS aufgestellten Anerkennungskriterien nicht befugt w\u00e4re.",
+    "Die CSS f\u00fchrt eine Liste vgl. Ziffer 41 AVB anerkannter Methoden. Gem\u00e4ss dieser \u00fcbernimmt die CSS nur die in Ziffer 3 festgelegten Kosten, welche in Ausf\u00fchrung von anerkannten komplement\u00e4rmedizinischen Methoden angefallen  5 Leistungseinschr\u00e4nkungen",
+    "Allgemeine Einschr\u00e4nkungen - Rechnungen werden nur f\u00fcr die im Tariflimiten definierten Leistungen \u00fcbernommen. - Ausgeschlossen sind: - Selbsttherapie. - Behandlungen durch Familienangeh\u00f6rige oder im Konkubinat lebende Personen. - Versand- und administrative Kosten. - Kosten f\u00fcr Behandlungen auerhalb der Praxis. - Kauf oder Miete von Hilfsmitteln ohne Ger\u00e4te. - Pr\u00e4ventive Behandlungen ohne Versicherungsfall. - Unwirksame oder unwirtschaftliche Behandlungen.",
+    "Spezielle Einschr\u00e4nkungen - Die CSS hat eine Methodenliste f\u00fcr eingeschr\u00e4nkte Behandlungsmethoden.",
+    "Anrechnung der Leistungen - Leistungen werden pro Kalenderjahr angerechnet. - Nicht ausgesch\u00f6pfte Anspr\u00fcche k\u00f6nnen nicht ins Folgejahr \u00fcbertragen werden.",
+    "Leistungsbegrenzung - Bei Vereinbarung einer Leistungsbegrenzung gilt diese pro Versicherungsfall.",
+    "Erg\u00e4nzende Leistungen - Leistungen erg\u00e4nzen sich mit den in Ziffer 4.1 genannten Versicherungen. - Kostenbeteiligungen aus diesen Versicherungen sind in der Alternativversicherung myFlex nicht versichert.",
+    "Kostenbeteiligungen - Kostenbeteiligungen richten sich nach dem Leistungsumfang gem\u00e4 Tabelle Versicherte Leistungsarten.",
+    "Bonusberechtigung - Versicherte k\u00f6nnen einen j\u00e4hrlichen Bonus erhalten, wenn keine Leistungen beansprucht wurden.",
+    "Beobachtungsperiode - Die Periode ist von September bis August.",
+    "Ersatzausschluss - Bei Ersatzausschluss der Alternativversicherung myFlex kann eine k\u00fcrzere Beobachtungsperiode vorgesehen werden.",
+    "Bonusberechnung - Die H\u00f6he des Bonus wird j\u00e4hrlich festgelegt und richtet sich nach dem Produktresultat der Alternativversicherung myFlex.",
+    "Bonusauszahlung - Die Auszahlung erfolgt im Folgejahr, sofern die Person am 1. Januar des Folgejahres versichert ist. Es scheint, dass das Bild nur eine leere mit einem CSS-Logo zeigt. Es gibt keinen Text oder Inhalt, den ich extrahieren oder paraphrasieren k\u00f6nnte. Wenn du weitere Informationen oder ein anderes Dokument hast, lass es mich bitte wissen!"
+  ]
+}

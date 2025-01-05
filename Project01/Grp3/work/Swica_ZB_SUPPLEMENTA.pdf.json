@@ -1,20 +1,20 @@
 {
   "input_file": "Swica_ZB_SUPPLEMENTA.pdf",
-  "processed_at": "2024-12-29_17:46:00",
-  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
+  "processed_at": "2025-01-05_20:58:13",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.2"
+      "version": "1.0.0"
     },
     "text_preparation": {
       "provider": "OpenAI"
     },
     "embeddings": {
       "provider": "OpenAI",
-      "chunking_mode": "section",
+      "chunking_mode": "page",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -29,15 +29,15 @@
   "pages": [
     {
       "number": 1,
-      "content": "Es tut mir leid, ich kann den Inhalt des Dokuments nicht direkt einsehen. Wenn du mir den Text oder spezifische Abschnitte zur Verf\u00fcgung stellst, kann ich dir helfen, diese zu paraphrasieren oder zu erkl\u00e4ren."
+      "content": "Es tut mir leid, ich kann den Inhalt des Dokuments nicht direkt einsehen. Es handelt sich um die \"Zusatzbedingungen (ZB) nach VVG\" von SWICA, Ausgabe 2024, g\u00fcltig ab dem 01.01.2024. Wenn du Fragen zu den allgemeinen Bedingungen oder spezifischen Themen hast, lass es mich wissen!"
     },
     {
       "number": 2,
-      "content": "# Inhaltsverzeichnis\n\n## Zusatzversicherung Supplementa\n- **1. Anwendungsbereich** - Seite 3\n- **2. Versicherungsumfang** - Seite 3\n- **3. Leistungen** - Seite 3\n- **4. Allgemeine Bestimmungen** - Seite 4\n\n---\n\n# Kundeninformation\n\nZum besseren Verst\u00e4ndnis m\u00f6chten wir vor dem Vertragsabschluss auf einige Vertragsgrundlagen hinweisen, die uns besonders wichtig sind.\n\n- **Grundlage des Vertrags**: Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen (separates Dokument) gelten als Basis.\n- **Symbolhinweis**: Achten Sie auf das Symbol ! in den Zusatzbedingungen.\n\n## Wichtige Punkte:\n- **Versicherungsabschluss**: Wo kann eine Versicherung abgeschlossen werden?\n- **Versicherungsumfang**: Was ist versichert bzw. was ist nicht versichert?\n- **Pflichten des Versicherungsnehmers**: Welche Pflichten hat der Versicherungsnehmer?\n- **Leistungsanspruch**: Wann besteht Anspruch auf Leistungen?"
+      "content": "# Inhaltsverzeichnis\n\n## Zusatzversicherung Supplementa\n\n1. **Anwendungsbereich** - Seite 3\n2. **Versicherungsumfang** - Seite 3\n3. **Leistungen** - Seite 3\n4. **Allgemeine Bestimmungen** - Seite 4\n\n---\n\n## Kundeninformation\n\nUm das Verst\u00e4ndnis zu verbessern, m\u00f6chten wir vor dem Vertragsabschluss auf einige wichtige Vertragsgrundlagen hinweisen:\n\n- Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen sind die Basis f\u00fcr den Versicherungsvertrag.\n- Achten Sie auf das Symbol ! in den Zusatzbedingungen.\n\n### Wichtige Punkte:\n\n- Wer kann eine Versicherung abschliessen?\n- Was ist versichert bzw. was ist nicht versichert?\n- Welche Pflichten hat der Versicherungsnehmer?\n- Wann besteht Anspruch auf Leistungen?"
     },
     {
       "number": 3,
-      "content": "# Zusatzversicherung SUPPLEMENTA\n\n## I. Anwendungsbereich\n\n### Art. 1 Zweck\nDie SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt aus der Zusatzversicherung SUPPLEMENTA Kosten, die von der obligatorischen Krankenpflegeversicherung (nach KVG, SR 832.10) und einer anderen Zusatzversicherung von SWICA nicht oder nur teilweise gedeckt werden.\n\n### Art. 2 Versicherungsnehmer\n- Jede Person mit gesetzlichem Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen.\n- Voraussetzung ist das Bestehen der Zusatzversicherung COMPLETA TOP oder COMPLETA FORTE bei SWICA.\n- Bei Beendigung des Versicherungsvertrags zu COMPLETA TOP bzw. COMPLETA FORTE endet auch der Vertrag zu SUPPLEMENTA.\n\n## II. Versicherungsumfang\n\n### Art. 3 Versicherungsumfang\n1. Der Umfang richtet sich nach Art. 2 der Allgemeinen Versicherungsbedingungen (AVB).\n2. Von anderen Sozialversicherungen auferlegte Kostenbeteiligungen sind nicht versichert.\n\n## III. Leistungen\n\n### Art. 4 Brillengl\u00e4ser und -fassungen, Kontaktlinsen\n- SWICA \u00fcbernimmt 90% der Kosten f\u00fcr medizinisch notwendige Brillengl\u00e4ser und -fassungen sowie Kontaktlinsen, maximal 300 Franken pro drei Kalenderjahre.\n- Leistungen k\u00f6nnen auch im angrenzenden Ausland bezogen werden.\n\n### Art. 5 Hilfsmittel\n- SWICA zahlt f\u00fcr \u00e4rztlich verordnete und von SWICA anerkannte Hilfsmittel (ausgenommen Zahnprothesen und Sehhilfen), die nicht als gesetzliche Pflichtleistungen gelten, 90% der Kosten, maximal 500 Franken pro Kalenderjahr.\n- SWICA f\u00fchrt eine Liste der anerkannten Hilfsmittel.\n- Leistungen k\u00f6nnen auch im angrenzenden Ausland bezogen werden.\n\n### Art. 6 Notfall-/Verlegungstransporte\n- SWICA \u00fcbernimmt die Kosten f\u00fcr Notfalltransporte oder medizinisch notwendige Verlegungstransporte zum n\u00e4chsten Arzt oder Spital nach den \u00fcblichen Tarifen im In- und Ausland, zusammen h\u00f6chstens 90% bis 20'000 Franken pro Kalenderjahr."
+      "content": "# Zusatzversicherung SUPPLEMENTA\n\n## I. Anwendungsbereich\n\n### Art. 1 Zweck\nDie SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt aus der Zusatzversicherung SUPPLEMENTA Kosten, die von der obligatorischen Krankenpflegeversicherung (nach KVG, SR 832.10) und einer anderen Zusatzversicherung von SWICA nicht oder nur teilweise gedeckt werden.\n\n### Art. 2 Versicherungsnehmer\n- Jede Person mit Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen.\n- Voraussetzung ist das Bestehen der Zusatzversicherung COMPLETA TOP oder COMPLETA FORTE bei SWICA.\n- Bei Beendigung des Versicherungsvertrags zu COMPLETA TOP bzw. COMPLETA FORTE endet auch der Vertrag zu SUPPLEMENTA.\n\n## II. Versicherungsumfang\n\n### Art. 3 Versicherungsumfang\n1. Der Umfang richtet sich nach Art. 2 der Allgemeinen Versicherungsbedingungen (AVB).\n2. Kostenbeteiligungen anderer Sozialversicherungen sind nicht versichert.\n\n## III. Leistungen\n\n### Art. 4 Brillengl\u00e4ser und -fassungen, Kontaktlinsen\n- SWICA \u00fcbernimmt 90% der Kosten f\u00fcr medizinisch notwendige Brillengl\u00e4ser und -fassungen sowie Kontaktlinsen, maximal 300 Franken pro drei Kalenderjahre.\n- Leistungen k\u00f6nnen auch im angrenzenden Ausland bezogen werden.\n\n### Art. 5 Hilfsmittel\n- SWICA zahlt f\u00fcr \u00e4rztlich verordnete und anerkannte Hilfsmittel (ausgenommen Zahnprothesen und Sehhilfen), die nicht gesetzlich gedeckt sind, 90% der Kosten, maximal 500 Franken pro Kalenderjahr.\n- Eine Liste der anerkannten Hilfsmittel wird gef\u00fchrt.\n- Leistungen k\u00f6nnen auch im Ausland bezogen werden.\n\n### Art. 6 Notfall-/Verlegungstransporte\n- SWICA \u00fcbernimmt die Kosten f\u00fcr Notfalltransporte oder medizinisch notwendige Verlegungstransporte zum n\u00e4chsten Arzt oder Spital nach den \u00fcblichen Tarifen im In- und Ausland, maximal 90% bis 20'000 Franken pro Kalenderjahr."
     },
     {
       "number": 4,
@@ -45,22 +45,24 @@
     }
   ],
   "chunks": [
-    "Es tut mir leid, ich kann den Inhalt des Dokuments nicht direkt einsehen. Wenn du mir den Text oder spezifische Abschnitte zur Verf\u00fcgung stellst, kann ich dir helfen, diese zu paraphrasieren oder zu erkl\u00e4ren.  Inhaltsverzeichnis",
-    "Zusatzversicherung Supplementa - 1. Anwendungsbereich - Seite 3 - 2. Versicherungsumfang - Seite 3 - 3. Leistungen - Seite 3 - 4. Allgemeine Bestimmungen - Seite 4 ---",
-    "Kundeninformation Zum besseren Verst\u00e4ndnis m\u00f6chten wir vor dem Vertragsabschluss auf einige Vertragsgrundlagen hinweisen, die uns besonders wichtig sind. - Grundlage des Vertrags: Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen separates Dokument gelten als Basis. - Symbolhinweis: Achten Sie auf das Symbol ! in den Zusatzbedingungen.",
-    "Wichtige Punkte: - Versicherungsabschluss: Wo kann eine Versicherung abgeschlossen werden? - Versicherungsumfang: Was ist versichert bzw. was ist nicht versichert? - Pflichten des Versicherungsnehmers: Welche Pflichten hat der Versicherungsnehmer? - Leistungsanspruch: Wann besteht Anspruch auf Leistungen?  Zusatzversicherung SUPPLEMENTA",
-    "Anwendungsbereich",
-    "Art. 1 Zweck Die SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt aus der Zusatzversicherung SUPPLEMENTA Kosten, die von der obligatorischen Krankenpflegeversicherung nach KVG, SR 832.10 und einer anderen Zusatzversicherung von SWICA nicht oder nur teilweise gedeckt werden.",
-    "Art. 2 Versicherungsnehmer - Jede Person mit gesetzlichem Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen. - Voraussetzung ist das Bestehen der Zusatzversicherung COMPLETA TOP oder COMPLETA FORTE bei SWICA. - Bei Beendigung des Versicherungsvertrags zu COMPLETA TOP bzw. COMPLETA FORTE endet auch der Vertrag zu SUPPLEMENTA.",
+    "Es tut mir leid, ich kann den Inhalt des Dokuments nicht direkt einsehen. Es handelt sich um die Zusatzbedingungen ZB nach VVG von SWICA, 2024, g\u00fcltig ab dem 01.01.2024. Wenn du Fragen zu den allgemeinen Bedingungen oder spezifischen Themen hast, lass es mich wissen!  Inhaltsverzeichnis",
+    "Zusatzversicherung Supplementa",
+    "Anwendungsbereich - 3 2. Versicherungsumfang - 3 3. Leistungen - 3 4. Allgemeine Bestimmungen - 4",
+    "Um das Verst\u00e4ndnis zu verbessern, m\u00f6chten wir vor dem Vertragsabschluss auf einige wichtige Vertragsgrundlagen hinweisen:",
+    "- Die Dokumente gem\u00e4ss Kundeninformation in den Allgemeinen Versicherungsbedingungen sind die Basis f\u00fcr den Versicherungsvertrag. - Achten Sie auf das Symbol ! in den Zusatzbedingungen.",
+    "Wichtige Punkte:",
+    "- Wer kann eine Versicherung abschliessen? - Was ist versichert bzw. was ist nicht versichert? - Welche Pflichten hat der Versicherungsnehmer? - Wann besteht Anspruch auf Leistungen?  Zusatzversicherung SUPPLEMENTA",
+    "Zweck Die SWICA Versicherungen AG, im Folgenden SWICA genannt, \u00fcbernimmt aus der Zusatzversicherung SUPPLEMENTA Kosten, die von der obligatorischen Krankenpflegeversicherung nach KVG, SR 832.10 und einer anderen Zusatzversicherung von SWICA nicht oder nur teilweise gedeckt werden.",
+    "Versicherungsnehmer - Jede Person mit Wohnsitz in der Schweiz kann diese Zusatzversicherung beantragen. - Voraussetzung ist das Bestehen der Zusatzversicherung COMPLETA TOP oder COMPLETA FORTE bei SWICA. - Bei Beendigung des Versicherungsvertrags zu COMPLETA TOP bzw. COMPLETA FORTE endet auch der Vertrag zu SUPPLEMENTA.",
     "II. Versicherungsumfang",
-    "Art. 3 Versicherungsumfang 1. Der Umfang richtet sich nach Art. 2 der Allgemeinen Versicherungsbedingungen AVB. 2. Von anderen Sozialversicherungen auferlegte Kostenbeteiligungen sind nicht versichert.",
+    "Versicherungsumfang 1. Der Umfang richtet sich nach 2 der Allgemeinen Versicherungsbedingungen AVB. 2. Kostenbeteiligungen anderer Sozialversicherungen sind nicht versichert.",
     "III. Leistungen",
-    "Art. 4 Brillengl\u00e4ser und -fassungen, Kontaktlinsen - SWICA \u00fcbernimmt 90% der Kosten f\u00fcr medizinisch notwendige Brillengl\u00e4ser und -fassungen sowie Kontaktlinsen, maximal 300 Franken pro drei Kalenderjahre. - Leistungen k\u00f6nnen auch im angrenzenden Ausland bezogen werden.",
-    "Art. 5 Hilfsmittel - SWICA zahlt f\u00fcr \u00e4rztlich verordnete und von SWICA anerkannte Hilfsmittel ausgenommen Zahnprothesen und Sehhilfen, die nicht als gesetzliche Pflichtleistungen gelten, 90% der Kosten, maximal 500 Franken pro Kalenderjahr. - SWICA f\u00fchrt eine Liste der anerkannten Hilfsmittel. - Leistungen k\u00f6nnen auch im angrenzenden Ausland bezogen werden.",
-    "Art. 6 Notfall-Verlegungstransporte - SWICA \u00fcbernimmt die Kosten f\u00fcr Notfalltransporte oder medizinisch notwendige Verlegungstransporte zum n\u00e4chsten Arzt oder Spital nach den \u00fcblichen Tarifen im In- und Ausland, zusammen h\u00f6chstens 90% bis 20000 Franken pro Kalenderjahr. markdown",
-    "IV. Allgemeine Bestimmungen",
-    "Art. 7 Koordination mit anderen Versicherungen Die prozentuale Kostenbeteiligung erfolgt zus\u00e4tzlich zu anderen Zusatzversicherungen und wird in jedem SWICA-Versicherungsprodukt separat berechnet.",
-    "Art. 8 Listen und Verzeichnisse F\u00fcr die in diesen Bedingungen erw\u00e4hnten Listen und Verzeichnisse gilt Art. 7 der AVB.",
-    "Art. 9 Pr\u00e4mientarifmodell Dieses Produkt verwendet einen Abschlussaltertarif. --- 365 Tage im Jahr rund um die Uhr f\u00fcr Sie da. Telefon 0800 80 90 80  swica.ch"
+    "Brillengl\u00e4ser und -fassungen, Kontaktlinsen - SWICA \u00fcbernimmt 90% der Kosten f\u00fcr medizinisch notwendige Brillengl\u00e4ser und -fassungen sowie Kontaktlinsen, maximal 300 Franken pro drei Kalenderjahre. - Leistungen k\u00f6nnen auch im angrenzenden Ausland bezogen werden.",
+    "Hilfsmittel - SWICA zahlt f\u00fcr \u00e4rztlich verordnete und anerkannte Hilfsmittel ausgenommen Zahnprothesen und Sehhilfen, die nicht gesetzlich gedeckt sind, 90% der Kosten, maximal 500 Franken pro Kalenderjahr. - Eine Liste der anerkannten Hilfsmittel wird gef\u00fchrt. - Leistungen k\u00f6nnen auch im Ausland bezogen werden.",
+    "Notfall-Verlegungstransporte - SWICA \u00fcbernimmt die Kosten f\u00fcr Notfalltransporte oder medizinisch notwendige Verlegungstransporte zum n\u00e4chsten Arzt oder Spital nach den \u00fcblichen Tarifen im In- und Ausland, maximal 90% bis 20000 Franken pro Kalenderjahr.  IV. Allgemeine Bestimmungen",
+    "Koordination mit anderen Versicherungen Die prozentuale Kostenbeteiligung erfolgt zus\u00e4tzlich zu anderen Zusatzversicherungen und wird in jedem SWICA-Versicherungsprodukt separat berechnet.",
+    "Listen und Verzeichnisse F\u00fcr die in diesen Bedingungen erw\u00e4hnten Listen und Verzeichnisse gilt 7 der AVB.",
+    "Pr\u00e4mientarifmodell Dieses Produkt verwendet einen Abschlussaltertarif.",
+    "Tage im Jahr rund um die Uhr f\u00fcr Sie da. Telefon 0800 80 90 80  swica.ch"
   ]
 }

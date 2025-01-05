@@ -1,20 +1,20 @@
 {
   "input_file": "Visana_Komplementaer_Annerkante_Therapieformen.pdf",
-  "processed_at": "2024-12-29_17:47:22",
-  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
+  "processed_at": "2025-01-05_20:59:54",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.2"
+      "version": "1.0.0"
     },
     "text_preparation": {
       "provider": "OpenAI"
     },
     "embeddings": {
       "provider": "OpenAI",
-      "chunking_mode": "section",
+      "chunking_mode": "page",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -33,7 +33,10 @@
     }
   ],
   "chunks": [
-    "Anerkannte Therapieformen der Zusatzversicherung Komplement\u00e4r Diese Liste beinhaltet alle Therapieformen, die von der Zusatzversicherung Komplement\u00e4r abgedeckt sind. G\u00fcltig ab 1. Januar 2024.",
-    "Therapieformen - Akupunktur - Akupressur - Akupunkt-Massage - An-Mo - Anthroposophische Kunsttherapie - Alexander-Technik - Atemtherapie - Ayurveda-Medizin - Bindegewebs-Massage - Bioresonanztherapie - Colon-Hydro-Therapie - Cranio-Sacral-Therapie - Elektroakupunkturtest nach Voll - Etiopathie - Eutonie - Feldenkrais-Methode - Fussreflexzonen-Massage - Heileurythmie - Hom\u00f6opathie - Kinesiologie - Kunsttherapie Bewegungs- und Tanztherapie, Drama- und Sprachtherapie, Gestaltungs- und Maltherapie, Intermediale Therapie, Musiktherapie - Lymphdrainage - Medizinische Massagen - Meridian-Therapie - Moxibustion - Neuraltherapie - Organisch-rhythmische Bewegungsbildung Lehrweise Medau - Osteopathie - Traditionelle europ\u00e4ische Naturheilkunde TEN - Phytotherapie - Polarity - Psychomotorik - Reflexzonentherapie - RolfingStrukturelle Integration - Shiatsu - Sophrologie - Traditionelle Chinesische Medizin TCM Akupunktur, An-MoTui-Na, Arzneimitteltherapie nach TCM - Tui-Na - Wirbels\u00e4ulen-Basis-Ausgleich - Zilgrei Hinweis: Leistungen aus Komplement\u00e4r werden nur erbracht, wenn die Naturheilpraktiker und Therapeuten von Visana anerkannt sind. --- Visana Versicherungen AG, Weltpoststrasse 19, 3000 Bern 16, Tel. 0848 848 899, visana.ch"
+    "Anerkannte Therapieformen der Zusatzversicherung Komplement\u00e4r",
+    "Diese Liste beinhaltet alle Therapieformen, die von der Zusatzversicherung Komplement\u00e4r abgedeckt sind. 1. Januar 2024.",
+    "- Akupunktur - Akupressur - Akupunkt-Massage - An-Mo - Anthroposophische Kunsttherapie - Alexander-Technik - Atemtherapie - Ayurveda-Medizin - Bindegewebs-Massage - Bioresonanztherapie - Colon-Hydro-Therapie - Cranio-Sacral-Therapie - Elektroakupunkturtest nach Voll - Etiopathie - Eutonie - Feldenkrais-Methode - Fussreflexzonen-Massage - Heileurythmie - Hom\u00f6opathie - Kinesiologie - Kunsttherapie Bewegungs- und Tanztherapie, Drama- und Sprachtherapie, Gestaltungs- und Maltherapie, Intermediale Therapie, Musiktherapie - Lymphdrainage - Medizinische Massagen - Meridian-Therapie - Moxibustion - Neuraltherapie - Organisch-rhythmische Bewegungsbildung Lehrweise Medau - Osteopathie - Traditionelle europ\u00e4ische Naturheilkunde TEN - Phytotherapie - Polarity - Psychomotorik - Reflexzonentherapie - RolfingStrukturelle Integration - Shiatsu - Sophrologie - Traditionelle Chinesische Medizin TCM Akupunktur, An-MoTui-Na, Arzneimitteltherapie nach TCM - Tui-Na - Wirbels\u00e4ulen-Basis-Ausgleich - Zilgrei",
+    "Hinweis: Leistungen aus Komplement\u00e4r werden nur erbracht, wenn die Naturheilpraktiker und Therapeuten von Visana anerkannt sind.",
+    "Visana Versicherungen AG, Weltpoststrasse 19, 3000 Bern 16, Tel. 0848 848 899, visana.ch"
   ]
 }

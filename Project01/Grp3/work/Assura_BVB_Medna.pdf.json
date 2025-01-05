@@ -1,20 +1,20 @@
 {
   "input_file": "Assura_BVB_Medna.pdf",
-  "processed_at": "2024-12-29_14:54:08",
-  "profile": "OpenAI#OpenAI_section_Chroma#OpenAI#0.9.2",
+  "processed_at": "2025-01-05_20:48:38",
+  "profile": "OpenAI#OpenAI_page_Chroma#OpenAI#1.0.0",
   "processor": {
     "app": {
       "name": "vbc_learn",
-      "version": "0.9.2"
+      "version": "1.0.0"
     },
     "text_preparation": {
       "provider": "OpenAI"
     },
     "embeddings": {
       "provider": "OpenAI",
-      "chunking_mode": "section",
+      "chunking_mode": "page",
       "storage": "Chroma",
-      "index_id": "OpenAI-OpenAI_section_Chroma-OpenAI-0-9-2_ix"
+      "index_id": "OpenAI-Ollama_paragraph_Chroma-Ollama-1-0-0_ix"
     },
     "machine": {
       "name": "Midnight-Duke.local",
@@ -34,11 +34,16 @@
   ],
   "chunks": [
     "Besondere Bedingungen f\u00fcr die Zusatz-Krankenversicherung",
-    "Medna",
     "Zusatzversicherung f\u00fcr Kosten von alternativmedizinischen Leistungen, die von \u00c4rzten erbracht werden",
-    "Artikel 1  Leistungsbereich 1.1 Der Leistungsanspruch umfasst komplement\u00e4rmedizinische Behandlungen, die von einem Arzt erbracht werden und diagnostische oder therapeutische Ziele verfolgen, sofern sie nicht von der obligatorischen Krankenpflegeversicherung \u00fcbernommen werden. 1.2 Nach Abzug einer Franchise von CHF 200 pro Kalenderjahr \u00fcbernimmt die Assura AG im Umfang von CHF 80 pro Sitzung die Kosten ambulant durchgef\u00fchrter Therapien im Sinne von Art. 2 sowie  bis zum in Ziffer 1.4 genannten H\u00f6chstbetrag  80% der Medikamente, die vom Arzt im Rahmen der in Artikel 2 aufgef\u00fchrten Therapien verordnet werden. 1.3 Im Rahmen der vorliegenden Kategorie verg\u00fctete Medikamente, die anl\u00e4sslich der in Artikel 2 genannten Therapien verschrieben und von der obligatorischen Krankenpflegeversicherung nicht \u00fcbernommen werden, m\u00fcssen bei Swissmedic registriert sein. 1.4 Der versicherte Brutto-Maximalbetrag bei der Verg\u00fctung von Medikamenten betr\u00e4gt CHF 2000 pro Kalenderjahr.",
-    "Artikel 2  Therapien 2.1 Die vorliegende Versicherungskategorie deckt folgende alternativmedizinische Behandlungen, die von \u00c4rzten und \u00c4rztinnen durchgef\u00fchrt werden, die das eidgen\u00f6ssische Diplom besitzen und \u00fcber eine vom Bundesrat anerkannte Weiterbildung verf\u00fcgen entsprechend dem KVG: - anthroposophische Medizin - chinesische Medizin - Hom\u00f6opathie - Neuraltherapie - Phytotherapie 2.2 Die vorliegende Versicherungskategorie deckt folgende alternativmedizinische Behandlungen, die von \u00c4rzten und \u00c4rztinnen durchgef\u00fchrt werden, welche das eidgen\u00f6ssische Diplom besitzen, insofern es sich nicht um Gruppentherapien oder Gruppenkurse handelt: - Bioresonanz - ayurvedische Medizin - Akupressur - Sophrologie - autogenes Training - medizinische Hypnose F\u00fcr diese Behandlungen wird von Ziffer 4.1.10 der Allgemeinen Versicherungsbedingungen f\u00fcr die Zusatz-Krankenversicherung AVB abgewichen.",
-    "Artikel 3  Komplementarit\u00e4t F\u00fcr den Fall, dass die in den Artikeln 1 und 2 beschriebenen Leistungen teilweise oder vollst\u00e4ndig von einer anderen Versicherungskategorie der Assura AG gedeckt werden, \u00fcbernimmt die vorliegende Kategorie die dort erhobenen Franchisen.",
-    "Artikel 4  Deckungsbegrenzung In Abweichung von Art. 4 AVB VVG werden Behandlungen zur Wiedereingliederung und Rehabilitation \u00fcbernommen. Ebenfalls gedeckt sind Behandlungen von psychischen Krankheiten im Rahmen des obenstehenden Art. 2.2. Die \u00fcbrigen unter Art. 4 AVB VVG vorgesehenen F\u00e4lle sind hingegen von der Deckung ausgeschlossen, insbesondere bei Unterzeichnung des Versicherungsantrages bestehende Leiden, Folgen von Unf\u00e4llen, die sich vor Unterzeichnung des Versicherungsantrages ereignet haben, Palliativbehandlungen sowie \u00dcbergewicht. Nicht \u00fcbernommen werden im Weiteren Kosten im Zusammenhang mit Mutterschaft im Sinne von Art. 2.6 AVB VVG und der in Art. 4.1.6 AVB VVG aufgef\u00fchrten F\u00e4lle. Assura AG"
+    "Der Leistungsanspruch umfasst komplement\u00e4rmedizinische Behandlungen, die von einem Arzt erbracht werden und diagnostische oder therapeutische Ziele verfolgen, sofern sie nicht von der obligatorischen Krankenpflegeversicherung \u00fcbernommen werden.",
+    "Nach Abzug einer Franchise von CHF 200 pro Kalenderjahr \u00fcbernimmt die Assura AG im Umfang von CHF 80 pro Sitzung die Kosten ambulant durchgef\u00fchrter Therapien im Sinne von 2 sowie  bis zum in Ziffer 1.4 genannten H\u00f6chstbetrag  80% der Medikamente, die vom Arzt im Rahmen der in 2 aufgef\u00fchrten Therapien verordnet werden.",
+    "Im Rahmen der vorliegenden Kategorie verg\u00fctete Medikamente, die anl\u00e4sslich der in 2 genannten Therapien verschrieben und von der obligatorischen Krankenpflegeversicherung nicht \u00fcbernommen werden, m\u00fcssen bei Swissmedic registriert sein.",
+    "Der versicherte Brutto-Maximalbetrag bei der Verg\u00fctung von Medikamenten betr\u00e4gt CHF 2000 pro Kalenderjahr.",
+    "Die vorliegende Versicherungskategorie deckt folgende alternativmedizinische Behandlungen, die von \u00c4rzten und \u00c4rztinnen durchgef\u00fchrt werden, die das eidgen\u00f6ssische Diplom besitzen und \u00fcber eine vom Bundesrat anerkannte Weiterbildung verf\u00fcgen entsprechend dem KVG: - anthroposophische Medizin - chinesische Medizin - Hom\u00f6opathie - Neuraltherapie - Phytotherapie",
+    "Die vorliegende Versicherungskategorie deckt folgende alternativmedizinische Behandlungen, die von \u00c4rzten und \u00c4rztinnen durchgef\u00fchrt werden, welche das eidgen\u00f6ssische Diplom besitzen, insofern es sich nicht um Gruppentherapien oder Gruppenkurse handelt: - Bioresonanz - ayurvedische Medizin - Akupressur - Sophrologie - autogenes Training - medizinische Hypnose",
+    "F\u00fcr diese Behandlungen wird von Ziffer 4.1.10 der Allgemeinen Versicherungsbedingungen f\u00fcr die Zusatz-Krankenversicherung AVB abgewichen.",
+    "F\u00fcr den Fall, dass die in den n 1 und 2 beschriebenen Leistungen teilweise oder vollst\u00e4ndig von einer anderen Versicherungskategorie der Assura AG gedeckt werden, \u00fcbernimmt die vorliegende Kategorie die dort erhobenen Franchisen.",
+    "In Abweichung von 4 AVB VVG werden Behandlungen zur Wiedereingliederung und Rehabilitation \u00fcbernommen. Ebenfalls gedeckt sind Behandlungen von psychischen Krankheiten im Rahmen des obenstehenden 2.2. Die \u00fcbrigen unter 4 AVB VVG vorgesehenen F\u00e4lle sind hingegen von der Deckung ausgeschlossen, insbesondere bei Unterzeichnung des Versicherungsantrages bestehende Leiden, Folgen von Unf\u00e4llen, die sich vor Unterzeichnung des Versicherungsantrages ereignet haben, Palliativbehandlungen sowie \u00dcbergewicht. Nicht \u00fcbernommen werden im Weiteren Kosten im Zusammenhang mit Mutterschaft im Sinne von 2.6 AVB VVG und der in 4.1.6 AVB VVG aufgef\u00fchrten F\u00e4lle.",
+    "Assura AG"
   ]
 }
