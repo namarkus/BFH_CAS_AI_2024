@@ -127,8 +127,10 @@ Die Bestandteile der beiden Stacks sind wie folgt:
 
 |  Aufgabe                   | Cloud                | Lokal             |
 | -------------------------- | -------------------- | ----------------- |
-| Konvertierung Bild zu Text | OpenAI (gpt-4o)      | OpenAI (gpt-4o) / Ollama (llama3.2-vision) |
-| Erstellung Embeddings      | PineCone (multilingual-e5-large) / OpenAI (text-embedding-3-small) | Ollama (jina/jina-embeddings-v2-base-de) |
+| Konvertierung Bild zu Text | OpenAI (gpt-4o)      | OpenAI (gpt-4o) / 
+ Ollama (llama3.2-vision) |
+| Erstellung Embeddings      | PineCone (multilingual-e5-large) / 
+ OpenAI (text-embedding-3-small) | Ollama (jina/jina-embeddings-v2-base-de) |
 | Speicherung Embeddings     | PineCone             | Chroma |
 | Chat                       | OpenAI (gpt-4o-mini) | Ollama (llama3.2) |
 | Tests                      | OpenAI (o1-mini)      | granite3.1-dense |
@@ -445,7 +447,7 @@ einbezogen:
 | llama3.2 | Chat / RAG | | :thumbsup: | 
 | llama3.3 | Reasoning | Benötigt zu viel Memory für unser Test-Setup | :thumbsdown: | 
 | qwq | - | Benötigt zu viel Memory für unser Test-Setup | :thumbsdown: | 
-| mistral | | Sprachenunterstütung (de) ungenügend) | :thumbsup: |
+| mistral | | Sprachenunterstütung (de) ungenügend | :thumbsdown: |
 | jina/jina-embeddings-v2-base-de | Embeddings erstellen |  | :thumbsup: |
 | granite3.1-dense | Chat / RAG / Testing | Relativ neues Modell von IBM | :thumbsup: | 
 
