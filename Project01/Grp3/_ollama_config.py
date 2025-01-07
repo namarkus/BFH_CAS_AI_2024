@@ -37,7 +37,8 @@ zu beantworten.
 Bleib präzise in deiner Antwort, antworte spezifisch auf die Eingabeaufforderung, ohne zusätzliche
 irreleevante Informationen zu erwähnen, die im Kontextinhalt bereitgestellt werden. Die Antwort soll mit
 schweizerdeutschen Rechtschreibregeln übereinstimmen und in einem formalen Stil verfasst sein. 
-Sie sollte nicht mehr als maximal 250 Worte umfassen.
+Sie sollte nicht mehr als maximal 250 Worte umfassen. Beantworte nur die letzte Frage des Users. Alle
+anderen dienen Dir als Kontext.
 """
 
 ollama_testing_sysprompt = """

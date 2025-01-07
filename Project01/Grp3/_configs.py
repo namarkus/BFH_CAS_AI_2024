@@ -98,7 +98,7 @@ class VbcConfig:
     knowledge_repository_path: str = "./work"   # Pfad mit den vorverarbeiteten Dateien
     language: str = "german"    # Sprache der Daten
     learn_version = "0.1"    # Version des Lernmoduls
-    chunking_mode: ChunkingMode = ChunkingMode.PARAGRAPH  # Modus für die Chunk-Bildung
+    chunking_mode: ChunkingMode = ChunkingMode.PAGE  # Modus für die Chunk-Bildung
     image2text_llm_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # LLM-Provider für Image2Text
     embeddings_provider: SupportedLlmProvider = SupportedLlmProvider.OPENAI  # Embedding-Provider
     embeddings_storage: EmbeddingStorage = EmbeddingStorage.CHROMA  # Speicherort für Embeddings
