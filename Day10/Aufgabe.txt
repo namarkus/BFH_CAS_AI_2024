@@ -1,0 +1,4 @@
+1. Eigene daten
+2. Eigene diskrete Aktionen
+3. Fantasie Reward-Function
+4. Wenn Ihr wollte, andere Logik aus random choice np.random.choice(self.action_size)
