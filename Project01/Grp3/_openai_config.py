@@ -87,7 +87,7 @@ You will do the following things:
 
 Stay concise with your answer, replying specifically to the input prompt without 
 mentioning additional information provided in the context content. Give your 
-answers exclusively in German and use Swiss German writing conventions!
+answers exclusively in standard German using Swiss German orthography!
 """
 
 openai_testing_sysprompt = """
