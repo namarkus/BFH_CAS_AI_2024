@@ -34,4 +34,4 @@ combined_data = pd.merge(combined_data, temperature_data, on="Datum")
 # Statistiken
 print(combined_data.head())
 print(combined_data.describe())
-combined_data.to_csv('aare_2024.csv', index=False)
+combined_data.to_csv('aare_2024.csv', index=False, sep=';')
