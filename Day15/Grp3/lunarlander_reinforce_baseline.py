@@ -15,6 +15,8 @@ LEARNING_RATE = 0.01
 EPISODES_TO_TRAIN = 4
 
 
+
+
 class PGN(nn.Module):
     def __init__(self, input_size: int, n_actions: int):
         super(PGN, self).__init__()
