@@ -43,8 +43,8 @@ def calc_qvals(rewards: tt.List[float]) -> tt.List[float]:
 
 
 if __name__ == "__main__":
-    env = gym.make("CartPole-v1")
-    writer = SummaryWriter(comment="-cartpole-reinforce-baseline")
+    env = gym.make("LunarLander-v3")
+    writer = SummaryWriter(comment="-lunarlander-reinforce-baseline")
 
     net = PGN(env.observation_space.shape[0], env.action_space.n)
     print(net)
@@ -89,7 +89,7 @@ if __name__ == "__main__":
             writer.add_scalar("reward", reward, step_idx)
             writer.add_scalar("reward_100", mean_rewards, step_idx)
             writer.add_scalar("episodes", done_episodes, step_idx)
-            if mean_rewards > 450:
+            if mean_rewards > 175:
                 print("Solved in %d steps and %d episodes!" % (step_idx, done_episodes))
                 break
 
