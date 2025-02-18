@@ -231,7 +231,7 @@ def objective(trial: optuna.trial.Trial) -> float:
                 #frame = env.envs[0].render()  # Frame im Format (H, W, 3)
                 #frame = np.transpose(frame, (2, 0, 1))  # Von (H, W, C) nach (C, H, W).
                 #tb_tracker.writer.add_image("Screenshot", frame, step_idx)
-                return tracker.total_rewards[-1]
+    return tracker.total_rewards[-1:]
 
 if __name__ == "__main__":
     study = optuna.create_study(study_name=f"{ENVIRONEMNT_ID}.{EXPECTED_MEDIAN_REWARD}", direction="maximize")
