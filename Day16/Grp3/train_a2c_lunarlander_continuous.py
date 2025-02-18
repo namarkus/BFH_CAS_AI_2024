@@ -13,15 +13,17 @@ import numpy as np
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
+from ptan.experience import VectorExperienceSourceFirstLast
 
 
 GAMMA = 0.99
-REWARD_STEPS = 2
+REWARD_STEPS = 4
 BATCH_SIZE = 32
-LEARNING_RATE = 5e-5
+LEARNING_RATE = 1e-3
 ENTROPY_BETA = 1e-4
-
 TEST_ITERS = 1000
+ENVIRONMENT_COUNT = 50
+ENVIRONMENT_ID = "LunarLanderContinuous-v2"
 
 
 def test_net(net: model.ModelA2C, env: gym.Env, count: int = 10,
@@ -52,25 +54,27 @@ def calc_logprob(mu_v: torch.Tensor, var_v: torch.Tensor, actions_v: torch.Tenso
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dev", default="cpu",
-                        help="Device to use, default=cpu")
-    parser.add_argument("-n", "--name", required=False, default="LunarLander", help="Name of the run")
+    parser.add_argument("--dev", default="mps", help="Device to use, default=cpu")
+    parser.add_argument("-n", "--name", required=False, default="LunarLanderContinuous_xenv", help="Name of the run")
     args = parser.parse_args()
     device = torch.device(args.dev)
 
     save_path = os.path.join("saves", "a2c-" + args.name)
     os.makedirs(save_path, exist_ok=True)
 
-    # common.register_env()
-    env = gym.make('LunarLanderContinuous-v2')
-    test_env = gym.make('LunarLanderContinuous-v2')
+    env_factories = [
+        lambda: gym.make(ENVIRONMENT_ID, render_mode="rgb_array")
+        for _ in range(ENVIRONMENT_COUNT)
+    ]
+    test_env = gym.make(ENVIRONMENT_ID) # todo: evtl auch noch auf mehrere Envs anpassen?        
+    env = gym.vector.SyncVectorEnv(env_factories) # todo: Vergleich mit env = gym.vector.AsyncVectorEnv(env_factories)
 
-    net = model.ModelA2C(env.observation_space.shape[0], env.action_space.shape[0]).to(device)
+    net = model.ModelA2C(env.observation_space.shape[1], env.action_space.shape[0]).to(device)
     print(net)
 
     writer = SummaryWriter(comment="-a2c_" + args.name)
     agent = model.AgentA2C(net, device=device)
-    exp_source = ptan.experience.ExperienceSourceFirstLast(env, agent, GAMMA, steps_count=REWARD_STEPS)
+    exp_source = ptan.experience.VectorExperienceSourceFirstLast(env, agent, gamma=GAMMA, steps_count=REWARD_STEPS)
 
     optimizer = optim.Adam(net.parameters(), lr=LEARNING_RATE)
 
