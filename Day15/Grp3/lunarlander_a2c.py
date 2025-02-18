@@ -41,7 +41,8 @@ if __name__ == "__main__":
         env = gym.vector.AsyncVectorEnv(env_factories)
     else:
         env = gym.vector.SyncVectorEnv(env_factories)
-    writer = SummaryWriter(comment="-lunarlander-a2c_" + args.name)
+#    writer = SummaryWriter(comment="-lunarlander-a2c_" + args.name)
+    writer = SummaryWriter(log_dir="Day15/Grp3/runs/", comment="-lunarlander-a2c_" + args.name)
 
     net = common.A2CNet(env.envs[0].observation_space.shape[0], env.envs[0].action_space.n).to(device)
     print(net)

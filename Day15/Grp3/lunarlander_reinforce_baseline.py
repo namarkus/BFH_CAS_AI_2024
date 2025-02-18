@@ -9,13 +9,11 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+from gymnasium.wrappers import RecordVideo
 
 GAMMA = 0.99
 LEARNING_RATE = 0.01
 EPISODES_TO_TRAIN = 4
-
-
-
 
 class PGN(nn.Module):
     def __init__(self, input_size: int, n_actions: int):
@@ -30,8 +28,6 @@ class PGN(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.net(x)
 
-
-
 def calc_qvals(rewards: tt.List[float]) -> tt.List[float]:
     res = []
     sum_r = 0.0
@@ -43,10 +39,13 @@ def calc_qvals(rewards: tt.List[float]) -> tt.List[float]:
     mean_q = np.mean(res)
     return [q - mean_q for q in res]
 
+def episode_trigger(episode_id):
+    return episode_id % 1000 == 0 or mean_rewards > 175
 
 if __name__ == "__main__":
-    env = gym.make("LunarLander-v2")
-    writer = SummaryWriter(comment="-lunarlander-reinforce-baseline")
+    env = gym.make("LunarLander-v2", render_mode="rgb_array")
+    env = RecordVideo(env, video_folder="Day15/Grp3/videos", episode_trigger=episode_trigger)
+    writer = SummaryWriter(logdir="Day15/Grp3/runs", comment="-lunarlander-reinforce-baseline")
 
     net = PGN(env.observation_space.shape[0], env.action_space.n)
     print(net)
@@ -60,6 +59,7 @@ if __name__ == "__main__":
     total_rewards = []
     step_idx = 0
     done_episodes = 0
+    mean_rewards = 0.0
 
     batch_episodes = 0
     batch_states, batch_actions, batch_qvals = [], [], []
@@ -86,8 +86,9 @@ if __name__ == "__main__":
             reward = new_rewards[0]
             total_rewards.append(reward)
             mean_rewards = float(np.mean(total_rewards[-100:]))
-            print("%d: reward: %6.2f, mean_100: %6.2f, episodes: %d" % (
-                step_idx, reward, mean_rewards, done_episodes))
+            if done_episodes % 100 == 0:
+                print("%d: reward: %6.2f, mean_100: %6.2f, episodes: %d" % (
+                    step_idx, reward, mean_rewards, done_episodes))
             writer.add_scalar("reward", reward, step_idx)
             writer.add_scalar("reward_100", mean_rewards, step_idx)
             writer.add_scalar("episodes", done_episodes, step_idx)
