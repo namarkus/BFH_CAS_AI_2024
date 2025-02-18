@@ -5,8 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-HID_SIZE = 128
-
+HID_SIZE = 256
 
 class ModelA2C(nn.Module):
     def __init__(self, obs_size: int, act_size: int):
@@ -14,6 +13,10 @@ class ModelA2C(nn.Module):
 
         self.base = nn.Sequential(
             nn.Linear(obs_size, HID_SIZE),
+            nn.ReLU(),
+            nn.Linear(HID_SIZE, HID_SIZE),
+            nn.ReLU(),
+            nn.Linear(HID_SIZE, HID_SIZE),
             nn.ReLU(),
         )
         self.mu = nn.Sequential(
