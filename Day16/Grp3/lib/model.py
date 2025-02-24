@@ -15,6 +15,10 @@ class ModelA2C(nn.Module):
         self.base = nn.Sequential(
             nn.Linear(obs_size, HID_SIZE),
             nn.ReLU(),
+            nn.Linear(HID_SIZE, HID_SIZE),
+            nn.ReLU(),
+            nn.Linear(HID_SIZE, HID_SIZE),
+            nn.ReLU(),
         )
         self.mu = nn.Sequential(
             nn.Linear(HID_SIZE, act_size),
@@ -28,7 +32,10 @@ class ModelA2C(nn.Module):
 
     def forward(self, x: torch.Tensor):
         base_out = self.base(x)
-        return self.mu(base_out), self.var(base_out), self.value(base_out)
+        mu_out = self.mu(base_out)
+        var_out = self.var(base_out) 
+        value_out = self.value(base_out)
+        return mu_out, var_out, value_out
 
 
 class DDPGActor(nn.Module):
@@ -106,11 +113,18 @@ class AgentA2C(ptan.agent.BaseAgent):
         states_v = ptan.agent.float32_preprocessor(states)
         states_v = states_v.to(self.device)
 
-        mu_v, var_v, _ = self.net(states_v)
+        outputs = self.net(states_v)
+        mu_v, var_v, value_v = self.net(states_v)
         mu = mu_v.data.cpu().numpy()
         sigma = torch.sqrt(var_v).data.cpu().numpy()
         actions = np.random.normal(mu, sigma)
         actions = np.clip(actions, -1, 1)
+
+        # 🔍 Debug: Print some actions
+        # print(f"Actions Sampled: {actions[:5]}")  # Print first 5 actions
+        # print(f"Policy Mean: {mu[:5]}")
+        # print(f"Policy Std: {sigma[:5]}")
+
         return actions, agent_states
 
 

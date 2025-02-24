@@ -17,12 +17,12 @@ from ptan.experience import VectorExperienceSourceFirstLast
 
 
 GAMMA = 0.99
-REWARD_STEPS = 4
+REWARD_STEPS = 5
 BATCH_SIZE = 32
 LEARNING_RATE = 1e-3
-ENTROPY_BETA = 1e-4
+ENTROPY_BETA = 1e-2 # original: 1e-4
 TEST_ITERS = 1000
-ENVIRONMENT_COUNT = 50
+ENVIRONMENT_COUNT = 10
 ENVIRONMENT_ID = "LunarLanderContinuous-v2"
 
 
@@ -54,7 +54,7 @@ def calc_logprob(mu_v: torch.Tensor, var_v: torch.Tensor, actions_v: torch.Tenso
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dev", default="mps", help="Device to use, default=cpu")
+    parser.add_argument("--dev", default="cpu", help="Device to use, default=cpu")
     parser.add_argument("-n", "--name", required=False, default="LunarLanderContinuous_xenv", help="Name of the run")
     args = parser.parse_args()
     device = torch.device(args.dev)
@@ -69,11 +69,13 @@ if __name__ == "__main__":
     test_env = gym.make(ENVIRONMENT_ID) # todo: evtl auch noch auf mehrere Envs anpassen?        
     env = gym.vector.SyncVectorEnv(env_factories) # todo: Vergleich mit env = gym.vector.AsyncVectorEnv(env_factories)
 
-    net = model.ModelA2C(env.observation_space.shape[1], env.action_space.shape[0]).to(device)
+    net = model.ModelA2C(env.observation_space.shape[1], env.action_space.shape[1]).to(device)
     print(net)
 
-    writer = SummaryWriter(comment="-a2c_" + args.name)
-    agent = model.AgentA2C(net, device=device)
+    writer = SummaryWriter(log_dir="Day15/Grp3/runs/", comment="-a2c-cont_" + args.name)
+    agent = model.AgentA2C(net, device=device)  
+#    agent = model.AgentA2C(lambda x: net(x)[0], device=device)  
+
     exp_source = ptan.experience.VectorExperienceSourceFirstLast(env, agent, gamma=GAMMA, steps_count=REWARD_STEPS)
 
     optimizer = optim.Adam(net.parameters(), lr=LEARNING_RATE)
@@ -111,12 +113,16 @@ if __name__ == "__main__":
                 states_v, actions_v, vals_ref_v = common.unpack_batch_a2c(
                     batch, net, device=device, last_val_gamma=GAMMA ** REWARD_STEPS)
                 batch.clear()
+                # Debug
+                # print(f"Step {step_idx}: Mean Action = {actions_v.mean().item()}, Std Action = {actions_v.std().item()}")
 
                 optimizer.zero_grad()
                 mu_v, var_v, value_v = net(states_v)
 
                 loss_value_v = F.mse_loss(value_v.squeeze(-1), vals_ref_v)
                 adv_v = vals_ref_v.unsqueeze(dim=-1) - value_v.detach()
+                # Debug
+                # print(f"Advantage Mean: {adv_v.mean().item()}, Std: {adv_v.std().item()}")
                 log_prob_v = adv_v * calc_logprob(mu_v, var_v, actions_v)
                 loss_policy_v = -log_prob_v.mean()
                 ent_v = -(torch.log(2*math.pi*var_v) + 1)/2
