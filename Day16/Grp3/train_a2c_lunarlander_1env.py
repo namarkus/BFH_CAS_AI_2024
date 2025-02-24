@@ -13,14 +13,15 @@ import torch
 import torch.optim as optim
 import torch.nn.functional as F
 
-GAMMA = 0.99
+GAMMA = 0.95
 REWARD_STEPS = 4
-BATCH_SIZE = 128
-LEARNING_RATE = 0.001
-ENTROPY_BETA = 0.01
+BATCH_SIZE = 32
+LEARNING_RATE = 0.0001
+ENTROPY_BETA = 0.1
 TEST_ITERS = 10_000
-ENVIRONMENT_COUNT = 50
+OPTIM_EPS = 1e-5
 ENVIRONMENT_ID = "LunarLanderContinuous-v2"
+
 
 def test_net(net: model.ModelA2C, env: gym.Env, count: int = 10,
              device: torch.device = torch.device("cpu")):
@@ -49,37 +50,34 @@ def calc_logprob(mu_v: torch.Tensor, var_v: torch.Tensor, actions_v: torch.Tenso
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--dev", default="cpu", help="Device to use, default=cpu")
-    parser.add_argument("-n", "--name", required=False, default="LunarLanderContinuous_xenv", help="Name of the run")
-    args = parser.parse_args()
-    device = torch.device(args.dev)
+    FASTEST_DEVICE = {
+        torch.cuda.is_available(): "cuda", # NVIDIA-GPU
+        torch.backends.mps.is_available(): "mps" # Metal-Performance-Service, z.B. Mac Mx;
+    }.get(True, "cpu")
 
-    save_path = os.path.join("saves", "a2c-" + args.name)
-    os.makedirs(save_path, exist_ok=True)
+    CONFIG_NAME = f'{ENVIRONMENT_ID}_a2c_1env_lr{LEARNING_RATE}_bs{BATCH_SIZE}_{REWARD_STEPS}rs_{OPTIM_EPS}eps'
 
+    SAVE_PATH = os.path.join("saves", CONFIG_NAME)
+    os.makedirs(SAVE_PATH, exist_ok=True)
+    print(f"Fasted device is {FASTEST_DEVICE}")
 
-    env_factories = [
-        lambda: gym.make(ENVIRONMENT_ID, render_mode="rgb_array")
-        for _ in range(ENVIRONMENT_COUNT)
-    ]
+    # common.register_env()
+    env = gym.make(ENVIRONMENT_ID)
     test_env = gym.make(ENVIRONMENT_ID)
-    env = gym.vector.SyncVectorEnv(env_factories) # todo: Vergleich mit env = gym.vector.AsyncVectorEnv(env_factories)
 
-    net = model.ModelA2C(env.observation_space.shape[1], env.action_space.shape[1]).to(device)
+    net = model.ModelA2C(env.observation_space.shape[0], env.action_space.shape[0]).to(FASTEST_DEVICE)
     print(net)
 
-    writer = SummaryWriter(log_dir="Day15/Grp3/runs/", comment="-a2c-cont_" + args.name)
-    agent = model.AgentA2C(net, device=device)  
-#    agent = model.AgentA2C(lambda x: net(x)[0], device=device)  
+    writer = SummaryWriter(comment=CONFIG_NAME)
+    agent = model.AgentA2C(net, device=FASTEST_DEVICE)
+    exp_source = ptan.experience.ExperienceSourceFirstLast(env, agent, GAMMA, steps_count=REWARD_STEPS)
 
-    exp_source = ptan.experience.VectorExperienceSourceFirstLast(env, agent, gamma=GAMMA, steps_count=REWARD_STEPS)
     optimizer = optim.Adam(net.parameters(), lr=LEARNING_RATE)
 
     batch = []
     best_reward = None
     with ptan.common.utils.RewardTracker(writer) as tracker:
-        with ptan.common.utils.TBMeanTracker(writer, batch_size=BATCH_SIZE) as tb_tracker:
+        with ptan.common.utils.TBMeanTracker(writer, batch_size=10) as tb_tracker:
             for step_idx, exp in enumerate(exp_source):
                 rewards_steps = exp_source.pop_rewards_steps()
                 if rewards_steps:
@@ -97,8 +95,8 @@ if __name__ == "__main__":
                     if best_reward is None or best_reward < rewards:
                         if best_reward is not None:
                             print("Best reward updated: %.3f -> %.3f" % (best_reward, rewards))
-                            BEST_NAME = "best_%+.3f_%d.dat" % (rewards, step_idx)
-                            fname = os.path.join(SAVE_PATH, BEST_NAME)
+                            name = "best_%+.3f_%d.dat" % (rewards, step_idx)
+                            fname = os.path.join(SAVE_PATH, name)
                             torch.save(net.state_dict(), fname)
                         best_reward = rewards
 
@@ -109,16 +107,12 @@ if __name__ == "__main__":
                 states_v, actions_v, vals_ref_v = common.unpack_batch_a2c(
                     batch, net, device=FASTEST_DEVICE, last_val_gamma=GAMMA ** REWARD_STEPS)
                 batch.clear()
-                # Debug
-                # print(f"Step {step_idx}: Mean Action = {actions_v.mean().item()}, Std Action = {actions_v.std().item()}")
 
                 optimizer.zero_grad()
                 mu_v, var_v, value_v = net(states_v)
 
                 loss_value_v = F.mse_loss(value_v.squeeze(-1), vals_ref_v)
                 adv_v = vals_ref_v.unsqueeze(dim=-1) - value_v.detach()
-                # Debug
-                # print(f"Advantage Mean: {adv_v.mean().item()}, Std: {adv_v.std().item()}")
                 log_prob_v = adv_v * calc_logprob(mu_v, var_v, actions_v)
                 loss_policy_v = -log_prob_v.mean()
                 ent_v = -(torch.log(2*math.pi*var_v) + 1)/2
