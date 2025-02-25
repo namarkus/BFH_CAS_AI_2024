@@ -1,0 +1,2 @@
+- TorchRL anschauen und experimentieren
+- LunarLander mit PPO umsetzen
