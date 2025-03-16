@@ -1,90 +1,92 @@
-Keyword;Competitors;Clicks;Conversions;Revenue;SearchClicks;SearchConversions;AdContingent;AdSpent;AdClicks;AdConversions;AdRevenue;Monitor
-BFH;0;0;0;0.0;0;0;0;0.0;0;0;0.0;1
-Berner Fachhochschule;0;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-CAS Artificial Intelligence;10;0;0;0.0;0;0;0;0.0;0;0;0.0;1
-CAS Big Data;8;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-CAS Practical Machine Learning;8;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium;12;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Künstliche Intelligenz Studium;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Studium;8;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Machine Learning Studium;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Deep Learning Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;1
-Big Data Studium;7;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI Studium;18;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI Studium;18;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Neuronale Netze Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Reinforcement Learning Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Natural Language Processing Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Computer Vision Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Generative KI Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI for Business Studium;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI in der Medizin Studium;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI und Ethik Studium;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Bachelor Informatik;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Master Informatik;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Bachelor Künstliche Intelligenz;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Master Künstliche Intelligenz;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Bachelor;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Master;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI Weiterbildung;13;0;0;0.0;0;0;0;0.0;0;0;0.0;1
-Informatik Weiterbildung;15;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Online Studium Informatik;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Fernstudium Informatik;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Karriere in der KI;9;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Scientist werden;9;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI-Experte werden;8;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Machine Learning Engineer werden;8;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI Jobs;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Jobs;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Python Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-PyTorch Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-LangChain Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-TorchRL Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;1
-Optuna Studium;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Robotik;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Finanzen;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Marketing;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Industrie 4.0;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Gesundheitswesen;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Automatisierung;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Bilderkennung;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Sprachverarbeitung;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für autonomes Fahren;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI für Spieleentwicklung;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Fachhochschule Informatik;6;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Fachhochschule KI;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Hochschule für Informatik;16;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Hochschule für KI;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Schweiz;15;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI Studium Schweiz;11;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Studium Schweiz;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-IT-Studium Schweiz;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-FH Informatik Schweiz;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-FH KI Schweiz;14;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI Zertifikat;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Zertifikat;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Machine Learning Zertifikat;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Deep Learning Zertifikat;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Python Zertifikat;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI Bootcamp;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Data Science Bootcamp;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI Revolution;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI in Unternehmen;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI in der Forschung;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI und Ethik;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI und Datenschutz;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI und Automatisierung;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI und Arbeitsmarkt;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI und Gesellschaft;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium ohne Mathe;9;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Voraussetzungen;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Dauer;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Kosten;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Karrierechancen;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium mit Praxis;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium dual;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Teilzeit;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Einstieg;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-Informatik Studium Quereinstieg;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-KI Studium Quereinstieg;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
-AI Studium Quereinstieg;10;0;0;0.0;0;0;0;0.0;0;0;0.0;0
+Keyword;Competitiveness;OrganicClicks;OrganicConversions;AdContingent;CostPerClick;AdSpent;AdClicks;AdConversions;OtherClicks;OtherConversions;Monitor
+BFH;0.0;0;0;0;0.0;0.0;0;0;0;0;0
+Berner Fachhochschule;0.0;0;0;0;0.0;0.0;0;0;0;0;1
+CAS Artificial Intelligence;0.01;0;0;0;0.0;0.0;0;0;0;0;1
+CAS Big Data;0.2;0;0;0;0.0;0.0;0;0;0;0;0
+CAS Practical Machine Learning;0.02;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium;0.2;0;0;0;0.0;0.0;0;0;0;0;0
+Künstliche Intelligenz Studium;0.09;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Studium;0.05;0;0;0;0.0;0.0;0;0;0;0;0
+Machine Learning Studium;0.03;0;0;0;0.0;0.0;0;0;0;0;0
+Deep Learning Studium;0.10;0;0;0;0.0;0.0;0;0;0;0;1
+Big Data Studium;0.03;0;0;0;0.0;0.0;0;0;0;0;0
+KI Studium;0.07;0;0;0;0.0;0.0;0;0;0;0;0
+AI Studium;0.07;0;0;0;0.0;0.0;0;0;0;0;0
+Neuronale Netze Studium;0.08;0;0;0;0.0;0.0;0;0;0;0;0
+Reinforcement Learning Studium;0.03;0;0;0;0.0;0.0;0;0;0;0;0
+Natural Language Processing Studium;0.3;0;0;0;0.0;0.0;0;0;0;0;0
+Computer Vision Studium;0.3;0;0;0;0.0;0.0;0;0;0;0;0
+Generative KI Studium;0.3;0;0;0;0.0;0.0;0;0;0;0;0
+AI for Business Studium;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI in der Medizin Studium;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI und Ethik Studium;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Bachelor Informatik;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Master Informatik;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Bachelor Künstliche Intelligenz;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Master Künstliche Intelligenz;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Bachelor;0.3;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Master;0.3;0;0;0;0.0;0.0;0;0;0;0;0
+KI Weiterbildung;0.75;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Weiterbildung;0.85;0;0;0;0.0;0.0;0;0;0;0;0
+Online Studium Informatik;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Fernstudium Informatik;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Karriere in der KI;0.45;0;0;0;0.0;0.0;0;0;0;0;0
+Data Scientist werden;0.45;0;0;0;0.0;0.0;0;0;0;0;0
+KI-Experte werden;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Machine Learning Engineer werden;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+KI Jobs;0.7;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Jobs;0.6;0;0;0;0.0;0.0;0;0;0;0;0
+Python Studium;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+PyTorch Studium;0.2;0;0;0;0.0;0.0;0;0;0;0;0
+LangChain Studium;0.2;0;0;0;0.0;0.0;0;0;0;0;0
+TorchRL Studium;0.2;0;0;0;0.0;0.0;0;0;0;0;1
+Optuna Studium;0.15;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Robotik;0.7;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Finanzen;0.6;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Marketing;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Industrie 4.0;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Gesundheitswesen;0.1;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Automatisierung;0.7;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Bilderkennung;0.7;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Sprachverarbeitung;0.7;0;0;0;0.0;0.0;0;0;0;0;0
+KI für autonomes Fahren;0.7;0;0;0;0.0;0.0;0;0;0;0;0
+KI für Spieleentwicklung;0.8;0;0;0;0.0;0.0;0;0;0;0;0
+Fachhochschule Informatik;0.04;0;0;0;0.0;0.0;0;0;0;0;0
+Fachhochschule KI;0.08;0;0;0;0.0;0.0;0;0;0;0;0
+Hochschule für Informatik;0.2;0;0;0;0.0;0.0;0;0;0;0;0
+Hochschule für KI;0.22;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Schweiz;0.09;0;0;0;0.0;0.0;0;0;0;0;0
+KI Studium Schweiz;0.01;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Studium Schweiz;0.01;0;0;0;0.0;0.0;0;0;0;0;0
+IT-Studium Schweiz;0.09;0;0;0;0.0;0.0;0;0;0;0;0
+FH Informatik Schweiz;0.09;0;0;0;0.0;0.0;0;0;0;0;0
+FH KI Schweiz;0.06;0;0;0;0.0;0.0;0;0;0;0;0
+KI Zertifikat;0.22;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Zertifikat;0.21;0;0;0;0.0;0.0;0;0;0;0;0
+Machine Learning Zertifikat;0.20;0;0;0;0.0;0.0;0;0;0;0;0
+Deep Learning Zertifikat;0.18;0;0;0;0.0;0.0;0;0;0;0;0
+Python Zertifikat;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI Bootcamp;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Data Science Bootcamp;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI Revolution;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI in Unternehmen;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI in der Forschung;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI und Ethik;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI und Datenschutz;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI und Automatisierung;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI und Arbeitsmarkt;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI und Gesellschaft;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium ohne Mathe;0.45;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Voraussetzungen;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Dauer;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Kosten;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Karrierechancen;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium mit Praxis;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium dual;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Teilzeit;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Einstieg;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Informatik Studium Quereinstieg;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+KI Studium Quereinstieg;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+AI Studium Quereinstieg;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Kriminelle AI;0.4;0;0;0;0.0;0.0;0;0;0;0;0
+Lottogewinn mit KI;0.4;0;0;0;0.0;0.0;0;0;0;0;0
