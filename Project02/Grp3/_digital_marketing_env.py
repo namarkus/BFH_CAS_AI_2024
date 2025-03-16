@@ -190,6 +190,8 @@ class DigitalMarketingEnv(EnvBase):
             overall_success += 100 # Bonus für erfolgreichen Abschuss
         if self.spent_amount > self.budget:
             overall_success -= 100  # Penalty für Budgetüberschreitung
+        if self.data_builder.current_generation >= self.generations_per_epic:
+            overall_success -= 100 # Penalty für Kampagnenabbruch
 
         difficulty = sample[DIFFICULTY_SCORE_FIELD]
         organic_rank = sample[ORGANIC_RANK_FIELD]

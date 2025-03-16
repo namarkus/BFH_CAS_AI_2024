@@ -86,7 +86,10 @@ if __name__ == '__main__':
                 loss_vals = loss(sample)
                 log.app_logger().debug("loss function is called:", loss_vals)
                 loss_vals["loss"].backward()
-                metrics.log_metrics({"1 - Loss": loss_vals["loss"]}, step=total_count)
+                metrics.log_metrics({
+                    "1 - Loss": loss_vals["loss"],
+                    "1 - Reward": data["next", "reward"].sum()
+                    }, step=total_count)
                 optim.step()
                 optim.zero_grad()
                 # Update exploration factor
@@ -97,6 +100,7 @@ if __name__ == '__main__':
                 if data["next", "done"]:
                     reward = data["next", "reward"].sum()
                     log.app_logger().info(f"Episode {total_episodes} beendet mit Reward {reward}.")
+                    metrics.log_metrics({"2 - Episode Success": reward}, step=total_episodes)
                     if reward > 0:
                         solved_episodes += 1
                     else:
