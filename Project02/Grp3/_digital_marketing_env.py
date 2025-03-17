@@ -217,7 +217,7 @@ class DigitalMarketingEnv(EnvBase):
         iteration_count_penalty = self.data_builder.current_generation * -0.1
 
         reward = overall_success + difficulty_reward + organic_rank_penalty + ad_hoarding_penalty + iteration_count_penalty
-        self.data_builder.log_reward(self.current_keyword, reward) # prüfen: müsste hier nicht das Keyword von previeous sample genommen werden?
+        self.data_builder.log_reward(self.current_keyword, reward) # prüfen: müsste hier nicht das Keyword von previous sample genommen werden?
 
         #if self.data_builder.current_generation % 10 == 0:
         #    log.app_logger().info(f"🎯 Reward: {reward} for action {action}: (overall_success: {overall_success}, difficulty_reward: {difficulty_reward}, organic_rank_penalty: {organic_rank_penalty}, ad_hoarding_penalty: {ad_hoarding_penalty}, iteration_count_penalty: {iteration_count_penalty})")
@@ -516,7 +516,7 @@ class SiteAnalyticsSimulation:
             )
             log.app_logger().debug(site_visit)
             self.target.register_site_visit(site_visit)
-            user_activity_level = self.random.uniform(0.0001, 0.01)
+            user_activity_level = self.random.uniform(0.001, 0.01)
             time.sleep(user_activity_level)
 
 
