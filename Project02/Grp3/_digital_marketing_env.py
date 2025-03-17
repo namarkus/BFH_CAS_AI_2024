@@ -96,11 +96,11 @@ class DigitalMarketingEnv(EnvBase):
         Initialisiert die Umgebung für das digitale Marketing.
 
         Args:
-            budget (_type_, optional): _description_. Defaults to 10_000.00.
-            maximum_class_size (int, optional): _description_. Defaults to 25.
-            campaing_duration_in_days (int, optional): _description_. Defaults to 30.
-            volatility (float, optional): _description_. Defaults to 0.1.
-            adwords_file (str, optional): _description_. Defaults to "adwords.csv".
+            budget (_type_, optional): Budget, das für die Kampagne bereitsteht. Defaults to 10_000.00.
+            maximum_class_size (int, optional): Grösse der Schulklasse. Defaults to 25.
+            campaign_duration_in_days (int, optional): Länge der Werbekampagne in Tagen. Defaults to 30.
+            volatility (float, optional): Grad in welchem Random-Werte zwischen zwei Generationen maximal geändert werden darf. Defaults to 0.1.
+            adwords_file (str, optional): Dateiname der AddWord-Datei. Defaults to "adwords.csv".
         """
         super().__init__(batch_size=torch.Size([]))
         self.budget = budget
@@ -115,24 +115,40 @@ class DigitalMarketingEnv(EnvBase):
         self._define_specs()
 
     def __del__(self):
+        """
+        Beendet die Umgebung (technisch).
+        """
         self.stop()
 
     def stop(self):
+        """
+        Beendet die Umgebung (fachlich).
+        """
         self.data_builder.stop()
 
     def get_maximum_samples(self):
+        """
+        Liefert die maximale Anzahl an Samples, die in einer Episode generiert werden können.
+        """
         return self.generations_per_epic * self.keyword_count
 
     def _define_specs(self):
         """
         Definiert die Spezifikationen für TorchRL.
+
+        (!) Im Gegensatz zur ursprünglichen Variante ist hier der Action-Space auf 10 Elemente
+            erweitert. Der Agent kann somit 0-9 Inserate zu jedem Wort kaufen.
         """
         self.num_features = len(FEATURE_COLUMNS)
-        self.action_spec = Composite(action=OneHot(n=10, dtype=torch.int64)) # Varianten n= 10 --> Anzahl Ads oder Anteil 0.0 - 1.0 Prozent von "Kontingent" oder CHF.
+        self.action_spec = Composite(action=OneHot(n=10, dtype=torch.int64))
         self.observation_spec = Composite(observation=Unbounded(shape=(self.num_features,), dtype=torch.float32))
         self.reward_spec = Composite(reward=Unbounded(shape=(1,), dtype=torch.float32))
 
     def _next_rolling_sample(self):
+        """
+        Liefert das nächste Sample aus der Generation zurück. Ist keines mehr vorhanden, wird eine
+        neue Generation erstellt.
+        """
         if not hasattr(self, 'data') or self.data.empty:
             self.generation, self.data = self.data_builder.build_generation()
         sample = self.data.iloc[0]
@@ -147,6 +163,9 @@ class DigitalMarketingEnv(EnvBase):
         self.data_builder.register_ad_reservation(self.current_keyword, action)
 
     def _reset(self, tensordict=None):
+        """
+        Setzt die Umgebung zurück.
+        """
         log.app_logger().info("🔄 Reset der Umgebung.")
         self.spent_amount = 0.0
         self.reserved_amount = 0.0
@@ -161,6 +180,9 @@ class DigitalMarketingEnv(EnvBase):
         }, batch_size=[])
 
     def _step(self, tensordict):
+        """
+        Führt einen Schritt in der Umgebung aus.
+        """
         action = tensordict["action"].argmax(dim=-1).item()
         self._apply_action(action)
         next_sample = self._next_rolling_sample()
@@ -180,6 +202,9 @@ class DigitalMarketingEnv(EnvBase):
             })
 
     def _compute_reward(self, action, sample:torch.tensor):
+        """
+        Berechnet den Reward für die Aktion.
+        """
         is_buy = action != 0
         bought_ads = action
 
@@ -226,7 +251,7 @@ class DigitalMarketingEnv(EnvBase):
 
     def _check_if_truncated(self, sample):
         """
-        Prüft, ob die Episoce abgebrochen werden muss. Dies ist der Fall, wenn der zeitlich gesetzte
+        Prüft, ob die Episode abgebrochen werden muss. Dies ist der Fall, wenn der zeitlich gesetzte
         Rahmen der Kampagne erreicht ist.
         """
         if self.data_builder.current_generation >= self.generations_per_epic:
@@ -249,13 +274,27 @@ class DigitalMarketingEnv(EnvBase):
         return False
 
     def _set_seed(self, seed: Optional[int]):
+        """
+        Setzt den Seed für die Umgebung. Somiot kann die Wiederholbarkeit der Simulation
+        sichergestellt werden.
+        """
         rng = torch.manual_seed(seed)
         self.rng = rng
 
 
  # _____[ Klasse DigitalMarketingSimulation ]_______________________________________________________
 class DigitalMarketingSimulation:
+    """
+    Simuliert die Daten für das digitale Marketing.
+    """
     def __init__(self, env: DigitalMarketingEnv, volatility: float, adwords_file: str):
+        """
+        Initialisiert die Simulation für das digitale Marketing.
+        params:
+        - env: Referenz auf das Environment
+        - volatility: Grad der Sprunghaftigkeit der Daten
+        - adwords_file: Dateiname der AdWords-Datei
+        """
         self.env = env
         self.volatility = volatility
         self.metrics = metrics.TensorBoardMonitor.instance()
@@ -268,19 +307,32 @@ class DigitalMarketingSimulation:
         self.site_analytics_simulation.start()
 
     def restart(self):
+        """
+        Startet die Simulation neu. Dies kann z.B. beim Neuaufbau der Umgebung oder beim Start einer
+        neuen Episode notwendig sein.
+        """
         self.current_generation = 0
         self.revenue = 0.0
         self.persistent_data = pd.read_csv(self.adwords_file, sep=";", header=0, encoding="utf-8")
         #print(self.persistent_data)
 
     def __del__(self):
+        """
+        Beendet die Simulation (technischer Aufruf).
+        """
         self.stop()
 
     def stop(self):
+        """
+        Beendet die Simulation (fachlicher Aufruf).
+        """
         self.site_analytics_simulation.stop()
         del self.site_analytics_simulation
 
     def build_generation(self) -> Tuple[int, pd.DataFrame]:
+        """
+        Erstellt eine neue Generation von Marketing-Daten.
+        """
         self.current_generation += 1
         self.current_step += 1
         self.update_volatile_peristent_data()
@@ -312,20 +364,40 @@ class DigitalMarketingSimulation:
         self.persistent_data[COST_PER_CLICK_FIELD] = self.persistent_data[COST_PER_CLICK_FIELD].apply(self._clipped_volatile_price)
 
     def _clipped_volatile_float(self, value: float, min_value: float, max_value: float) -> float:
+        """
+        Ändert den Wert um einen zufälligen Wert im erlaubten Bereich.
+        """
         changed = self.random.uniform(1 - self.volatility, 1 + self.volatility) * value
         return np.clip(changed, min_value, max_value)
 
     def _clipped_volatile_int(self, value: int, min_value: int, max_value: int) -> int:
+        """
+        Ändert den Wert um einen zufälligen Wert im erlaubten Bereich.
+        """
         changed = (self.random.uniform(1 - self.volatility, 1 + self.volatility) * value).astype(int)
         return np.clip(changed, min_value, max_value)
 
     def _clipped_volatile_price(self, value: float, min_value=0.20, max_value=4.00) -> float:
+        """
+        Ändert den Preis eines Inserats um einen zufälligen Wert im erlaubten Bereich.
+        params:
+        - value: Preis
+        - min_value: Minimaler Preis (default: 0.20)
+        - max_value: Maximaler Preis (default: 4.00)
+        """
         if value < 0.01:
             return self.random.uniform(min_value, max_value)
         changed = self.random.uniform(1 - self.volatility, 1 + self.volatility) * value
         return np.clip(changed, min_value, max_value)
 
     def _calculate_difficulty_score(self, competitiveness: float, current_search_count: int, all_search_count:int) -> int:
+        """
+        Berechnet den Schwierigkeitsgrad eines Keywords.
+        params:
+        - competitiveness: Konkurrenzgrad des Keywords
+        - current_search_count: Anzahl der aktuellen Suchen
+        - all_search_count: Gesamtanzahl der Suchen
+        """
         theoretic_rank = competitiveness * 100
         if all_search_count == 0 or current_search_count == 0:
             real_rank = theoretic_rank
@@ -336,35 +408,77 @@ class DigitalMarketingSimulation:
         return np.round(rank).astype(int)
 
     def _calculate_organic_rank(self, competitiveness: float) -> int:
+        """
+        Berechnet den organischen Rang eines Keywords. Auch hier wird die Sprunghaftigkeit
+        berücksichtigt, damit sich die Werte zwischen den Generationen in gewissen Bandbreiten ändern.
+        params:
+        - competitiveness: Konkurrenzgrad des Keywords
+        """
         rank = self.random.uniform(1 - self.volatility, 1 + self.volatility) * competitiveness * 100
         return np.round(rank).astype(int)
 
     def _calculate_impression_share(self, contingent: int, competitiveness: float) -> float:
+        """
+        Berechnet den Anteil der Impressionen, die ein Keyword erhält.
+        params:
+        - contingent: Anzahl der verfügbaren Inserate
+        - competitiveness: Konkurrenzgrad des Keywords
+        """
         if contingent == 0:
             return 0.0
         return self.random.uniform(1 - self.volatility, 1 + self.volatility) * contingent * (1 - competitiveness)
 
     def _calculate_ctr(self, total_clicks: int, conversion_clicks) -> float:
+        """
+        Berechnet die Click-Through-Rate (CTR) eines Keywords.
+        params:
+        - total_clicks: Gesamtanzahl der Klicks
+        - conversion_clicks: Anzahl der Klicks, die zu einer Konversion geführt haben
+        """
         if total_clicks == 0:
             return 0
         return 100 * conversion_clicks / total_clicks
 
     def _calculate_return_on_ad_spent(self, ad_spent: float, ad_conversions: int) -> float:
+        """
+        Berechnet den Return on Ad Spent (ROAS) eines Keywords.
+        params:
+        - ad_spent: Ausgaben für das Keyword
+        - ad_conversions: Anzahl der Konversionen
+        """
         if ad_spent < 0.0001 or ad_conversions == 0 or self.revenue == 0:
             return 0
         return 100 / ad_conversions * ad_spent * self.revenue
 
     def _calculate_conversion_rate(self, total_clicks: int, total_conversions: int) -> float:
+        """
+        Berechnet die Konversionsrate eines Keywords.
+        params:
+        - total_clicks: Gesamtanzahl der Klicks
+        - total_conversions: Gesamtanzahl der Konversionen
+        """
         if total_clicks == 0:
             return 0
         return 100 * total_conversions / total_clicks
 
     def _calculate_cost_per_acquisition(self, total_conversions: int, ad_spent_overall: float) -> float:
+        """
+        Berechnet die Kosten pro Akquisition (CPA) eines Keywords.
+        params:
+        - total_conversions: Gesamtanzahl der Konversionen
+        - ad_spent_overall: Gesamtausgaben für das Keyword
+        """
         if total_conversions == 0:
             return 0.0
         return ad_spent_overall / total_conversions
 
     def register_ad_reservation(self, keyword: str, ad_count: int):
+        """
+        Registriert die Reservierung von Inseraten für ein Keyword.
+        params:
+        - keyword: Keyword, für das Inserate reserviert werden
+        - ad_count: Anzahl der reservierten Inserate
+        """
         keyword_index = self.persistent_data[self.persistent_data[KEYWORD_FIELD] == keyword].index[0]
         if keyword_index > -1 and ad_count > 0:
             #print(f'Kaufe {ad_count} Inserate von {keyword} (keyword_index: {keyword_index})')
@@ -372,6 +486,10 @@ class DigitalMarketingSimulation:
             self.env.reserved_amount += ad_count * self.persistent_data.loc[keyword_index, COST_PER_CLICK_FIELD]
 
     def register_site_visit(self, site_visit: SiteVisit):
+        """
+        Registriert einen Besuch auf der Website.
+        params:
+        - site_visit: Besuch auf der Website"""
         keyword_index = self.persistent_data[self.persistent_data[KEYWORD_FIELD] == site_visit.keyword].index[0]
         if keyword_index > -1:
             if site_visit.revenue > 0.0:
@@ -408,13 +526,19 @@ class DigitalMarketingSimulation:
 
     def get_current_terms_with_ad_contingent(self):
         """""
-        Liefert alle Suchbegriffe zurück, welche noch ein Ad-Contingent haben.
+        Liefert alle Suchbegriffe zurück, welche noch ein Ad-Contingent haben. Bei der Reihenfolge
+        wird die Competitiveness berücksichtigt. Das relevanteste Keyword wird zuerst zurückgegeben.
         """
         #print(self.current_marketing_data[self.current_marketing_data[AD_CONTINGENT_FIELD] > 0])
         #return self.current_marketing_data[self.current_marketing_data[AD_CONTINGENT_FIELD] > 0].sort_values(by=DIFFICULTY_SCORE_FIELD, ascending=True)[KEYWORD_FIELD]
         return self.persistent_data[self.persistent_data[AD_CONTINGENT_FIELD] > 0].sort_values(by=COMPETITIVENESS_FIELD, ascending=True)[KEYWORD_FIELD]
 
     def _add_to_monitor(self, data: pd.DataFrame):
+        """
+        Fügt die Daten für das Monitoring via Tensorboard hinzu.
+        params:
+        - data: Daten, die für das Monitoring hinzugefügt werden sollen
+        """
         self.metrics.log_metrics({
                 "0 - Betrag ausgegeben": self.env.spent_amount,
                 "0 - Betrag reserviert": self.env.reserved_amount,
@@ -444,6 +568,12 @@ class DigitalMarketingSimulation:
             }, step=self.current_step)
 
     def log_reward(self, keyword: str, reward: float):
+        """
+        Loggt den Reward für ein Keyword.
+        params:
+        - keyword: Keyword, für das der Reward geloggt werden soll
+        - reward: Reward
+        """
         monitor =self.persistent_data.loc[self.persistent_data[KEYWORD_FIELD] == keyword][MONITOR_FIELD].values[0]
         if monitor == 1:
             self.metrics.log_metrics({f"Reward ({keyword})": reward}, step=self.current_step)
@@ -461,21 +591,36 @@ class SiteAnalyticsSimulation:
       wird nur eine fix codierte Landingpage verwendet.
     """
     def __init__(self, target: DigitalMarketingSimulation, keywords: pd.Series):
+        """
+        Initialisiert die Simulation der Website-Analytik.
+        params:
+        - target: Referenz auf die digitale Marketing-Simulation
+        - keywords: Keywords, die für die Simulation verwendet werden
+        """
         self.target = target
         self.keywords = keywords
         self.random = np.random.default_rng(DEFAULT_SEED)
         self.started = False
 
     def __del__(self):
+        """
+        Beendet die Simulation (technischer Aufruf).
+        """
         self.stop()
 
     def start(self):
+        """
+        Startet die Simulation.
+        """
         log.app_logger().info("Starte Analytics-Simulation ...")
         self.started = True
         self.thread = threading.Thread(target=self.run)
         self.thread.start()
 
     def stop(self):
+        """
+        Beendet die Simulation.
+        """
         if self.thread:
             log.app_logger().info("Stoppe Analytics-Simulation ...")
             self.started = False
@@ -487,8 +632,11 @@ class SiteAnalyticsSimulation:
                 self.thread = None
 
     def run(self):
+        """
+        Führt die Simulation aus.Diese läuft dabei solante in einer Englosschleife, bis die
+        Simulation von der stuernden Klasse aus beendet wird.
+        """
         while self.started:
-            # todo: evtl. dynamisch je nach Anzahl geschalteter Adds.
             origin = self.random.choice(["Search", "AdWords", None], p=[1/3, 1/3, 1/3])
             if origin == "AdWords":
                 keywords = self.target.get_current_terms_with_ad_contingent()
