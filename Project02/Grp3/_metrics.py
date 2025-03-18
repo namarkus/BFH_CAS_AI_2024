@@ -4,12 +4,12 @@
 """
 Diverse Mechanismen für die zentrale Sammlung von Metriken.
 
-Stellt als integrierter Bestandteil des Projektes "Versicherungsbedingungs
-Chat" Funktionen zur Initialiserung, Konfiguration und Verwendung von Metriken
-bereit.
+Stellt als integrierter Bestandteil des Projektes "Digitales Markteing mit
+TorchRL" Funktionen zur Initialiserung, Konfiguration und Verwendung des Logging
+Frameworks von Python bereit.
 """
 if __name__ == '__main__':
-    print("Dieses Modul ist nicht für den direkten Aufruf gedacht. Bitte nutze main vbc_chat ooder vbc_learn.")
+    print("Dieses Modul ist nicht für den direkten Aufruf gedacht. Bitte nutze digital_marketing.py.")
     exit()
 
 # _____[ Imports ]______________________________________________________________

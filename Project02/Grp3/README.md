@@ -29,6 +29,20 @@ conda activate bfh_ai_rl
 
 ### Starten des DRL
 
+```bash
+# Wechseln in das Projektverzeichnis cd Project02/Grp3
+python digital_marketing.py
+```
+
+### Monitoring
+
+```bash
+# Wechseln in das Projektverzeichnis cd Project02/Grp3
+tensorboard --logdir p02_metrics
+```
+
+Unter Umständen von einem anderen Conda Environment nötig, da mit aktuellem noch Kompatibilitäts-Issues bestehen.
+
 ## Felder und ihre Bedeutung
 
 | Feldname | Typ (Range) | Berechnung | Beschreibung |
